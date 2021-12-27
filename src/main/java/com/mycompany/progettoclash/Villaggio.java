@@ -15,6 +15,8 @@ public class Villaggio {
     //oifdvdf
     //allora funzioni?
     //aslkdaskldjlkasd
+    //asd
+    //asdasdasda
     private int qualcosa;
     private int larghezza;
     private int altezza;
