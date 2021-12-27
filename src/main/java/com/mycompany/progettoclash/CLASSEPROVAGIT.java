@@ -10,6 +10,6 @@ package com.mycompany.progettoclash;
  * @author User
  */
 public class CLASSEPROVAGIT {
-    private int prova;
+    private int prova; //ciao
     
 }
