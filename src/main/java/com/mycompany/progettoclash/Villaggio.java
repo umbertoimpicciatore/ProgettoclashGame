@@ -12,9 +12,7 @@ import java.util.ArrayList;
  * @author Lorenzo
  */
 public class Villaggio {
-    //oifdvdf
-    //allora funzioni?
-    //aslkdaskldjlkasd
+    
     private int qualcosa;
     private int larghezza;
     private int altezza;
@@ -55,5 +53,5 @@ public class Villaggio {
         }
         return null; 
     }
-    //vaffanculo
+ 
 }
