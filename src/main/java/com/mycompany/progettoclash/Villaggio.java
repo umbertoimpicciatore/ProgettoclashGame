@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Lorenzo
  */
 public class Villaggio {
-    
+    //oi
     private int larghezza;
     private int altezza;
     private ArrayList<Casella> caselle = new ArrayList<Casella>();
