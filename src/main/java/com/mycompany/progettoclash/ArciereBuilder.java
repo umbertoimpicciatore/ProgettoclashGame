@@ -35,7 +35,7 @@ public class ArciereBuilder extends EroeBuilder{
     @Override
     public Eroe build() {
         final Eroe e=this.eroe;
-        this.reset();
+        //this.reset();
         return e;
     }
     

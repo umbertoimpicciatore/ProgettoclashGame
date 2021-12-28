@@ -20,10 +20,10 @@ public class Casella {
     private Edificio edificio;
     private ArrayList<Eroe> listaEroiA = new ArrayList<Eroe>();
     
-    /*public Casella(int colonna,int riga){
+    public Casella(int colonna,int riga){
         this.posizioneColonna=colonna;
         this.posizioneRiga=riga;
-    }*/
+    }
 
     public ArrayList<Eroe> getListaEroiA() {
         return listaEroiA;

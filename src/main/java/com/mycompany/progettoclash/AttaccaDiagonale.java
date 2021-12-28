@@ -20,17 +20,17 @@ public class AttaccaDiagonale implements ModalitàAttacco{
         int cont=col;
         for(int i=riga;i>1  && cont<=altezza && cont>1;i--){
            // System.out.println("ciao");
-            Casella c=new Casella();
-            c.setPosizioneColonna(cont-1);
-            c.setPosizioneRiga(i-1);
+            Casella c=new Casella(cont-1,i-1);
+            //c.setPosizioneColonna(cont-1);
+           // c.setPosizioneRiga(i-1);
             cont--;
             g.add(c);
         }
         cont=col;
         for(int i=riga;i<altezza && cont<lunghezza;i++){
-            Casella c=new Casella();
-            c.setPosizioneColonna(cont+1);
-            c.setPosizioneRiga(i+1);
+            Casella c=new Casella(cont+1,i+1);
+            //c.setPosizioneColonna(cont+1);
+            //c.setPosizioneRiga(i+1);
             cont++;
             g.add(c);
         }

@@ -17,10 +17,10 @@ public class Main {
         Giocatore g=new Giocatore();
         g.setNome("Lorenzo");
         Villaggio v=new Villaggio();
-        Casella c=new Casella();
-        c.setPosizioneRiga(3);
-        c.setPosizioneColonna(2);
-        Casella c2=new Casella();
+        Casella c=new Casella(2,3);
+        //c.setPosizioneRiga(3);
+       // c.setPosizioneColonna(2);
+        Casella c2=new Casella(1,1);
         //Edificio e=new Edificio();
         Edificio e=new Municipio(new Immagazzinare(),new NonAttacca());
         e.setId(1);
