@@ -11,10 +11,37 @@ package com.mycompany.progettoclash;
  */
 public  class Eroe {
     private int id;
-    protected ModalitàAttacco modA;
-    private Casella c;
-    public Statistica stat;
-    protected Skin skin;
+    private ModalitàAttacco modA;
+    private Casella casella;
+    private Statistica stat;
+    private Skin skin;
+    private EroeDescrizione eroeDescrizione;
+
+    public ModalitàAttacco getModA() {
+        return modA;
+    }
+
+    public void setModA(ModalitàAttacco modA) {
+        this.modA = modA;
+    }
+
+    public Skin getSkin() {
+        return skin;
+    }
+
+    public void setSkin(Skin skin) {
+        this.skin = skin;
+    }
+
+    public EroeDescrizione getEroeDescrizione() {
+        return eroeDescrizione;
+    }
+
+    public void setEroeDescrizione(EroeDescrizione eroeDescrizione) {
+        this.eroeDescrizione = eroeDescrizione;
+    }
+    
+    
 
     public Statistica getStat() {
         return stat;
@@ -32,11 +59,11 @@ public  class Eroe {
     }
     
     public Casella getC() {
-        return c;
+        return casella;
     }
 
     public void setC(Casella c) {
-        this.c = c;
+        this.casella = c;
     }
     
     public  int getId(){

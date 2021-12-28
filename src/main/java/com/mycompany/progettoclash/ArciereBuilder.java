@@ -19,12 +19,12 @@ public class ArciereBuilder extends EroeBuilder{
     
     @Override
     public void setSkin(Skin skin) {
-        this.eroe.skin=skin;
+        this.eroe.setSkin(skin);
     }
 
     @Override
     public void setSkills() {
-       this.eroe.stat=new Statistica(15,15,100);
+       this.eroe.setStat(new Statistica(15,15,100));
 
        
     }

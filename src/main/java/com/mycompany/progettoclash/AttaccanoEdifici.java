@@ -24,7 +24,8 @@ public class AttaccanoEdifici implements StatoAttacco{
             for(int j=0;j<listaCaselleConEroiDaAttaccare.size();j++){
                 ArrayList<Eroe> listE= listaCaselleConEroiDaAttaccare.get(j).getListaEroiA();
                 for(int k=0;k<listE.size();k++){
-                    listE.get(k).stat.setVita(2);
+                    listE.get(k).stat.setVita(2);//da aggiustare e implementare
+                    
                 
             }
             }

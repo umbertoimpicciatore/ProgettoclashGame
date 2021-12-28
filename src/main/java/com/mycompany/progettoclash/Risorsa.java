@@ -9,16 +9,9 @@ package com.mycompany.progettoclash;
  *
  * @author Lorenzo
  */
-public class SelezionePosizionaEroe implements StatoAttacco{
-
-    private int quantità;
-    private int idEroe;
-    private int riga;
-    private int colonna;
+public interface Risorsa {
     
-    @Override
-    public void esegui(ClashGame clash) {
-
-    }
+    public String getNome();
+    public int getQuantita();
     
 }

@@ -17,10 +17,7 @@ public class AttaccaAvanti implements ModalitàAttacco {
         ArrayList<Casella> g=new ArrayList<Casella>();
         g.add(e.getC());
         return g;
-        //Edificio ed=
         
-        //System.out.println("attaccoAvanti");
-       // System.out.println(e.getC().getPosizioneRiga());
         
     }
 

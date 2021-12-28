@@ -9,16 +9,11 @@ package com.mycompany.progettoclash;
  *
  * @author Lorenzo
  */
-public class SelezionePosizionaEroe implements StatoAttacco{
-
-    private int quantità;
-    private int idEroe;
-    private int riga;
-    private int colonna;
+public class TrovaAvversario {
     
-    @Override
-    public void esegui(ClashGame clash) {
-
+        public Giocatore cercaAvversario(){
+            MatchMakingFactory.getInstance();//implementa
+                    return new Giocatore();//da implementare
     }
     
 }

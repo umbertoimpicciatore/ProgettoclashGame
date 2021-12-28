@@ -9,7 +9,6 @@ import java.util.ArrayList;
  */
 public class Villaggio {
     
-    private int qualcosa;
     private int larghezza;
     private int altezza;
     private ArrayList<Casella> caselle = new ArrayList<Casella>();

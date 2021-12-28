@@ -93,7 +93,7 @@ public class Main {
        //SIMULAZIONE DEGLI Eroi che attaccano
         Eroe guerriero=new Guerriero(new AttaccaDiagonale(),1);
         guerriero.setC(c);
-        guerriero.modA.attacco(guerriero);
+        guerriero.getModA().attacco(guerriero);
        //guerriero.attacca();
          Eroe arciere=new Arciere(new AttaccaDuePosizioni(),2);
       // arciere.attacca();
