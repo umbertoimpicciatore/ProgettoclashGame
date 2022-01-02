@@ -9,6 +9,7 @@ import java.util.ArrayList;
  */
 public class Villaggio {
     
+    private Giocatore giocatore;
     private int larghezza;
     private int altezza;
     private ArrayList<Casella> caselle = new ArrayList<Casella>();
@@ -37,8 +38,8 @@ public class Villaggio {
         this.altezza = altezza;
     }
     
-    public Casella getCasella(int riga,int col,Giocatore g){
-        ArrayList<Casella> caselle2=g.getVillaggio().getCaselle();
+    public Casella getCasella(int riga,int col){
+        ArrayList<Casella> caselle2=this.giocatore.getVillaggio().getCaselle();
         Casella c;
         for(int i=0;i<caselle2.size();i++){
             c=caselle2.get(i);

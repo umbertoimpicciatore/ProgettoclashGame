@@ -1,6 +1,8 @@
 
 package com.mycompany.progettoclash;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Lorenzo
@@ -23,6 +25,10 @@ public class Giocatore {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    
+    public ArrayList<Eroe> getEroi(){
+        return new ArrayList<Eroe>();//da implementare
     }
     
     

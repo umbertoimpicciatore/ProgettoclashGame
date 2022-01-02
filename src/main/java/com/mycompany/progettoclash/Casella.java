@@ -24,6 +24,11 @@ public class Casella {
         this.posizioneColonna=colonna;
         this.posizioneRiga=riga;
     }
+    
+    public void AddEroe(Eroe e){
+        this.listaEroiA.add(e);
+    
+    }
 
     public ArrayList<Eroe> getListaEroiA() {
         return listaEroiA;

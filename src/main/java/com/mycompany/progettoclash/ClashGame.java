@@ -10,6 +10,39 @@ import java.util.ArrayList;
 public class ClashGame {
     private Giocatore giocatoreA;
     private Giocatore giocatoreD;
+    private StatoAttacco stato;
+    
+    public ClashGame(){
+        stato=new AttaccanoEroi();
+    }
+    
+    public void CambiaStato(StatoAttacco st){
+        stato=st;
+    }
+
+    public Giocatore getGiocatoreA() {
+        return giocatoreA;
+    }
+
+    public void setGiocatoreA(Giocatore giocatoreA) {
+        this.giocatoreA = giocatoreA;
+    }
+
+    public Giocatore getGiocatoreD() {
+        return giocatoreD;
+    }
+
+    public void setGiocatoreD(Giocatore giocatoreD) {
+        this.giocatoreD = giocatoreD;
+    }
+
+    public StatoAttacco getStato() {
+        return stato;
+    }
+
+    public void setStato(StatoAttacco stato) {
+        this.stato = stato;
+    }
     
     public ArrayList<Casella> caselleDifensore(){
         

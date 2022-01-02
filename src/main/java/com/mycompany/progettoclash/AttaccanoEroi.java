@@ -26,5 +26,11 @@ public class AttaccanoEroi implements StatoAttacco{
         }
 
     }
+
+    @Override
+    public void cambiaStato(ClashGame clash, StatoAttacco st) {
+        clash.CambiaStato(st);
+    }
+    
     
 }
