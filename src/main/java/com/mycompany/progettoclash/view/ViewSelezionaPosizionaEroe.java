@@ -6,6 +6,7 @@
 package com.mycompany.progettoclash.view;
 
 import com.mycompany.progettoclash.Eroe;
+import com.mycompany.progettoclash.Eroe;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -59,7 +60,7 @@ public class ViewSelezionaPosizionaEroe {
                  System.out.println("Immetti un numero");
                  sc.next(); 
              }
-             riga = sc.nextInt();
+             idEroe = sc.nextInt();
          } while (idEroe < 0);
          if (idEroe==0){
              //torna indietro,annulla
@@ -67,12 +68,12 @@ public class ViewSelezionaPosizionaEroe {
          
          int quantita = 0;
          do {
-             System.out.println("Immetti idEroe edificio da selezionare: ");
+             System.out.println("Immetti quantità edificio da selezionare: ");
              while (!sc.hasNextInt()) {
                  System.out.println("Immetti un numero");
                  sc.next(); 
              }
-             riga = sc.nextInt();
+             quantita = sc.nextInt();
          } while (quantita < 0);
          if (quantita==0){
              //torna indietro,annulla
@@ -85,7 +86,7 @@ public class ViewSelezionaPosizionaEroe {
                  System.out.println("Immetti un numero");
                  sc.next(); 
              }
-             riga = sc.nextInt();
+             iniziaBattaglia = sc.nextInt();
          } while (quantita < 0);
          if (quantita==0){
              //torna indietro,annulla
@@ -99,7 +100,8 @@ public class ViewSelezionaPosizionaEroe {
          risultati.add(iniziaBattaglia);
          return risultati;
         }
-         
+        
+        
        
        
        

@@ -16,6 +16,13 @@ public class ClashGame {
         stato=new AttaccanoEroi();
     }
     
+    public ClashGame(Giocatore ga,Giocatore gd){
+        stato=new AttaccanoEroi();
+        this.giocatoreA=ga;
+        this.giocatoreD=gd;
+        //trovaAvversarrio per GIOCATORE DIF IMPLEMENTARE
+    }
+    
     public void CambiaStato(StatoAttacco st){
         stato=st;
     }

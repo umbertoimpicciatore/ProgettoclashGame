@@ -39,12 +39,15 @@ public class Villaggio {
     }
     
     public Casella getCasella(int riga,int col){
-        ArrayList<Casella> caselle2=this.giocatore.getVillaggio().getCaselle();
+//        ArrayList<Casella> caselle2=this.giocatore.getVillaggio().getCaselle();
+        
         Casella c;
-        for(int i=0;i<caselle2.size();i++){
-            c=caselle2.get(i);
-            if(c.getPosizioneRiga()==riga & c.getPosizioneColonna()==col){
-                return c;
+        for(int i=0;i<caselle.size();i++){
+            c=caselle.get(i);
+            if(c.getPosizioneRiga()==riga && c.getPosizioneColonna()==col){
+                 System.out.println("CIAO");
+                 return c;
+               
             }
         }
         return null; 

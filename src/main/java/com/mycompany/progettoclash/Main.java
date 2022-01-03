@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.mycompany.progettoclash;
+import com.mycompany.progettoclash.view.ViewSelezionaPosizionaEroe;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -16,6 +17,7 @@ public class Main {
     public static void main(String[] args){
         Giocatore g=new Giocatore();
         g.setNome("Lorenzo");
+        
         Villaggio v=new Villaggio();
         Casella c=new Casella(2,3);
         //c.setPosizioneRiga(3);
@@ -33,63 +35,16 @@ public class Main {
         caselle.add(c2);
         v.setCaselle(caselle);
         
+        Giocatore ga=new Giocatore();
         g.setVillaggio(v);
-       // System.out.println(g.toString());
+        
+        ClashGame clash=new ClashGame(ga,g);
+// System.out.println(g.toString());
         //System.out.println(g.getVillaggio().getCaselle().get(1).getEdificio().getId());
         
         
         CPotenzia p=new CPotenzia();
-        
-        Scanner sc=new Scanner(System.in);  
-        
-        
-        /*System.out.println("Immetti riga edificio da selezionare: ");  
-        int r= sc.nextInt();  
-       
-        
-        System.out.println("Immetti colonna edificio da selezionare: ");  
-        int col= sc.nextInt(); 
-        
-        Casella c3=p.selezionaEdificio(r, col,g);
-        System.out.println(c3.getPosizioneColonna());
-        System.out.println(c3.getPosizioneRiga());*/
-        
-        
-       
-       
-       /*CONTROLLO INPUT DA TASTIERA PER INSERIMENTO DI SELEZIONA EDIFICIO
-             
-         int riga;
-         do {
-             System.out.println("Immetti riga edificio da selezionare: ");
-             while (!sc.hasNextInt()) {
-                 System.out.println("Immetti un numero");
-                 sc.next(); 
-             }
-             riga = sc.nextInt();
-         } while (riga < 0);
-         if (riga==0){
-             //torna indietro,annulla
-         }
-         System.out.println("Riga " + riga);
-         
-         int colonna;
-         do {
-             System.out.println("Immetti colonna edificio da selezionare: ");
-             while (!sc.hasNextInt()) {
-                 System.out.println("Immetti un numero");
-                 sc.next(); 
-             }
-             colonna = sc.nextInt();
-         } while (colonna < 0);
-         if (colonna==0){
-             //torna indietro,annulla
-         }
-         System.out.println("Colonna " + colonna+ "Riga "+ riga);
-       
-       
-       */
-       
+          
        //SIMULAZIONE DEGLI Eroi che attaccano
         Eroe guerriero=new Guerriero(new AttaccaDiagonale(),1);
         guerriero.setC(c);
@@ -119,7 +74,12 @@ public class Main {
         System.out.println(eroeArc.toString());
         System.out.println(arcPot.toString());
         
-               
+        
+        ViewSelezionaPosizionaEroe view=new ViewSelezionaPosizionaEroe();   
+        ArrayList<Integer> arr=view.mostraSelezionaPosizionaEroe(new ArrayList<Eroe>());               
+        SelezionePosizionaEroe sel=new SelezionePosizionaEroe(clash);
+        sel.selezionaPosizionaEroe(arr);
+        
     }
         
 }

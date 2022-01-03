@@ -28,7 +28,19 @@ public class Giocatore {
     }
     
     public ArrayList<Eroe> getEroi(){
-        return new ArrayList<Eroe>();//da implementare
+         Eroe guerriero=new Guerriero(new AttaccaDiagonale(),1);
+        //guerriero.setC(c);
+//        guerriero.getModA().attacco(guerriero);
+       //guerriero.attacca();
+         Eroe arciere=new Arciere(new AttaccaDuePosizioni(),2);
+      // arciere.attacca();
+      
+        //arciere.setC(c);
+        //guerriero.setC(c);
+        ArrayList<Eroe> eroi = new ArrayList<Eroe>();
+        eroi.add(arciere);
+        eroi.add(guerriero);
+        return eroi;//da implementare
     }
     
     
