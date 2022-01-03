@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class AttaccaAvanti implements ModalitàAttacco {
     @Override
-    public ArrayList<Casella> attacco(Eroe e){
+    public ArrayList<Casella> attacco(Eroe e){                
         ArrayList<Casella> g=new ArrayList<Casella>();
         g.add(e.getC());
         return g;

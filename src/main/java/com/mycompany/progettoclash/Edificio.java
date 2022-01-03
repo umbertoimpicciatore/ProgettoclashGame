@@ -9,6 +9,10 @@ public class Edificio {
     private int id;
     private ModalitàAttacco modA;
     private RuoloEdificio ruoloE;
+    private Statistica statistica;
+
+    
+   
 
     public Edificio(RuoloEdificio re,ModalitàAttacco ma){
         this.modA=ma;
@@ -16,6 +20,18 @@ public class Edificio {
     
     }
     
+    public void setVita(int vita){
+        this.statistica.setVita(vita);
+    
+    }
+            
+     public Statistica getStatistica() {
+        return statistica;
+    }
+
+    public void setStatistica(Statistica statistica) {
+        this.statistica = statistica;
+    }
     public int getId() {
         return id;
     }

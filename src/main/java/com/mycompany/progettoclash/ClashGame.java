@@ -17,7 +17,8 @@ public class ClashGame {
     }
     
     public ClashGame(Giocatore ga,Giocatore gd){
-        stato=new AttaccanoEroi();
+        //stato=new AttaccanoEroi();
+        stato=null;
         this.giocatoreA=ga;
         this.giocatoreD=gd;
         //trovaAvversarrio per GIOCATORE DIF IMPLEMENTARE
@@ -56,6 +57,12 @@ public class ClashGame {
         return giocatoreD.getVillaggio().getCaselle();
     }
     
+    public void iniziaBattaglia(){
+        
+        stato=new AttaccanoEroi();
+        stato.esegui(this);
+        
+    }
     /*
     public void attaccaEroe(){
         //Villaggio v=giocatoreD.getVillaggio();

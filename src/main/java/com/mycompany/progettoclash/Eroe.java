@@ -20,6 +20,11 @@ public  class Eroe {
     public ModalitàAttacco getModA() {
         return modA;
     }
+    
+    public void setVita(int vita){
+        this.stat.setAttacco(vita);
+    
+    }
 
     public void setModA(ModalitàAttacco modA) {
         this.modA = modA;

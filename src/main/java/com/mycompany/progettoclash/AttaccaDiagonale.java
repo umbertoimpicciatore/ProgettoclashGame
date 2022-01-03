@@ -2,6 +2,7 @@
 package com.mycompany.progettoclash;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  *
@@ -14,29 +15,32 @@ public class AttaccaDiagonale implements ModalitàAttacco{
     @Override
     public ArrayList<Casella> attacco(Eroe e) {
         ArrayList<Casella> g=new ArrayList<Casella>();
+        Villaggio villaggioD=e.getC().getVillaggio();
         g.add(e.getC());
         int col=e.getC().getPosizioneColonna();
         int riga=e.getC().getPosizioneRiga();
         int cont=col;
         for(int i=riga;i>1  && cont<=altezza && cont>1;i--){
            // System.out.println("ciao");
+           // Casella c=villaggioD.getCasella(i-1, cont-1);
+            //System.out.println(Objects.isNull(c));
+            
             Casella c=new Casella(cont-1,i-1);
-            //c.setPosizioneColonna(cont-1);
-           // c.setPosizioneRiga(i-1);
+
             cont--;
             g.add(c);
         }
+        System.out.println(g.size());
         cont=col;
         for(int i=riga;i<altezza && cont<lunghezza;i++){
             Casella c=new Casella(cont+1,i+1);
-            //c.setPosizioneColonna(cont+1);
-            //c.setPosizioneRiga(i+1);
+
             cont++;
             g.add(c);
         }
         //for per DEBUG
         for(int j=0;j<g.size();j++){
-            
+             System.out.println(Objects.isNull(g.get(j)));
             System.out.println("Riga: "+g.get(j).getPosizioneRiga());
             System.out.println("Colonna: "+g.get(j).getPosizioneColonna());
             System.out.println();

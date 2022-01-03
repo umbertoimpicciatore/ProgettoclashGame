@@ -19,6 +19,17 @@ public class Casella {
     private int posizioneColonna;
     private Edificio edificio;
     private ArrayList<Eroe> listaEroiA = new ArrayList<Eroe>();
+    private Villaggio villaggio;
+
+    public void setVillaggio(Villaggio villaggio) {//SERVE VERAMENTE?? BASTA METTERLO NEL COSTRUTTORE
+        this.villaggio = villaggio;
+    }
+
+    public Villaggio getVillaggio() {
+        return villaggio;
+    }
+    
+    
     
     public Casella(int colonna,int riga){
         this.posizioneColonna=colonna;

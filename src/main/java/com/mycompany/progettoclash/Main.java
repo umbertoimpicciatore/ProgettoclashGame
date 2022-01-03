@@ -20,9 +20,11 @@ public class Main {
         
         Villaggio v=new Villaggio();
         Casella c=new Casella(2,3);
+        
         //c.setPosizioneRiga(3);
        // c.setPosizioneColonna(2);
         Casella c2=new Casella(1,1);
+        
         //Edificio e=new Edificio();
         Edificio e=new Municipio(new Immagazzinare(),new NonAttacca());
         e.setId(1);
@@ -38,6 +40,8 @@ public class Main {
         Giocatore ga=new Giocatore();
         g.setVillaggio(v);
         
+        c.setVillaggio(v);
+        c2.setVillaggio(v);
         ClashGame clash=new ClashGame(ga,g);
 // System.out.println(g.toString());
         //System.out.println(g.getVillaggio().getCaselle().get(1).getEdificio().getId());
