@@ -14,6 +14,7 @@ public class ControlloFineBattaglia implements StatoAttacco{
     @Override
     public void esegui(ClashGame clash) {
         //da implementare
+        System.out.println("ciao");
     }
 
     @Override

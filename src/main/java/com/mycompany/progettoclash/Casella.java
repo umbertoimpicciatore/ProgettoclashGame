@@ -31,7 +31,7 @@ public class Casella {
     
     
     
-    public Casella(int colonna,int riga){
+    public Casella(int riga,int colonna){
         this.posizioneColonna=colonna;
         this.posizioneRiga=riga;
     }

@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class Villaggio {
     
     private Giocatore giocatore;
-    private int larghezza;
-    private int altezza;
+    private int larghezza=4;
+    private int altezza=4;
     private ArrayList<Casella> caselle = new ArrayList<Casella>();
 
     public ArrayList<Casella> getCaselle() {
@@ -40,12 +40,10 @@ public class Villaggio {
     
     public Casella getCasella(int riga,int col){
 //        ArrayList<Casella> caselle2=this.giocatore.getVillaggio().getCaselle();
-        
         Casella c;
         for(int i=0;i<caselle.size();i++){
             c=caselle.get(i);
             if(c.getPosizioneRiga()==riga && c.getPosizioneColonna()==col){
-                 System.out.println("CIAO");
                  return c;
                
             }

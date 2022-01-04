@@ -12,9 +12,9 @@ public class ClashGame {
     private Giocatore giocatoreD;
     private StatoAttacco stato;
     
-    public ClashGame(){
+    /*public ClashGame(){
         stato=new AttaccanoEroi();
-    }
+    }*/
     
     public ClashGame(Giocatore ga,Giocatore gd){
         //stato=new AttaccanoEroi();
@@ -60,24 +60,10 @@ public class ClashGame {
     public void iniziaBattaglia(){
         
         stato=new AttaccanoEroi();
-        stato.esegui(this);
-        
+        stato.esegui(this); 
     }
-    /*
-    public void attaccaEroe(){
-        //Villaggio v=giocatoreD.getVillaggio();
-        //v.getCaselle();
-        //this.caselleDifensore();
-        for(int i=0;i< this.caselleDifensore().size();i++){
-            Casella c= this.caselleDifensore().get(i);
-            ArrayList<Eroe> listE = c.getListaEroiA();
-                    if(listE!=null){
-                        for(int j=0;j<listE.size();j++){
-                            Eroe e=listE.get(j);
-                            //e.attacca();
-                        }
-            }
-        }
-    }*/
+    
+    
+    
     
 }

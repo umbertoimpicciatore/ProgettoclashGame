@@ -11,7 +11,7 @@ import java.util.Objects;
 public class AttaccaDiagonale implements ModalitàAttacco{
     int altezza=4;//mettere gli attributi di villaggio
     int lunghezza=4;
-    //restituisce proprio le caselle da attaccare del giocatore difensore?
+    //DEVO restituiRE proprio le caselle da attaccare del giocatore difensore?
     @Override
     public ArrayList<Casella> attacco(Eroe e) {
         ArrayList<Casella> g=new ArrayList<Casella>();
@@ -22,29 +22,25 @@ public class AttaccaDiagonale implements ModalitàAttacco{
         int cont=col;
         for(int i=riga;i>1  && cont<=altezza && cont>1;i--){
            // System.out.println("ciao");
-           // Casella c=villaggioD.getCasella(i-1, cont-1);
-            //System.out.println(Objects.isNull(c));
+            Casella c=villaggioD.getCasella(i-1, cont-1);
             
-            Casella c=new Casella(cont-1,i-1);
+            //Casella c=new Casella(cont-1,i-1);
 
             cont--;
             g.add(c);
         }
-        System.out.println(g.size());
         cont=col;
         for(int i=riga;i<altezza && cont<lunghezza;i++){
             Casella c=new Casella(cont+1,i+1);
-
             cont++;
             g.add(c);
         }
         //for per DEBUG
-        for(int j=0;j<g.size();j++){
-             System.out.println(Objects.isNull(g.get(j)));
+       /* for(int j=0;j<g.size();j++){
             System.out.println("Riga: "+g.get(j).getPosizioneRiga());
             System.out.println("Colonna: "+g.get(j).getPosizioneColonna());
             System.out.println();
-        }
+        }*/
         
         return g;
     }

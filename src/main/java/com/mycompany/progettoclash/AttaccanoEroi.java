@@ -25,24 +25,33 @@ public class AttaccanoEroi implements StatoAttacco{
                 
                 for(int k=0;k<listCaselleDaAttaccare.size();k++){
                     //MANCA CONTROLLO SULLA VITA DELL'EDIFICIO
+                    Casella c=listCaselleDaAttaccare.get(k);
+                    //System.out.print(c.getPosizioneColonna()+""+c.getPosizioneRiga()+" ");
                     Edificio edificio=listCaselleDaAttaccare.get(k).getEdificio();
+                    if(edificio!=null){
+                        int vita=edificio.getStatistica().getVita();
+                        int difesa=edificio.getStatistica().getDifesa();//+ la difesa della skin?
+                        int attaccoEroe=e.getStat().getAttacco()+e.getSkin().getAttacco();
+                        if(attaccoEroe-difesa>5 &&vita>0){
+                            //almenoUnEdificioAttaccato++;
+                            int attdif=attaccoEroe-difesa;
+                            
+                            vita-=attdif;
+                            
+                            //System.out.print(attaccoEroe+"CIAO1 "+vita+" difesa"+difesa);
+                            //System.out.print(attdif+" "+vita);
+                        }
+                        else{
+                            //System.out.print(attaccoEroe+"CIAO "+vita+"difesa"+difesa);
+                           // almenoUnEdificioAttaccato++;
+                            vita-=5;
+                        }
+                        if(vita<0){
+                            vita=0;
+                        }
+                        edificio.setVita(vita);
+                    }
                     
-                    int vita=edificio.getStatistica().getVita();
-                    int difesa=edificio.getStatistica().getVita();//+ la difesa della skin?
-                    int attaccoEroe=e.getStat().getAttacco()+e.getSkin().getAttacco();
-                    if(attaccoEroe>(vita+5) &&vita>0){
-                        //almenoUnEdificioAttaccato++;
-                        int attdif=attaccoEroe-difesa;
-                        vita-=attdif;
-                    }
-                    else{
-                       // almenoUnEdificioAttaccato++;
-                        vita-=5;
-                    }
-                    if(vita<0){
-                        vita=0;
-                    }
-                    edificio.setVita(vita);
                     
                 }
               /*  if(almenoUnEdificioAttaccato>0){//non serve
