@@ -8,6 +8,9 @@ import java.util.ArrayList;
  * @author Lorenzo
  */
 public class Giocatore {
+    private int livello;
+
+    
     private String nome;
     private Villaggio villaggio;
 
@@ -18,7 +21,13 @@ public class Giocatore {
     public void setVillaggio(Villaggio v) {
         this.villaggio = v;
     }
+public int getLivello() {
+        return livello;
+    }
 
+    public void setLivello(int livello) {
+        this.livello = livello;
+    }
     public String getNome() {
         return nome;
     }

@@ -10,7 +10,7 @@ public class Edificio {
     private ModalitàAttacco modA;
     private RuoloEdificio ruoloE;
     private Statistica statistica;
-
+    private Casella casella;
     
    
 
@@ -23,6 +23,13 @@ public class Edificio {
     public void setVita(int vita){
         this.statistica.setVita(vita);
     
+    }
+    public Casella getC() {
+        return casella;
+    }
+
+    public void setC(Casella c) {
+        this.casella = c;
     }
             
      public Statistica getStatistica() {

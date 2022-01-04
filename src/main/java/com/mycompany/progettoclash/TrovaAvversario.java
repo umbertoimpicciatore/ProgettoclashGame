@@ -10,10 +10,27 @@ package com.mycompany.progettoclash;
  * @author Lorenzo
  */
 public class TrovaAvversario {
+    private MatchMakingStrategy strategy;
+
+    public TrovaAvversario(MatchMakingStrategy strategy) {
+        this.strategy = strategy;
+    }
     
-        public Giocatore cercaAvversario(){
-            MatchMakingFactory.getInstance();//implementa
-                    return new Giocatore();//da implementare
+    
+
+    public MatchMakingStrategy getStrategy() {
+        return strategy;
+    }
+
+    public void setStrategy(MatchMakingStrategy strategy) {
+        this.strategy = strategy;
+    }
+
+    
+    
+    
+        public Giocatore getAvversario(Giocatore g){
+            return this.strategy.getAvversario(g);//da implementare
     }
     
 }

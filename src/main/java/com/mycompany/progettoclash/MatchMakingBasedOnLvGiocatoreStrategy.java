@@ -5,15 +5,32 @@
  */
 package com.mycompany.progettoclash;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Lorenzo
  */
 public class MatchMakingBasedOnLvGiocatoreStrategy implements MatchMakingStrategy {
 
+    public MatchMakingBasedOnLvGiocatoreStrategy() {
+    }
+ 
     @Override
-    public Giocatore getGiocatore(Giocatore g) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Giocatore getAvversario(Giocatore g) {
+          Giocatore g1=new Giocatore();
+           Giocatore g2=new Giocatore();
+           ArrayList<Giocatore> lista=new ArrayList<Giocatore>();
+           lista.add(g1);
+           lista.add(g2);
+       for (int i=0;i<lista.size();i++){
+         
+       Giocatore avversario=lista.get(i);
+       if (avversario.getLivello()==g.getLivello()){
+       return avversario;
+       }
+       }
+       return g1 ;
     }
     
 }
