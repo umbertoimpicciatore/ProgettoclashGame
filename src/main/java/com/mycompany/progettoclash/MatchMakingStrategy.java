@@ -10,5 +10,7 @@ package com.mycompany.progettoclash;
  * @author Lorenzo
  */
 public interface MatchMakingStrategy {
-    public Giocatore getGiocatore(Giocatore g);
+    public Giocatore getAvversario (Giocatore g);
+
+    
 }
