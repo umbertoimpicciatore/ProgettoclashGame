@@ -50,5 +50,16 @@ public class Villaggio {
         }
         return null; 
     }
+    
+    public void setCasella(Casella c){
+//        ArrayList<Casella> caselle2=this.giocatore.getVillaggio().getCaselle();
+        Casella c2;
+        for(int i=0;i<caselle.size();i++){
+            c2=caselle.get(i);
+            if(c2.getPosizioneRiga()==c.getPosizioneRiga() && c2.getPosizioneColonna()==c.getPosizioneColonna()){
+                caselle.set(i, c);
+            }
+        }
+    }
  
 }

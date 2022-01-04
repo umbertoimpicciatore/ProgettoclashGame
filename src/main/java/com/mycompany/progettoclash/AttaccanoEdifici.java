@@ -23,10 +23,12 @@ public class AttaccanoEdifici implements StatoAttacco{
             if(ed!=null){
                 ArrayList<Casella> listaCaselleConEroiDaAttaccare=ed.getModA().attaccoEdificio(ed);//recupero la lista delle caselle con gli eroi da attaccare
                 for(int j=0;j<listaCaselleConEroiDaAttaccare.size();j++){
-                ArrayList<Eroe> listE= listaCaselleConEroiDaAttaccare.get(j).getListaEroiA();
+                    
+                    Casella c=listaCaselleConEroiDaAttaccare.get(j);
+                    System.out.print(c.getPosizioneColonna()+""+c.getPosizioneRiga()+" ");
+                    ArrayList<Eroe> listE= listaCaselleConEroiDaAttaccare.get(j).getListaEroiA();
                     for(int k=0;k<listE.size();k++){
                         Eroe eroe=listE.get(k);
-
                         int vita=eroe.getStat().getVita();//VEDERE SE FARE UNA CLASSE O QUALCOSA PER LA REGOLA DI TOGLIMENTO VITA
                         int difesa=eroe.getStat().getDifesa()+eroe.getSkin().getDifesa();
                         int attaccoEdificio=ed.getStatistica().getAttacco();//+ la attacco della skin?
@@ -41,8 +43,14 @@ public class AttaccanoEdifici implements StatoAttacco{
                             vita=0;
                         }
                         eroe.setVita(vita);
-                
+                        listE.set(k, eroe);
+                        
                     }
+                    //c.setListaEroiA(listE);
+                   // i//nt vita1=c.getListaEroiA().get(0).getStat().getVita();
+                    //clash.getGiocatoreD().getVillaggio().setCasella(c);
+                   // listaCaselleConEroiDaAttaccare.set(j, c);
+                    
             }
             }
             

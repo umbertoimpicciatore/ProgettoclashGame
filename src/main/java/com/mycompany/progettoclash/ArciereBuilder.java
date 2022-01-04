@@ -24,7 +24,7 @@ public class ArciereBuilder extends EroeBuilder{
 
     @Override
     public void setSkills() {
-       this.eroe.setStat(new Statistica(15,15,100));
+       this.eroe.setStat(new Statistica(15,15,110));
 
        
     }

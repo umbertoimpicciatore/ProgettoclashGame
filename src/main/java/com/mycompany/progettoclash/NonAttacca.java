@@ -16,12 +16,12 @@ public class NonAttacca implements ModalitàAttacco {
 
     @Override
     public ArrayList<Casella> attaccoEdificio(Edificio e) {
-        return null;
+        return new ArrayList<Casella>();
     }
 
     @Override
     public ArrayList<Casella> attacco(Eroe e) {
-        return null;
+        return new ArrayList<Casella>();
     }
     
 }

@@ -20,7 +20,7 @@ public class Main {
         g.setNome("Lorenzo");
         ArrayList<Casella> caselle = new ArrayList<Casella>();
         Villaggio v=new Villaggio();
-        Edificio e=new Municipio(new Immagazzinare(),new NonAttacca());
+        Edificio e=new Municipio(new Immagazzinare(),new AttaccaAvanti());
         Statistica s=new Statistica(5,5,100);
         e.setStatistica(s);
         e.setId(1);
@@ -39,6 +39,7 @@ public class Main {
                     c.AddEroe(eroeArc);
                     c.setEdificio(e);
                     eroeArc.setC(c);
+                    e.setCasella(c);
                 }
                 
                 c.setVillaggio(v);
@@ -68,7 +69,7 @@ public class Main {
                 }
                 ArrayList<Eroe> er = c.getListaEroiA();
                 for (int k=0;k<er.size();k++){
-                    System.out.print("IdEroe: "+er.get(k).getId()+" ");
+                    System.out.print("IdEroe: "+er.get(k).getId()+" Vita: "+er.get(k).getStat().getVita());
                     
                 }
                 System.out.print("     ");

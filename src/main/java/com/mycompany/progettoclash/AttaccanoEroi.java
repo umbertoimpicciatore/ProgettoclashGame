@@ -61,7 +61,8 @@ public class AttaccanoEroi implements StatoAttacco{
             }
             
         }
-        this.cambiaStato(clash, new ControlloFineBattaglia());//cambio stato
+        this.cambiaStato(clash, new AttaccanoEdifici());//cambio stato
+        
     }
 
     @Override

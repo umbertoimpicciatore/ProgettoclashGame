@@ -22,7 +22,7 @@ public  class Eroe {
     }
     
     public void setVita(int vita){
-        this.stat.setAttacco(vita);
+        this.stat.setVita(vita);
     
     }
 
