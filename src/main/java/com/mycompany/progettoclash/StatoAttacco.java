@@ -10,7 +10,6 @@ package com.mycompany.progettoclash;
  * @author Lorenzo
  */
 public interface StatoAttacco {
-    
     public void esegui(ClashGame clash);
     public void cambiaStato(ClashGame clash,StatoAttacco st);
      

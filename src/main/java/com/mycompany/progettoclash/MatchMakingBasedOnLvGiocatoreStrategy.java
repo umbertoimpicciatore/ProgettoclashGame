@@ -18,18 +18,17 @@ public class MatchMakingBasedOnLvGiocatoreStrategy implements MatchMakingStrateg
  
     @Override
     public Giocatore getAvversario(Giocatore g) {
-          Giocatore g1=new Giocatore();
+           Giocatore g1=new Giocatore();
            Giocatore g2=new Giocatore();
            ArrayList<Giocatore> lista=new ArrayList<Giocatore>();
            lista.add(g1);
            lista.add(g2);
-       for (int i=0;i<lista.size();i++){
-         
-       Giocatore avversario=lista.get(i);
-       if (avversario.getLivello()==g.getLivello()){
-       return avversario;
-       }
-       }
+        for (int i=0;i<lista.size();i++){
+            Giocatore avversario=lista.get(i);
+            if (avversario.getLivello()==g.getLivello()){
+                return avversario;
+            }
+        }
        return g1 ;
     }
     

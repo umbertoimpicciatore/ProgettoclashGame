@@ -25,7 +25,7 @@ public class AttaccanoEdifici implements StatoAttacco{
                 for(int j=0;j<listaCaselleConEroiDaAttaccare.size();j++){
                     
                     Casella c=listaCaselleConEroiDaAttaccare.get(j);
-                    System.out.print(c.getPosizioneColonna()+""+c.getPosizioneRiga()+" ");
+                    //System.out.print(c.getPosizioneColonna()+""+c.getPosizioneRiga()+" ");
                     ArrayList<Eroe> listE= listaCaselleConEroiDaAttaccare.get(j).getListaEroiA();
                     for(int k=0;k<listE.size();k++){
                         Eroe eroe=listE.get(k);
@@ -43,7 +43,7 @@ public class AttaccanoEdifici implements StatoAttacco{
                             vita=0;
                         }
                         eroe.setVita(vita);
-                        listE.set(k, eroe);
+                        //listE.set(k, eroe);
                         
                     }
                     //c.setListaEroiA(listE);
@@ -51,10 +51,8 @@ public class AttaccanoEdifici implements StatoAttacco{
                     //clash.getGiocatoreD().getVillaggio().setCasella(c);
                    // listaCaselleConEroiDaAttaccare.set(j, c);
                     
-            }
-            }
-            
-               
+                }
+            }      
         }
         this.cambiaStato(clash,new ControlloFineBattaglia());
     }

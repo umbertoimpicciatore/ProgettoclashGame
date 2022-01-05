@@ -26,7 +26,7 @@ public class ClashGame {
     
     public void CambiaStato(StatoAttacco st){
         stato=st;
-        stato.esegui(this);
+        //stato.esegui(this);
     }
 
     public Giocatore getGiocatoreA() {

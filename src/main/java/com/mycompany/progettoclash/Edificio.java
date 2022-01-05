@@ -12,10 +12,7 @@ public class Edificio {
     private Statistica statistica;
     private Casella casella;
 
-   
 
-    
-   
 
     public Edificio(RuoloEdificio re,ModalitàAttacco ma){
         this.modA=ma;

@@ -21,11 +21,8 @@ public class AttaccaTorre implements ModalitàAttacco {
 
     @Override
     public ArrayList<Casella> attaccoEdificio(Edificio e) {
-          ArrayList<Casella> g=new ArrayList<Casella>();
-        Villaggio villaggio D=e.getC().getVillaggio();
+        Villaggio villaggioD=e.getCasella().getVillaggio();
+        return villaggioD.getCaselle();              
+        }
         
-        i
     }
-    
-    
-}

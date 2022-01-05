@@ -11,7 +11,7 @@ package com.mycompany.progettoclash;
  */
 public class TrovaAvversario {
     private MatchMakingStrategy strategy;
-
+    
     public TrovaAvversario(MatchMakingStrategy strategy) {
         this.strategy = strategy;
     }
@@ -30,6 +30,7 @@ public class TrovaAvversario {
     
     
         public Giocatore getAvversario(Giocatore g){
+            
             return this.strategy.getAvversario(g);//da implementare
     }
     
