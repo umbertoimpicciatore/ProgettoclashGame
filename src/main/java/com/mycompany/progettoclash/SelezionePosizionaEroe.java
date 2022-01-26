@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.mycompany.progettoclash;
+import com.mycompany.progettoclash.view.ViewCercaAvversario;
 import com.mycompany.progettoclash.view.ViewSelezionaPosizionaEroe;
 
 
@@ -21,20 +22,42 @@ public class SelezionePosizionaEroe {
     private int colonna;
     private ClashGame clash;
     
-
+    public SelezionePosizionaEroe(){
+    }
+    
     public SelezionePosizionaEroe(ClashGame clash){
         
     this.clash=clash;
     
     }
     
-    public void selezionaPosizionaEroe(ArrayList<Integer> risultati) {
-        int riga=risultati.get(0);
-        int colonna=risultati.get(1);
-        int idEroe=risultati.get(2);
-        int quantita=risultati.get(3);
-        int iniziaBattaglia=risultati.get(4);
-        int cont=0;
+    public void selezionaPosizionaEroe(int riga,int colonna,int idEroe,int quantita,int iniziaBattaglia,Giocatore giocatoreA,Giocatore giocatoreD) {
+        
+        ViewCercaAvversario view=new ViewCercaAvversario();
+        ClashGame clash=new ClashGame(giocatoreA,giocatoreD);
+        //RIGUARDA ATTENTAMENTO PER IL NULL
+        ArrayList<Eroe> eroiA=giocatoreA.getAccampamento().selezionaEroe(idEroe, quantita);
+        if(eroiA==null){
+            //in caso di errori rifaccio fare la selezione posizione eroe
+            view.mostraSelezionaPosizionaEroe(giocatoreA, giocatoreD, true);
+            
+        }
+        else{
+            
+            clash.posizionaEroe(riga, colonna, eroiA);
+            view.iniziaBattaglia(clash);
+        }
+       
+        /*
+        if(iniziaBattaglia==1){
+            clash.iniziaBattaglia();//simulazione battaglia
+           
+        }
+        else{
+            ViewSelezionaPosizionaEroe view=new ViewSelezionaPosizionaEroe();
+            view.mostraSelezionaPosizionaEroe(giocatoreA.getEroi());
+        }*/
+       /* int cont=0;
         ArrayList<Eroe> eroiA=clash.getGiocatoreA().getEroi();
         System.out.print(riga);
         System.out.print(colonna);
@@ -53,9 +76,13 @@ public class SelezionePosizionaEroe {
             //battaglia iniziata
         }
         else{
-            ViewSelezionaPosizionaEroe view=new ViewSelezionaPosizionaEroe();
-            view.mostraSelezionaPosizionaEroe(eroiA);
+            //ViewSelezionaPosizionaEroe view=new ViewSelezionaPosizionaEroe();
+            //view.mostraSelezionaPosizionaEroe(eroiA);
         }
+        
+        */
+        
+        
     }
     
    

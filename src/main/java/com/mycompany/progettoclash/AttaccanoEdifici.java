@@ -61,6 +61,11 @@ public class AttaccanoEdifici implements StatoAttacco{
     public void cambiaStato(ClashGame clash, StatoAttacco st) {
         clash.CambiaStato(st);
     }
+
+    @Override
+    public void attaccanoEdifici(ClashGame clash) {
+    //
+    }
     
     
 }

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.mycompany.progettoclash;
+import com.mycompany.progettoclash.view.ViewCercaAvversario;
 import com.mycompany.progettoclash.view.ViewSelezionaPosizionaEroe;
 
 import java.util.ArrayList;
@@ -114,6 +115,11 @@ public class Main {
        // ArrayList<Integer> arr=view.mostraSelezionaPosizionaEroe(new ArrayList<Eroe>());               
         //SelezionePosizionaEroe sel=new SelezionePosizionaEroe(clash);
         //sel.selezionaPosizionaEroe(arr);
+        
+        //ViewSelezionaPosizionaEroe view=new ViewSelezionaPosizionaEroe();
+        //view.mostraSelezionaPosizionaEroe(null);
+        ViewCercaAvversario view2=new ViewCercaAvversario();
+        view2.cercaAvversario(g);
         
     }
         

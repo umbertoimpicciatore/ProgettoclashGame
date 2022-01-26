@@ -9,6 +9,7 @@ import com.mycompany.progettoclash.Eroe;
 import com.mycompany.progettoclash.Eroe;
 import java.util.ArrayList;
 import java.util.Scanner;
+import com.mycompany.progettoclash.SelezionePosizionaEroe;
 
 /**
  *
@@ -17,12 +18,10 @@ import java.util.Scanner;
 public class ViewSelezionaPosizionaEroe {
      //CONTROLLO INPUT DA TASTIERA PER INSERIMENTO DI SELEZIONA EDIFICIO
               
-        public ArrayList<Integer> mostraSelezionaPosizionaEroe(ArrayList<Eroe> eroiA){
+        public void mostraSelezionaPosizionaEroe(ArrayList<Eroe> eroiA){
             
-            System.out.println("Arciere id 10");
-            
-            
-            
+        System.out.println("Arciere id 10");
+  
         Scanner sc=new Scanner(System.in); 
         int riga;
          do {
@@ -92,13 +91,16 @@ public class ViewSelezionaPosizionaEroe {
              //torna indietro,annulla
          }
          
-         ArrayList<Integer> risultati=new ArrayList<Integer>();
+       /*  ArrayList<Integer> risultati=new ArrayList<Integer>();
          risultati.add(riga);
          risultati.add(colonna);
          risultati.add(idEroe);
          risultati.add(quantita);
          risultati.add(iniziaBattaglia);
-         return risultati;
+        // return risultati;
+         */
+        SelezionePosizionaEroe sel= new SelezionePosizionaEroe();
+        sel.selezionaPosizionaEroe(riga,colonna,idEroe,quantita,iniziaBattaglia);
         }
         
         

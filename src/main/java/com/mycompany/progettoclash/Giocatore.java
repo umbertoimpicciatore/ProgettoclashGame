@@ -1,6 +1,7 @@
 
 package com.mycompany.progettoclash;
 
+import com.mycompany.progettoclash.view.ViewCercaAvversario;
 import java.util.ArrayList;
 
 /**
@@ -9,6 +10,7 @@ import java.util.ArrayList;
  */
 public class Giocatore {
     private int livello;
+    private Accampamento Accampamento;//vedere LARMAN
 
     
     private String nome;
@@ -18,10 +20,22 @@ public class Giocatore {
         return villaggio;
     }
 
+    public Accampamento getAccampamento() {
+        return Accampamento;
+    }
+
+    public void setAccampamento(Accampamento Accampamento) {
+        this.Accampamento = Accampamento;
+    }
+
+    
+
+    
     public void setVillaggio(Villaggio v) {
         this.villaggio = v;
     }
-public int getLivello() {
+    
+    public int getLivello() {
         return livello;
     }
 
@@ -50,6 +64,28 @@ public int getLivello() {
         eroi.add(arciere);
         eroi.add(guerriero);
         return eroi;//da implementare
+    }
+    
+   /* public void posizionaEroe(int riga,int colonna,ArrayList<Eroe> listaEroi){
+        Casella c=clash.getGiocatoreD().getVillaggio().getCasella(riga, colonna);
+        c.addEroi(listaEroi);
+        
+    }*/
+    
+    public void cercaAvversario(){
+        
+        TrovaAvversario t=new TrovaAvversario();
+        Giocatore giocatoreD=t.getAvversario(this);
+        
+        ViewCercaAvversario view=new ViewCercaAvversario();//si può fare dentro il controller?
+        view.conferma(giocatoreD,this);
+        
+        
+        //o confermo, o cerco un altro, o annullo
+        
+        //ora bisogna far visualizzare il villaggio difensore e deve partire la conferma per attaccare questo giocatore
+        //ma dove la richiamo la view e come faccio?
+        
     }
     
     

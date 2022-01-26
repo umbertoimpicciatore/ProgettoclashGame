@@ -12,11 +12,12 @@ package com.mycompany.progettoclash;
 public class TrovaAvversario {
     private MatchMakingStrategy strategy;
     
-    public TrovaAvversario(MatchMakingStrategy strategy) {
+    public TrovaAvversario(MatchMakingStrategy strategy) {//SBAGLIATO SECONDO ME
         this.strategy = strategy;
     }
     
-    
+    public TrovaAvversario() {       
+    }
 
     public MatchMakingStrategy getStrategy() {
         return strategy;

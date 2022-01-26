@@ -31,6 +31,7 @@ public class Casella {
     
     
     
+    
     public Casella(int riga,int colonna){
         this.posizioneColonna=colonna;
         this.posizioneRiga=riga;
@@ -38,6 +39,14 @@ public class Casella {
     
     public void AddEroe(Eroe e){
         this.listaEroiA.add(e);
+    
+    }
+    
+    public void addEroi(ArrayList<Eroe> listaEroi){
+        
+        for(int i=0;i<listaEroi.size();i++){
+            this.listaEroiA.add(listaEroi.get(i));
+        }
     
     }
 

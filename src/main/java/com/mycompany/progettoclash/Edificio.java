@@ -5,7 +5,7 @@ package com.mycompany.progettoclash;
  *
  * @author Lorenzo
  */
-public class Edificio {
+public abstract class Edificio {
     private int id;
     private ModalitàAttacco modA;
     private RuoloEdificio ruoloE;

@@ -11,6 +11,7 @@ package com.mycompany.progettoclash;
  */
 public interface StatoAttacco {
     public void esegui(ClashGame clash);
+    public void attaccanoEdifici(ClashGame clash);
     public void cambiaStato(ClashGame clash,StatoAttacco st);
      
 }
