@@ -1,6 +1,8 @@
 
 package com.mycompany.progettoclash;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Lorenzo
@@ -19,6 +21,7 @@ public abstract class Edificio {
         this.ruoloE=re;
     
     }
+    public abstract void setListaEroiGiocatore(ArrayList<Eroe> listaEroiGiocatore);
     
      public Casella getCasella() {
         return casella;

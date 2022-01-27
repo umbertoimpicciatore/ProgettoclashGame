@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class SpostaEroe implements StatoAttacco{
 
     @Override
-    public void esegui(ClashGame clash) {
+    public boolean controlloFineBattaglia(ClashGame clash) {
     
         ArrayList<Casella> listC =  clash.caselleDifensore(); //recupero le caselle del difensore
         for(int i=0;i<listC.size();i++){
@@ -28,6 +28,7 @@ public class SpostaEroe implements StatoAttacco{
             }
             
         }
+        return false;
     }
 
     //metodo utilizzato per spostare gli eroi verso la prossima casella da attaccare
@@ -149,6 +150,10 @@ public class SpostaEroe implements StatoAttacco{
     @Override
     public void attaccanoEdifici(ClashGame clash) {
         //
+    }
+
+    @Override
+    public void attaccanoEroi(ClashGame clash) {
     }
     
     

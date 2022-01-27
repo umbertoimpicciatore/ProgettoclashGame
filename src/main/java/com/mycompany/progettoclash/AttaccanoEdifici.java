@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class AttaccanoEdifici implements StatoAttacco{
 
     @Override
-    public void esegui(ClashGame clash) {
+    public void controlloFineBattaglia(ClashGame clash) {
         
         ArrayList<Casella> listC =  clash.caselleDifensore();//recupero le caselle del difensore
         

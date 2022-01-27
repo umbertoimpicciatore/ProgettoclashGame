@@ -29,8 +29,6 @@ public class Giocatore {
     }
 
     
-
-    
     public void setVillaggio(Villaggio v) {
         this.villaggio = v;
     }
@@ -51,9 +49,10 @@ public class Giocatore {
     }
     
     public ArrayList<Eroe> getEroi(){
-         Eroe guerriero=new Guerriero(new AttaccaDiagonale(),1);
+        return this.Accampamento.getListaEroiGiocatore();
+        /* Eroe guerriero=new Guerriero(new AttaccaDiagonale(),1);
         //guerriero.setC(c);
-//        guerriero.getModA().attacco(guerriero);
+        //guerriero.getModA().attacco(guerriero);
        //guerriero.attacca();
          Eroe arciere=new Arciere(new AttaccaDuePosizioni(),2);
       // arciere.attacca();
@@ -63,7 +62,7 @@ public class Giocatore {
         ArrayList<Eroe> eroi = new ArrayList<Eroe>();
         eroi.add(arciere);
         eroi.add(guerriero);
-        return eroi;//da implementare
+        return eroi;//da implementare*/
     }
     
    /* public void posizionaEroe(int riga,int colonna,ArrayList<Eroe> listaEroi){

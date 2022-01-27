@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.progettoclash;
 
 import java.util.ArrayList;
@@ -14,6 +9,14 @@ import java.util.ArrayList;
 public class Accampamento extends Edificio {
     
     private ArrayList<Eroe> listaEroiGiocatore = new ArrayList<Eroe>();
+
+    public ArrayList<Eroe> getListaEroiGiocatore() {
+        return listaEroiGiocatore;
+    }
+
+    public void setListaEroiGiocatore(ArrayList<Eroe> listaEroiGiocatore) {
+        this.listaEroiGiocatore = listaEroiGiocatore;
+    }
     
     
     public Accampamento(RuoloEdificio re, ModalitàAttacco ma) {
@@ -21,28 +24,44 @@ public class Accampamento extends Edificio {
     }
     
     public ArrayList<Eroe> selezionaEroe(int idEroe,int quantita){
+            //controllo su quando l'utente ha immesso tutti gli eroi
         ArrayList<Eroe> listaEroi = new ArrayList<Eroe>();
-        int cont=0;
-        
-        //manca il controllo se quantità è minore uguale degli eroi disponibili
-        //manca che devo togliere gli eroi
-        for(int i=0;i<this.listaEroiGiocatore.size() || cont<quantita;i++){
-            if(this.listaEroiGiocatore.get(i).getId()==idEroe){
-                cont++;
-                listaEroi.add(this.listaEroiGiocatore.get(i));
+        boolean var=this.controllaQuantitaIdEroe(idEroe, quantita);
+        if(var==true){
+            int cont=0;
+            int i=0;
+            while(i<this.listaEroiGiocatore.size() && cont<quantita){
+                if(this.listaEroiGiocatore.get(i).getId()==idEroe){
+                    cont++;
+                    listaEroi.add(this.listaEroiGiocatore.get(i));
+                    this.listaEroiGiocatore.remove(i);
+                }
+                else{
+                    i++;
+                }             
             }
-            
-        }
-        if(cont==quantita){
             return listaEroi;
         }
         else{
             return null;
         }
-    //return listaEroi;
     }
     
-    
-    
-    
+    public boolean controllaQuantitaIdEroe(int idEroe,int quantita){
+        int cont=0;
+        boolean idEroeTrovato=false;
+        for(int i=0;i<this.listaEroiGiocatore.size();i++){
+            if(this.listaEroiGiocatore.get(i).getId()==idEroe){
+                idEroeTrovato=true;
+                cont++;
+            }    
+        }
+        if(cont==quantita && idEroeTrovato==true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+ 
 }

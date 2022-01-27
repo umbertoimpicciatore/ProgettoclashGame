@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class ControlloFineBattaglia implements StatoAttacco{
 
     @Override
-    public void esegui(ClashGame clash) {
+    public boolean controlloFineBattaglia(ClashGame clash) {
         
         boolean edificiMorti=true;
         boolean eroiMorti=true;
@@ -35,14 +35,15 @@ public class ControlloFineBattaglia implements StatoAttacco{
         }
         if(edificiMorti==true || eroiMorti==true){
         //richiama factory ottenimento risorse
+        return true;
         }
         else{
-            this.cambiaStato(clash,new AttaccanoEroi());
-            
+            this.cambiaStato(clash,new Attacco());
+            return false;
         }
         
         //da implementare
-        System.out.println("Fine battaglia");
+        //System.out.println("Fine battaglia");
     }
 
     
@@ -56,6 +57,10 @@ public class ControlloFineBattaglia implements StatoAttacco{
     @Override
     public void attaccanoEdifici(ClashGame clash) {
         
+    }
+
+    @Override
+    public void attaccanoEroi(ClashGame clash) {
     }
     
 }

@@ -1,12 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.progettoclash;
 import com.mycompany.progettoclash.view.ViewCercaAvversario;
-import com.mycompany.progettoclash.view.ViewSelezionaPosizionaEroe;
-
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
@@ -22,7 +15,10 @@ public class Main {
         ArrayList<Casella> caselle = new ArrayList<Casella>();
         Villaggio v=new Villaggio();
         Edificio e=new Municipio(new Immagazzinare(),new AttaccaAvanti());
+        Edificio acc=new Accampamento(new Immagazzinare(),new AttaccaAvanti());
         Statistica s=new Statistica(5,5,100);
+        acc.setStatistica(s);
+        acc.setId(2);
         e.setStatistica(s);
         e.setId(1);
         ArciereBuilder arc=new ArciereBuilder();
@@ -42,6 +38,10 @@ public class Main {
                     eroeArc.setC(c);
                     e.setCasella(c);
                 }
+                if(i==1 &&j==2){
+                    c.setEdificio(acc);
+                    acc.setCasella(c);
+                }
                 
                 c.setVillaggio(v);
                 caselle.add(c);
@@ -49,12 +49,44 @@ public class Main {
         }
         
         v.setCaselle(caselle);
+        
+        //creo GIOCATORE ATTACCANTE
         Giocatore ga=new Giocatore();
+        Edificio acc2=new Accampamento(new Immagazzinare(),new AttaccaAvanti());
+        Statistica s1=new Statistica(5,5,100);
+        acc2.setStatistica(s1);
+        acc2.setId(2);
+         
+        
+        ArciereBuilder arc2=new ArciereBuilder();
+        arc2.setId(1);
+        EroeDirector erD2=new EroeDirector();
+        Eroe eroeArc2=erD2.createEroe(arc2);
+        ArrayList<Eroe> list=new ArrayList<Eroe>();
+        list.add(eroeArc2);
+        acc2.setListaEroiGiocatore(list);
+        Villaggio v2=new Villaggio();
+        for (int i=1;i<=v2.getAltezza();i++){
+            for (int j=1;j<=v2.getLarghezza();j++){
+                Casella c=new Casella(i,j);
+                if(i==1 &&j==1){
+                    c.AddEroe(eroeArc2);
+                    c.setEdificio(acc2);
+                    eroeArc.setC(c);
+                    acc2.setCasella(c);
+                }      
+                c.setVillaggio(v2);
+                caselle.add(c);
+            }
+        }
+        ga.setAccampamento((Accampamento)acc2);
+        ga.setVillaggio(v2);
+        
         g.setVillaggio(v);
         Objects.isNull(g.getVillaggio().getCasella(1, 1).getVillaggio());
         ClashGame clash=new ClashGame(ga,g);
         eroeArc.getModA().attacco(eroeArc);
-        clash.iniziaBattaglia();
+        //clash.iniziaBattaglia();
         
         
         Villaggio villaggioD=clash.getGiocatoreD().getVillaggio();
@@ -119,7 +151,7 @@ public class Main {
         //ViewSelezionaPosizionaEroe view=new ViewSelezionaPosizionaEroe();
         //view.mostraSelezionaPosizionaEroe(null);
         ViewCercaAvversario view2=new ViewCercaAvversario();
-        view2.cercaAvversario(g);
+        view2.cercaAvversario(ga);
         
     }
         

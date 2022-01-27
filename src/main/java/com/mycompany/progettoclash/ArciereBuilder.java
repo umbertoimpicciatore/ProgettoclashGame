@@ -38,6 +38,11 @@ public class ArciereBuilder extends EroeBuilder{
         //this.reset();
         return e;
     }
+
+    @Override
+    public void setId(int idEroe) {
+        this.eroe.setId(idEroe);
+    }
     
     
     

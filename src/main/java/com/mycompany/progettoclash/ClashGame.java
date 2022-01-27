@@ -2,7 +2,6 @@
 package com.mycompany.progettoclash;
 
 import com.mycompany.progettoclash.view.ViewCercaAvversario;
-import com.mycompany.progettoclash.view.ViewSelezionaPosizionaEroe;
 import java.util.ArrayList;
 
 /**
@@ -68,24 +67,31 @@ public class ClashGame {
             boolean fineBattaglia=false;
             while(fineBattaglia==false){
                 
-                stato=new AttaccanoEroi();
-                stato.esegui(this);//attaccano eroi
-                stato.esegui(this);//controllo fine battaglia
-                stato.attaccanoEdifici(this);//attaccano edifici
-                stato.esegui(this);//controllo fine batt
-                stato.esegui(this);//sposta
-            
+                stato=new Attacco();
+                stato.attaccanoEroi(this);//attaccano eroi
+                fineBattaglia=stato.controlloFineBattaglia(this);//controllo fine battaglia
+                
+                if(fineBattaglia==false){
+                    
+                    stato.attaccanoEdifici(this);//attaccano edifici
+                    fineBattaglia=stato.controlloFineBattaglia(this);//controllo fine batt
+                    stato.controlloFineBattaglia(this);//sposta
+                }
             }
         }
         else{
-            ViewSelezionaPosizionaEroe view=new ViewSelezionaPosizionaEroe();
-            view.mostraSelezionaPosizionaEroe(giocatoreA.getEroi());
+            ViewCercaAvversario view=new ViewCercaAvversario();
+            view.mostraSelezionaPosizionaEroe();
         }       
        
     }
     //vedi a chi assegnarlo
     public void posizionaEroe(int riga,int colonna,ArrayList<Eroe> listaEroi){
-        Casella c=this.giocatoreD.getVillaggio().getCasella(riga, colonna);
+        //manca controllo sulla casella
+        Casella c=this.giocatoreD.getVillaggio().getCasella(riga, colonna);    
+        for(int i=0;i<listaEroi.size();i++){//assegno a ciascun eroe la casella in cui verrà posizionato
+            listaEroi.get(i).setC(c);
+        }
         c.addEroi(listaEroi);
     }
     

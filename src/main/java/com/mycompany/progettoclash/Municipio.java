@@ -5,6 +5,8 @@
  */
 package com.mycompany.progettoclash;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Lorenzo
@@ -14,6 +16,10 @@ public class Municipio extends Edificio {
     public Municipio(RuoloEdificio re,ModalitàAttacco ma){
         super(re,ma);
     
+    }
+
+    @Override
+    public void setListaEroiGiocatore(ArrayList<Eroe> listaEroiGiocatore) {
     }
     
 }
