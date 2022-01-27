@@ -212,71 +212,57 @@ public class Attacco implements StatoAttacco{
     }
 
     //metodo utilizzato per spostare gli eroi verso la prossima casella da attaccare
-    private Casella spostamentoEroi(Villaggio v,Casella c){
+    public Casella spostamentoEroi(Villaggio v,Casella c){
         int riga=c.getPosizioneRiga();
         int colonna=c.getPosizioneColonna();
-        //System.out.println("Hellooooooo:Riga: "+riga+" j: "+colonna+" ");
+       // System.out.println("Hellooooooo:Riga: "+riga+" j: "+colonna+" ");
         int cont=0;
-        for(int i=riga-1 ;cont<3 && i>1 && i<=v.getAltezza();i++){ 
-            int cont2=0;
-           // System.out.println("Riga: "+i+" cont: "+cont+" ");
-            for(int j=colonna-1;cont2<3 && j>1 && j<=v.getLarghezza();j++){
-                System.out.println("Riga: "+i+" j: "+j+" ");
+        int cont2=0;
+        for(int i=riga-1 ;cont<3 && i>=1 && i<=v.getAltezza();i++){ 
+            for(int j=colonna-1;cont2<3 && j>=1 && j<=v.getLarghezza();j++){
+               // System.out.println("Riga: "+i+" j: "+j+" ");
                 Casella c2=v.getCasella(i, j);
-                Edificio edificio=c2.getEdificio();
-                if(edificio!=null){
-                    int vita=c2.getEdificio().getStatistica().getVita();
-                    if(vita>0){ 
-                        return c2;
-                    }
+                Casella cas=this.verificaVitaEdificio(c2);
+                if(cas!=null){
+                    return c2;
                 }
-                
                 cont2++;
             }
+            cont2=0;
             cont++;        
         }
-        
-        
-        /*for(int i=0;i<3;i++){
-            prossimaColonna+=i;
-            if(prossimaRiga>1 && prossimaRiga<v.getAltezza() && prossimaColonna>1 && prossimaColonna<v.getLarghezza()){
-                Casella c2=v.getCasella(riga, prossimaColonna);
-                int vita=c2.getEdificio().getStatistica().getVita();
-                if(vita>0){
-                    risultato=c2;
-                    return risultato;
+        if(riga==1 || colonna==1){
+            cont=0;
+            cont2=0;
+            for(int i=riga-1 ;cont<3 && i<=v.getAltezza();i++){ 
+                for(int j=colonna-1;cont2<3 && j<=v.getLarghezza();j++){
+                    System.out.println("OI-Riga: "+i+" j: "+j+" ");
+                    if(i>0 && j>0){
+                        Casella c2=v.getCasella(i, j);
+                        Casella cas=this.verificaVitaEdificio(c2);
+                        if(cas!=null){
+                            return c2;
+                        } 
+                    }
+                    cont2++;
                 }
-        }
-        }
-        
-        for(int i=0;i<3;i=i+2){
-            prossimaColonna+=i;
-            if(prossimaRiga>1 && prossimaRiga<v.getAltezza() && prossimaColonna>1 && prossimaColonna<v.getLarghezza()){
-                Casella c2=v.getCasella(riga, prossimaColonna);
-                int vita=c2.getEdificio().getStatistica().getVita();
-                if(vita>0){
-                    risultato=c2;
-                    return risultato;
-                }
-        }
-        }            
-        
-        for(int i=0;i<3;i=i){
-            prossimaColonna+=i;
-            if(prossimaRiga>1 && prossimaRiga<v.getAltezza() && prossimaColonna>1 && prossimaColonna<v.getLarghezza()){
-                Casella c2=v.getCasella(riga, prossimaColonna);
-                int vita=c2.getEdificio().getStatistica().getVita();
-                if(vita>0){
-                    risultato=c2;
-                    return risultato;
-                }
-        }
-        }
-        
-        */
+                cont2=0;
+                cont++;        
+            }
+        }       
         Casella c2=this.cercaCasellaVersoCuiSpostarsi(v, c);      
-        return c2;
+        return c2;   
+    }
     
+    private Casella verificaVitaEdificio(Casella casella){
+        Edificio edificio=casella.getEdificio();
+                        if(edificio!=null){
+                            int vita=casella.getEdificio().getStatistica().getVita();
+                            if(vita>0){ 
+                                return casella;
+                            }
+                        } 
+        return null;
     }
     
     //metodo per spostarsi verso la prima casella che si trova con la vita dell'edificio >0 

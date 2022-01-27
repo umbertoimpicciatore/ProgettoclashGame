@@ -29,7 +29,7 @@ public class ArciereBuilder extends EroeBuilder{
        
     }
     public void reset() {
-      	this.eroe = new Eroe(new AttaccaDiagonale());
+      	this.eroe = new Eroe(new AttaccaDuePosizioni());
     }
 
     @Override
