@@ -14,6 +14,7 @@ import java.util.Scanner;
  * @author Lorenzo
  */
 public class ViewCercaAvversario {
+    ClashGame clash;
     
     public void cercaAvversario(Giocatore giocatoreA){
     
@@ -21,6 +22,8 @@ public class ViewCercaAvversario {
         String s="Immetti 1 per iniziare battaglia oppure un numero maggiore di 1 per annullare";
         int ris=this.inserisci(s);
         if(ris==1){
+            // clash=new ClashGame(giocatoreA);
+           // clash.cercaAvversario();
             giocatoreA.cercaAvversario();
         }
         else{
@@ -100,7 +103,7 @@ public class ViewCercaAvversario {
          return var;
     }
     
-      private void visualizzaVillaggio(Villaggio villaggioD){
+      public void visualizzaVillaggio(Villaggio villaggioD){
         for (int i=1;i<=villaggioD.getAltezza();i++){
             for (int j=1;j<=villaggioD.getLarghezza();j++){
                 Casella c=villaggioD.getCasella(i, j);               

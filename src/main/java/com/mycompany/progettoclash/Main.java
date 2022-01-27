@@ -88,7 +88,7 @@ public class Main {
         eroeArc.getModA().attacco(eroeArc);
         //clash.iniziaBattaglia();
         
-        
+        /*
         Villaggio villaggioD=clash.getGiocatoreD().getVillaggio();
         for (int i=1;i<=villaggioD.getAltezza();i++){
             for (int j=1;j<=villaggioD.getLarghezza();j++){
@@ -110,7 +110,7 @@ public class Main {
             }
             System.out.println();
         }
-        
+        */
           /*
        //SIMULAZIONE DEGLI Eroi che attaccano
         Eroe guerriero=new Guerriero(new AttaccaDiagonale(),1);

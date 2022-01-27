@@ -13,16 +13,17 @@ public class ClashGame {
     private Giocatore giocatoreD;
     private StatoAttacco stato;
     
-    /*public ClashGame(){
-        stato=new AttaccanoEroi();
-    }*/
     
     public ClashGame(Giocatore ga,Giocatore gd){
         //stato=new AttaccanoEroi();
         stato=null;
         this.giocatoreA=ga;
         this.giocatoreD=gd;
-        //trovaAvversarrio per GIOCATORE DIF IMPLEMENTARE
+    }
+     public ClashGame(Giocatore ga){
+        //stato=new AttaccanoEroi();
+        stato=null;
+        this.giocatoreA=ga;
     }
 
     public ClashGame() {
@@ -63,24 +64,27 @@ public class ClashGame {
     }
     
     public void iniziaBattaglia(int iniziaBattaglia){
+        ViewCercaAvversario view=new ViewCercaAvversario();
+        stato=new Attacco();
          if(iniziaBattaglia==1){
             boolean fineBattaglia=false;
             while(fineBattaglia==false){
                 
-                stato=new Attacco();
+               // System.out.println("CIAO loop");
+                System.out.println();
+                
                 stato.attaccanoEroi(this);//attaccano eroi
                 fineBattaglia=stato.controlloFineBattaglia(this);//controllo fine battaglia
-                
                 if(fineBattaglia==false){
-                    
                     stato.attaccanoEdifici(this);//attaccano edifici
                     fineBattaglia=stato.controlloFineBattaglia(this);//controllo fine batt
                     stato.controlloFineBattaglia(this);//sposta
                 }
+                view.visualizzaVillaggio(giocatoreD.getVillaggio());
             }
         }
         else{
-            ViewCercaAvversario view=new ViewCercaAvversario();
+            //ViewCercaAvversario view=new ViewCercaAvversario();
             view.mostraSelezionaPosizionaEroe();
         }       
        

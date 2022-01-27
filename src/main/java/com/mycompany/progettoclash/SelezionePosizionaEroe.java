@@ -40,6 +40,7 @@ public class SelezionePosizionaEroe {
         }
         else{       
             clash.posizionaEroe(riga, colonna, eroiA);
+            view.visualizzaVillaggio(giocatoreD.getVillaggio());
             view.iniziaBattaglia(clash);
         }
     }   
