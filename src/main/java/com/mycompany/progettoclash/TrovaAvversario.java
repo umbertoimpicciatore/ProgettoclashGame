@@ -12,24 +12,24 @@ import java.util.ArrayList;
  * @author Lorenzo
  */
 public class TrovaAvversario {
-    private MatchMakingStrategy strategy;
+    //private MatchMakingStrategy strategy;
     
-    public TrovaAvversario(MatchMakingStrategy strategy) {//SBAGLIATO SECONDO ME
-        this.strategy = strategy;
-    }
-    
-    public TrovaAvversario() {       
-    }
-
-    public MatchMakingStrategy getStrategy() {
-        return strategy;
-    }
-
-    public void setStrategy(MatchMakingStrategy strategy) {
-        this.strategy = strategy;
-    }
-
-    
+//    public TrovaAvversario(MatchMakingStrategy strategy) {//SBAGLIATO SECONDO ME
+//        this.strategy = strategy;
+//    }
+//    
+//    public TrovaAvversario() {       
+//    }
+//
+//    public MatchMakingStrategy getStrategy() {
+//        return strategy;
+//    }
+//
+//    public void setStrategy(MatchMakingStrategy strategy) {
+//        this.strategy = strategy;
+//    }
+//
+//    
     
     
         public Giocatore getAvversario(Giocatore gd){
