@@ -41,7 +41,7 @@ public class SelezionePosizionaEroe {
         else{       
             boolean b=clash.posizionaEroe(riga, colonna, eroiA);
             if(!b){
-                giocatoreA.getAccampamento().setListaEroiGiocatore(eroiA);
+                giocatoreA.getAccampamento().setListaEroiGiocatore(eroiA);//in caso di errori di immissione di riga e colonna rimetto gli eroi all'attaccante
                 view.mostraSelezionaPosizionaEroe(giocatoreA, giocatoreD, true);
             }
             else{

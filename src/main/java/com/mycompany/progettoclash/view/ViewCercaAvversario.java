@@ -53,6 +53,7 @@ public class ViewCercaAvversario {
     public void mostraSelezionaPosizionaEroe(Giocatore giocatoreA,Giocatore giocatoreD,boolean errore){
         
         ArrayList<Eroe> eroiA=giocatoreA.getEroi();//implementa
+        //if(eroiA)
         for(int i=0;i<eroiA.size();i++){
             System.out.println("Arciere id 10");
         }

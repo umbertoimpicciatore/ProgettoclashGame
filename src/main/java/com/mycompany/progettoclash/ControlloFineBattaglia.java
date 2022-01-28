@@ -55,6 +55,7 @@ public class ControlloFineBattaglia implements StatoAttacco{
             ArrayList<Eroe> eroi=caselle.get(i).getListaEroiA();
             if(eroi!=null && eroi.size()>0){
                 eroiA.addAll(eroi);
+                caselle.get(i).setListaEroiA(new ArrayList<Eroe>());//tolgo gli eroi attaccanti sulla casella del villaggio difensore
             }
         }
         giocatoreA.getAccampamento().setListaEroiGiocatore(eroiA);
