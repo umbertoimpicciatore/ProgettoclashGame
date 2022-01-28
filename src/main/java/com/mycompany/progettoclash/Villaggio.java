@@ -17,6 +17,15 @@ public class Villaggio {
     public ArrayList<Casella> getCaselle() {
         return caselle;
     }
+    private int danni;
+
+    public int getDanni() {
+        return danni;
+    }
+
+    public void setDanni(int danni) {
+        this.danni = danni;
+    }
     
    /* public Edificio cercaAccampamento(){
         Edificio e;

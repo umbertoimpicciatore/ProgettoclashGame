@@ -16,6 +16,10 @@ public class MatchMakingBasedOnLvEroiStrategy implements MatchMakingStrategy{
     public MatchMakingBasedOnLvEroiStrategy() {
     }
 
+    MatchMakingBasedOnLvEroiStrategy() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @Override
     public Giocatore getAvversario(Giocatore g) {
         Giocatore g1=new Giocatore();

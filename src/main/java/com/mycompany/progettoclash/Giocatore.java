@@ -11,6 +11,15 @@ import java.util.ArrayList;
 public class Giocatore {
     private int livello;
     private Accampamento Accampamento;//vedere LARMAN
+    private Deposito deposito;
+
+    public Deposito getDeposito() {
+        return deposito;
+    }
+
+    public void setDeposito(Deposito deposito) {
+        this.deposito = deposito;
+    }
 
     
     private String nome;

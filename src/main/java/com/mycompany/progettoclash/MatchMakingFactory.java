@@ -5,6 +5,9 @@
  */
 package com.mycompany.progettoclash;
 
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  *
  * @author Lorenzo
@@ -21,15 +24,19 @@ public class MatchMakingFactory {
         return instance;
     }
     
-    public MatchMakingBasedOnLvEroiStrategy getEroeStrategy(){
-        //da implementare
-        return new MatchMakingBasedOnLvEroiStrategy();
-    }
-    
-    public MatchMakingBasedOnLvGiocatoreStrategy getGiocatoreStrategy(){
-        //da implementare
-        return new MatchMakingBasedOnLvGiocatoreStrategy();
+    public MatchMakingStrategy getEroeStrategy() throws IOException{
+        FileReader filein= new FileReader("file_conf.txt");
+        int s=filein.read();
+        if (s==0){return new MatchMakingBasedOnLvEroiStrategy();}
+                else{ return new MatchMakingBasedOnLvGiocatoreStrategy();
+        
         
     }
+    
+//    public MatchMakingBasedOnLvGiocatoreStrategy getGiocatoreStrategy(){
+//        //da implementare
+//        return new MatchMakingBasedOnLvGiocatoreStrategy();
+//        
+//    }
 
-}
+    }}
