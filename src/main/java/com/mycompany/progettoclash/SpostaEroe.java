@@ -8,14 +8,17 @@ import java.util.ArrayList;
  * @author Lorenzo
  */
 public class SpostaEroe implements StatoAttacco{
-
+    //SAREBBE SPOSTA
     @Override
     public boolean controlloFineBattaglia(ClashGame clash) {
     
         ArrayList<Casella> listC =  clash.caselleDifensore(); //recupero le caselle del difensore
+        System.out.println("LOG3");
         for(int i=0;i<listC.size();i++){
             Casella casellaCorrente=listC.get(i);
+             System.out.println("CRETINO");
             if(casellaCorrente.getEdificio().getStatistica().getVita()==0){
+                System.out.println("CIAOoooo");
                 Casella casella=this.spostamentoEroi(clash.getGiocatoreD().getVillaggio(), casellaCorrente);
                 ArrayList<Eroe> eroi=listC.get(i).getListaEroiA();//recupero  gli eroi del giocatore attaccante sulla caselle del difensore
  

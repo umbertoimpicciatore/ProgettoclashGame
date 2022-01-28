@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args){
-        Giocatore g=new Giocatore();
+      /*  Giocatore g=new Giocatore();
         g.setNome("Lorenzo");
         ArrayList<Casella> caselle = new ArrayList<Casella>();
         Villaggio v=new Villaggio();
@@ -88,7 +88,7 @@ public class Main {
         eroeArc.getModA().attacco(eroeArc);
         //clash.iniziaBattaglia();
         
-        
+        /*
         Villaggio villaggioD=clash.getGiocatoreD().getVillaggio();
         for (int i=1;i<=villaggioD.getAltezza();i++){
             for (int j=1;j<=villaggioD.getLarghezza();j++){
@@ -110,7 +110,7 @@ public class Main {
             }
             System.out.println();
         }
-        
+        */
           /*
        //SIMULAZIONE DEGLI Eroi che attaccano
         Eroe guerriero=new Guerriero(new AttaccaDiagonale(),1);
@@ -142,16 +142,61 @@ public class Main {
         System.out.println(arcPot.toString());
         
         */
-          
-     //   ViewSelezionaPosizionaEroe view=new ViewSelezionaPosizionaEroe();   
-       // ArrayList<Integer> arr=view.mostraSelezionaPosizionaEroe(new ArrayList<Eroe>());               
-        //SelezionePosizionaEroe sel=new SelezionePosizionaEroe(clash);
-        //sel.selezionaPosizionaEroe(arr);
+        Giocatore g=new Giocatore();
+        g.setNome("Lorenzo");
+        ArrayList<Casella> caselle = new ArrayList<Casella>();
+        ArrayList<Eroe> list = new ArrayList<Eroe>();
         
-        //ViewSelezionaPosizionaEroe view=new ViewSelezionaPosizionaEroe();
-        //view.mostraSelezionaPosizionaEroe(null);
-        ViewCercaAvversario view2=new ViewCercaAvversario();
-        view2.cercaAvversario(ga);
+        Villaggio v=new Villaggio();
+        Edificio e=new Municipio(new Immagazzinare(),new AttaccaAvanti());
+        Statistica s=new Statistica(5,5,100);
+        e.setStatistica(s);
+        e.setId(1);
+        Edificio e2=new Municipio(new Immagazzinare(),new AttaccaAvanti());
+        e2.setStatistica(s);
+        e2.setId(1);
+        ArciereBuilder arc=new ArciereBuilder();
+        EroeDirector erD=new EroeDirector();
+        Eroe eroeArc=erD.createEroe(arc);
+        list.add(eroeArc);
+        //Eroe guerriero=new Guerriero(new AttaccaDiagonale(),1);
+        
+       //creo VILLAGGIO
+        for (int i=1;i<=v.getAltezza();i++){
+            for (int j=1;j<=v.getLarghezza();j++){
+                Casella c=new Casella(i,j);
+                
+                
+                if(i==1 &&j==1){
+                   // c.AddEroe(eroeArc);
+                    c.setEdificio(e);
+                    eroeArc.setC(c);
+                    c.setListaEroiA(list);
+                   // eroeArc.setC(c);
+                    e.setCasella(c);
+                }
+                if(i==1 &&j==2){
+                    c.setEdificio(e2);
+                    e2.setCasella(c);
+                }
+                
+                c.setVillaggio(v);
+                caselle.add(c);
+            }
+        }
+        
+        v.setCaselle(caselle);
+        g.setVillaggio(v);
+        caselle=eroeArc.getModA().attacco(eroeArc);
+        for (int i=0;i<caselle.size();i++){
+           System.out.println("OI2-Riga: "+caselle.get(i).getPosizioneRiga()+" j: "+caselle.get(i).getPosizioneColonna()+" ");
+       }
+        //Casella casellaCorrente=v.getCasella(1, 2);
+       // Attacco attacco=new Attacco();
+      // attacco.spostamentoEroi(v, casellaCorrente);
+
+        //ViewCercaAvversario view2=new ViewCercaAvversario();
+       // view2.cercaAvversario(ga);
         
     }
         
