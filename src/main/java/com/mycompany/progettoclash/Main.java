@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args){
-      /*  Giocatore g=new Giocatore();
+        Giocatore g=new Giocatore();
         g.setNome("Lorenzo");
         ArrayList<Casella> caselle = new ArrayList<Casella>();
         Villaggio v=new Villaggio();
@@ -84,8 +84,8 @@ public class Main {
         
         g.setVillaggio(v);
         Objects.isNull(g.getVillaggio().getCasella(1, 1).getVillaggio());
-        ClashGame clash=new ClashGame(ga,g);
-        eroeArc.getModA().attacco(eroeArc);
+        //ClashGame clash=new ClashGame(ga,g);
+       // eroeArc.getModA().attacco(eroeArc);
         //clash.iniziaBattaglia();
         
         /*
@@ -142,7 +142,7 @@ public class Main {
         System.out.println(arcPot.toString());
         
         */
-        Giocatore g=new Giocatore();
+        /*Giocatore g=new Giocatore();
         g.setNome("Lorenzo");
         ArrayList<Casella> caselle = new ArrayList<Casella>();
         ArrayList<Eroe> list = new ArrayList<Eroe>();
@@ -190,13 +190,13 @@ public class Main {
         caselle=eroeArc.getModA().attacco(eroeArc);
         for (int i=0;i<caselle.size();i++){
            System.out.println("OI2-Riga: "+caselle.get(i).getPosizioneRiga()+" j: "+caselle.get(i).getPosizioneColonna()+" ");
-       }
+       }*/
         //Casella casellaCorrente=v.getCasella(1, 2);
        // Attacco attacco=new Attacco();
       // attacco.spostamentoEroi(v, casellaCorrente);
 
-        //ViewCercaAvversario view2=new ViewCercaAvversario();
-       // view2.cercaAvversario(ga);
+        ViewCercaAvversario view2=new ViewCercaAvversario();
+        view2.cercaAvversario(ga);
         
     }
         

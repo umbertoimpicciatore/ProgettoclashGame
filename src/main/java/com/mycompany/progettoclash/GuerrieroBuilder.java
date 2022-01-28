@@ -9,8 +9,8 @@ package com.mycompany.progettoclash;
  *
  * @author User
  */
-public class EroeBuilder2 extends EroeBuilder{
-       public EroeBuilder2(){
+public class GuerrieroBuilder extends EroeBuilder{
+       public GuerrieroBuilder(){
         super();
         this.reset();
     }

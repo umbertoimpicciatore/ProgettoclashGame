@@ -39,9 +39,16 @@ public class SelezionePosizionaEroe {
             
         }
         else{       
-            clash.posizionaEroe(riga, colonna, eroiA);
-            view.visualizzaVillaggio(giocatoreD.getVillaggio());
-            view.iniziaBattaglia(clash);
+            boolean b=clash.posizionaEroe(riga, colonna, eroiA);
+            if(!b){
+                giocatoreA.getAccampamento().setListaEroiGiocatore(eroiA);
+                view.mostraSelezionaPosizionaEroe(giocatoreA, giocatoreD, true);
+            }
+            else{
+                view.visualizzaVillaggio(giocatoreD.getVillaggio());
+                view.iniziaBattaglia(clash);
+            }
+            
         }
     }   
 }

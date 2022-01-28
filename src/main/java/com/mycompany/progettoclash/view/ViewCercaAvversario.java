@@ -58,7 +58,7 @@ public class ViewCercaAvversario {
         }
    
         if(errore==true){
-            System.out.println("Quantita immessa errata o id eroe sbagliato");
+            System.out.println("Riga/Colonna/Quantita o idEroe immesso sbagliato");
         }
         
             String s="Immetti numero riga edificio da selezionare: ";

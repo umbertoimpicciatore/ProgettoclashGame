@@ -17,8 +17,7 @@ public class ControlloFineBattaglia implements StatoAttacco{
     public boolean controlloFineBattaglia(ClashGame clash) {
         
         boolean edificiMorti=true;
-        boolean eroiMorti=true;
-        
+        boolean eroiMorti=true;       
         ArrayList<Casella> caselle=clash.getGiocatoreD().getVillaggio().getCaselle();
         for (int i=0;i<caselle.size();i++){
             Casella c=caselle.get(i);
@@ -33,20 +32,35 @@ public class ControlloFineBattaglia implements StatoAttacco{
                 eroiMorti=false;
             }
         }
-        if(edificiMorti==true || eroiMorti==true){
-        //richiama factory ottenimento risorse
-        return true;
+        if(eroiMorti){
+            return true;
+        }
+        else if(edificiMorti==true){
+            //richiamo factory per ottenimento risorse
+            this.eroiVivi(caselle, clash.getGiocatoreA());//faccion tornare gli eroi all'attaccante
+            
+            return true;
         }
         else{
             this.cambiaStato(clash,new Attacco());
             return false;
         }
         
-        //da implementare
-        //System.out.println("Fine battaglia");
     }
-
+    //prende in ingresso le caselle del villaggio difensore e il giocatore Attaccante
+    //gli eroiVivi delGIocatore Attaccante tornano all'attaccante se non sono morti
+    private void eroiVivi( ArrayList<Casella> caselle,Giocatore giocatoreA){
+        ArrayList<Eroe> eroiA=new ArrayList<Eroe>();
+        for (int i=0;i<caselle.size();i++){
+            ArrayList<Eroe> eroi=caselle.get(i).getListaEroiA();
+            if(eroi!=null && eroi.size()>0){
+                eroiA.addAll(eroi);
+            }
+        }
+        giocatoreA.getAccampamento().setListaEroiGiocatore(eroiA);
+        
     
+    }
     
     
     @Override

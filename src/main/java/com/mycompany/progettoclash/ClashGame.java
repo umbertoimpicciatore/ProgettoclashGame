@@ -89,13 +89,22 @@ public class ClashGame {
        
     }
     //vedi a chi assegnarlo
-    public void posizionaEroe(int riga,int colonna,ArrayList<Eroe> listaEroi){
+    //restituisce false in caso di problemi, true nel caso in cui l'esecuzione è andata a buon fine
+    public boolean posizionaEroe(int riga,int colonna,ArrayList<Eroe> listaEroi){
         //manca controllo sulla casella
-        Casella c=this.giocatoreD.getVillaggio().getCasella(riga, colonna);    
-        for(int i=0;i<listaEroi.size();i++){//assegno a ciascun eroe la casella in cui verrà posizionato
-            listaEroi.get(i).setC(c);
+        Villaggio v=this.giocatoreD.getVillaggio();
+        if(riga>v.getAltezza() || colonna>v.getLarghezza()){
+            return false;
         }
-        c.addEroi(listaEroi);
+        else{
+            Casella c=v.getCasella(riga, colonna);    
+            for(int i=0;i<listaEroi.size();i++){//assegno a ciascun eroe la casella in cui verrà posizionato
+                listaEroi.get(i).setC(c);
+            }
+            c.addEroi(listaEroi);
+            return true;
+        }
+        
     }
     
     
