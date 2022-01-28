@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Villaggio {
     
-    private Giocatore giocatore;
+    private Giocatore giocatore;   //Bidirezionale??
     private int larghezza=4;
     private int altezza=4;
     private ArrayList<Casella> caselle = new ArrayList<Casella>();
