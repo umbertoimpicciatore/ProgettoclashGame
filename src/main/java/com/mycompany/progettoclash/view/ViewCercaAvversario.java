@@ -22,9 +22,9 @@ public class ViewCercaAvversario {
         String s="Immetti 1 per iniziare battaglia oppure un numero maggiore di 1 per annullare";
         int ris=this.inserisci(s);
         if(ris==1){
-            // clash=new ClashGame(giocatoreA);
-           // clash.cercaAvversario();
-            giocatoreA.cercaAvversario();
+            clash=new ClashGame(giocatoreA);
+            clash.cercaAvversario();
+           // giocatoreA.cercaAvversario();
         }
         else{
             return;
@@ -43,7 +43,8 @@ public class ViewCercaAvversario {
                 break;
             
             case 2: 
-                giocatoreA.cercaAvversario();
+                //giocatoreA.cercaAvversario();
+                clash.cercaAvversario();
                 break;
 
             default: break;

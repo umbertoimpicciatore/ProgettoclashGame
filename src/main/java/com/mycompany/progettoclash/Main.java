@@ -21,7 +21,7 @@ public class Main {
         acc.setId(2);
         e.setStatistica(s);
         e.setId(1);
-        ArciereBuilder arc=new ArciereBuilder();
+        Arciere arc=new Arciere();
         EroeDirector erD=new EroeDirector();
         Eroe eroeArc=erD.createEroe(arc);
         //Eroe guerriero=new Guerriero(new AttaccaDiagonale(),1);
@@ -58,11 +58,11 @@ public class Main {
         acc2.setId(2);
          
         
-        ArciereBuilder arc2=new ArciereBuilder();
+        Arciere arc2=new Arciere();
         arc2.setId(1);
         EroeDirector erD2=new EroeDirector();
         Eroe eroeArc2=erD2.createEroe(arc2);
-        ArciereBuilder arc3=new ArciereBuilder();
+        Arciere arc3=new Arciere();
         arc3.setId(1);
         EroeDirector erD3=new EroeDirector();
         Eroe eroeArc3=erD3.createEroe(arc3);

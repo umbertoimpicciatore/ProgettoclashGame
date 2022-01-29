@@ -10,9 +10,9 @@ package com.mycompany.progettoclash;
  * @author Lorenzo
  */
 public class FileDiConfigurazione {
-    protected static int  ottenimentoRisorse=0;
-    protected static int  matchMaking=0;
-    protected static int  regolaDiAttacco=0;
+    protected static String  ottenimentoRisorse="";
+    protected static String  matchMaking="MatchMakingBasedOnLvGiocatoreStrategy";
+    protected static String  regolaDiAttacco="";
     
     
     

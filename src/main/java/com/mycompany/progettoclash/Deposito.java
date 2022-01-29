@@ -5,6 +5,8 @@
  */
 package com.mycompany.progettoclash;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author User
@@ -26,6 +28,10 @@ public class Deposito extends Edificio {
     
      public Deposito(RuoloEdificio re, ModalitàAttacco ma) {
         super(re, ma);
+    }
+
+    @Override
+    public void setListaEroiGiocatore(ArrayList<Eroe> listaEroiGiocatore) {
     }
     
 }

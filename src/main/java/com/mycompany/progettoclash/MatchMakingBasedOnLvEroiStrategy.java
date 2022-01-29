@@ -12,10 +12,6 @@ import java.util.ArrayList;
  * @author Lorenzo
  */
 public class MatchMakingBasedOnLvEroiStrategy implements MatchMakingStrategy{
-
-    public MatchMakingBasedOnLvEroiStrategy() {
-    }
-
     
 
     @Override

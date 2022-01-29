@@ -2,7 +2,10 @@
 package com.mycompany.progettoclash;
 
 import com.mycompany.progettoclash.view.ViewCercaAvversario;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -60,6 +63,15 @@ public class ClashGame {
     public ArrayList<Casella> caselleDifensore(){
         
         return giocatoreD.getVillaggio().getCaselle();
+    }
+    
+    public void cercaAvversario(){
+        
+        TrovaAvversario t=new TrovaAvversario();
+        Giocatore giocatoreD=null;
+        giocatoreD = t.getAvversario(this.giocatoreA);
+        ViewCercaAvversario view=new ViewCercaAvversario();//si può fare dentro il controller?
+        view.conferma(giocatoreD,this.giocatoreA); 
     }
     
     public void iniziaBattaglia(){

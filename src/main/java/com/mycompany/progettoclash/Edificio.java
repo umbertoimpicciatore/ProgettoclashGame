@@ -23,7 +23,7 @@ public abstract class Edificio {
         this.edificioDescrizione = edificioDescrizione;
     }
 
-   
+    public abstract void setListaEroiGiocatore(ArrayList<Eroe> listaEroiGiocatore); //l'ho messo per l'accampamento
 
 
 

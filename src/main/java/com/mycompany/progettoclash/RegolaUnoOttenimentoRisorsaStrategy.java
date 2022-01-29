@@ -12,8 +12,7 @@ public class RegolaUnoOttenimentoRisorsaStrategy implements OttenimentoRisorseSt
     @Override
     public Risorsa ottieniRisorsa(ClashGame clash) {
         //DA IMPLEMENTARE
-        System.out.println("IMPLEMENTA");
-//        return new Oro();
+
          Villaggio villaggioD=clash.getGiocatoreD().getVillaggio();
          ArrayList<Casella>  c=villaggioD.getCaselle();
          ArrayList<Risorsa> risorse=new ArrayList();

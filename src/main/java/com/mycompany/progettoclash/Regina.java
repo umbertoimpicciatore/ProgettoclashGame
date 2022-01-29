@@ -9,8 +9,8 @@ package com.mycompany.progettoclash;
  *
  * @author User
  */
-public class ReginaBuilder extends EroeBuilder {
-       public ReginaBuilder(){
+public class Regina extends EroeBuilder {
+       public Regina(){
         super();
         this.reset();
     }

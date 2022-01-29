@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.progettoclash;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -13,31 +7,14 @@ import java.util.ArrayList;
  * @author Lorenzo
  */
 public class TrovaAvversario {
-    //private MatchMakingStrategy strategy;
-    
-//    public TrovaAvversario(MatchMakingStrategy strategy) {//SBAGLIATO SECONDO ME
-//        this.strategy = strategy;
-//    }
-//    
+
 //    public TrovaAvversario() {       
 //    }
-//
-//    public MatchMakingStrategy getStrategy() {
-//        return strategy;
-//    }
-//
-//    public void setStrategy(MatchMakingStrategy strategy) {
-//        this.strategy = strategy;
-//    }
-//
-//    
+
     
     
-        public Giocatore getAvversario(Giocatore ga) throws IOException{
-        //richiamare factory
-        //MatchmakingStrategy a=factory.getEroeStrategy
-        //return a.getAvversario(gd)
-           MatchMakingStrategy strategy=MatchMakingFactory.getInstance().getEroeStrategy();
+        public Giocatore getAvversario(Giocatore ga) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+           MatchMakingStrategy strategy=MatchMakingFactory.getInstance().getStrategy();
            return strategy.getAvversario(ga);
 //        Giocatore g=new Giocatore();
 //        g.setNome("Lorenzo");
@@ -79,7 +56,7 @@ public class TrovaAvversario {
 //        
 //        v.setCaselle(caselle);
 //        g.setVillaggio(v);
-       //     return this.strategy.getAvversario(g);//da implementare
+//            return this.strategy.getAvversario(g);//da implementare
 //       return g;
         }
     
