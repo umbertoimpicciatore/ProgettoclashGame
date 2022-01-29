@@ -8,10 +8,11 @@ package com.mycompany.progettoclash;
 public class Oro implements Risorsa {
     
     private String nome="Oro";
-    private int quantità;
+    private double quantità;
 
-    Oro(int a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Oro(double a){
+    this.quantità=a;
+    
     }
     
     @Override
@@ -20,11 +21,11 @@ public class Oro implements Risorsa {
     }
 
     @Override
-    public int getQuantita() {
+    public  double getQuantita() {
         return this.quantità;
     }
 
-    public void setQuantità(int quantità) {
+    public void setQuantita(double quantità) {
         this.quantità = quantità;
     }
     

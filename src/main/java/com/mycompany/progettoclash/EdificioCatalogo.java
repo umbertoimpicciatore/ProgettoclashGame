@@ -7,12 +7,8 @@ package com.mycompany.progettoclash;
 
 /**
  *
- * @author Lorenzo
+ * @author User
  */
-public interface Risorsa {
-    
-    public String getNome();
-    public double getQuantita();
-    public void setQuantita(double a);
+public class EdificioCatalogo {
     
 }

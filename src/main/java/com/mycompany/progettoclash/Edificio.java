@@ -13,7 +13,18 @@ public abstract class Edificio {
     private RuoloEdificio ruoloE;
     private Statistica statistica;
     private Casella casella;
-    
+    private EdificioDescrizione edificioDescrizione;
+
+    public EdificioDescrizione getEdificioDescrizione() {
+        return edificioDescrizione;
+    }
+
+    public void setEdificioDescrizione(EdificioDescrizione edificioDescrizione) {
+        this.edificioDescrizione = edificioDescrizione;
+    }
+
+   
+
 
 
     public Edificio(RuoloEdificio re,ModalitàAttacco ma){
@@ -21,7 +32,7 @@ public abstract class Edificio {
         this.ruoloE=re;
     
     }
-    public abstract void setListaEroiGiocatore(ArrayList<Eroe> listaEroiGiocatore);
+//    public abstract void setListaEroiGiocatore(ArrayList<Eroe> listaEroiGiocatore);
     
      public Casella getCasella() {
         return casella;

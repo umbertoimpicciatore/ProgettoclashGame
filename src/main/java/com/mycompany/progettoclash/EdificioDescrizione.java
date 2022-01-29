@@ -13,15 +13,8 @@ public class EdificioDescrizione {
     private Risorsa prezzoDiAcquisto;
     private Risorsa prezzoDiPotenziamento;
     private int vitaMassima;
-    private EdificioDescrizione edificioDescrizione;
 
-    public EdificioDescrizione getEdificioDescrizione() {
-        return edificioDescrizione;
-    }
-
-    public void setEdificioDescrizione(EdificioDescrizione edificioDescrizione) {
-        this.edificioDescrizione = edificioDescrizione;
-    }
+    
 
     public int getVitaMassima() {
         return vitaMassima;
