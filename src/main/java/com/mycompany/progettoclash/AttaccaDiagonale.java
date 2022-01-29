@@ -9,8 +9,8 @@ import java.util.Objects;
  * @author Lorenzo
  */
 public class AttaccaDiagonale implements ModalitàAttacco{
-    int altezza=4;//mettere gli attributi di villaggio
-    int lunghezza=4;
+    //int altezza=4;//mettere gli attributi di villaggio
+    //int lunghezza=4;
     //DEVO restituiRE proprio le caselle da attaccare del giocatore difensore?
     @Override
     public ArrayList<Casella> attacco(Eroe e) {

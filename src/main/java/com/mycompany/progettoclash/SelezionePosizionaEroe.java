@@ -34,6 +34,7 @@ public class SelezionePosizionaEroe {
         //RIGUARDA ATTENTAMENTO PER IL NULL
         ArrayList<Eroe> eroiA=giocatoreA.getAccampamento().selezionaEroe(idEroe, quantita);
         if(eroiA==null){
+            System.out.print("LOG1");
             //in caso di errori rifaccio fare la selezione posizione eroe
             view.mostraSelezionaPosizionaEroe(giocatoreA, giocatoreD, true);
             
@@ -41,12 +42,19 @@ public class SelezionePosizionaEroe {
         else{       
             boolean b=clash.posizionaEroe(riga, colonna, eroiA);
             if(!b){
+                System.out.print("cciaso");
                 giocatoreA.getAccampamento().setListaEroiGiocatore(eroiA);//in caso di errori di immissione di riga e colonna rimetto gli eroi all'attaccante
                 view.mostraSelezionaPosizionaEroe(giocatoreA, giocatoreD, true);
             }
             else{
                 view.visualizzaVillaggio(giocatoreD.getVillaggio());
-                view.iniziaBattaglia(clash);
+                if(giocatoreA.getEroi().size()>0){
+                    view.iniziaBattaglia(clash,false);
+                }
+                else{
+                    view.iniziaBattaglia(clash,true);
+                }
+                
             }
             
         }

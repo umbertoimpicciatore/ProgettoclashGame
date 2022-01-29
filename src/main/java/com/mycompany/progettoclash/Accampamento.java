@@ -54,6 +54,9 @@ public class Accampamento extends Edificio {
             if(this.listaEroiGiocatore.get(i).getId()==idEroe){
                 idEroeTrovato=true;
                 cont++;
+                if(cont==quantita){
+                    return true;
+                }
             }    
         }
         if(cont==quantita && idEroeTrovato==true){

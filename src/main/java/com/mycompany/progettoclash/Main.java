@@ -62,8 +62,13 @@ public class Main {
         arc2.setId(1);
         EroeDirector erD2=new EroeDirector();
         Eroe eroeArc2=erD2.createEroe(arc2);
+        ArciereBuilder arc3=new ArciereBuilder();
+        arc3.setId(1);
+        EroeDirector erD3=new EroeDirector();
+        Eroe eroeArc3=erD3.createEroe(arc3);
         ArrayList<Eroe> list=new ArrayList<Eroe>();
         list.add(eroeArc2);
+        list.add(eroeArc3);
         acc2.setListaEroiGiocatore(list);
         Villaggio v2=new Villaggio();
         for (int i=1;i<=v2.getAltezza();i++){

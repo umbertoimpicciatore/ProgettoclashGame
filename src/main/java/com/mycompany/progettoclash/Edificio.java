@@ -13,7 +13,7 @@ public abstract class Edificio {
     private RuoloEdificio ruoloE;
     private Statistica statistica;
     private Casella casella;
-
+    
 
 
     public Edificio(RuoloEdificio re,ModalitàAttacco ma){

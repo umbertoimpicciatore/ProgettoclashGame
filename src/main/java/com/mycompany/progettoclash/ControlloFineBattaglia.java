@@ -49,6 +49,7 @@ public class ControlloFineBattaglia implements StatoAttacco{
     }
     //prende in ingresso le caselle del villaggio difensore e il giocatore Attaccante
     //gli eroiVivi delGIocatore Attaccante tornano all'attaccante se non sono morti
+   
     private void eroiVivi( ArrayList<Casella> caselle,Giocatore giocatoreA){
         ArrayList<Eroe> eroiA=new ArrayList<Eroe>();
         for (int i=0;i<caselle.size();i++){
@@ -76,6 +77,10 @@ public class ControlloFineBattaglia implements StatoAttacco{
 
     @Override
     public void attaccanoEroi(ClashGame clash) {
+    }
+
+    @Override
+    public void spostaEroi(ClashGame clash) {
     }
     
 }

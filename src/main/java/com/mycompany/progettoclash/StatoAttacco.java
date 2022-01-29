@@ -14,5 +14,6 @@ public interface StatoAttacco {
     public void attaccanoEdifici(ClashGame clash);
     public void attaccanoEroi(ClashGame clash); 
     public void cambiaStato(ClashGame clash,StatoAttacco st);
+    public void spostaEroi(ClashGame clash);
      
 }

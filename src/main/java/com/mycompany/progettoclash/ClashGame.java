@@ -62,30 +62,25 @@ public class ClashGame {
         return giocatoreD.getVillaggio().getCaselle();
     }
     
-    public void iniziaBattaglia(int iniziaBattaglia){
+    public void iniziaBattaglia(){
         ViewCercaAvversario view=new ViewCercaAvversario();
         stato=new Attacco();
-         if(iniziaBattaglia==1){
-            boolean fineBattaglia=false;
-            while(fineBattaglia==false){
-                
+        boolean fineBattaglia=false;
+            while(fineBattaglia==false){                
                // System.out.println("CIAO loop");
-                System.out.println();
+                
                 
                 stato.attaccanoEroi(this);//attaccano eroi
                 fineBattaglia=stato.controlloFineBattaglia(this);//controllo fine battaglia
                 if(fineBattaglia==false){
                     stato.attaccanoEdifici(this);//attaccano edifici
                     fineBattaglia=stato.controlloFineBattaglia(this);//controllo fine batt
-                    stato.controlloFineBattaglia(this);//sposta
+                    stato.spostaEroi(this);//sposta
                 }
                 view.visualizzaVillaggio(giocatoreD.getVillaggio());
             }
-        }
-        else{
-            //ViewCercaAvversario view=new ViewCercaAvversario();
-            view.mostraSelezionaPosizionaEroe();
-        }       
+        
+               
        
     }
     //vedi a chi assegnarlo
