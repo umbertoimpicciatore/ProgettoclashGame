@@ -1,5 +1,5 @@
 package com.mycompany.progettoclash;
-import com.mycompany.progettoclash.view.ViewCercaAvversario;
+import com.mycompany.progettoclash.view.ViewAttacco;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
@@ -200,7 +200,7 @@ public class Main {
        // Attacco attacco=new Attacco();
       // attacco.spostamentoEroi(v, casellaCorrente);
 
-        ViewCercaAvversario view2=new ViewCercaAvversario();
+        ViewAttacco view2=new ViewAttacco();
         view2.cercaAvversario(ga);
         
     }

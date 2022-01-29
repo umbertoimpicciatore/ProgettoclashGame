@@ -1,7 +1,7 @@
 
 package com.mycompany.progettoclash;
 
-import com.mycompany.progettoclash.view.ViewCercaAvversario;
+import com.mycompany.progettoclash.view.ViewAttacco;
 import java.util.ArrayList;
 
 /**
@@ -11,7 +11,17 @@ import java.util.ArrayList;
 public class Giocatore {
     private int livello;
     private Accampamento Accampamento;//vedere LARMAN
+    private Accademia Accademia;//VALUTARE BENE SE METTERLO OPPURE NO, RILEGGI IL LARMAN
     private Deposito deposito;
+
+    public Accademia getAccademia() {
+        return Accademia;
+    }
+
+    public void setAccademia(Accademia Accademia) {
+        this.Accademia = Accademia;
+    }
+    
 
     public Deposito getDeposito() {
         return deposito;

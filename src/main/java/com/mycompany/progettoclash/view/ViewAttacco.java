@@ -13,7 +13,7 @@ import java.util.Scanner;
  *
  * @author Lorenzo
  */
-public class ViewCercaAvversario {
+public class ViewAttacco {
     ClashGame clash;
     
     public void cercaAvversario(Giocatore giocatoreA){
@@ -115,7 +115,7 @@ public class ViewCercaAvversario {
     }
     
       public void visualizzaVillaggio(Villaggio villaggioD){
-          StringBuilder value=new StringBuilder("");
+         // StringBuilder value=new StringBuilder("");
           String s="";
         for (int i=1;i<=villaggioD.getAltezza();i++){
             s="";

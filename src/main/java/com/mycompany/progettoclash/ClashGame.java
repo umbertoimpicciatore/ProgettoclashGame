@@ -1,7 +1,7 @@
 
 package com.mycompany.progettoclash;
 
-import com.mycompany.progettoclash.view.ViewCercaAvversario;
+import com.mycompany.progettoclash.view.ViewAttacco;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -70,12 +70,12 @@ public class ClashGame {
         TrovaAvversario t=new TrovaAvversario();
         Giocatore giocatoreD=null;
         giocatoreD = t.getAvversario(this.giocatoreA);
-        ViewCercaAvversario view=new ViewCercaAvversario();//si può fare dentro il controller?
+        ViewAttacco view=new ViewAttacco();//si può fare dentro il controller?
         view.conferma(giocatoreD,this.giocatoreA); 
     }
     
     public void iniziaBattaglia(){
-        ViewCercaAvversario view=new ViewCercaAvversario();
+        ViewAttacco view=new ViewAttacco();
         stato=new Attacco();
         boolean fineBattaglia=false;
             while(fineBattaglia==false){                

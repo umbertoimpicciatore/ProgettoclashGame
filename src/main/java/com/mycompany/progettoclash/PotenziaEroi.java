@@ -5,14 +5,15 @@
  */
 package com.mycompany.progettoclash;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Lorenzo
  */
-public interface OttenimentoRisorseStrategy {
-    
-    public ArrayList<Risorsa> ottieniRisorsa(ClashGame clash);
+public class PotenziaEroi implements RuoloEdificio {
+
+    @Override
+    public void operazione() {
+        //id
+    }
     
 }

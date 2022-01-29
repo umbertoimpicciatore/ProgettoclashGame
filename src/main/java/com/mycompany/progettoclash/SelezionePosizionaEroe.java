@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.mycompany.progettoclash;
-import com.mycompany.progettoclash.view.ViewCercaAvversario;
+import com.mycompany.progettoclash.view.ViewAttacco;
 
 
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class SelezionePosizionaEroe {
     
     public void selezionaPosizionaEroe(int riga,int colonna,int idEroe,int quantita,Giocatore giocatoreA,Giocatore giocatoreD) {
         
-        ViewCercaAvversario view=new ViewCercaAvversario();
+        ViewAttacco view=new ViewAttacco();
         ClashGame clash=new ClashGame(giocatoreA,giocatoreD);
         //RIGUARDA ATTENTAMENTO PER IL NULL
         ArrayList<Eroe> eroiA=giocatoreA.getAccampamento().selezionaEroe(idEroe, quantita);
