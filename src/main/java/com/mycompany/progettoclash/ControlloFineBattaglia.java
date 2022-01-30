@@ -37,6 +37,12 @@ public class ControlloFineBattaglia implements StatoAttacco{
         }
         else if(edificiMorti==true){
             //richiamo factory per ottenimento risorse
+           /* RegolaUnoOttenimentoRisorsaStrategy reg1=new RegolaUnoOttenimentoRisorsaStrategy();
+            ArrayList<Risorsa> risorse=reg1.ottieniRisorsa(clash);
+            System.out.println("OIIIIII"+risorse.size());
+            for(int i=0;i<risorse.size();i++){
+                System.out.println("OIIIIII:"+risorse.get(i).getNome()+" q:"+risorse.get(i).getQuantita());
+            }*/
             this.eroiVivi(caselle, clash.getGiocatoreA());//faccion tornare gli eroi all'attaccante
             
             return true;

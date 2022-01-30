@@ -5,12 +5,15 @@
  */
 package com.mycompany.progettoclash;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Lorenzo
  */
 public class EroeDescrizione {
     
+    private ArrayList<Eroe> eroi;//sul libro c'è solo Eroe e non arrayList
     private String nome;
     private int quantitaMassima;
     private int quantitaDisponibile;
@@ -18,6 +21,27 @@ public class EroeDescrizione {
     private Risorsa prezzoDiPotenziamento;
     private int vitaMassima;
 
+    public EroeDescrizione() {
+
+    }
+
+    public EroeDescrizione(String nome, int quantitaMassima, int quantitaDisponibile, Risorsa prezzoDiAcquisto, Risorsa prezzoDiPotenziamento, int vitaMassima) {
+        this.nome = nome;
+        this.quantitaMassima = quantitaMassima;
+        this.quantitaDisponibile = quantitaDisponibile;
+        this.prezzoDiAcquisto = prezzoDiAcquisto;
+        this.prezzoDiPotenziamento = prezzoDiPotenziamento;
+        this.vitaMassima = vitaMassima;
+    }
+    
+    public ArrayList<Eroe> getEroi() {
+        return eroi;
+    }
+
+    public void setEroi(ArrayList<Eroe> eroi) {
+        this.eroi = eroi;
+    }
+    
     public int getVitaMassima() {
         return vitaMassima;
     }
@@ -66,6 +90,12 @@ public class EroeDescrizione {
         this.prezzoDiPotenziamento = prezzoDiPotenziamento;
     }
     
+    @Override
+    public String toString(){
+        String s="";
+        s="Nome: ".concat(nome)+" QuantitaMassima: "+this.quantitaMassima+" QuantitaDisponibile: "+this.quantitaDisponibile+" Prezzo di Acquisto: ".concat(this.prezzoDiAcquisto.toString()+" PrezzoPotenziamento: ".concat(this.prezzoDiPotenziamento.toString()));
+        return s;
+    }
     
     
 }

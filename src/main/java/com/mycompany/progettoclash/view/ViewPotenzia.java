@@ -5,7 +5,9 @@
  */
 package com.mycompany.progettoclash.view;
 import com.mycompany.progettoclash.CPotenzia;
+import com.mycompany.progettoclash.EroeDescrizione;
 import com.mycompany.progettoclash.Giocatore;
+import java.util.ArrayList;
 import java.util.Scanner;
 /**
  *
@@ -28,18 +30,24 @@ public class ViewPotenzia {
         System.out.println(">5: Esci(logout)");*/
         
         String s="Cosa vuoi fare?\n 1: Attaccare un altro giocatore?\n 2: Potenziare eroe?\n 3: Inserire edificio?\n 4: Acquistare eroi?\n 5: Potenziare edificio?\n >5: Esci(logout)";
-       // String s="Immetti riga Edificio";
         int ris=this.inserisci(s);
-    //s="Immetti colonna Edificio";
-    //int colonna=this.inserisci(s);
-    
         potenzia=new CPotenzia();
         potenzia.operazione(g);
     
     }
     
-    public void mostraEroi(){
+    public void mostraEroi(ArrayList<EroeDescrizione> desc,boolean errore){
         
+        if(errore){
+            System.out.println("IdEroe inserito non corretto");
+        }
+        
+        for (int i=0;i<desc.size();i++){
+           System.out.println(desc.get(i).toString()+" Livello: "+desc.get(i).getEroi().get(i).getLivello());
+        }
+        String s="Inserisci idEroe da potenziare oppure 0 per annullare";
+        int ris=this.inserisci(s);
+        potenzia.potenzia(ris);
     }
     
     private int inserisci(String strDaVisualizzare){
@@ -49,11 +57,11 @@ public class ViewPotenzia {
         do {
              System.out.println(strDaVisualizzare);
              while (!sc.hasNextInt()) {
-                 System.out.println("Errore, immetti un numero");
+                 System.out.println("Errore, immetti un numero positivo");
                  sc.next(); 
              }
              var = sc.nextInt();
-         } while (var <= 0);
+         } while (var < 0);
          return var;
     }
     

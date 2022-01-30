@@ -25,7 +25,7 @@ public class RegolaUnoOttenimentoRisorsaStrategy implements OttenimentoRisorseSt
                     Risorsa risorsaArray=risorse.get(ris);
                     double quantita=risorsaArray.getQuantita()+r.getQuantita();
                     risorsaArray.setQuantita(quantita);
-                    risorse.set(ris, r);
+                    risorse.set(ris, risorsaArray);
                 }
                 else{
                     risorse.add(r);
@@ -38,8 +38,14 @@ public class RegolaUnoOttenimentoRisorsaStrategy implements OttenimentoRisorseSt
          
     private int isInArray(Risorsa r,ArrayList<Risorsa> list){
         //boolean b=list.contains(r);
-        int ris=list.indexOf(r);
-        return ris;
+        for(int i=0;i<list.size();i++){
+            if(list.get(i).getNome().equals(r.getNome())){
+                return i;
+            }
+        }
+        return -1;
+        //int ris=list.indexOf(r);
+        //return ris;
     }
         
     }

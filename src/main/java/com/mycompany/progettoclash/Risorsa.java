@@ -14,5 +14,7 @@ public interface Risorsa {
     public String getNome();
     public double getQuantita();
     public void setQuantita(double a);
+    @Override
+    public String toString();
     
 }

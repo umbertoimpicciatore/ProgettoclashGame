@@ -24,9 +24,29 @@ public class CPotenzia {
         
     }*/
     public void operazione(Giocatore g){
-       g.getAccademia();
+        //il CATALOGO è UNA VARIABILE DI CPOTENZIA? PAG382
+       //g.getAccademia();
+       //il giocatore in questo caso a che mi serve?????
        ViewPotenzia view=new ViewPotenzia();
-       view.mostraEroi();
+       EroeCatalogo edC=new EroeCatalogo();
+       ArrayList<EroeDescrizione> desc=edC.getAllDescrizioni();
+       view.mostraEroi(desc,false);
+    }
+    
+    public void potenzia(int idEroeDescrizione){
+        //qui serve il giocatore per andare a modificare solo gli eroi di quel giocatore?
+        //richiamo accademia che si occupero di fare tutto ciò che segue?
+        EroeCatalogo edC=new EroeCatalogo();
+        EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
+        ArrayList<Eroe> eroi=desc.getEroi();
+        for(int i=0;i<eroi.size();i++){
+            Statistica s=eroi.get(i).getStat();
+            //modifico statistiche secondo delle regole
+            //modifico livello per ciascun eroe
+            //modifico livello giocatore
+        
+        }
+        //richiamo view
     }
     
     

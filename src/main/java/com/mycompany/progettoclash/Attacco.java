@@ -220,42 +220,46 @@ public class Attacco implements StatoAttacco{
         for (int i=1;i<=v.getAltezza();i++){
             for (int j=1;j<=v.getLarghezza();j++){
                 Casella c2=v.getCasella(i, j);
-                    int vita=c2.getEdificio().getStatistica().getVita();
-                    if(vita>0){
-                        if(c2.getPosizioneRiga()==c.getPosizioneRiga() && c2.getPosizioneColonna()<c.getPosizioneColonna()){
-                            prossimaRiga=c.getPosizioneRiga();
-                            prossimaColonna=c.getPosizioneColonna()-1;
+                Edificio e=c2.getEdificio();
+                if(e!=null){
+                    int vita=e.getStatistica().getVita();
+                        if(vita>0){
+                            if(c2.getPosizioneRiga()==c.getPosizioneRiga() && c2.getPosizioneColonna()<c.getPosizioneColonna()){
+                                prossimaRiga=c.getPosizioneRiga();
+                                prossimaColonna=c.getPosizioneColonna()-1;
+                            }
+                            else if(c2.getPosizioneRiga()==c.getPosizioneRiga() && c2.getPosizioneColonna()>c.getPosizioneColonna()){
+                                prossimaRiga=c.getPosizioneRiga();
+                                prossimaColonna=c.getPosizioneColonna()+1;
+                            }
+                            else if(c2.getPosizioneRiga()>c.getPosizioneRiga() && c2.getPosizioneColonna()==c.getPosizioneColonna()){
+                                prossimaRiga=c.getPosizioneRiga();
+                                prossimaColonna=c.getPosizioneColonna()+1;
+                            }
+                            else if(c2.getPosizioneRiga()<c.getPosizioneRiga() && c2.getPosizioneColonna()==c.getPosizioneColonna()){
+                                prossimaRiga=c.getPosizioneRiga();
+                                prossimaColonna=c.getPosizioneColonna()-1;
+                            }
+                            else if(c2.getPosizioneRiga()!=c.getPosizioneRiga() && c2.getPosizioneColonna()!=c.getPosizioneColonna() && c2.getPosizioneColonna()<c.getPosizioneColonna() && c2.getPosizioneRiga()<c.getPosizioneRiga()){
+                                prossimaRiga=c.getPosizioneRiga()-1;
+                                prossimaColonna=c.getPosizioneColonna()-1;
+                            }
+                            else if(c2.getPosizioneRiga()!=c.getPosizioneRiga() && c2.getPosizioneColonna()!=c.getPosizioneColonna() && c2.getPosizioneColonna()>c.getPosizioneColonna() && c2.getPosizioneRiga()<c.getPosizioneRiga()){
+                                prossimaRiga=c.getPosizioneRiga()-1;
+                                prossimaColonna=c.getPosizioneColonna()+1;
+                            }
+                            else if(c2.getPosizioneRiga()!=c.getPosizioneRiga() && c2.getPosizioneColonna()!=c.getPosizioneColonna() && c2.getPosizioneColonna()<c.getPosizioneColonna() && c2.getPosizioneRiga()>c.getPosizioneRiga()){
+                                prossimaRiga=c.getPosizioneRiga()+1;
+                                prossimaColonna=c.getPosizioneColonna()-1;
+                            }
+                            else if(c2.getPosizioneRiga()!=c.getPosizioneRiga() && c2.getPosizioneColonna()!=c.getPosizioneColonna() && c2.getPosizioneColonna()>c.getPosizioneColonna() && c2.getPosizioneRiga()>c.getPosizioneRiga()){
+                                prossimaRiga=c.getPosizioneRiga()+1;
+                                prossimaColonna=c.getPosizioneColonna()+1;
+                            }
+                            return v.getCasella(prossimaRiga,prossimaColonna);
                         }
-                        else if(c2.getPosizioneRiga()==c.getPosizioneRiga() && c2.getPosizioneColonna()>c.getPosizioneColonna()){
-                            prossimaRiga=c.getPosizioneRiga();
-                            prossimaColonna=c.getPosizioneColonna()+1;
-                        }
-                        else if(c2.getPosizioneRiga()>c.getPosizioneRiga() && c2.getPosizioneColonna()==c.getPosizioneColonna()){
-                            prossimaRiga=c.getPosizioneRiga();
-                            prossimaColonna=c.getPosizioneColonna()+1;
-                        }
-                        else if(c2.getPosizioneRiga()<c.getPosizioneRiga() && c2.getPosizioneColonna()==c.getPosizioneColonna()){
-                            prossimaRiga=c.getPosizioneRiga();
-                            prossimaColonna=c.getPosizioneColonna()-1;
-                        }
-                        else if(c2.getPosizioneRiga()!=c.getPosizioneRiga() && c2.getPosizioneColonna()!=c.getPosizioneColonna() && c2.getPosizioneColonna()<c.getPosizioneColonna() && c2.getPosizioneRiga()<c.getPosizioneRiga()){
-                            prossimaRiga=c.getPosizioneRiga()-1;
-                            prossimaColonna=c.getPosizioneColonna()-1;
-                        }
-                        else if(c2.getPosizioneRiga()!=c.getPosizioneRiga() && c2.getPosizioneColonna()!=c.getPosizioneColonna() && c2.getPosizioneColonna()>c.getPosizioneColonna() && c2.getPosizioneRiga()<c.getPosizioneRiga()){
-                            prossimaRiga=c.getPosizioneRiga()-1;
-                            prossimaColonna=c.getPosizioneColonna()+1;
-                        }
-                        else if(c2.getPosizioneRiga()!=c.getPosizioneRiga() && c2.getPosizioneColonna()!=c.getPosizioneColonna() && c2.getPosizioneColonna()<c.getPosizioneColonna() && c2.getPosizioneRiga()>c.getPosizioneRiga()){
-                            prossimaRiga=c.getPosizioneRiga()+1;
-                            prossimaColonna=c.getPosizioneColonna()-1;
-                        }
-                        else if(c2.getPosizioneRiga()!=c.getPosizioneRiga() && c2.getPosizioneColonna()!=c.getPosizioneColonna() && c2.getPosizioneColonna()>c.getPosizioneColonna() && c2.getPosizioneRiga()>c.getPosizioneRiga()){
-                            prossimaRiga=c.getPosizioneRiga()+1;
-                            prossimaColonna=c.getPosizioneColonna()+1;
-                        }
-                        return v.getCasella(prossimaRiga,prossimaColonna);
-                    }
+                }
+                    
             }
         }
         return null;

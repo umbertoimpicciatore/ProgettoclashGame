@@ -51,6 +51,15 @@ public class Main {
         v.setCaselle(caselle);
         
         //creo GIOCATORE ATTACCANTE
+        Deposito dep1=new Deposito(new Immagazzinare(),new AttaccaAvanti());
+        Deposito dep2=new Deposito(new Immagazzinare(),new AttaccaAvanti());
+        dep1.setId(0);
+        dep2.setId(2);
+        Oro oro=new Oro(2);
+        Mana mana=new Mana(3);
+        dep1.setRisorsa(oro);
+        dep2.setRisorsa(mana);
+        
         Giocatore ga=new Giocatore();
         Edificio acc2=new Accampamento(new Immagazzinare(),new AttaccaAvanti());
         Statistica s1=new Statistica(5,5,100);

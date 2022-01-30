@@ -11,7 +11,7 @@ package com.mycompany.progettoclash;
  */
 public class FileDiConfigurazione {
     protected static String  ottenimentoRisorse="";
-    protected static String  matchMaking="MatchMakingBasedOnLvGiocatoreStrategy";
+    protected static String  matchMaking="com.mycompany.progettoclash.MatchMakingBasedOnLvGiocatoreStrategy";
     protected static String  regolaDiAttacco="";
     
     

@@ -69,7 +69,15 @@ public class ClashGame {
         
         TrovaAvversario t=new TrovaAvversario();
         Giocatore giocatoreD=null;
-        giocatoreD = t.getAvversario(this.giocatoreA);
+        try {
+            giocatoreD = t.getAvversario(this.giocatoreA);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ClashGame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(ClashGame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(ClashGame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ViewAttacco view=new ViewAttacco();//si può fare dentro il controller?
         view.conferma(giocatoreD,this.giocatoreA); 
     }
