@@ -1,7 +1,6 @@
 
 package com.mycompany.progettoclash;
 
-import com.mycompany.progettoclash.view.ViewAttacco;
 import java.util.ArrayList;
 
 /**
@@ -85,5 +84,6 @@ public class Giocatore {
         view.conferma(giocatoreD,this); 
     }
     */
+    
     
 }

@@ -13,7 +13,7 @@ public class RegolaUnoOttenimentoRisorsaStrategy implements OttenimentoRisorseSt
     public ArrayList<Risorsa> ottieniRisorsa(ClashGame clash) {
     
         ArrayList<Risorsa> risorse= new ArrayList<Risorsa>();
-        ArrayList<Casella>  c=clash.getGiocatoreD().getVillaggio().getCaselle();
+        ArrayList<Casella>  c=clash.caselleDifensore();
         for(int i=0;i<c.size();i++){
             Casella casella=c.get(i);
             Edificio edificio=casella.getEdificio();
@@ -37,16 +37,15 @@ public class RegolaUnoOttenimentoRisorsaStrategy implements OttenimentoRisorseSt
         }
          
     private int isInArray(Risorsa r,ArrayList<Risorsa> list){
-        //boolean b=list.contains(r);
         for(int i=0;i<list.size();i++){
             if(list.get(i).getNome().equals(r.getNome())){
                 return i;
             }
         }
         return -1;
-        //int ris=list.indexOf(r);
-        //return ris;
     }
+
+    
         
     }
     

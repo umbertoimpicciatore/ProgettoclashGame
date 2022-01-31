@@ -31,8 +31,8 @@ public class ViewPotenzia {
         
         String s="Cosa vuoi fare?\n 1: Attaccare un altro giocatore?\n 2: Potenziare eroe?\n 3: Inserire edificio?\n 4: Acquistare eroi?\n 5: Potenziare edificio?\n >5: Esci(logout)";
         int ris=this.inserisci(s);
-        potenzia=new CPotenzia();
-        potenzia.operazione(g);
+        potenzia=new CPotenzia(g);
+        potenzia.operazione();
     
     }
     
@@ -47,7 +47,13 @@ public class ViewPotenzia {
         }
         String s="Inserisci idEroe da potenziare oppure 0 per annullare";
         int ris=this.inserisci(s);
-        potenzia.potenzia(ris);
+        if(ris==0){
+            return;
+        }
+        else{
+            potenzia.potenzia(ris);
+        }
+        
     }
     
     private int inserisci(String strDaVisualizzare){

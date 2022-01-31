@@ -10,6 +10,11 @@ import java.util.ArrayList;
  */
 public class CPotenzia {
     
+    private Giocatore g;
+
+    public CPotenzia(Giocatore g) {
+        this.g = g;
+    }
     
     //selezioni edificio, in questo caso accademiaa
     //selezionata l'accademia ti mostra gli eroi del giocatore e lui deve selezionare quello che vuole potenziare
@@ -23,7 +28,7 @@ public class CPotenzia {
         
         
     }*/
-    public void operazione(Giocatore g){
+    public void operazione(){
         //il CATALOGO è UNA VARIABILE DI CPOTENZIA? PAG382
        //g.getAccademia();
        //il giocatore in questo caso a che mi serve?????
@@ -36,7 +41,9 @@ public class CPotenzia {
     public void potenzia(int idEroeDescrizione){
         //qui serve il giocatore per andare a modificare solo gli eroi di quel giocatore?
         //richiamo accademia che si occupero di fare tutto ciò che segue?
+        
         EroeCatalogo edC=new EroeCatalogo();
+        
         EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
         ArrayList<Eroe> eroi=desc.getEroi();
         for(int i=0;i<eroi.size();i++){

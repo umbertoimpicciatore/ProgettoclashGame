@@ -21,5 +21,11 @@ public class OttenimentoRisorseFactory {
         return instance;
     }
     
+    public OttenimentoRisorseStrategy getStrategy() throws ClassNotFoundException, InstantiationException, IllegalAccessException{
+        String className= FileDiConfigurazione.ottenimentoRisorse;
+        Class cls = Class.forName(className);
+        OttenimentoRisorseStrategy clsInstance = (OttenimentoRisorseStrategy) cls.newInstance();
+        return clsInstance;
+    }
     
 }

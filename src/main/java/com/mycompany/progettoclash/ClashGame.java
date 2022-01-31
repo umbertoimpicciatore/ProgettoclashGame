@@ -2,7 +2,6 @@
 package com.mycompany.progettoclash;
 
 import com.mycompany.progettoclash.view.ViewAttacco;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,8 +28,6 @@ public class ClashGame {
         this.giocatoreA=ga;
     }
 
-    public ClashGame() {
-    }
     
     public void CambiaStato(StatoAttacco st){
         stato=st;
@@ -71,11 +68,7 @@ public class ClashGame {
         Giocatore giocatoreD=null;
         try {
             giocatoreD = t.getAvversario(this.giocatoreA);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ClashGame.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(ClashGame.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(ClashGame.class.getName()).log(Level.SEVERE, null, ex);
         }
         ViewAttacco view=new ViewAttacco();//si può fare dentro il controller?
@@ -87,9 +80,6 @@ public class ClashGame {
         stato=new Attacco();
         boolean fineBattaglia=false;
             while(fineBattaglia==false){                
-               // System.out.println("CIAO loop");
-                
-                
                 stato.attaccanoEroi(this);//attaccano eroi
                 fineBattaglia=stato.controlloFineBattaglia(this);//controllo fine battaglia
                 if(fineBattaglia==false){
@@ -99,14 +89,37 @@ public class ClashGame {
                 }
                 view.visualizzaVillaggio(giocatoreD.getVillaggio());
             }
+        OttenimentoRisorseStrategy strategy=null;    
+        try {
+             strategy=OttenimentoRisorseFactory.getInstance().getStrategy();
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+            Logger.getLogger(ClashGame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ArrayList<Risorsa>risorse=strategy.ottieniRisorsa(this);
+        this.giocatoreA.getVillaggio().addRisorse(risorse);
+        this.giocatoreD.getVillaggio().perdiRisorse();
+        this.eroiVivi(this.caselleDifensore(), giocatoreA);
         
-               
-       
     }
+    
+    
+    private void eroiVivi( ArrayList<Casella> caselle,Giocatore giocatoreA){
+        ArrayList<Eroe> eroiA=new ArrayList<Eroe>();
+        for (int i=0;i<caselle.size();i++){
+            ArrayList<Eroe> eroi=caselle.get(i).getListaEroiA();
+            if(eroi!=null && eroi.size()>0){
+                eroiA.addAll(eroi);
+                caselle.get(i).setListaEroiA(new ArrayList<Eroe>());//tolgo gli eroi attaccanti sulla casella del villaggio difensore
+            }
+        }
+        giocatoreA.getAccampamento().setListaEroiGiocatore(eroiA);
+    }
+    
+    
+    
     //vedi a chi assegnarlo
     //restituisce false in caso di problemi, true nel caso in cui l'esecuzione è andata a buon fine
     public boolean posizionaEroe(int riga,int colonna,ArrayList<Eroe> listaEroi){
-        //manca controllo sulla casella
         Villaggio v=this.giocatoreD.getVillaggio();
         if(riga>v.getAltezza() || colonna>v.getLarghezza()){
             return false;
@@ -119,7 +132,6 @@ public class ClashGame {
             c.addEroi(listaEroi);
             return true;
         }
-        
     }
     
     

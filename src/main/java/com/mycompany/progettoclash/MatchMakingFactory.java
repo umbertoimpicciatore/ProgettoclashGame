@@ -31,5 +31,5 @@ public class MatchMakingFactory {
        Class cls = Class.forName(className);
        MatchMakingStrategy clsInstance = (MatchMakingStrategy) cls.newInstance();
        return clsInstance;
-}
+    }
 }

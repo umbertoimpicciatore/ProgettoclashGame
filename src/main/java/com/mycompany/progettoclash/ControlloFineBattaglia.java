@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.progettoclash;
 
 import java.util.ArrayList;
@@ -18,7 +13,7 @@ public class ControlloFineBattaglia implements StatoAttacco{
         
         boolean edificiMorti=true;
         boolean eroiMorti=true;       
-        ArrayList<Casella> caselle=clash.getGiocatoreD().getVillaggio().getCaselle();
+        ArrayList<Casella> caselle=clash.caselleDifensore();
         for (int i=0;i<caselle.size();i++){
             Casella c=caselle.get(i);
             Edificio edificio=c.getEdificio();
@@ -27,26 +22,26 @@ public class ControlloFineBattaglia implements StatoAttacco{
                     edificiMorti=false;
                 }
             }
-            
             if(c.getListaEroiA().size()>0){//controllo se gli eroi sono morti tutti
                 eroiMorti=false;
             }
         }
-        if(eroiMorti){
+        if(edificiMorti==true || eroiMorti==true){
             return true;
         }
-        else if(edificiMorti==true){
+        /*else if(edificiMorti==true || eroiMorti==true){
+            return true;
             //richiamo factory per ottenimento risorse
-           /* RegolaUnoOttenimentoRisorsaStrategy reg1=new RegolaUnoOttenimentoRisorsaStrategy();
+            RegolaUnoOttenimentoRisorsaStrategy reg1=new RegolaUnoOttenimentoRisorsaStrategy();
             ArrayList<Risorsa> risorse=reg1.ottieniRisorsa(clash);
             System.out.println("OIIIIII"+risorse.size());
             for(int i=0;i<risorse.size();i++){
                 System.out.println("OIIIIII:"+risorse.get(i).getNome()+" q:"+risorse.get(i).getQuantita());
-            }*/
-            this.eroiVivi(caselle, clash.getGiocatoreA());//faccion tornare gli eroi all'attaccante
+            }
+           // this.eroiVivi(caselle, clash.getGiocatoreA());//faccion tornare gli eroi all'attaccante
             
-            return true;
-        }
+            
+        }*/
         else{
             this.cambiaStato(clash,new Attacco());
             return false;
@@ -66,8 +61,6 @@ public class ControlloFineBattaglia implements StatoAttacco{
             }
         }
         giocatoreA.getAccampamento().setListaEroiGiocatore(eroiA);
-        
-    
     }
     
     

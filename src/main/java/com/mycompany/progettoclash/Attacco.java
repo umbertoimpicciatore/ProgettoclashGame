@@ -96,9 +96,7 @@ public class Attacco implements StatoAttacco{
             for(int j=0;j<eroi.size();j++){
                 Eroe e=eroi.get(j);//recupero l'eroe
                 ArrayList<Casella> listCaselleDaAttaccare=e.getModA().attacco(e);//recupero le caselle da attaccare  
-                //int almenoUnEdificioAttaccato=0;.
-                for(int k=0;k<listCaselleDaAttaccare.size();k++){
-                     
+                for(int k=0;k<listCaselleDaAttaccare.size();k++){ 
                     //MANCA CONTROLLO SULLA VITA DELL'EDIFICIO
                     Casella c=listCaselleDaAttaccare.get(k);
                     Edificio edificio=listCaselleDaAttaccare.get(k).getEdificio();
@@ -107,15 +105,10 @@ public class Attacco implements StatoAttacco{
                         int difesa=edificio.getStatistica().getDifesa();//+ la difesa della skin?
                         int attaccoEroe=e.getStat().getAttacco()+e.getSkin().getAttacco();
                         if(attaccoEroe-difesa>5 &&vita>0){
-                            //almenoUnEdificioAttaccato++;
                             int attdif=attaccoEroe-difesa; 
                             vita-=attdif;                           
-                            //System.out.print(attaccoEroe+"CIAO1 "+vita+" difesa"+difesa);
-                            //System.out.print(attdif+" "+vita);
                         }
                         else{
-                            //System.out.print(attaccoEroe+"CIAO "+vita+"difesa"+difesa);
-                           // almenoUnEdificioAttaccato++;
                             vita-=5;
                         }
                         if(vita<0){
@@ -124,15 +117,9 @@ public class Attacco implements StatoAttacco{
                         edificio.setVita(vita);
                     } 
                 }
-              /*  if(almenoUnEdificioAttaccato>0){//non serve
-                    almenoUnEdificioAttaccato=0;
-                    this.cambiaStato(clash, new AttaccanoEdifici());
-                }*/
             }     
         }
-       // this.cambiaStato(clash, new AttaccanoEdifici());//cambio stato 
        this.cambiaStato(clash, new ControlloFineBattaglia());
-
     }
     
     //sposta
@@ -160,7 +147,7 @@ public class Attacco implements StatoAttacco{
     }
 
     //metodo utilizzato per spostare gli eroi verso la prossima casella da attaccare
-    public Casella spostamentoEroi(Villaggio v,Casella c){
+    private Casella spostamentoEroi(Villaggio v,Casella c){
         int riga=c.getPosizioneRiga();
         int colonna=c.getPosizioneColonna();
        // System.out.println("Hellooooooo:Riga: "+riga+" j: "+colonna+" ");
@@ -184,7 +171,7 @@ public class Attacco implements StatoAttacco{
             cont2=0;
             for(int i=riga-1 ;cont<3 && i<=v.getAltezza();i++){ 
                 for(int j=colonna-1;cont2<3 && j<=v.getLarghezza();j++){
-                    System.out.println("OI-Riga: "+i+" j: "+j+" ");
+                    //System.out.println("OI-Riga: "+i+" j: "+j+" ");
                     if(i>0 && j>0){
                         Casella c2=v.getCasella(i, j);
                         Casella cas=this.verificaVitaEdificio(c2);

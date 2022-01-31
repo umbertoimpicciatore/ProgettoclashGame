@@ -14,5 +14,5 @@ import java.util.ArrayList;
 public interface OttenimentoRisorseStrategy {
     
     public ArrayList<Risorsa> ottieniRisorsa(ClashGame clash);
-    
+
 }
