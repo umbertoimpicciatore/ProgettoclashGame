@@ -1,6 +1,8 @@
 package com.mycompany.progettoclash;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,8 +21,8 @@ public class Accampamento extends Edificio {
     }
     
     
-    public Accampamento(RuoloEdificio re, ModalitàAttacco ma) {
-        super(re, ma);
+    public Accampamento( ModalitàAttacco ma) {
+        super(ma);
     }
     
     public ArrayList<Eroe> selezionaEroe(int idEroe,int quantita){
@@ -65,6 +67,21 @@ public class Accampamento extends Edificio {
         else{
             return false;
         }
+    }
+    
+    
+    public void acquistaEroi(int idEroeDescrizione,int quantita,Giocatore giocatore){
+        EroeCatalogo edC=new EroeCatalogo();
+        EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
+        PotenziamentoStrategy strategyEroe=null;
+        try {
+            strategyEroe = PotenziamentoFactory.getInstance().getStrategy();
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+            Logger.getLogger(Accademia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        strategyEroe.potenziaEroe(desc,quantita,giocatore);//cambia NOME METODO
+                
+        
     }
  
 }

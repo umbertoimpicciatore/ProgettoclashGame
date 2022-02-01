@@ -20,7 +20,16 @@ public class EroeDescrizione {
     private Risorsa prezzoDiAcquisto;
     private Risorsa prezzoDiPotenziamento;
     private int vitaMassima;
+    private Statistica statisticaIniziale;
 
+    public Statistica getStatisticaIniziale() {
+        return statisticaIniziale;
+    }
+
+    public void setStatisticaIniziale(Statistica statisticaIniziale) {
+        this.statisticaIniziale = statisticaIniziale;
+    }
+    
     public EroeDescrizione() {
 
     }
@@ -32,6 +41,7 @@ public class EroeDescrizione {
         this.prezzoDiAcquisto = prezzoDiAcquisto;
         this.prezzoDiPotenziamento = prezzoDiPotenziamento;
         this.vitaMassima = vitaMassima;
+        
     }
     
     public ArrayList<Eroe> getEroi() {

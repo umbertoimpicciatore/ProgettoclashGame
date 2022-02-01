@@ -5,13 +5,12 @@
  */
 package com.mycompany.progettoclash;
 
-import java.util.ArrayList;
 
 /**
  *
  * @author User
  */
 public interface PotenziamentoStrategy {
-    public ArrayList<Eroe> potenziaEroe(EroeDescrizione desc,Giocatore giocatore);
+    public void potenziaEroe(EroeDescrizione desc,int quantita,Giocatore giocatore);
     
 }

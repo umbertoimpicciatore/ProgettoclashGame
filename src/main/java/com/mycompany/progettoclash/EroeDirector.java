@@ -9,16 +9,16 @@ public class EroeDirector {
     
 
     
-    public Eroe createEroe(EroeBuilder eroeBuilder){
+    public Eroe createEroe(EroeBuilder eroeBuilder,Statistica s){
         
-       eroeBuilder.setSkills();
+       eroeBuilder.setSkills( s);
        eroeBuilder.setSkin(new SkinBase());
        return eroeBuilder.build();
     }
     
-    public Eroe createEroePotenziato(EroeBuilder eroeBuilder){
+    public Eroe createEroePotenziato(EroeBuilder eroeBuilder, Statistica s){
         
-        eroeBuilder.setSkills();
+        eroeBuilder.setSkills(s);
         eroeBuilder.setSkin(new SkinPotenziata());
         return eroeBuilder.build();
         

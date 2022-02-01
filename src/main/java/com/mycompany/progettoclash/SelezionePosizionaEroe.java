@@ -34,10 +34,7 @@ public class SelezionePosizionaEroe {
         //RIGUARDA ATTENTAMENTO PER IL NULL
         ArrayList<Eroe> eroiA=giocatoreA.getAccampamento().selezionaEroe(idEroe, quantita);
         if(eroiA==null){
-            //System.out.print("LOG1");
-            //in caso di errori rifaccio fare la selezione posizione eroe
-            view.mostraSelezionaPosizionaEroe(giocatoreA, giocatoreD, true);
-            
+            view.mostraSelezionaPosizionaEroe(giocatoreA, giocatoreD, true);            
         }
         else{       
             boolean b=clash.posizionaEroe(riga, colonna, eroiA);

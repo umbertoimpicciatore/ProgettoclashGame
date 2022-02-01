@@ -21,7 +21,7 @@ public class Main {
         acc.setId(2);
         e.setStatistica(s);
         e.setId(1);
-        Arciere arc=new Arciere();
+        ArciereBuilder arc=new ArciereBuilder();
         EroeDirector erD=new EroeDirector();
         Eroe eroeArc=erD.createEroe(arc);
         //Eroe guerriero=new Guerriero(new AttaccaDiagonale(),1);
@@ -51,7 +51,7 @@ public class Main {
         v.setCaselle(caselle);
         
         //creo GIOCATORE ATTACCANTE
-        Deposito dep1=new Deposito(new Immagazzinare(),new AttaccaAvanti());
+        Deposito dep1=new Deposito(new AttaccaAvanti());
         Deposito dep2=new Deposito(new Immagazzinare(),new AttaccaAvanti());
         dep1.setId(0);
         dep2.setId(2);
@@ -67,11 +67,11 @@ public class Main {
         acc2.setId(2);
          
         
-        Arciere arc2=new Arciere();
+        ArciereBuilder arc2=new ArciereBuilder();
         arc2.setId(1);
         EroeDirector erD2=new EroeDirector();
         Eroe eroeArc2=erD2.createEroe(arc2);
-        Arciere arc3=new Arciere();
+        ArciereBuilder arc3=new ArciereBuilder();
         arc3.setId(1);
         EroeDirector erD3=new EroeDirector();
         Eroe eroeArc3=erD3.createEroe(arc3);

@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public abstract class Edificio {
     private int id;
     private ModalitàAttacco modA;
-    private RuoloEdificio ruoloE;
     private Statistica statistica;
     private Casella casella;
     private EdificioDescrizione edificioDescrizione;
@@ -27,9 +26,8 @@ public abstract class Edificio {
 
 
 
-    public Edificio(RuoloEdificio re,ModalitàAttacco ma){
+    public Edificio(ModalitàAttacco ma){
         this.modA=ma;
-        this.ruoloE=re;
     
     }
 //    public abstract void setListaEroiGiocatore(ArrayList<Eroe> listaEroiGiocatore);
@@ -63,10 +61,6 @@ public abstract class Edificio {
 
     public ModalitàAttacco getModA() {
         return modA;
-    }
-
-    public RuoloEdificio getRuoloE() {
-        return ruoloE;
     }
     
     

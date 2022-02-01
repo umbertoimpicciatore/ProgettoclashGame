@@ -7,12 +7,10 @@ package com.mycompany.progettoclash;
 
 /**
  *
- * @author Lorenzo
+ * @author User
  */
-public class Arciere extends EroeBuilder{
-
-    
-    public Arciere(){
+public class GuerrieroBuilder extends EroeBuilder{
+       public GuerrieroBuilder(){
         super();
         this.reset();
     }
@@ -23,13 +21,13 @@ public class Arciere extends EroeBuilder{
     }
 
     @Override
-    public void setSkills() {
-       this.eroe.setStat(new Statistica(15,15,110));
+    public void setSkills(Statistica s) {
+       this.eroe.setStat(s);
 
        
     }
     public void reset() {
-      	this.eroe = new Eroe(new AttaccaDuePosizioni());
+      	this.eroe = new Eroe(new AttaccaAvanti());
     }
 
     @Override
@@ -43,7 +41,5 @@ public class Arciere extends EroeBuilder{
     public void setId(int idEroe) {
         this.eroe.setId(idEroe);
     }
-    
-    
     
 }

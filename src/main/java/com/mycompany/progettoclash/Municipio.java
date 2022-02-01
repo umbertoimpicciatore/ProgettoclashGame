@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public class Municipio extends Edificio {
     
-    public Municipio(RuoloEdificio re,ModalitàAttacco ma){
-        super(re,ma);
+    public Municipio(ModalitàAttacco ma){
+        super(ma);
     
     }
 

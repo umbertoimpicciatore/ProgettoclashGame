@@ -2,17 +2,34 @@
 package com.mycompany.progettoclash;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
  * @author Lorenzo
  */
 public class Giocatore {
+    
+    private HashMap<EroeDescrizione, Integer > livelloEroi;
     private int livello;
     private Accampamento Accampamento;//vedere LARMAN
     private Accademia Accademia;//VALUTARE BENE SE METTERLO OPPURE NO, RILEGGI IL LARMAN
     private Deposito deposito;
+    private String nome;
+    private Villaggio villaggio;
+    
+    
+    
+    
+    public HashMap<EroeDescrizione, Integer> getLivelloEroi() {
+        return livelloEroi;
+    }
 
+    public void setLivelloEroi(HashMap<EroeDescrizione, Integer> livelloEroi) {
+        this.livelloEroi = livelloEroi;
+    }
+
+    
     public Accademia getAccademia() {
         return Accademia;
     }
@@ -30,9 +47,6 @@ public class Giocatore {
         this.deposito = deposito;
     }
 
-    
-    private String nome;
-    private Villaggio villaggio;
 
     public Villaggio getVillaggio() {
         return villaggio;

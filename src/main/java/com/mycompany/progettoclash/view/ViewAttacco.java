@@ -115,30 +115,25 @@ public class ViewAttacco {
     }
     
       public void visualizzaVillaggio(Villaggio villaggioD){
-         // StringBuilder value=new StringBuilder("");
-          String s="";
+        String s="";
         for (int i=1;i<=villaggioD.getAltezza();i++){
             s="";
             for (int j=1;j<=villaggioD.getLarghezza();j++){
                 Casella c=villaggioD.getCasella(i, j); 
                 s="Riga: "+c.getPosizioneRiga()+" Colonna: "+c.getPosizioneColonna()+" ";
-                //value.append(s);
                 //System.out.print("Riga: "+c.getPosizioneRiga()+" Colonna: "+c.getPosizioneColonna()+" ");
                 if(c.getEdificio()!=null){
                     s=s+"Id Edif: "+c.getEdificio().getId()+" Vita:"+c.getEdificio().getStatistica().getVita()+" ";
-                    //value.append("Id Edif: "+c.getEdificio().getId()+" Vita:"+c.getEdificio().getStatistica().getVita()+" ");
                     //System.out.print("Id Edif: "+c.getEdificio().getId()+" Vita:"+c.getEdificio().getStatistica().getVita()+" ");
 
                 }
                 ArrayList<Eroe> er = c.getListaEroiA();
                 for (int k=0;k<er.size();k++){
                     s=s+"IdEroe: "+er.get(k).getId()+" Vita: "+er.get(k).getStat().getVita()+" ";
-                    //value.append("IdEroe: "+er.get(k).getId()+" Vita: "+er.get(k).getStat().getVita());
                     //System.out.print("IdEroe: "+er.get(k).getId()+" Vita: "+er.get(k).getStat().getVita());
                     
                 }
-               // value.toString();
-               System.out.print(s);
+                System.out.print(s);
                 System.out.print("     ");
                 
             }

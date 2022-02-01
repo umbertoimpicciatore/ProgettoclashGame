@@ -31,7 +31,7 @@ public class EroeCatalogo {
         int vitaMassima;
         EroeDescrizione ed;
         
-        Arciere arc3=new Arciere();
+        ArciereBuilder arc3=new ArciereBuilder();
         arc3.setId(1);
         EroeDirector erD3=new EroeDirector();
         eroe=erD3.createEroe(arc3);
@@ -44,7 +44,7 @@ public class EroeCatalogo {
         ed=new EroeDescrizione(nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima);
         desc.add(ed);
         
-        Guerriero g=new Guerriero();
+        GuerrieroBuilder g=new GuerrieroBuilder();
         g.setId(2);
         EroeDirector erD=new EroeDirector();
         eroe=erD.createEroe(g);
@@ -58,7 +58,7 @@ public class EroeCatalogo {
         desc.add(ed);
         
         
-        Regina r=new Regina();
+        ReginaBuilder r=new ReginaBuilder();
         r.setId(3);
         EroeDirector erD1=new EroeDirector();
         eroe=erD1.createEroe(r);
@@ -84,7 +84,7 @@ public class EroeCatalogo {
         int vitaMassima;
         EroeDescrizione ed;
         
-        Arciere arc3=new Arciere();
+        ArciereBuilder arc3=new ArciereBuilder();
         arc3.setId(1);
         EroeDirector erD3=new EroeDirector();
         eroe=erD3.createEroe(arc3);
@@ -97,7 +97,7 @@ public class EroeCatalogo {
         ed=new EroeDescrizione(nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima);
         descrizioni.put(eroe, ed);
         
-        Guerriero g=new Guerriero();
+        GuerrieroBuilder g=new GuerrieroBuilder();
         g.setId(2);
         EroeDirector erD=new EroeDirector();
         eroe=erD.createEroe(g);
@@ -112,7 +112,7 @@ public class EroeCatalogo {
         
         
         
-        Regina r=new Regina();
+        ReginaBuilder r=new ReginaBuilder();
         r.setId(3);
         EroeDirector erD1=new EroeDirector();
         eroe=erD1.createEroe(r);
@@ -138,7 +138,7 @@ public class EroeCatalogo {
         int vitaMassima;
         EroeDescrizione ed;
         
-        Arciere arc3=new Arciere();
+        ArciereBuilder arc3=new ArciereBuilder();
         arc3.setId(1);
         EroeDirector erD3=new EroeDirector();
         eroe=erD3.createEroe(arc3);

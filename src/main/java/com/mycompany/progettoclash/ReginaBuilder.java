@@ -9,8 +9,8 @@ package com.mycompany.progettoclash;
  *
  * @author User
  */
-public class Guerriero extends EroeBuilder{
-       public Guerriero(){
+public class ReginaBuilder extends EroeBuilder {
+       public ReginaBuilder(){
         super();
         this.reset();
     }
@@ -21,13 +21,13 @@ public class Guerriero extends EroeBuilder{
     }
 
     @Override
-    public void setSkills() {
-       this.eroe.setStat(new Statistica(15,15,110));
+    public void setSkills(Statistica  s) {
+       this.eroe.setStat(s);
 
        
     }
     public void reset() {
-      	this.eroe = new Eroe(new AttaccaAvanti());
+      	this.eroe = new Eroe(new AttaccaDiagonale());
     }
 
     @Override

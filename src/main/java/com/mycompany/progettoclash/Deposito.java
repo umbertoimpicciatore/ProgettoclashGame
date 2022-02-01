@@ -26,8 +26,8 @@ public class Deposito extends Edificio {
         this.risorsa = risorsa ;
     }
     
-     public Deposito(RuoloEdificio re, ModalitàAttacco ma) {
-        super(re, ma);
+     public Deposito( ModalitàAttacco ma) {
+        super( ma);
     }
 
     @Override

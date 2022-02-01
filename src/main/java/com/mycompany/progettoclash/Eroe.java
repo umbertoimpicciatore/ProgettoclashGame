@@ -16,15 +16,15 @@ public  class Eroe {
     private Statistica stat;
     private Skin skin;
     private EroeDescrizione eroeDescrizione;
-    private int livello;
+   // private int livello;
 
-    public int getLivello() {
+ /*   public int getLivello() {
         return livello;
     }
 
     public void setLivello(int livello) {
         this.livello = livello;
-    }
+    }*/
 
     public ModalitàAttacco getModA() {
         return modA;

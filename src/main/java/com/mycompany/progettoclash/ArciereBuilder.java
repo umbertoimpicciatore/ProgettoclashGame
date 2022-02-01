@@ -7,10 +7,12 @@ package com.mycompany.progettoclash;
 
 /**
  *
- * @author User
+ * @author Lorenzo
  */
-public class Regina extends EroeBuilder {
-       public Regina(){
+public class ArciereBuilder extends EroeBuilder{
+
+    
+    public ArciereBuilder(){
         super();
         this.reset();
     }
@@ -21,13 +23,13 @@ public class Regina extends EroeBuilder {
     }
 
     @Override
-    public void setSkills() {
-       this.eroe.setStat(new Statistica(15,15,110));
+    public void setSkills(Statistica s) {
+       this.eroe.setStat(s);
 
        
     }
     public void reset() {
-      	this.eroe = new Eroe(new AttaccaDiagonale());
+      	this.eroe = new Eroe(new AttaccaDuePosizioni());
     }
 
     @Override
@@ -41,5 +43,7 @@ public class Regina extends EroeBuilder {
     public void setId(int idEroe) {
         this.eroe.setId(idEroe);
     }
+    
+    
     
 }

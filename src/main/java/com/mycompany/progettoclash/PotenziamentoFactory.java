@@ -21,7 +21,7 @@ public class PotenziamentoFactory {
         return instance;
     }
     
-    public PotenziamentoStrategy getPotenziamento() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public PotenziamentoStrategy getStrategy() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
        String className= FileDiConfigurazione.potenziamentoEroe;
        Class cls = Class.forName(className);
        PotenziamentoStrategy clsInstance = (PotenziamentoStrategy) cls.newInstance();
@@ -29,4 +29,4 @@ public class PotenziamentoFactory {
     }
 }
     
-}
+

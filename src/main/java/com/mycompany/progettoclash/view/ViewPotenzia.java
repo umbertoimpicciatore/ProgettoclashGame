@@ -8,6 +8,7 @@ import com.mycompany.progettoclash.CPotenzia;
 import com.mycompany.progettoclash.EroeDescrizione;
 import com.mycompany.progettoclash.Giocatore;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 /**
  *
@@ -17,7 +18,7 @@ public class ViewPotenzia {
     
     private CPotenzia potenzia;
     
-    public void selezionaEdificio(Giocatore g){//attenzione, chi glielo passa g?
+    public void selezionaOperazione(Giocatore g){//attenzione, chi glielo passa g?
         
         
         //richiamo metodo altra classe ...
@@ -36,15 +37,24 @@ public class ViewPotenzia {
     
     }
     
-    public void mostraEroi(ArrayList<EroeDescrizione> desc,boolean errore){
+    public void mostraEroi(HashMap<EroeDescrizione,Integer> eroeDesc,boolean errore){
         
         if(errore){
             System.out.println("IdEroe inserito non corretto");
         }
         
-        for (int i=0;i<desc.size();i++){
-           System.out.println(desc.get(i).toString()+" Livello: "+desc.get(i).getEroi().get(i).getLivello());
+        for (EroeDescrizione name: eroeDesc.keySet()) {
+            String key = name.toString();
+            String value = eroeDesc.get(name).toString();
+            System.out.println(key + " " + value);
         }
+        
+        
+        
+        /*for (int i=0;i<eroeDesc.size();i++){
+            
+           System.out.println(eroeDesc.get(i).toString()+" Livello: "+eroeDesc.get(i).getEroi().get(i).getLivello());
+        }*/
         String s="Inserisci idEroe da potenziare oppure 0 per annullare";
         int ris=this.inserisci(s);
         if(ris==0){
