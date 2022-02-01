@@ -13,5 +13,7 @@ public interface Skin {
     
     public int getDifesa();
     public int getAttacco();
+    public void setAttacco(int a);
+    public void setDifesa(int a);
     
 }
