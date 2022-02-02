@@ -72,16 +72,46 @@ public class Accampamento extends Edificio {
     
     public void acquistaEroi(int idEroeDescrizione,int quantita,Giocatore giocatore){
         EroeCatalogo edC=new EroeCatalogo();
-        EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
-        PotenziamentoStrategy strategyEroe=null;
+        EroeDescrizione desc=null;
+        for (EroeDescrizione name: giocatore.getLivelloEroi().keySet()) {//controllare bene questo
+             if(name.getIdDesc()==idEroeDescrizione){
+                 desc=name;
+             }
+        }
+        //EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
+        CreaEroeStrategy strategyEroe=null;
         try {
-            strategyEroe = PotenziamentoFactory.getInstance().getStrategy();
+            strategyEroe = CreaEroeFactory.getInstance().getStrategy();
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(Accademia.class.getName()).log(Level.SEVERE, null, ex);
         }
-        strategyEroe.potenziaEroe(desc,quantita,giocatore);//cambia NOME METODO
-                
-        
+        strategyEroe.creaEroe(desc,quantita,giocatore);//cambia NOME METODO
+
     }
+    
+    public void addEroi(ArrayList<Eroe> eroi){
+        for(int i=0;i<eroi.size();i++){
+            this.listaEroiGiocatore.add(eroi.get(i));
+        }
+    
+    }
+    
+        //rimuove gli eroi con la descrizione idEroeDescrizione e restituisce la quantita rimossa
+    public int removeEroe(int idEroeDescrizione,Giocatore giocatore){
+        int quantita=0;
+        ArrayList<Eroe> listaEroi=giocatore.getEroi();
+        int i=0;
+        while(i<listaEroi.size()){
+            if(idEroeDescrizione==listaEroi.get(i).getEroeDescrizione().getIdDesc()){               
+                quantita++;
+                listaEroi.remove(i);
+            }
+            else{
+                i++;
+            }
+        }
+        return quantita;     
+    }
+    
  
 }

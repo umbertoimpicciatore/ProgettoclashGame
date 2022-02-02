@@ -14,12 +14,28 @@ public class ViewAcquista {
     
     CAcquista acquista;
     
-     public void selezionaOperazione(Giocatore g){//attenzione, chi glielo passa g?
+    public void selezionaOperazione(Giocatore g){//attenzione, chi glielo passa g?
         
         String s="Cosa vuoi fare?\n 1: Attaccare un altro giocatore?\n 2: Potenziare eroe?\n 3: Inserire edificio?\n 4: Acquistare eroi?\n 5: Potenziare edificio?\n >5: Esci(logout)";
+
         int ris=this.inserisci(s);
-        acquista=new CAcquista(g);
-        acquista.operazione(g);
+        switch (ris) {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                acquista=new CAcquista(g);
+                acquista.operazione(g);
+                break;
+            case 5:
+                break;
+            default:
+                return;
+        }
+        
     
     }
      
@@ -38,7 +54,7 @@ public class ViewAcquista {
          return var;
     }
     
-    public void mostraEroi(HashMap<EroeDescrizione,Integer> eroeDesc,boolean errore){
+    public void mostraEroi(HashMap<EroeDescrizione,Integer> eroeDesc,boolean errore,Giocatore giocatore){
         
         if(errore){
             System.out.println("IdEroe inserito non corretto");
@@ -47,9 +63,9 @@ public class ViewAcquista {
         for (EroeDescrizione name: eroeDesc.keySet()) {
             String key = name.toString();
             String value = eroeDesc.get(name).toString();
-            System.out.println(key + " " + value);
+            System.out.println(key + " Livello: " + value);
         }
-       
+        
         String s="Inserisci idEroe che vuole acquistare oppure 0 per annullare";
         int idEroe=this.inserisci(s);
         if(idEroe==0){
@@ -62,6 +78,7 @@ public class ViewAcquista {
                 return;
             }
             else{
+                acquista=new CAcquista(giocatore);
                 acquista.acquistaEroi(idEroe,quantita);
             }
         }

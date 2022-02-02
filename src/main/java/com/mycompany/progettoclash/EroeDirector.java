@@ -23,4 +23,11 @@ public class EroeDirector {
         return eroeBuilder.build();
         
     }
+    public Eroe createEroe2(EroeBuilder eroeBuilder, Statistica s,Skin skin){
+        
+        eroeBuilder.setSkills(s);
+        eroeBuilder.setSkin(skin);
+        return eroeBuilder.build();
+        
+    }
 }

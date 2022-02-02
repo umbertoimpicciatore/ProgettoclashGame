@@ -9,22 +9,22 @@ package com.mycompany.progettoclash;
  *
  * @author User
  */
-public class PotenziamentoFactory { 
-     private static PotenziamentoFactory instance = null; 
-    private PotenziamentoFactory() {} 
+public class CreaEroeFactory { 
+     private static CreaEroeFactory instance = null; 
+    private CreaEroeFactory() {} 
  
-    public static PotenziamentoFactory getInstance() {
+    public static CreaEroeFactory getInstance() {
         // Crea l'oggetto solo se NON esiste:
         if (instance == null) {
-            instance = new PotenziamentoFactory();
+            instance = new CreaEroeFactory();
         }
         return instance;
     }
     
-    public PotenziamentoStrategy getStrategy() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public CreaEroeStrategy getStrategy() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
        String className= FileDiConfigurazione.potenziamentoEroe;
        Class cls = Class.forName(className);
-       PotenziamentoStrategy clsInstance = (PotenziamentoStrategy) cls.newInstance();
+       CreaEroeStrategy clsInstance = (CreaEroeStrategy) cls.newInstance();
        return clsInstance;
     }
 }

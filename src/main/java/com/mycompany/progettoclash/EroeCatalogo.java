@@ -24,51 +24,59 @@ public class EroeCatalogo {
         ArrayList<EroeDescrizione> desc=new ArrayList<EroeDescrizione>();
         Eroe eroe;
         String nome;
+        int idDesc=1;
         int quantitaMassima;
         int quantitaDisponibile;
         Risorsa prezzoDiAcquisto;
         Risorsa prezzoDiPotenziamento;
         int vitaMassima;
         EroeDescrizione ed;
+        Statistica si=new Statistica(5,5,100);
+        Statistica si2=new Statistica(5,5,100);
+        Statistica si3=new Statistica(5,5,100);
+        
         
         ArciereBuilder arc3=new ArciereBuilder();
         arc3.setId(1);
+        Statistica s2=new Statistica(5,5,100);
+        Statistica s3=new Statistica(5,5,100);
         EroeDirector erD3=new EroeDirector();
-        eroe=erD3.createEroe(arc3);
+        eroe=erD3.createEroe(arc3,s2);
         nome="Arciere";
         quantitaMassima=2;
         quantitaDisponibile=0;
         prezzoDiAcquisto=new Oro(3);
         prezzoDiPotenziamento=new Oro(4);
         vitaMassima=100;
-        ed=new EroeDescrizione(nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima);
+        ed=new EroeDescrizione(idDesc,nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima,si);
         desc.add(ed);
         
         GuerrieroBuilder g=new GuerrieroBuilder();
         g.setId(2);
         EroeDirector erD=new EroeDirector();
-        eroe=erD.createEroe(g);
+        eroe=erD.createEroe(g,s3);
         nome="Guerriero";
         quantitaMassima=3;
         quantitaDisponibile=0;
         prezzoDiAcquisto=new Oro(4);
         prezzoDiPotenziamento=new Oro(5);
         vitaMassima=100;
-        ed=new EroeDescrizione(nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima);
+        ed=new EroeDescrizione(idDesc+1,nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima,si2);
         desc.add(ed);
         
         
         ReginaBuilder r=new ReginaBuilder();
         r.setId(3);
+        Statistica s4=new Statistica(5,5,100);
         EroeDirector erD1=new EroeDirector();
-        eroe=erD1.createEroe(r);
+        eroe=erD1.createEroe(r,s4);
         nome="Regina";
         quantitaMassima=1;
         quantitaDisponibile=0;
         prezzoDiAcquisto=new Oro(5);
         prezzoDiPotenziamento=new Oro(6);
         vitaMassima=100;
-        ed=new EroeDescrizione(nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima);
+        ed=new EroeDescrizione(idDesc+2,nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima,si3);
         desc.add(ed);
         return desc;
     }
@@ -83,31 +91,39 @@ public class EroeCatalogo {
         Risorsa prezzoDiPotenziamento;
         int vitaMassima;
         EroeDescrizione ed;
+        int idDesc=1;
+        Statistica si=new Statistica(5,5,100);
+        Statistica si2=new Statistica(5,5,100);
+        Statistica si3=new Statistica(5,5,100);
         
+        Statistica s2=new Statistica(5,5,100);
+        Statistica s3=new Statistica(5,5,100);
+        Statistica s4=new Statistica(5,5,100);
         ArciereBuilder arc3=new ArciereBuilder();
         arc3.setId(1);
         EroeDirector erD3=new EroeDirector();
-        eroe=erD3.createEroe(arc3);
+        eroe=erD3.createEroe(arc3,s2);
         nome="Arciere";
         quantitaMassima=2;
         quantitaDisponibile=0;
         prezzoDiAcquisto=new Oro(3);
         prezzoDiPotenziamento=new Oro(4);
         vitaMassima=100;
-        ed=new EroeDescrizione(nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima);
+        
+        ed=new EroeDescrizione(idDesc,nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima,si);
         descrizioni.put(eroe, ed);
         
         GuerrieroBuilder g=new GuerrieroBuilder();
         g.setId(2);
         EroeDirector erD=new EroeDirector();
-        eroe=erD.createEroe(g);
+        eroe=erD.createEroe(g,s3);
         nome="Guerriero";
         quantitaMassima=3;
         quantitaDisponibile=0;
         prezzoDiAcquisto=new Oro(4);
         prezzoDiPotenziamento=new Oro(5);
         vitaMassima=100;
-        ed=new EroeDescrizione(nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima);
+        ed=new EroeDescrizione(idDesc+1,nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima,si2);
         descrizioni.put(eroe, ed);
         
         
@@ -115,42 +131,45 @@ public class EroeCatalogo {
         ReginaBuilder r=new ReginaBuilder();
         r.setId(3);
         EroeDirector erD1=new EroeDirector();
-        eroe=erD1.createEroe(r);
+        eroe=erD1.createEroe(r,s4);
         nome="Regina";
         quantitaMassima=1;
         quantitaDisponibile=0;
         prezzoDiAcquisto=new Oro(5);
         prezzoDiPotenziamento=new Oro(6);
         vitaMassima=100;
-        ed=new EroeDescrizione(nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima);
+        ed=new EroeDescrizione(idDesc+2,nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima,si3);
         descrizioni.put(eroe, ed);
         
     }
     
     public EroeDescrizione getEroeDescrizione(int idEroeDesc){
-        ArrayList<Eroe> listEroi = new ArrayList<Eroe>();
         Eroe eroe;
         String nome;
+        int idDesc=1;
         int quantitaMassima;
         int quantitaDisponibile;
         Risorsa prezzoDiAcquisto;
         Risorsa prezzoDiPotenziamento;
         int vitaMassima;
+        Statistica si=new Statistica(5,5,100);
+
         EroeDescrizione ed;
         
         ArciereBuilder arc3=new ArciereBuilder();
         arc3.setId(1);
+        Statistica s2=new Statistica(5,5,100);
         EroeDirector erD3=new EroeDirector();
-        eroe=erD3.createEroe(arc3);
+        eroe=erD3.createEroe(arc3,s2);
         nome="Arciere";
         quantitaMassima=2;
         quantitaDisponibile=0;
         prezzoDiAcquisto=new Oro(3);
         prezzoDiPotenziamento=new Oro(4);
         vitaMassima=100;
-        ed=new EroeDescrizione(nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima);
-        listEroi.add(eroe);
-        ed.setEroi(listEroi);
+        ed=new EroeDescrizione(idDesc,nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima,si);
+        //listEroi.add(eroe);
+        //ed.setEroi(listEroi);
         return ed;
     }
 }

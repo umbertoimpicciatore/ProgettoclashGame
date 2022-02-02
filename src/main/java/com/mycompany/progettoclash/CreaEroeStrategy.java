@@ -10,7 +10,7 @@ package com.mycompany.progettoclash;
  *
  * @author User
  */
-public interface PotenziamentoStrategy {
-    public void potenziaEroe(EroeDescrizione desc,int quantita,Giocatore giocatore);
+public interface CreaEroeStrategy {
+    public void creaEroe(EroeDescrizione desc,int quantita,Giocatore giocatore);
     
 }

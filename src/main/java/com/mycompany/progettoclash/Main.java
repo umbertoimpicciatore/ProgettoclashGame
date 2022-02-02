@@ -1,8 +1,8 @@
 package com.mycompany.progettoclash;
+import com.mycompany.progettoclash.view.ViewAcquista;
 import com.mycompany.progettoclash.view.ViewAttacco;
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.HashMap;
 
 /**
  *
@@ -10,12 +10,13 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args){
+        /*
         Giocatore g=new Giocatore();
         g.setNome("Lorenzo");
         ArrayList<Casella> caselle = new ArrayList<Casella>();
         Villaggio v=new Villaggio();
-        Edificio e=new Municipio(new Immagazzinare(),new AttaccaAvanti());
-        Edificio acc=new Accampamento(new Immagazzinare(),new AttaccaAvanti());
+        Edificio e=new Municipio(new AttaccaAvanti());
+        Edificio acc=new Accampamento(new AttaccaAvanti());
         Statistica s=new Statistica(5,5,100);
         acc.setStatistica(s);
         acc.setId(2);
@@ -47,12 +48,14 @@ public class Main {
                 caselle.add(c);
             }
         }
-        
-        v.setCaselle(caselle);
+          // g.setVillaggio(v);
+       // Objects.isNull(g.getVillaggio().getCasella(1, 1).getVillaggio());
+        v.setCaselle(caselle);*/
         
         //creo GIOCATORE ATTACCANTE
+        ArrayList<Casella> caselle = new ArrayList<Casella>();
         Deposito dep1=new Deposito(new AttaccaAvanti());
-        Deposito dep2=new Deposito(new Immagazzinare(),new AttaccaAvanti());
+        Deposito dep2=new Deposito(new AttaccaAvanti());
         dep1.setId(0);
         dep2.setId(2);
         Oro oro=new Oro(2);
@@ -61,20 +64,22 @@ public class Main {
         dep2.setRisorsa(mana);
         
         Giocatore ga=new Giocatore();
-        Edificio acc2=new Accampamento(new Immagazzinare(),new AttaccaAvanti());
+        Edificio acc2=new Accampamento(new AttaccaAvanti());
         Statistica s1=new Statistica(5,5,100);
         acc2.setStatistica(s1);
         acc2.setId(2);
-         
+        
         
         ArciereBuilder arc2=new ArciereBuilder();
         arc2.setId(1);
+        Statistica s2=new Statistica(5,5,100);
+        Statistica s3=new Statistica(5,5,100);
         EroeDirector erD2=new EroeDirector();
-        Eroe eroeArc2=erD2.createEroe(arc2);
+        Eroe eroeArc2=erD2.createEroe(arc2,s2);
         ArciereBuilder arc3=new ArciereBuilder();
-        arc3.setId(1);
+        arc3.setId(2);
         EroeDirector erD3=new EroeDirector();
-        Eroe eroeArc3=erD3.createEroe(arc3);
+        Eroe eroeArc3=erD3.createEroe(arc3,s3);
         ArrayList<Eroe> list=new ArrayList<Eroe>();
         list.add(eroeArc2);
         list.add(eroeArc3);
@@ -86,7 +91,7 @@ public class Main {
                 if(i==1 &&j==1){
                     c.AddEroe(eroeArc2);
                     c.setEdificio(acc2);
-                    eroeArc.setC(c);
+                    eroeArc2.setC(c);
                     acc2.setCasella(c);
                 }      
                 c.setVillaggio(v2);
@@ -95,122 +100,26 @@ public class Main {
         }
         ga.setAccampamento((Accampamento)acc2);
         ga.setVillaggio(v2);
-        
-        g.setVillaggio(v);
-        Objects.isNull(g.getVillaggio().getCasella(1, 1).getVillaggio());
-        //ClashGame clash=new ClashGame(ga,g);
-       // eroeArc.getModA().attacco(eroeArc);
-        //clash.iniziaBattaglia();
-        
-        /*
-        Villaggio villaggioD=clash.getGiocatoreD().getVillaggio();
-        for (int i=1;i<=villaggioD.getAltezza();i++){
-            for (int j=1;j<=villaggioD.getLarghezza();j++){
-                Casella c=villaggioD.getCasella(i, j);
-                
-                //System.out.print(Objects.isNull(c));
-                System.out.print("Riga: "+c.getPosizioneRiga()+" Colonna: "+c.getPosizioneColonna()+" ");
-                if(c.getEdificio()!=null){
-                    System.out.print("Id Edif: "+c.getEdificio().getId()+" Vita:"+c.getEdificio().getStatistica().getVita()+" ");
 
-                }
-                ArrayList<Eroe> er = c.getListaEroiA();
-                for (int k=0;k<er.size();k++){
-                    System.out.print("IdEroe: "+er.get(k).getId()+" Vita: "+er.get(k).getStat().getVita());
-                    
-                }
-                System.out.print("     ");
-                
-            }
-            System.out.println();
-        }
-        */
-          /*
-       //SIMULAZIONE DEGLI Eroi che attaccano
-        Eroe guerriero=new Guerriero(new AttaccaDiagonale(),1);
-        guerriero.setC(c);
-        guerriero.getModA().attacco(guerriero);
-       //guerriero.attacca();
-         Eroe arciere=new Arciere(new AttaccaDuePosizioni(),2);
-      // arciere.attacca();
-      
-        arciere.setC(c);
-        guerriero.setC(c);
-        ArrayList<Eroe> eroi = new ArrayList<Eroe>();
-        eroi.add(arciere);
-        eroi.add(guerriero);
-        for (int i=0;i<eroi.size();i++){
+        //ViewAttacco view2=new ViewAttacco();
+        //view2.cercaAvversario(ga);
+        
+        EroeCatalogo  catalogo=new EroeCatalogo();
+        
+        ArrayList<EroeDescrizione> desc=catalogo.getAllDescrizioni();
+        HashMap<EroeDescrizione,Integer> livelloEroi=new HashMap<EroeDescrizione,Integer>();
+        for(int i=0;i<desc.size();i++){
             
-           // eroi.get(i).attacca();
-            System.out.println(eroi.get(i).getId());
-           // System.out.println(eroi.get(i).getC().getPosizioneRiga());
-
-        }
-        
-        
-        ArciereBuilder arc=new ArciereBuilder();
-        EroeDirector erD=new EroeDirector();
-        Eroe eroeArc=erD.createEroe(arc);
-        Eroe arcPot=erD.createEroePotenziato(arc);
-        System.out.println(eroeArc.toString());
-        System.out.println(arcPot.toString());
-        
-        */
-        /*Giocatore g=new Giocatore();
-        g.setNome("Lorenzo");
-        ArrayList<Casella> caselle = new ArrayList<Casella>();
-        ArrayList<Eroe> list = new ArrayList<Eroe>();
-        
-        Villaggio v=new Villaggio();
-        Edificio e=new Municipio(new Immagazzinare(),new AttaccaAvanti());
-        Statistica s=new Statistica(5,5,100);
-        e.setStatistica(s);
-        e.setId(1);
-        Edificio e2=new Municipio(new Immagazzinare(),new AttaccaAvanti());
-        e2.setStatistica(s);
-        e2.setId(1);
-        ArciereBuilder arc=new ArciereBuilder();
-        EroeDirector erD=new EroeDirector();
-        Eroe eroeArc=erD.createEroe(arc);
-        list.add(eroeArc);
-        //Eroe guerriero=new Guerriero(new AttaccaDiagonale(),1);
-        
-       //creo VILLAGGIO
-        for (int i=1;i<=v.getAltezza();i++){
-            for (int j=1;j<=v.getLarghezza();j++){
-                Casella c=new Casella(i,j);
-                
-                
-                if(i==1 &&j==1){
-                   // c.AddEroe(eroeArc);
-                    c.setEdificio(e);
-                    eroeArc.setC(c);
-                    c.setListaEroiA(list);
-                   // eroeArc.setC(c);
-                    e.setCasella(c);
-                }
-                if(i==1 &&j==2){
-                    c.setEdificio(e2);
-                    e2.setCasella(c);
-                }
-                
-                c.setVillaggio(v);
-                caselle.add(c);
+            if(i==2){
+                livelloEroi.put(desc.get(i), 10);
             }
-        }
-        
-        v.setCaselle(caselle);
-        g.setVillaggio(v);
-        caselle=eroeArc.getModA().attacco(eroeArc);
-        for (int i=0;i<caselle.size();i++){
-           System.out.println("OI2-Riga: "+caselle.get(i).getPosizioneRiga()+" j: "+caselle.get(i).getPosizioneColonna()+" ");
-       }*/
-        //Casella casellaCorrente=v.getCasella(1, 2);
-       // Attacco attacco=new Attacco();
-      // attacco.spostamentoEroi(v, casellaCorrente);
-
-        ViewAttacco view2=new ViewAttacco();
-        view2.cercaAvversario(ga);
+            else{
+                livelloEroi.put(desc.get(i), i+1);
+            }
+        }        
+        ga.setLivelloEroi(livelloEroi);
+        ViewAcquista view=new ViewAcquista();
+        view.selezionaOperazione(ga);
         
     }
         

@@ -15,6 +15,7 @@ public class EroeDescrizione {
     
     private ArrayList<Eroe> eroi;//sul libro c'è solo Eroe e non arrayList
     private String nome;
+    private int idDesc;
     private int quantitaMassima;
     private int quantitaDisponibile;
     private Risorsa prezzoDiAcquisto;
@@ -22,26 +23,39 @@ public class EroeDescrizione {
     private int vitaMassima;
     private Statistica statisticaIniziale;
 
-    public Statistica getStatisticaIniziale() {
-        return statisticaIniziale;
-    }
-
-    public void setStatisticaIniziale(Statistica statisticaIniziale) {
-        this.statisticaIniziale = statisticaIniziale;
-    }
+    
     
     public EroeDescrizione() {
 
     }
 
-    public EroeDescrizione(String nome, int quantitaMassima, int quantitaDisponibile, Risorsa prezzoDiAcquisto, Risorsa prezzoDiPotenziamento, int vitaMassima) {
+    public EroeDescrizione(int idDesc,String nome, int quantitaMassima, int quantitaDisponibile, Risorsa prezzoDiAcquisto, Risorsa prezzoDiPotenziamento, int vitaMassima,Statistica statistica) {
+        this.idDesc=idDesc;
         this.nome = nome;
         this.quantitaMassima = quantitaMassima;
         this.quantitaDisponibile = quantitaDisponibile;
         this.prezzoDiAcquisto = prezzoDiAcquisto;
         this.prezzoDiPotenziamento = prezzoDiPotenziamento;
         this.vitaMassima = vitaMassima;
-        
+        this.statisticaIniziale=statistica;
+    }
+    
+    
+    public Statistica getStatisticaIniziale() {
+            return statisticaIniziale;
+    }
+
+    public void setStatisticaIniziale(Statistica statisticaIniziale) {
+            this.statisticaIniziale = statisticaIniziale;
+    }
+    
+    
+    public int getIdDesc() {
+        return idDesc;
+    }
+
+    public void setIdDesc(int idDesc) {
+        this.idDesc = idDesc;
     }
     
     public ArrayList<Eroe> getEroi() {
@@ -103,7 +117,7 @@ public class EroeDescrizione {
     @Override
     public String toString(){
         String s="";
-        s="Nome: ".concat(nome)+" QuantitaMassima: "+this.quantitaMassima+" QuantitaDisponibile: "+this.quantitaDisponibile+" Prezzo di Acquisto: ".concat(this.prezzoDiAcquisto.toString()+" PrezzoPotenziamento: ".concat(this.prezzoDiPotenziamento.toString()));
+        s="IDEROE:"+this.idDesc+" Nome: ".concat(nome)+" QuantitaMassima: "+this.quantitaMassima+" QuantitaDisponibile: "+this.quantitaDisponibile+" Prezzo di Acquisto: ".concat(this.prezzoDiAcquisto.toString()+" PrezzoPotenziamento: ".concat(this.prezzoDiPotenziamento.toString()));
         return s;
     }
     

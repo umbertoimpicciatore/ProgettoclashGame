@@ -17,8 +17,9 @@ public class CAcquista {
     
     public void operazione(Giocatore giocatore){
         ViewAcquista view=new ViewAcquista();
+        
         HashMap<EroeDescrizione,Integer> eroeDesc=this.giocatore.getLivelloEroi();
-        view.mostraEroi(eroeDesc,false);
+        view.mostraEroi(eroeDesc,false,giocatore);
     }
     
     public void acquistaEroi(int idEroeDescrizione,int quantita){

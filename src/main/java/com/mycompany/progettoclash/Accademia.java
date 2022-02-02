@@ -16,25 +16,23 @@ public class Accademia extends Edificio {
         EroeCatalogo edC=new EroeCatalogo();
         EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
         //int livello=giocatore.getLivelloEroi().get(desc);
-        PotenziamentoStrategy potS=null;
+        CreaEroeStrategy potS=null;
         try {
-            potS = PotenziamentoFactory.getInstance().getStrategy();
+            potS = CreaEroeFactory.getInstance().getStrategy();
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(Accademia.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         int livello=giocatore.getLivelloEroi().get(desc)+1;
         giocatore.getLivelloEroi().put(desc, livello);
+        int quantita=giocatore.getAccampamento().removeEroe(idEroeDescrizione, giocatore);
         if(giocatore.getEroi()!=null){
-            potS.potenziaEroe(desc, giocatore);
-            //ti salvi gli eroi con con descrizione desc e la loro quantità
-            //li togli dallla listaEroi del giocatore
-            //li rimetti al giocatore potenziati con la factory del acquista
+            potS.creaEroe(desc,quantita, giocatore);
         }
         
     
     }
-    
+
     public Accademia( ModalitàAttacco ma) {
         super( ma);
     }

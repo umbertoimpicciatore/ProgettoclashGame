@@ -31,8 +31,8 @@ public class Oro implements Risorsa {
     
     public String toString(){
         String s;
-        String s1="Quantità: "+ this.quantità;
-        s="Risorsa:".concat(this.nome).concat(s1);
+        String s1=" Quantità: "+ this.quantità;
+        s=" Risorsa:".concat(this.nome).concat(s1);
         return s;
     }
     
