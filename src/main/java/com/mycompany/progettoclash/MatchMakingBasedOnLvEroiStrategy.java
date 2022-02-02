@@ -6,6 +6,7 @@
 package com.mycompany.progettoclash;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -21,23 +22,31 @@ public class MatchMakingBasedOnLvEroiStrategy implements MatchMakingStrategy{
         ArrayList<Giocatore> lista=new ArrayList<Giocatore>();
         lista.add(g1);
         lista.add(g2);
-        int l=0;
-        ArrayList<Eroe> f=g.getEroi();
-        for (int k=0;k<f.size();k++){
-            l+=f.get(k).getLivello();
-        }
+        
+//        ArrayList<Eroe> f=g.getEroi();
+//        for (int k=0;k<f.size();k++){
+//            l+=f.get(k).getLivello();
+//        }
+//        HashMap<EroeDescrizione,Integer> livelloEroi=g.getLivelloEroi();
+//        for (EroeDescrizione key : livelloEroi.keySet()){
+//        l+=livelloEroi.get(key);
+//        }
+        int l=g.getSommaLivelloEroi();
            
         for (int i=0;i<lista.size();i++){
             Giocatore avversario=lista.get(i);
-            ArrayList <Eroe> er=avversario.getEroi();
-            int livelloeroi=0;
-            for (int j=0;j<er.size();j++){
-                livelloeroi+=er.get(j).getLivello();
-            }
-            if (livelloeroi==l){return avversario;}
-           
-            }
-    return g1;
+            int l2=avversario.getSommaLivelloEroi();
+            if (l2==l){return avversario;}
+//            ArrayList <Eroe> er=avversario.getEroi();
+//            int livelloeroi=0;
+//            for (int j=0;j<er.size();j++){
+//                livelloeroi+=er.get(j).getLivello();
+//            }
+//            if (livelloeroi==l){return avversario;}
+//           
+//            }
+        }
+    return null;
     }
     
 }

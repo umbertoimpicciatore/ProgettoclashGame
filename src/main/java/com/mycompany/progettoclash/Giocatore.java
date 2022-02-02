@@ -84,6 +84,15 @@ public class Giocatore {
         return this.Accampamento.getListaEroiGiocatore();
     }
     
+    public int getSommaLivelloEroi(){
+      
+         int l=0;
+        for (EroeDescrizione key : this.livelloEroi.keySet()){
+        l+=this.livelloEroi.get(key);
+        }
+    return l;
+    }
+    
    /* public void posizionaEroe(int riga,int colonna,ArrayList<Eroe> listaEroi){
         Casella c=clash.getGiocatoreD().getVillaggio().getCasella(riga, colonna);
         c.addEroi(listaEroi);
