@@ -14,7 +14,13 @@ public class Accademia extends Edificio {
     
     public void potenzia(int idEroeDescrizione,Giocatore giocatore){
         EroeCatalogo edC=new EroeCatalogo();
-        EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
+        //EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
+        EroeDescrizione desc=null;
+        for (EroeDescrizione name: giocatore.getLivelloEroi().keySet()) {//controllare bene questo
+             if(name.getIdDesc()==idEroeDescrizione){
+                 desc=name;
+             }
+        }
         //int livello=giocatore.getLivelloEroi().get(desc);
         CreaEroeStrategy potS=null;
         try {
@@ -29,8 +35,8 @@ public class Accademia extends Edificio {
         if(giocatore.getEroi()!=null){
             potS.creaEroe(desc,quantita, giocatore);
         }
-        
-    
+        Risorsa prezzoPot=desc.getPrezzoDiPotenziamento();
+        giocatore.rimuoviRisorse(prezzoPot);    
     }
 
     public Accademia( ModalitàAttacco ma) {

@@ -86,7 +86,11 @@ public class Accampamento extends Edificio {
             Logger.getLogger(Accademia.class.getName()).log(Level.SEVERE, null, ex);
         }
         strategyEroe.creaEroe(desc,quantita,giocatore);//cambia NOME METODO
-
+        Risorsa prezzoAcquisto=desc.getPrezzoDiAcquisto();
+        double q=prezzoAcquisto.getQuantita()*quantita;
+        prezzoAcquisto.setQuantita(q);
+        giocatore.rimuoviRisorse(prezzoAcquisto);
+        
     }
     
     public void addEroi(ArrayList<Eroe> eroi){

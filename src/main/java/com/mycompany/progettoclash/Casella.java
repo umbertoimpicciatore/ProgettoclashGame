@@ -82,6 +82,15 @@ public class Casella {
         this.posizioneColonna = posizioneColonna;
     }
     
-    
+    public Casella verificaVitaEdificio(Casella casella){
+        Edificio edificio=casella.getEdificio();
+                        if(edificio!=null){
+                            int vita=casella.getEdificio().getStatistica().getVita();
+                            if(vita>0){ 
+                                return casella;
+                            }
+                        } 
+        return null;
+    }
     
 }

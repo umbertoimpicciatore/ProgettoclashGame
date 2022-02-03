@@ -1,6 +1,7 @@
 package com.mycompany.progettoclash;
 import com.mycompany.progettoclash.view.ViewAcquista;
 import com.mycompany.progettoclash.view.ViewAttacco;
+import com.mycompany.progettoclash.view.ViewPotenzia;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -58,28 +59,38 @@ public class Main {
         Deposito dep2=new Deposito(new AttaccaAvanti());
         dep1.setId(0);
         dep2.setId(2);
-        Oro oro=new Oro(2);
+        Oro oro=new Oro(5);
         Mana mana=new Mana(3);
         dep1.setRisorsa(oro);
         dep2.setRisorsa(mana);
         
         Giocatore ga=new Giocatore();
+        ArrayList<Deposito> depositi = new ArrayList<Deposito>();
+        depositi.add(dep2);
+        depositi.add(dep1);
+        ga.setDepositi(depositi);
         Edificio acc2=new Accampamento(new AttaccaAvanti());
         Statistica s1=new Statistica(5,5,100);
         acc2.setStatistica(s1);
         acc2.setId(2);
+        Accademia accademia=new Accademia(new NonAttacca());
         
         
         ArciereBuilder arc2=new ArciereBuilder();
         arc2.setId(1);
+        EroeDescrizione desc1=new EroeDescrizione();
+        desc1.setIdDesc(1);//da MODIFICARE
         Statistica s2=new Statistica(5,5,100);
         Statistica s3=new Statistica(5,5,100);
         EroeDirector erD2=new EroeDirector();
         Eroe eroeArc2=erD2.createEroe(arc2,s2);
+        eroeArc2.setEroeDescrizione(desc1);
         ArciereBuilder arc3=new ArciereBuilder();
         arc3.setId(2);
+        
         EroeDirector erD3=new EroeDirector();
         Eroe eroeArc3=erD3.createEroe(arc3,s3);
+        eroeArc3.setEroeDescrizione(desc1);
         ArrayList<Eroe> list=new ArrayList<Eroe>();
         list.add(eroeArc2);
         list.add(eroeArc3);
@@ -100,7 +111,7 @@ public class Main {
         }
         ga.setAccampamento((Accampamento)acc2);
         ga.setVillaggio(v2);
-
+        ga.setAccademia(accademia);
         //ViewAttacco view2=new ViewAttacco();
         //view2.cercaAvversario(ga);
         
@@ -118,7 +129,7 @@ public class Main {
             }
         }        
         ga.setLivelloEroi(livelloEroi);
-        ViewAcquista view=new ViewAcquista();
+        ViewPotenzia view=new ViewPotenzia();
         view.selezionaOperazione(ga);
         
     }

@@ -26,6 +26,21 @@ public class Villaggio {
         this.danni = danni;
     }
     
+    public boolean posizioneEore(int riga,int colonna,ArrayList<Eroe> listaEroi){
+        if(riga>this.getAltezza() || colonna>this.getLarghezza()){
+            return false;
+        }
+        else{
+            Casella c=this.getCasella(riga, colonna);    
+            for(int i=0;i<listaEroi.size();i++){//assegno a ciascun eroe la casella in cui verrà posizionato
+                listaEroi.get(i).setC(c);
+            }
+            c.addEroi(listaEroi);
+            return true;
+        }
+    }
+    
+    
    /* public Edificio cercaAccampamento(){
         Edificio e;
         for(int i=0;i<caselle.size();i++){
@@ -139,6 +154,5 @@ public class Villaggio {
             }
             return -1;
         }
-    
     }
     

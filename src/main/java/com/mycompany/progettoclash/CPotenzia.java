@@ -2,7 +2,6 @@
 package com.mycompany.progettoclash;
 
 import com.mycompany.progettoclash.view.ViewPotenzia;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -12,29 +11,19 @@ import java.util.HashMap;
 public class CPotenzia {
     
     private Giocatore giocatore;
+    ViewPotenzia view=new ViewPotenzia();
 
     public CPotenzia(Giocatore g) {
         this.giocatore = g;
     }
     
-    //selezioni edificio, in questo caso accademiaa
-    //selezionata l'accademia ti mostra gli eroi del giocatore e lui deve selezionare quello che vuole potenziare
-    //poi potenzi andando ad aumentare livello eroe,punti lv giocatore e togliendo quelle risorse specifiche al giocatore
-    /*public Casella selezionaEdificio(int riga,int col,Giocatore g){
-       // Casella c=new Casella();
-        Casella c= g.getVillaggio().getCasella(riga, col);
-        c.getEdificio().getRuoloE().operazione();
-        
-        
-        
-        
-    }*/
+
     public void operazione(){
         //il CATALOGO è UNA VARIABILE DI CPOTENZIA? PAG382
        //g.getAccademia();
        //il giocatore in questo caso a che mi serve?????
        
-       ViewPotenzia view=new ViewPotenzia();
+       
        
        //EroeCatalogo edC=new EroeCatalogo();
        HashMap<EroeDescrizione,Integer> eroeDesc=this.giocatore.getLivelloEroi();
@@ -47,25 +36,26 @@ public class CPotenzia {
            livelli.add(livello);
        }
      */  
-       view.mostraEroi(eroeDesc,false);
+       view.mostraEroi(eroeDesc,false,false,this.giocatore);
     }
     
     public void potenzia(int idEroeDescrizione){
-        //qui serve il giocatore per andare a modificare solo gli eroi di quel giocatore?
-        //richiamo accademia che si occupero di fare tutto ciò che segue?
+        EroeCatalogo catalogo=new EroeCatalogo();
+        EroeDescrizione desc=catalogo.getEroeDescrizione(idEroeDescrizione);
+        Risorsa prezzoPot=desc.getPrezzoDiPotenziamento();
+        boolean b=this.giocatore.controllaRisorsa(prezzoPot);
+        if(b==true){
+            view.conferma(idEroeDescrizione, prezzoPot,this.giocatore);
+        }
+        else{
+            view.mostraEroi(this.giocatore.getLivelloEroi(),false,true,this.giocatore);
+        }
+    }
+    
+    public void conferma(boolean conferma,int idEroeDescrizione){
+        //manca controllo su conferma
         Accademia acc=this.giocatore.getAccademia();
         acc.potenzia(idEroeDescrizione,this.giocatore);
-        
-        /*EroeCatalogo edC=new EroeCatalogo();
-        EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
-        int livello=this.giocatore.getLivelloEroi().get(desc);
-        */
-
-            //modifico statistiche secondo delle regole
-            //modifico livello per ciascun eroe
-            //modifico livello giocatore
-
-        //richiamo view
     }
     
     

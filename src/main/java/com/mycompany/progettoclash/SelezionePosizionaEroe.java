@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.progettoclash;
 import com.mycompany.progettoclash.view.ViewAttacco;
 
@@ -16,22 +11,15 @@ import java.util.ArrayList;
 public class SelezionePosizionaEroe {
 
 
-    private ClashGame clash;
     
     public SelezionePosizionaEroe(){
     }
     
-    public SelezionePosizionaEroe(ClashGame clash){
-        
-    this.clash=clash;
-    
-    }
-    
+
     public void selezionaPosizionaEroe(int riga,int colonna,int idEroe,int quantita,Giocatore giocatoreA,Giocatore giocatoreD) {
         
         ViewAttacco view=new ViewAttacco();
-        ClashGame clash=new ClashGame(giocatoreA,giocatoreD);
-        //RIGUARDA ATTENTAMENTO PER IL NULL
+       // ClashGame clash=new ClashGame(giocatoreA,giocatoreD);
         ArrayList<Eroe> eroiA=giocatoreA.getAccampamento().selezionaEroe(idEroe, quantita);
         if(eroiA==null){
             view.mostraSelezionaPosizionaEroe(giocatoreA, giocatoreD, true);            

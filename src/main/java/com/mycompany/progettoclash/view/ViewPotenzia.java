@@ -7,6 +7,7 @@ package com.mycompany.progettoclash.view;
 import com.mycompany.progettoclash.CPotenzia;
 import com.mycompany.progettoclash.EroeDescrizione;
 import com.mycompany.progettoclash.Giocatore;
+import com.mycompany.progettoclash.Risorsa;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -37,10 +38,13 @@ public class ViewPotenzia {
     
     }
     
-    public void mostraEroi(HashMap<EroeDescrizione,Integer> eroeDesc,boolean errore){
+    public void mostraEroi(HashMap<EroeDescrizione,Integer> eroeDesc,boolean errore,boolean errorePrezzo,Giocatore g){
         
         if(errore){
             System.out.println("IdEroe inserito non corretto");
+        }
+        if(errorePrezzo){
+            System.out.println("Non hai a disposizione risorse sufficenti");
         }
         
         for (EroeDescrizione name: eroeDesc.keySet()) {
@@ -61,6 +65,7 @@ public class ViewPotenzia {
             return;
         }
         else{
+            potenzia=new CPotenzia(g);
             potenzia.potenzia(ris);
         }
         
@@ -79,6 +84,13 @@ public class ViewPotenzia {
              var = sc.nextInt();
          } while (var < 0);
          return var;
+    }
+    
+     public void conferma(int idEroeDescrizione,Risorsa r,Giocatore g){
+        String s="Sei sicuro di voler potenziare l' eroe con idEroeDescrizione:" +idEroeDescrizione+"?\n Il costo di potenziamento è di: "+r.toString()+"\n Premi 1 per confermare altro per annulla";
+        int ris=this.inserisci(s);
+        potenzia=new CPotenzia(g);
+        potenzia.conferma(true, idEroeDescrizione);//da cambiare
     }
     
     

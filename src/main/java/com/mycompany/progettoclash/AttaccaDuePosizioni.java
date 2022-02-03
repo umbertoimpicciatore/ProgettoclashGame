@@ -30,7 +30,7 @@ public class AttaccaDuePosizioni implements ModalitàAttacco{
                 //System.out.println("Riga: "+i+" j: "+j+" ");
                 if( i!=riga || j!=colonna){
                 Casella c2=v.getCasella(i, j);
-                Casella cas=this.verificaVitaEdificio(c2);
+                Casella cas=c2.verificaVitaEdificio(c2);//ATTTENZIONEEEEEEEEEEEEEEEEEEE
                 if(cas!=null){
                     g.add(c2);
                     return g;
@@ -51,7 +51,7 @@ public class AttaccaDuePosizioni implements ModalitàAttacco{
                     if(i>0 && j>0 && (i!=riga || j!=colonna)){
                        // System.out.println("OI-Riga: "+i+" j: "+j+" FUCKKKKK");
                         Casella c2=v.getCasella(i, j);
-                        Casella cas=this.verificaVitaEdificio(c2);
+                        Casella cas=c2.verificaVitaEdificio(c2);//ATTTENZIONEEEEEEEEEEEEEEEEEEE
                         if(cas!=null){
                             g.add(c2);
                             return g;
@@ -73,7 +73,7 @@ public class AttaccaDuePosizioni implements ModalitàAttacco{
         return null;
     }
     
-     private Casella verificaVitaEdificio(Casella casella){
+ /*    private Casella verificaVitaEdificio(Casella casella){
         Edificio edificio=casella.getEdificio();
                         if(edificio!=null){
                             int vita=casella.getEdificio().getStatistica().getVita();
@@ -82,6 +82,6 @@ public class AttaccaDuePosizioni implements ModalitàAttacco{
                             }
                         } 
         return null;
-    }
+    }*/
     
 }

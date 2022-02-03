@@ -17,13 +17,11 @@ public class Attacco implements StatoAttacco{
     @Override
     public void attaccanoEdifici(ClashGame clash) {
      ArrayList<Casella> listC =  clash.caselleDifensore();//recupero le caselle del difensore
-        
         for(int i=0;i<listC.size();i++){//per ogni casella mi recupero l'edificio
             Edificio ed=listC.get(i).getEdificio();
             if(ed!=null){
                 ArrayList<Casella> listaCaselleConEroiDaAttaccare=ed.getModA().attaccoEdificio(ed);//recupero la lista delle caselle con gli eroi da attaccare
                 for(int j=0;j<listaCaselleConEroiDaAttaccare.size();j++){
-                    
                     Casella c=listaCaselleConEroiDaAttaccare.get(j);
                     //System.out.print(c.getPosizioneColonna()+""+c.getPosizioneRiga()+" ");
                     ArrayList<Eroe> listE= listaCaselleConEroiDaAttaccare.get(j).getListaEroiA();
@@ -49,39 +47,8 @@ public class Attacco implements StatoAttacco{
                         }
                         else{
                             listE.remove(k);
-                        }
-                        
-                        //listE.set(k, eroe);
-                        
-                    }
-                        
-                        
-                    /*    
-                    for(int k=0;k<listE.size();k++){
-                        Eroe eroe=listE.get(k);
-                        int vita=eroe.getStat().getVita();//VEDERE SE FARE UNA CLASSE O QUALCOSA PER LA REGOLA DI TOGLIMENTO VITA
-                        int difesa=eroe.getStat().getDifesa()+eroe.getSkin().getDifesa();
-                        int attaccoEdificio=ed.getStatistica().getAttacco();//+ la attacco della skin?
-                        if(attaccoEdificio-difesa>5 &&vita>0){
-                            int attdif=attaccoEdificio-difesa;
-                            vita-=attdif;
-                        }
-                        else{
-                            vita-=5;
-                        }
-                        if(vita<0){
-                            vita=0;
-                        }
-                        eroe.setVita(vita);
-                        //listE.set(k, eroe);
-                        
-                    }
-                    */
-                    //c.setListaEroiA(listE);
-                   // i//nt vita1=c.getListaEroiA().get(0).getStat().getVita();
-                    //clash.getGiocatoreD().getVillaggio().setCasella(c);
-                   // listaCaselleConEroiDaAttaccare.set(j, c);
-                    
+                        }                      
+                    }                 
                 }
             }      
         }
@@ -134,7 +101,6 @@ public class Attacco implements StatoAttacco{
                 ArrayList<Eroe> eroi=casellaCorrente.getListaEroiA();//recupero  gli eroi del giocatore attaccante sulla caselle del difensore
                 if(eroi!=null && eroi.size()>0){
                     Casella casella=this.spostamentoEroi(clash.getGiocatoreD().getVillaggio(), casellaCorrente);
-
                     for(int j=0;j<eroi.size();j++){
                         Eroe e=eroi.get(j);//recupero l'eroe
                         e.setC(casella);
@@ -157,7 +123,7 @@ public class Attacco implements StatoAttacco{
             for(int j=colonna-1;cont2<3 && j>=1 && j<=v.getLarghezza();j++){
                // System.out.println("Riga: "+i+" j: "+j+" ");
                 Casella c2=v.getCasella(i, j);
-                Casella cas=this.verificaVitaEdificio(c2);
+                Casella cas=c2.verificaVitaEdificio(c2);//ATTENZIONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
                 if(cas!=null){
                     return c2;
                 }
@@ -174,7 +140,7 @@ public class Attacco implements StatoAttacco{
                     //System.out.println("OI-Riga: "+i+" j: "+j+" ");
                     if(i>0 && j>0){
                         Casella c2=v.getCasella(i, j);
-                        Casella cas=this.verificaVitaEdificio(c2);
+                        Casella cas=c2.verificaVitaEdificio(c2);//ATTENZIONEEEEEEEEEEEEEEEE
                         if(cas!=null){
                             return c2;
                         } 
@@ -189,7 +155,7 @@ public class Attacco implements StatoAttacco{
         return c2;   
     }
     
-    private Casella verificaVitaEdificio(Casella casella){
+   /* private Casella verificaVitaEdificio(Casella casella){
         Edificio edificio=casella.getEdificio();
                         if(edificio!=null){
                             int vita=casella.getEdificio().getStatistica().getVita();
@@ -198,7 +164,7 @@ public class Attacco implements StatoAttacco{
                             }
                         } 
         return null;
-    }
+    }*/
     
     //metodo per spostarsi verso la prima casella che si trova con la vita dell'edificio >0 
     private Casella cercaCasellaVersoCuiSpostarsi(Villaggio v,Casella c){ //45 righe ATTENZIONE VEDERE
@@ -245,8 +211,7 @@ public class Attacco implements StatoAttacco{
                             }
                             return v.getCasella(prossimaRiga,prossimaColonna);
                         }
-                }
-                    
+                }        
             }
         }
         return null;

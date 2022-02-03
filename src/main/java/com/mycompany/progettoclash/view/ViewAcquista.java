@@ -3,6 +3,7 @@ package com.mycompany.progettoclash.view;
 import com.mycompany.progettoclash.CAcquista;
 import com.mycompany.progettoclash.EroeDescrizione;
 import com.mycompany.progettoclash.Giocatore;
+import com.mycompany.progettoclash.Risorsa;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -28,6 +29,7 @@ public class ViewAcquista {
                 break;
             case 4:
                 acquista=new CAcquista(g);
+                //CAcquista.getInstance(g).operazione(g);
                 acquista.operazione(g);
                 break;
             case 5:
@@ -54,10 +56,13 @@ public class ViewAcquista {
          return var;
     }
     
-    public void mostraEroi(HashMap<EroeDescrizione,Integer> eroeDesc,boolean errore,Giocatore giocatore){
+    public void mostraEroi(HashMap<EroeDescrizione,Integer> eroeDesc,boolean errore,boolean errorePrezzo,Giocatore giocatore){
         
         if(errore){
             System.out.println("IdEroe inserito non corretto");
+        }
+        if(errorePrezzo){
+            System.out.println("Non hai a disposizione risorse sufficenti");
         }
         
         for (EroeDescrizione name: eroeDesc.keySet()) {
@@ -78,12 +83,20 @@ public class ViewAcquista {
                 return;
             }
             else{
+                //CAcquista.getInstance(g
                 acquista=new CAcquista(giocatore);
                 acquista.acquistaEroi(idEroe,quantita);
             }
         }
         
         
+    }
+    
+    public void conferma(int idEroeDescrizione,int quantita,Risorsa r,Giocatore giocatore){
+        String s="Sei sicuro di voler acquistare "+quantita+" dell' eroe con idEroeDescrizione:" +idEroeDescrizione+"?\n Il costo totale è di: "+r.toString()+"\n Premi 1 per confermare altro per annulla";
+        int ris=this.inserisci(s);
+        acquista=new CAcquista(giocatore);
+        this.acquista.conferma(true, idEroeDescrizione, quantita);//da cambiare
     }
     
 }
