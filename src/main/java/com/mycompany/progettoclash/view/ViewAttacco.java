@@ -3,10 +3,12 @@ package com.mycompany.progettoclash.view;
 import com.mycompany.progettoclash.Casella;
 import com.mycompany.progettoclash.ClashGame;
 import com.mycompany.progettoclash.Eroe;
+import com.mycompany.progettoclash.EroeDescrizione;
 import com.mycompany.progettoclash.Giocatore;
 import com.mycompany.progettoclash.SelezionePosizionaEroe;
 import com.mycompany.progettoclash.Villaggio;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -24,7 +26,6 @@ public class ViewAttacco {
         if(ris==1){
             clash=new ClashGame(giocatoreA);
             clash.cercaAvversario();
-           // giocatoreA.cercaAvversario();
         }
         else{
             return;
@@ -37,13 +38,12 @@ public class ViewAttacco {
         String s="Immetti numero positivo: 1 per confermare, 2 per cercare un altro avversaio, altro per annullare ";
         int ris=this.inserisci(s);
          switch(ris) {
-             
             case 1: 
                 this.mostraSelezionaPosizionaEroe(giocatoreA,giocatoreD,false);
                 break;
             
             case 2: 
-                //giocatoreA.cercaAvversario();
+                clash=new ClashGame(giocatoreA);
                 clash.cercaAvversario();
                 break;
 
@@ -52,9 +52,14 @@ public class ViewAttacco {
     }
     
     public void mostraSelezionaPosizionaEroe(Giocatore giocatoreA,Giocatore giocatoreD,boolean errore){
+        HashMap<EroeDescrizione,Integer> map=giocatoreA.getAccampamento().mostraEroiDescQuantita();
+         for (EroeDescrizione name: map.keySet()) {
+            String key = name.toString2();
+            int value = map.get(name);
+            System.out.println(key + " quantitaDisponibile: " + value);
+        }
         
         ArrayList<Eroe> eroiA=giocatoreA.getEroi();//implementa
-        //if(eroiA)
         for(int i=0;i<eroiA.size();i++){
             System.out.println("Arciere id 10");
         }

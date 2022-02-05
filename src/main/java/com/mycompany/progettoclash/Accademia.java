@@ -39,9 +39,6 @@ public class Accademia extends Edificio {
         giocatore.rimuoviRisorse(prezzoPot);    
     }
 
-    public Accademia( ModalitàAttacco ma) {
-        super( ma);
-    }
     
     @Override
     public void setListaEroiGiocatore(ArrayList<Eroe> listaEroiGiocatore) {

@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.mycompany.progettoclash.view;
 import com.mycompany.progettoclash.CPotenzia;
 import com.mycompany.progettoclash.EroeDescrizione;
 import com.mycompany.progettoclash.Giocatore;
 import com.mycompany.progettoclash.Risorsa;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 /**
@@ -34,11 +29,12 @@ public class ViewPotenzia {
         String s="Cosa vuoi fare?\n 1: Attaccare un altro giocatore?\n 2: Potenziare eroe?\n 3: Inserire edificio?\n 4: Acquistare eroi?\n 5: Potenziare edificio?\n >5: Esci(logout)";
         int ris=this.inserisci(s);
         potenzia=new CPotenzia(g);
-        potenzia.operazione();
+        HashMap<EroeDescrizione,Integer> eroeDesc =potenzia.operazione();
+        this.mostraEroi(eroeDesc, false, false);
     
     }
     
-    public void mostraEroi(HashMap<EroeDescrizione,Integer> eroeDesc,boolean errore,boolean errorePrezzo,Giocatore g){
+    public void mostraEroi(HashMap<EroeDescrizione,Integer> eroeDesc,boolean errore,boolean errorePrezzo){
         
         if(errore){
             System.out.println("IdEroe inserito non corretto");
@@ -54,19 +50,21 @@ public class ViewPotenzia {
         }
         
         
-        
-        /*for (int i=0;i<eroeDesc.size();i++){
-            
-           System.out.println(eroeDesc.get(i).toString()+" Livello: "+eroeDesc.get(i).getEroi().get(i).getLivello());
-        }*/
+       
         String s="Inserisci idEroe da potenziare oppure 0 per annullare";
         int ris=this.inserisci(s);
         if(ris==0){
             return;
         }
         else{
-            potenzia=new CPotenzia(g);
-            potenzia.potenzia(ris);
+            //potenzia=new CPotenzia(g);
+            Risorsa r=potenzia.potenzia(ris);
+            if(r!=null){
+                this.conferma(ris, r);
+            }
+            else{
+                mostraEroi(eroeDesc,false,true);
+            }
         }
         
     }
@@ -86,12 +84,13 @@ public class ViewPotenzia {
          return var;
     }
     
-     public void conferma(int idEroeDescrizione,Risorsa r,Giocatore g){
+     public void conferma(int idEroeDescrizione,Risorsa r){
         String s="Sei sicuro di voler potenziare l' eroe con idEroeDescrizione:" +idEroeDescrizione+"?\n Il costo di potenziamento è di: "+r.toString()+"\n Premi 1 per confermare altro per annulla";
         int ris=this.inserisci(s);
-        potenzia=new CPotenzia(g);
         potenzia.conferma(true, idEroeDescrizione);//da cambiare
     }
+     
+     
     
     
 }

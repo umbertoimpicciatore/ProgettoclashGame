@@ -23,5 +23,10 @@ public class NonAttacca implements ModalitàAttacco {
     public ArrayList<Casella> attacco(Eroe e) {
         return new ArrayList<Casella>();
     }
+
+    @Override
+    public ArrayList<Casella> caselleBersaglio(Casella c) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

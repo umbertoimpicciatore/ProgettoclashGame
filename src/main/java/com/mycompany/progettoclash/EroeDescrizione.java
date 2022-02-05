@@ -121,5 +121,10 @@ public class EroeDescrizione {
         return s;
     }
     
+    public String toString2(){
+        String s="IDEROE:"+this.idDesc+" Nome: ".concat(nome);
+        return s;
+    }
+    
     
 }

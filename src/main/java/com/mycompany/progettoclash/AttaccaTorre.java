@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.progettoclash;
 
 import java.util.ArrayList;
@@ -12,8 +7,7 @@ import java.util.ArrayList;
  * @author User
  */
 public class AttaccaTorre implements ModalitàAttacco {
-    int altezza=4;
-    int lunghezza=4;
+
      @Override
     public ArrayList<Casella> attacco(Eroe e){                
         return new ArrayList<Casella>();
@@ -24,5 +18,11 @@ public class AttaccaTorre implements ModalitàAttacco {
         Villaggio villaggioD=e.getCasella().getVillaggio();
         return villaggioD.getCaselle();              
         }
+
+    @Override
+    public ArrayList<Casella> caselleBersaglio(Casella c) {
+        ArrayList<Casella> caselle=c.getVillaggio().getCaselle();
+        return caselle;
+    }
         
     }

@@ -13,8 +13,6 @@ import java.util.ArrayList;
  */
 public class AttaccaDuePosizioni implements ModalitàAttacco{
     
-    //int altezza=4;//mettere gli attributi di villaggio
-    //int lunghezza=4;
     
     public ArrayList<Casella> attacco(Eroe e){  
         Villaggio v=e.getC().getVillaggio();
@@ -83,5 +81,53 @@ public class AttaccaDuePosizioni implements ModalitàAttacco{
                         } 
         return null;
     }*/
+
+    @Override
+    public ArrayList<Casella> caselleBersaglio(Casella c) {
+        Villaggio v=c.getVillaggio();
+        ArrayList<Casella> g=new ArrayList<Casella>();
+        g.add(c);
+        int colonna=c.getPosizioneColonna();
+        int riga=c.getPosizioneRiga();
+        int cont=0;
+        int cont2=0;
+        for(int i=riga-1 ;cont<3 && i>=1 && i<=altezza;i++){ 
+            for(int j=colonna-1;cont2<3 && j>=1 && j<=lunghezza;j++){
+                if( i!=riga || j!=colonna){
+                Casella c2=v.getCasella(i, j);
+                Casella cas=c2.verificaVitaEdificio(c2);//ATTTENZIONEEEEEEEEEEEEEEEEEEE
+                if(cas!=null){
+                    g.add(c2);
+                    return g;
+                }
+                }
+                
+                cont2++;
+            }
+            cont2=0;
+            cont++;        
+        }
+        if(riga==1 || colonna==1){
+            cont=0;
+            cont2=0;
+            for(int i=riga-1 ;cont<3 && i<=altezza;i++){ 
+                for(int j=colonna-1;cont2<3 && j<=lunghezza;j++){
+                    if(i>0 && j>0 && (i!=riga || j!=colonna)){
+                        Casella c2=v.getCasella(i, j);
+                        Casella cas=c2.verificaVitaEdificio(c2);//ATTTENZIONEEEEEEEEEEEEEEEEEEE
+                        if(cas!=null){
+                            g.add(c2);
+                            return g;
+                        } 
+                    }
+                    cont2++;
+                }
+                cont2=0;
+                cont++;        
+            }
+        }       
+        
+        return g;
+    }
     
 }

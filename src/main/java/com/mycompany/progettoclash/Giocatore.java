@@ -12,49 +12,38 @@ public class Giocatore {
     
     private HashMap<EroeDescrizione, Integer > livelloEroi;
     private int livello;
-    private Accampamento Accampamento;//vedere LARMAN
-    private Accademia Accademia;//VALUTARE BENE SE METTERLO OPPURE NO, RILEGGI IL LARMAN
-    private ArrayList<Deposito> depositi;
+    private Accampamento Accampamento;
+    private Accademia Accademia;
+    private ArrayList<Deposito> depositiOro;
+    private ArrayList<Deposito> depositiMana;
     private String nome;
     private Villaggio villaggio;
-    
-    
-    public void rimuoviRisorse(Risorsa risorsa){
-        double quantita=risorsa.getQuantita();
-        for(int i=0;i<depositi.size();i++){
-            Risorsa r=depositi.get(i).getRisorsa();
-            double qDeposito=r.getQuantita();
-            if(r.getNome().equals(risorsa.getNome())){
-                if((qDeposito-quantita)>=0){
-                    r.setQuantita(qDeposito-quantita);
-                    return;
-                }
-                else{
-                    r.setQuantita(0);
-                    quantita=quantita-qDeposito;
-                }
-            }
-        }
-        
+    private Municipio municipio;
+
+    public Municipio getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(Municipio municipio) {
+        this.municipio = municipio;
+    }
+
+    public ArrayList<Deposito> getDepositiOro() {
+        return depositiOro;
+    }
+
+    public void setDepositiOro(ArrayList<Deposito> depositiOro) {
+        this.depositiOro = depositiOro;
+    }
+
+    public ArrayList<Deposito> getDepositiMana() {
+        return depositiMana;
+    }
+
+    public void setDepositiMana(ArrayList<Deposito> depositiMana) {
+        this.depositiMana = depositiMana;
     }
     
-    public boolean controllaRisorsa(Risorsa risorsa){
-    
-        double quantita=risorsa.getQuantita();
-        double cont=0;
-        for(int i=0;i<depositi.size();i++){
-            Risorsa r=depositi.get(i).getRisorsa();
-            if(r.getNome().equals(risorsa.getNome())){
-                cont=cont +r.getQuantita();
-            }
-        }
-        if(cont>=quantita){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
     
     public HashMap<EroeDescrizione, Integer> getLivelloEroi() {
         return livelloEroi;
@@ -71,14 +60,6 @@ public class Giocatore {
 
     public void setAccademia(Accademia Accademia) {
         this.Accademia = Accademia;
-    }
-
-    public ArrayList<Deposito> getDepositi() {
-        return depositi;
-    }
-
-    public void setDepositi(ArrayList<Deposito> depositi) {
-        this.depositi = depositi;
     }
 
 
@@ -126,20 +107,58 @@ public class Giocatore {
     return l;
     }
     
-   /* public void posizionaEroe(int riga,int colonna,ArrayList<Eroe> listaEroi){
-        Casella c=clash.getGiocatoreD().getVillaggio().getCasella(riga, colonna);
-        c.addEroi(listaEroi);
+    public void rimuoviRisorse(Risorsa risorsa){
+        ArrayList<Deposito> depositi=this.depositiOro;
+        depositi.addAll(this.depositiMana);
+        double quantita=risorsa.getQuantita();
+        for(int i=0;i<depositi.size();i++){
+            Risorsa r=depositi.get(i).getRisorsa();
+            double qDeposito=r.getQuantita();
+            if(r.getNome().equals(risorsa.getNome())){
+                if((qDeposito-quantita)>=0){
+                    r.setQuantita(qDeposito-quantita);
+                    return;
+                }
+                else{
+                    r.setQuantita(0);
+                    quantita=quantita-qDeposito;
+                }
+            }
+        }
         
+    }
+    //DA TESTARE
+    public boolean controllaRisorsa(Risorsa risorsa){
+        ArrayList<Deposito> depositi=this.depositiOro;
+        depositi.addAll(this.depositiMana);
+        double quantita=risorsa.getQuantita();
+        double cont=0;
+        for(int i=0;i<depositi.size();i++){
+            Risorsa r=depositi.get(i).getRisorsa();
+            if(r.getNome().equals(risorsa.getNome())){
+                cont=cont +r.getQuantita();
+            }
+        }
+        if(cont>=quantita){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+        
+    /*public int quantiDepositi(Risorsa risorsa){
+        int c=0;
+        for(int i=0;i<this.depositi.size();i++){
+            Deposito d=this.depositi.get(i);
+            if(d.getRisorsa().getNome().equals(risorsa.getNome())){
+                c++;
+            }
+        }
+        return c;
     }*/
     
-  /*  public void cercaAvversario(){
-        
-        TrovaAvversario t=new TrovaAvversario();
-        Giocatore giocatoreD=t.getAvversario(this);
-        ViewCercaAvversario view=new ViewCercaAvversario();//si può fare dentro il controller?
-        view.conferma(giocatoreD,this); 
-    }
-    */
-    
+   
     
 }

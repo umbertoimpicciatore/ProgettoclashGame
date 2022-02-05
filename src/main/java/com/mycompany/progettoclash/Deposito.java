@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.progettoclash;
 
 import java.util.ArrayList;
@@ -11,11 +6,8 @@ import java.util.ArrayList;
  *
  * @author User
  */
-public class Deposito extends Edificio {
+public abstract class Deposito extends Edificio {
     private Risorsa risorsa;
-    
-
-    
     
 
     public Risorsa getRisorsa() {
@@ -26,8 +18,8 @@ public class Deposito extends Edificio {
         this.risorsa = risorsa ;
     }
     
-     public Deposito( ModalitàAttacco ma) {
-        super( ma);
+    public Deposito(Risorsa r) {
+        this.risorsa=r;
     }
 
     @Override
@@ -35,9 +27,4 @@ public class Deposito extends Edificio {
     }
     
 }
-//     public void perdiOro(ClashGame clash,OttenimentoRisorseStrategy d){                           
-//     this.setOro(d.ottieniRisorsa(clash));
-//     
-//     
-//     }
 

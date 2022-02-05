@@ -11,14 +11,14 @@ import java.util.HashMap;
 public class CPotenzia {
     
     private Giocatore giocatore;
-    ViewPotenzia view=new ViewPotenzia();
+    //ViewPotenzia view=new ViewPotenzia();
 
     public CPotenzia(Giocatore g) {
         this.giocatore = g;
     }
     
 
-    public void operazione(){
+    public HashMap<EroeDescrizione,Integer>  operazione(){
         //il CATALOGO è UNA VARIABILE DI CPOTENZIA? PAG382
        //g.getAccademia();
        //il giocatore in questo caso a che mi serve?????
@@ -26,7 +26,8 @@ public class CPotenzia {
        
        
        //EroeCatalogo edC=new EroeCatalogo();
-       HashMap<EroeDescrizione,Integer> eroeDesc=this.giocatore.getLivelloEroi();
+       return this.giocatore.getLivelloEroi();
+       //HashMap<EroeDescrizione,Integer> 
      /*  ArrayList<EroeDescrizione> desc=edC.getAllDescrizioni();
        ArrayList<Integer> livelli=new ArrayList<Integer>();
        HashMap<EroeDescrizione,Integer> eroeDesc=new HashMap<EroeDescrizione,Integer>(); 
@@ -36,20 +37,28 @@ public class CPotenzia {
            livelli.add(livello);
        }
      */  
-       view.mostraEroi(eroeDesc,false,false,this.giocatore);
+      // view.mostraEroi(eroeDesc,false,false,this.giocatore);
     }
     
-    public void potenzia(int idEroeDescrizione){
+    public Risorsa potenzia(int idEroeDescrizione){
         EroeCatalogo catalogo=new EroeCatalogo();
         EroeDescrizione desc=catalogo.getEroeDescrizione(idEroeDescrizione);
         Risorsa prezzoPot=desc.getPrezzoDiPotenziamento();
         boolean b=this.giocatore.controllaRisorsa(prezzoPot);
         if(b==true){
+            return prezzoPot;
+        }
+        else{
+            return null;
+        }
+        
+        /*
+        if(b==true){
             view.conferma(idEroeDescrizione, prezzoPot,this.giocatore);
         }
         else{
             view.mostraEroi(this.giocatore.getLivelloEroi(),false,true,this.giocatore);
-        }
+        }*/
     }
     
     public void conferma(boolean conferma,int idEroeDescrizione){

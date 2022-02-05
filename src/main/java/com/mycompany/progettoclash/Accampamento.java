@@ -1,6 +1,7 @@
 package com.mycompany.progettoclash;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,20 +21,16 @@ public class Accampamento extends Edificio {
         this.listaEroiGiocatore = listaEroiGiocatore;
     }
     
-    
-    public Accampamento( ModalitàAttacco ma) {
-        super(ma);
-    }
+
     
     public ArrayList<Eroe> selezionaEroe(int idEroe,int quantita){
-            //controllo su quando l'utente ha immesso tutti gli eroi
         ArrayList<Eroe> listaEroi = new ArrayList<Eroe>();
         boolean var=this.controllaQuantitaIdEroe(idEroe, quantita);
         if(var==true){
             int cont=0;
             int i=0;
             while(i<this.listaEroiGiocatore.size() && cont<quantita){
-                if(this.listaEroiGiocatore.get(i).getId()==idEroe){
+                if(this.listaEroiGiocatore.get(i).getEroeDescrizione().getIdDesc()==idEroe){
                     cont++;
                     listaEroi.add(this.listaEroiGiocatore.get(i));
                     this.listaEroiGiocatore.remove(i);
@@ -53,16 +50,24 @@ public class Accampamento extends Edificio {
         int cont=0;
         boolean idEroeTrovato=false;
         for(int i=0;i<this.listaEroiGiocatore.size();i++){
-            if(this.listaEroiGiocatore.get(i).getId()==idEroe){
+            if(this.listaEroiGiocatore.get(i).getEroeDescrizione().getIdDesc()==idEroe){
+            idEroeTrovato=true;
+                cont++;
+                if(cont==quantita){
+                    return true;
+                }
+            }
+           /* if(this.listaEroiGiocatore.get(i).getId()==idEroe){
                 idEroeTrovato=true;
                 cont++;
                 if(cont==quantita){
                     return true;
                 }
-            }    
+            }    */
         }
         if(cont==quantita && idEroeTrovato==true){
             return true;
+            
         }
         else{
             return false;
@@ -116,6 +121,30 @@ public class Accampamento extends Edificio {
         }
         return quantita;     
     }
+    
+    
+    //metodo per mostrare eroeDEscrizione e la quantita di eroe disponibile
+    public HashMap<EroeDescrizione,Integer> mostraEroiDescQuantita(){
+        HashMap<EroeDescrizione,Integer> map=new HashMap<EroeDescrizione,Integer>();
+        ArrayList<Integer> idEroi=new ArrayList<Integer>();
+        for(int i=0;i<this.listaEroiGiocatore.size();i++){
+            Eroe e=this.listaEroiGiocatore.get(i);
+            EroeDescrizione desc=e.getEroeDescrizione();
+            int idDesc=e.getEroeDescrizione().getIdDesc();
+            boolean b=idEroi.contains(idDesc);
+            if(b){
+                int quantita=map.get(desc);
+                map.put(e.getEroeDescrizione(), quantita+1);
+            }
+            else{
+                idEroi.add(idDesc);
+                map.put(desc, 1);
+            }
+            
+        }
+        return map;
+    }
+
     
  
 }

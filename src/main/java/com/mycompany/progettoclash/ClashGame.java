@@ -74,7 +74,7 @@ public class ClashGame {
         ViewAttacco view=new ViewAttacco();//si può fare dentro il controller?
         view.conferma(giocatoreD,this.giocatoreA); 
     }
-    
+
     public void iniziaBattaglia(){
         ViewAttacco view=new ViewAttacco();
         stato=new Attacco();
@@ -102,7 +102,8 @@ public class ClashGame {
         
     }
     
-    
+    //prende in ingresso le caselle del villaggio difensore e il giocatore Attaccante
+    //gli eroiVivi delGIocatore Attaccante tornano all'attaccante se non sono morti
     private void eroiVivi( ArrayList<Casella> caselle,Giocatore giocatoreA){
         ArrayList<Eroe> eroiA=new ArrayList<Eroe>();
         for (int i=0;i<caselle.size();i++){
@@ -119,11 +120,11 @@ public class ClashGame {
     
     //vedi a chi assegnarlo
     //restituisce false in caso di problemi, true nel caso in cui l'esecuzione è andata a buon fine
-    public boolean posizionaEroe(int riga,int colonna,ArrayList<Eroe> listaEroi){
+ /*   public boolean posizionaEroe(int riga,int colonna,ArrayList<Eroe> listaEroi){
         Villaggio v=this.giocatoreD.getVillaggio();
         boolean b=v.posizioneEore(riga, colonna, listaEroi);
         return b;
     }
-    
+    */
     
 }

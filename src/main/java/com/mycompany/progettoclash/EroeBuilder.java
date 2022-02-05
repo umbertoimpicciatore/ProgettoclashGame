@@ -12,6 +12,7 @@ package com.mycompany.progettoclash;
 public abstract class EroeBuilder {
     
     protected Eroe eroe;
+    public abstract void setEroeDescrizione(EroeDescrizione desc);
     public abstract void setId(int idEroe);
     public abstract void setSkin(Skin skin);
     public abstract void setSkills(Statistica s);

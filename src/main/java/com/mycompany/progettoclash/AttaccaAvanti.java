@@ -18,9 +18,16 @@ public class AttaccaAvanti implements ModalitàAttacco {
     }
 
     @Override
-    public ArrayList<Casella> attaccoEdificio(Edificio e) {//ledificiodeve sapere conoscere la casella in cui si trova?
+    public ArrayList<Casella> attaccoEdificio(Edificio e) {
         ArrayList<Casella> g=new ArrayList<Casella>();
         g.add(e.getCasella());
+        return g;
+    }
+
+    @Override
+    public ArrayList<Casella> caselleBersaglio(Casella c) {
+        ArrayList<Casella> g=new ArrayList<Casella>();
+        g.add(c);
         return g;
     }
     

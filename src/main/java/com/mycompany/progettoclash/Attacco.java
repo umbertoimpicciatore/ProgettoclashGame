@@ -18,12 +18,11 @@ public class Attacco implements StatoAttacco{
     public void attaccanoEdifici(ClashGame clash) {
      ArrayList<Casella> listC =  clash.caselleDifensore();//recupero le caselle del difensore
         for(int i=0;i<listC.size();i++){//per ogni casella mi recupero l'edificio
-            Edificio ed=listC.get(i).getEdificio();
+            Casella c=listC.get(i);
+            Edificio ed=c.getEdificio();
             if(ed!=null){
-                ArrayList<Casella> listaCaselleConEroiDaAttaccare=ed.getModA().attaccoEdificio(ed);//recupero la lista delle caselle con gli eroi da attaccare
+                ArrayList<Casella> listaCaselleConEroiDaAttaccare=ed.getModalitaAttacco().caselleBersaglio(c);//recupero la lista delle caselle con gli eroi da attaccare
                 for(int j=0;j<listaCaselleConEroiDaAttaccare.size();j++){
-                    Casella c=listaCaselleConEroiDaAttaccare.get(j);
-                    //System.out.print(c.getPosizioneColonna()+""+c.getPosizioneRiga()+" ");
                     ArrayList<Eroe> listE= listaCaselleConEroiDaAttaccare.get(j).getListaEroiA();
                     int k=0; 
                     while(k<listE.size()){
@@ -59,13 +58,12 @@ public class Attacco implements StatoAttacco{
     public void attaccanoEroi(ClashGame clash) {
         ArrayList<Casella> listC =  clash.caselleDifensore(); //recupero le caselle del difensore      
         for(int i=0;i<listC.size();i++){   
-            ArrayList<Eroe> eroi=listC.get(i).getListaEroiA();//recupero  gli eroi del giocatore attaccante sulla caselle del difensore
+            Casella c=listC.get(i);
+            ArrayList<Eroe> eroi=c.getListaEroiA();//recupero  gli eroi del giocatore attaccante sulla caselle del difensore
             for(int j=0;j<eroi.size();j++){
                 Eroe e=eroi.get(j);//recupero l'eroe
-                ArrayList<Casella> listCaselleDaAttaccare=e.getModA().attacco(e);//recupero le caselle da attaccare  
+                ArrayList<Casella> listCaselleDaAttaccare=e.getModalitaAttacco().caselleBersaglio(c);//recupero le caselle da attaccare  
                 for(int k=0;k<listCaselleDaAttaccare.size();k++){ 
-                    //MANCA CONTROLLO SULLA VITA DELL'EDIFICIO
-                    Casella c=listCaselleDaAttaccare.get(k);
                     Edificio edificio=listCaselleDaAttaccare.get(k).getEdificio();
                     if(edificio!=null){
                         int vita=edificio.getStatistica().getVita();
@@ -89,7 +87,6 @@ public class Attacco implements StatoAttacco{
        this.cambiaStato(clash, new ControlloFineBattaglia());
     }
     
-    //sposta
     @Override
     public void spostaEroi(ClashGame clash) {
     

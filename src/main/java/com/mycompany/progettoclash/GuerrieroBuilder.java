@@ -27,7 +27,7 @@ public class GuerrieroBuilder extends EroeBuilder{
        
     }
     public void reset() {
-      	this.eroe = new Eroe(new AttaccaAvanti());
+      	this.eroe = new Eroe();
     }
 
     @Override

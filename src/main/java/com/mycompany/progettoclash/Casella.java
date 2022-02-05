@@ -29,9 +29,7 @@ public class Casella {
         return villaggio;
     }
     
-    
-    
-    
+     
     public Casella(int riga,int colonna){
         this.posizioneColonna=colonna;
         this.posizioneRiga=riga;

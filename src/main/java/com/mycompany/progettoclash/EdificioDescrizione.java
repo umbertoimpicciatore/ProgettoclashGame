@@ -1,18 +1,54 @@
 
 package com.mycompany.progettoclash;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Lorenzo
  */
 public class EdificioDescrizione {
     
+    private ArrayList<Edificio> edifici;
+    private int idDescrizione;
     private String nome;
     private int quantitaMassima;
-    private int quantitaDisponibile;
     private Risorsa prezzoDiAcquisto;
-    private Risorsa prezzoDiPotenziamento;
     private int vitaMassima;
+    private ModalitàAttacco modalitaAttacco;
+    private Statistica statistica;
+
+    public ModalitàAttacco getModalitaAttacco() {
+        return modalitaAttacco;
+    }
+
+    public void setModalitaAttacco(ModalitàAttacco modalitaAttacco) {
+        this.modalitaAttacco = modalitaAttacco;
+    }
+
+    public Statistica getStatistica() {
+        return statistica;
+    }
+
+    public void setStatistica(Statistica statistica) {
+        this.statistica = statistica;
+    }
+
+    public ArrayList<Edificio> getEdifici() {
+        return edifici;
+    }
+
+    public void setEdifici(ArrayList<Edificio> edifici) {
+        this.edifici = edifici;
+    }
+
+    public int getIdDescrizione() {
+        return idDescrizione;
+    }
+
+    public void setIdDescrizione(int idDescrizione) {
+        this.idDescrizione = idDescrizione;
+    }
 
     
 
@@ -41,14 +77,6 @@ public class EdificioDescrizione {
         this.quantitaMassima = quantitaMassima;
     }
 
-    public int getQuantitaDisponibile() {
-        return quantitaDisponibile;
-    }
-
-    public void setQuantitaDisponibile(int quantitaDisponibile) {
-        this.quantitaDisponibile = quantitaDisponibile;
-    }
-
     public Risorsa getPrezzoDiAcquisto() {
         return prezzoDiAcquisto;
     }
@@ -57,13 +85,5 @@ public class EdificioDescrizione {
         this.prezzoDiAcquisto = prezzoDiAcquisto;
     }
 
-    public Risorsa getPrezzoDiPotenziamento() {
-        return prezzoDiPotenziamento;
-    }
-
-    public void setPrezzoDiPotenziamento(Risorsa prezzoDiPotenziamento) {
-        this.prezzoDiPotenziamento = prezzoDiPotenziamento;
-    }
-    
     
 }

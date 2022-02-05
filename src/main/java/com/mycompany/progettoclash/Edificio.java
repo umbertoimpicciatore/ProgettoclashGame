@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public abstract class Edificio {
     private int id;
-    private ModalitàAttacco modA;
+    //private ModalitàAttacco modA;
     private Statistica statistica;
     private Casella casella;
     private EdificioDescrizione edificioDescrizione;
@@ -26,11 +26,9 @@ public abstract class Edificio {
 
 
 
-    public Edificio(ModalitàAttacco ma){
-        this.modA=ma;
+    public Edificio(){
     
     }
-//    public abstract void setListaEroiGiocatore(ArrayList<Eroe> listaEroiGiocatore);
     
      public Casella getCasella() {
         return casella;
@@ -58,11 +56,11 @@ public abstract class Edificio {
     public void setId(int id) {
         this.id = id;
     }
-
-    public ModalitàAttacco getModA() {
-        return modA;
+    
+    public ModalitàAttacco getModalitaAttacco(){
+        return this.edificioDescrizione.getModalitaAttacco();
     }
-    
-    
+
+
     
 }

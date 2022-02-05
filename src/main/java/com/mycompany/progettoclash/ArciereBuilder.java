@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.mycompany.progettoclash;
 
 /**
@@ -29,7 +25,7 @@ public class ArciereBuilder extends EroeBuilder{
        
     }
     public void reset() {
-      	this.eroe = new Eroe(new AttaccaDuePosizioni());
+      	this.eroe = new Eroe();
     }
 
     @Override
@@ -42,6 +38,11 @@ public class ArciereBuilder extends EroeBuilder{
     @Override
     public void setId(int idEroe) {
         this.eroe.setId(idEroe);
+    }
+
+    @Override
+    public void setEroeDescrizione(EroeDescrizione desc) {
+        this.eroe.setEroeDescrizione(desc);
     }
     
     

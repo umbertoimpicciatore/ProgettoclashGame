@@ -16,5 +16,6 @@ public interface ModalitàAttacco {
     final int lunghezza=new Villaggio().getLarghezza();
     public ArrayList<Casella> attacco(Eroe e);
     public ArrayList<Casella> attaccoEdificio(Edificio e);
+    public ArrayList<Casella> caselleBersaglio(Casella c);
     
 }

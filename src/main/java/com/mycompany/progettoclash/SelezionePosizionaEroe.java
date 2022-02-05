@@ -10,7 +10,6 @@ import java.util.ArrayList;
  */
 public class SelezionePosizionaEroe {
 
-
     
     public SelezionePosizionaEroe(){
     }
@@ -19,15 +18,15 @@ public class SelezionePosizionaEroe {
     public void selezionaPosizionaEroe(int riga,int colonna,int idEroe,int quantita,Giocatore giocatoreA,Giocatore giocatoreD) {
         
         ViewAttacco view=new ViewAttacco();
-       // ClashGame clash=new ClashGame(giocatoreA,giocatoreD);
+        ClashGame clash=new ClashGame(giocatoreA,giocatoreD);
         ArrayList<Eroe> eroiA=giocatoreA.getAccampamento().selezionaEroe(idEroe, quantita);
         if(eroiA==null){
             view.mostraSelezionaPosizionaEroe(giocatoreA, giocatoreD, true);            
         }
         else{       
-            boolean b=clash.posizionaEroe(riga, colonna, eroiA);
+            boolean b=this.posizionaEroe(riga, colonna, eroiA,giocatoreD);//ho modificato questo
             if(!b){
-                giocatoreA.getAccampamento().setListaEroiGiocatore(eroiA);//in caso di errori di immissione di riga e colonna rimetto gli eroi all'attaccante
+                giocatoreA.getAccampamento().addEroi(eroiA);//in caso di errori di immissione di riga e colonna rimetto gli eroi all'attaccante
                 view.mostraSelezionaPosizionaEroe(giocatoreA, giocatoreD, true);
             }
             else{
@@ -42,5 +41,11 @@ public class SelezionePosizionaEroe {
             }
             
         }
-    }   
+    }
+    
+    public boolean posizionaEroe(int riga,int colonna,ArrayList<Eroe> listaEroi,Giocatore giocatoreD){
+        Villaggio v=giocatoreD.getVillaggio();
+        boolean b=v.posizioneEore(riga, colonna, listaEroi);
+        return b;
+    }
 }

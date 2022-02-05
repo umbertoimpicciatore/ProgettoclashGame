@@ -55,8 +55,8 @@ public class Main {
         
         //creo GIOCATORE ATTACCANTE
         ArrayList<Casella> caselle = new ArrayList<Casella>();
-        Deposito dep1=new Deposito(new AttaccaAvanti());
-        Deposito dep2=new Deposito(new AttaccaAvanti());
+        Deposito dep1=new DepositoOro(new Oro(0));
+        Deposito dep2=new DepositoMana(new Mana(0));
         dep1.setId(0);
         dep2.setId(2);
         Oro oro=new Oro(5);
@@ -66,20 +66,26 @@ public class Main {
         
         Giocatore ga=new Giocatore();
         ArrayList<Deposito> depositi = new ArrayList<Deposito>();
-        depositi.add(dep2);
         depositi.add(dep1);
-        ga.setDepositi(depositi);
-        Edificio acc2=new Accampamento(new AttaccaAvanti());
+        ga.setDepositiOro(depositi);
+        ArrayList<Deposito> depositi2 = new ArrayList<Deposito>();
+        depositi2.add(dep2);
+        ga.setDepositiMana(depositi2);
+        Edificio acc2=new Accampamento();
         Statistica s1=new Statistica(5,5,100);
         acc2.setStatistica(s1);
         acc2.setId(2);
-        Accademia accademia=new Accademia(new NonAttacca());
+        Accademia accademia=new Accademia();
         
         
         ArciereBuilder arc2=new ArciereBuilder();
         arc2.setId(1);
         EroeDescrizione desc1=new EroeDescrizione();
         desc1.setIdDesc(1);//da MODIFICARE
+        desc1.setNome("Arciere");
+        EroeDescrizione desc2=new EroeDescrizione();
+        desc2.setIdDesc(1);//da MODIFICARE
+        desc2.setNome("Arciere");
         Statistica s2=new Statistica(5,5,100);
         Statistica s3=new Statistica(5,5,100);
         EroeDirector erD2=new EroeDirector();
@@ -129,9 +135,10 @@ public class Main {
             }
         }        
         ga.setLivelloEroi(livelloEroi);
-        ViewPotenzia view=new ViewPotenzia();
-        view.selezionaOperazione(ga);
-        
+       // ViewPotenzia view=new ViewPotenzia();
+        //view.selezionaOperazione(ga);
+        ViewAttacco view=new ViewAttacco();
+        view.cercaAvversario(ga);
     }
         
 }

@@ -5,6 +5,7 @@
  */
 package com.mycompany.progettoclash;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -21,6 +22,19 @@ public class EdificioCatalogo {
     
     public EdificioDescrizione getEdificioDescrizione(Edificio edificio){
         return descrizioni.get(edificio);
+    }
+    
+    
+    public ArrayList<EdificioDescrizione> getAllEdificiDescrizioni(){
+        return new ArrayList<EdificioDescrizione>();
+    }
+    
+    public EdificioDescrizione getDescrizione(int idEdificioDesc){
+        return new EdificioDescrizione();
+    }
+    
+    public ArrayList<Risorsa> getAllRisorse(){
+        return new ArrayList<Risorsa>();
     }
     
     private void loadEdificiDescrizioni(){

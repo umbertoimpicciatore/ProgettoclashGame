@@ -27,7 +27,7 @@ public class ReginaBuilder extends EroeBuilder {
        
     }
     public void reset() {
-      	this.eroe = new Eroe(new AttaccaDiagonale());
+      	this.eroe = new Eroe();
     }
 
     @Override
@@ -40,6 +40,12 @@ public class ReginaBuilder extends EroeBuilder {
     @Override
     public void setId(int idEroe) {
         this.eroe.setId(idEroe);
+    }
+    
+    
+    @Override
+    public void setEroeDescrizione(EroeDescrizione desc) {
+        this.eroe.setEroeDescrizione(desc);
     }
     
 }

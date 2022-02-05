@@ -17,7 +17,7 @@ public class RegolaUnoOttenimentoRisorsaStrategy implements OttenimentoRisorseSt
         for(int i=0;i<c.size();i++){
             Casella casella=c.get(i);
             Edificio edificio=casella.getEdificio();
-            if(edificio!=null && edificio.getEdificioDescrizione().getNome().equals("Deposito")){
+            if(edificio!=null && edificio instanceof Deposito && edificio.getEdificioDescrizione().getNome().equals("Deposito")){
                 Deposito deposito=(Deposito) edificio;
                 Risorsa r=deposito.getRisorsa();
                 int ris=this.isInArray(r, risorse);

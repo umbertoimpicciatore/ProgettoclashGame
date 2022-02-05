@@ -29,40 +29,12 @@ public class ControlloFineBattaglia implements StatoAttacco{
         if(edificiMorti==true || eroiMorti==true){
             return true;
         }
-        /*else if(edificiMorti==true || eroiMorti==true){
-            return true;
-            //richiamo factory per ottenimento risorse
-            RegolaUnoOttenimentoRisorsaStrategy reg1=new RegolaUnoOttenimentoRisorsaStrategy();
-            ArrayList<Risorsa> risorse=reg1.ottieniRisorsa(clash);
-            System.out.println("OIIIIII"+risorse.size());
-            for(int i=0;i<risorse.size();i++){
-                System.out.println("OIIIIII:"+risorse.get(i).getNome()+" q:"+risorse.get(i).getQuantita());
-            }
-           // this.eroiVivi(caselle, clash.getGiocatoreA());//faccion tornare gli eroi all'attaccante
-            
-            
-        }*/
         else{
             this.cambiaStato(clash,new Attacco());
             return false;
         }
         
     }
-    //prende in ingresso le caselle del villaggio difensore e il giocatore Attaccante
-    //gli eroiVivi delGIocatore Attaccante tornano all'attaccante se non sono morti
-   
-    private void eroiVivi( ArrayList<Casella> caselle,Giocatore giocatoreA){
-        ArrayList<Eroe> eroiA=new ArrayList<Eroe>();
-        for (int i=0;i<caselle.size();i++){
-            ArrayList<Eroe> eroi=caselle.get(i).getListaEroiA();
-            if(eroi!=null && eroi.size()>0){
-                eroiA.addAll(eroi);
-                caselle.get(i).setListaEroiA(new ArrayList<Eroe>());//tolgo gli eroi attaccanti sulla casella del villaggio difensore
-            }
-        }
-        giocatoreA.getAccampamento().setListaEroiGiocatore(eroiA);
-    }
-    
     
     @Override
     public void cambiaStato(ClashGame clash, StatoAttacco st) {

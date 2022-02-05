@@ -16,15 +16,7 @@ public class Villaggio {
     public ArrayList<Casella> getCaselle() {
         return caselle;
     }
-    private int danni;
 
-    public int getDanni() {
-        return danni;
-    }
-
-    public void setDanni(int danni) {
-        this.danni = danni;
-    }
     
     public boolean posizioneEore(int riga,int colonna,ArrayList<Eroe> listaEroi){
         if(riga>this.getAltezza() || colonna>this.getLarghezza()){
@@ -146,13 +138,44 @@ public class Villaggio {
     }
         
 
-        private int isInArray(Risorsa r,ArrayList<Risorsa> list){
-            for(int i=0;i<list.size();i++){
+    private int isInArray(Risorsa r,ArrayList<Risorsa> list){
+        
+        for(int i=0;i<list.size();i++){
                 if(list.get(i).getNome().equals(r.getNome())){
                     return i;
                 }
             }
             return -1;
         }
+    public boolean casellaDisponibile(int riga,int colonna){
+        Casella c=this.getCasella(riga, colonna);
+        if(c.getEdificio()==null){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }   
+    
+    public boolean quantitaMassimaEdificioRaggiunto(EdificioDescrizione desc){
+        int quantitaMassima=desc.getQuantitaMassima();
+        int cont=0;
+        for(int i=0;i<this.caselle.size();i++){
+            Edificio e=this.caselle.get(i).getEdificio();
+            if(e!=null){
+                if(e.getEdificioDescrizione().getIdDescrizione()==desc.getIdDescrizione()){
+                    cont++;
+                }
+            }
+        }
+        if(cont==quantitaMassima){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
+        
+    
+}
     

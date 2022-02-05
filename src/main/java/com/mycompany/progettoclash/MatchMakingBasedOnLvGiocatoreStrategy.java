@@ -20,22 +20,22 @@ public class MatchMakingBasedOnLvGiocatoreStrategy implements MatchMakingStrateg
         g.setNome("Lorenzo");
         ArrayList<Casella> caselle = new ArrayList<Casella>();
         Villaggio v=new Villaggio();
-        Edificio e=new Municipio(new AttaccaAvanti());
+        Edificio e=new Municipio();
         Statistica s=new Statistica(5,5,100);
         Statistica s1=new Statistica(5,5,100);
         e.setStatistica(s);
         e.setId(1);
-        Edificio e2=new Municipio(new AttaccaAvanti());
+        Edificio e2=new Municipio();
         e2.setStatistica(s1);
         e2.setId(1);
         EdificioDescrizione desc1=new EdificioDescrizione();
         desc1.setNome("Deposito");
         EdificioDescrizione desc2=new EdificioDescrizione();
         desc2.setNome("Accampamento");
-        Deposito dep1=new Deposito(new AttaccaAvanti());
-        Deposito dep2=new Deposito(new AttaccaAvanti());
-        Deposito dep3=new Deposito(new AttaccaAvanti());
-        Deposito dep4=new Deposito(new AttaccaAvanti());
+        Deposito dep1=new DepositoOro(new Oro(2));
+        Deposito dep2=new DepositoOro(new Oro(3));
+        Deposito dep3=new DepositoMana(new Mana(4));
+        Deposito dep4=new DepositoMana(new Mana(5));
         Statistica s2=new Statistica(5,5,100);
         Statistica s3=new Statistica(5,5,100);
         Statistica s4=new Statistica(5,5,100);
@@ -62,10 +62,7 @@ public class MatchMakingBasedOnLvGiocatoreStrategy implements MatchMakingStrateg
         dep2.setRisorsa(mana);
         dep3.setRisorsa(oro2);
         dep4.setRisorsa(mana2);
-        //ArciereBuilder arc=new ArciereBuilder();
-        //EroeDirector erD=new EroeDirector();
-        //Eroe eroeArc=erD.createEroe(arc);
-        //Eroe guerriero=new Guerriero(new AttaccaDiagonale(),1);
+
         
        //creo VILLAGGIO
         for (int i=1;i<=v.getAltezza();i++){
@@ -108,18 +105,7 @@ public class MatchMakingBasedOnLvGiocatoreStrategy implements MatchMakingStrateg
         g.setVillaggio(v);
        return g;
            
-        /*Giocatore g1=new Giocatore();
-           Giocatore g2=new Giocatore();
-           ArrayList<Giocatore> lista=new ArrayList<Giocatore>();
-           lista.add(g1);
-           lista.add(g2);
-        for (int i=0;i<lista.size();i++){
-            Giocatore avversario=lista.get(i);
-            if (avversario.getLivello()==g.getLivello()){
-                return avversario;
-            }
-        }
-       return g1 ;*/
+
     }
     
 }
