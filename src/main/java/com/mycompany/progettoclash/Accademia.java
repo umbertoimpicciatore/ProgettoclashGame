@@ -14,23 +14,17 @@ public class Accademia extends Edificio {
     
     public void potenzia(int idEroeDescrizione,Giocatore giocatore){
         EroeCatalogo edC=new EroeCatalogo();
-        //EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
-        EroeDescrizione desc=null;
-        for (EroeDescrizione name: giocatore.getLivelloEroi().keySet()) {//controllare bene questo
+        EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
+        //EroeDescrizione desc=null;
+        /*for (EroeDescrizione name: giocatore.getLivelloEroi().keySet()) {//controllare bene questo
              if(name.getIdDesc()==idEroeDescrizione){
                  desc=name;
              }
-        }
-        //int livello=giocatore.getLivelloEroi().get(desc);
-        CreaEroeStrategy potS=null;
-        try {
-            potS = CreaEroeFactory.getInstance().getStrategy();
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
-            Logger.getLogger(Accademia.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        int livello=giocatore.getLivelloEroi().get(desc)+1;
-        giocatore.getLivelloEroi().put(desc, livello);
+        }*/
+        int livello=giocatore.getLivelloEroi().get(desc);
+        CreaEroeStrategy potS= CreaEroeFactory.getInstance().getStrategy();      
+        //int livello=giocatore.getLivelloEroi().get(desc)+1;
+        giocatore.getLivelloEroi().put(desc, livello+1);
         int quantita=giocatore.getAccampamento().removeEroe(idEroeDescrizione, giocatore);
         if(giocatore.getEroi()!=null){
             potS.creaEroe(desc,quantita, giocatore);

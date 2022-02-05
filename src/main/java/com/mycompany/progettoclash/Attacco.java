@@ -21,8 +21,10 @@ public class Attacco implements StatoAttacco{
             Casella c=listC.get(i);
             Edificio ed=c.getEdificio();
             if(ed!=null){
-                ArrayList<Casella> listaCaselleConEroiDaAttaccare=ed.getModalitaAttacco().caselleBersaglio(c);//recupero la lista delle caselle con gli eroi da attaccare
-                for(int j=0;j<listaCaselleConEroiDaAttaccare.size();j++){
+                ModalitàAttacco modA=ed.getModalitaAttacco();
+                if(modA!=null){
+                    ArrayList<Casella> listaCaselleConEroiDaAttaccare= modA.caselleBersaglio(c);
+                    for(int j=0;j<listaCaselleConEroiDaAttaccare.size();j++){
                     ArrayList<Eroe> listE= listaCaselleConEroiDaAttaccare.get(j).getListaEroiA();
                     int k=0; 
                     while(k<listE.size()){
@@ -48,7 +50,8 @@ public class Attacco implements StatoAttacco{
                             listE.remove(k);
                         }                      
                     }                 
-                }
+                }         
+                } 
             }      
         }
         this.cambiaStato(clash,new ControlloFineBattaglia());

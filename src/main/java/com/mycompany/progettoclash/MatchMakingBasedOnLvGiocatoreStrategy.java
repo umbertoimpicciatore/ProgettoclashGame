@@ -5,6 +5,7 @@
  */
 package com.mycompany.progettoclash;
 
+import com.mycompany.progettoclash.Foundation.Descrizioni;
 import java.util.ArrayList;
 
 /**
@@ -28,10 +29,11 @@ public class MatchMakingBasedOnLvGiocatoreStrategy implements MatchMakingStrateg
         Edificio e2=new Municipio();
         e2.setStatistica(s1);
         e2.setId(1);
-        EdificioDescrizione desc1=new EdificioDescrizione();
-        desc1.setNome("Deposito");
-        EdificioDescrizione desc2=new EdificioDescrizione();
-        desc2.setNome("Accampamento");
+        e2.setEdificioDescrizione(Descrizioni.municipio);
+        //EdificioDescrizione desc1=new EdificioDescrizione();
+        //desc1.setNome("Deposito");
+        //EdificioDescrizione desc2=new EdificioDescrizione();
+        //desc2.setNome("Accampamento");
         Deposito dep1=new DepositoOro(new Oro(2));
         Deposito dep2=new DepositoOro(new Oro(3));
         Deposito dep3=new DepositoMana(new Mana(4));
@@ -48,12 +50,16 @@ public class MatchMakingBasedOnLvGiocatoreStrategy implements MatchMakingStrateg
         dep2.setId(2);
         dep3.setId(3);
         dep4.setId(4);
-        dep1.setEdificioDescrizione(desc1);
+        dep1.setEdificioDescrizione(Descrizioni.depositoOro);
+        dep2.setEdificioDescrizione(Descrizioni.depositoOro);
+        dep3.setEdificioDescrizione(Descrizioni.depositoMana);
+        dep4.setEdificioDescrizione(Descrizioni.depositoMana);
+        /*dep1.setEdificioDescrizione(desc1);
         dep2.setEdificioDescrizione(desc1);
         dep3.setEdificioDescrizione(desc1);
-        dep4.setEdificioDescrizione(desc1);
-        e.setEdificioDescrizione(desc2);
-        e2.setEdificioDescrizione(desc2);
+        dep4.setEdificioDescrizione(desc1);*/
+        e.setEdificioDescrizione(Descrizioni.municipio);
+       // e2.setEdificioDescrizione(desc2);
         Oro oro=new Oro(2);
         Mana mana=new Mana(3);
         Oro oro2=new Oro(5);
@@ -105,7 +111,18 @@ public class MatchMakingBasedOnLvGiocatoreStrategy implements MatchMakingStrateg
         g.setVillaggio(v);
        return g;
            
-
+        /*Giocatore g1=new Giocatore();
+           Giocatore g2=new Giocatore();
+           ArrayList<Giocatore> lista=new ArrayList<Giocatore>();
+           lista.add(g1);
+           lista.add(g2);
+        for (int i=0;i<lista.size();i++){
+            Giocatore avversario=lista.get(i);
+            if (avversario.getLivello()==g.getLivello()){
+                return avversario;
+            }
+        }
+       return g1 ;*/
     }
     
 }

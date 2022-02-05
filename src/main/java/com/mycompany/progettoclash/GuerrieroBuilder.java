@@ -42,4 +42,10 @@ public class GuerrieroBuilder extends EroeBuilder{
         this.eroe.setId(idEroe);
     }
     
+    
+    @Override
+    public void setEroeDescrizione(EroeDescrizione desc) {
+        this.eroe.setEroeDescrizione(desc);
+    }
+    
 }

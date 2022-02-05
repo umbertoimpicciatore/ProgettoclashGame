@@ -17,11 +17,11 @@ public class EroeDescrizione {
     private String nome;
     private int idDesc;
     private int quantitaMassima;
-    private int quantitaDisponibile;
     private Risorsa prezzoDiAcquisto;
     private Risorsa prezzoDiPotenziamento;
     private int vitaMassima;
     private Statistica statisticaIniziale;
+    private ModalitàAttacco modalitaAttacco;
 
     
     
@@ -29,18 +29,26 @@ public class EroeDescrizione {
 
     }
 
-    public EroeDescrizione(int idDesc,String nome, int quantitaMassima, int quantitaDisponibile, Risorsa prezzoDiAcquisto, Risorsa prezzoDiPotenziamento, int vitaMassima,Statistica statistica) {
+    public EroeDescrizione(int idDesc,String nome, int quantitaMassima, Risorsa prezzoDiAcquisto, Risorsa prezzoDiPotenziamento, int vitaMassima,Statistica statistica,ModalitàAttacco m) {
         this.idDesc=idDesc;
         this.nome = nome;
         this.quantitaMassima = quantitaMassima;
-        this.quantitaDisponibile = quantitaDisponibile;
         this.prezzoDiAcquisto = prezzoDiAcquisto;
         this.prezzoDiPotenziamento = prezzoDiPotenziamento;
         this.vitaMassima = vitaMassima;
         this.statisticaIniziale=statistica;
+        this.modalitaAttacco=m;
+    }
+
+    public ModalitàAttacco getModalitaAttacco() {
+        return modalitaAttacco;
+    }
+
+    public void setModalitaAttacco(ModalitàAttacco modalitaAttacco) {
+        this.modalitaAttacco = modalitaAttacco;
     }
     
-    
+        
     public Statistica getStatisticaIniziale() {
             return statisticaIniziale;
     }
@@ -90,13 +98,6 @@ public class EroeDescrizione {
         this.quantitaMassima = quantitaMassima;
     }
 
-    public int getQuantitaDisponibile() {
-        return quantitaDisponibile;
-    }
-
-    public void setQuantitaDisponibile(int quantitaDisponibile) {
-        this.quantitaDisponibile = quantitaDisponibile;
-    }
 
     public Risorsa getPrezzoDiAcquisto() {
         return prezzoDiAcquisto;
@@ -117,7 +118,7 @@ public class EroeDescrizione {
     @Override
     public String toString(){
         String s="";
-        s="IDEROE:"+this.idDesc+" Nome: ".concat(nome)+" QuantitaMassima: "+this.quantitaMassima+" QuantitaDisponibile: "+this.quantitaDisponibile+" Prezzo di Acquisto: ".concat(this.prezzoDiAcquisto.toString()+" PrezzoPotenziamento: ".concat(this.prezzoDiPotenziamento.toString()));
+        s="IDEROE:"+this.idDesc+" Nome: ".concat(nome)+" QuantitaMassima: "+this.quantitaMassima+" Prezzo di Acquisto: ".concat(this.prezzoDiAcquisto.toString()+" PrezzoPotenziamento: ".concat(this.prezzoDiPotenziamento.toString()));
         return s;
     }
     

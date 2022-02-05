@@ -2,9 +2,6 @@ package com.mycompany.progettoclash;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author Lorenzo
@@ -57,13 +54,6 @@ public class Accampamento extends Edificio {
                     return true;
                 }
             }
-           /* if(this.listaEroiGiocatore.get(i).getId()==idEroe){
-                idEroeTrovato=true;
-                cont++;
-                if(cont==quantita){
-                    return true;
-                }
-            }    */
         }
         if(cont==quantita && idEroeTrovato==true){
             return true;
@@ -77,19 +67,14 @@ public class Accampamento extends Edificio {
     
     public void acquistaEroi(int idEroeDescrizione,int quantita,Giocatore giocatore){
         EroeCatalogo edC=new EroeCatalogo();
-        EroeDescrizione desc=null;
-        for (EroeDescrizione name: giocatore.getLivelloEroi().keySet()) {//controllare bene questo
+        //EroeDescrizione desc=null;
+        /*for (EroeDescrizione name: giocatore.getLivelloEroi().keySet()) {//controllare bene questo
              if(name.getIdDesc()==idEroeDescrizione){
                  desc=name;
              }
-        }
-        //EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
-        CreaEroeStrategy strategyEroe=null;
-        try {
-            strategyEroe = CreaEroeFactory.getInstance().getStrategy();
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
-            Logger.getLogger(Accademia.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
+        EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
+        CreaEroeStrategy strategyEroe = CreaEroeFactory.getInstance().getStrategy();        
         strategyEroe.creaEroe(desc,quantita,giocatore);//cambia NOME METODO
         Risorsa prezzoAcquisto=desc.getPrezzoDiAcquisto();
         double q=prezzoAcquisto.getQuantita()*quantita;
@@ -101,8 +86,7 @@ public class Accampamento extends Edificio {
     public void addEroi(ArrayList<Eroe> eroi){
         for(int i=0;i<eroi.size();i++){
             this.listaEroiGiocatore.add(eroi.get(i));
-        }
-    
+        }    
     }
     
         //rimuove gli eroi con la descrizione idEroeDescrizione e restituisce la quantita rimossa
@@ -122,7 +106,7 @@ public class Accampamento extends Edificio {
         return quantita;     
     }
     
-    
+    //RICONTROLLA
     //metodo per mostrare eroeDEscrizione e la quantita di eroe disponibile
     public HashMap<EroeDescrizione,Integer> mostraEroiDescQuantita(){
         HashMap<EroeDescrizione,Integer> map=new HashMap<EroeDescrizione,Integer>();

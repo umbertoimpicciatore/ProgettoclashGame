@@ -1,4 +1,5 @@
 package com.mycompany.progettoclash;
+import com.mycompany.progettoclash.Foundation.Descrizioni;
 import com.mycompany.progettoclash.view.ViewAcquista;
 import com.mycompany.progettoclash.view.ViewAttacco;
 import com.mycompany.progettoclash.view.ViewPotenzia;
@@ -11,47 +12,68 @@ import java.util.HashMap;
  */
 public class Main {
     public static void main(String[] args){
-        /*
-        Giocatore g=new Giocatore();
-        g.setNome("Lorenzo");
-        ArrayList<Casella> caselle = new ArrayList<Casella>();
-        Villaggio v=new Villaggio();
-        Edificio e=new Municipio(new AttaccaAvanti());
-        Edificio acc=new Accampamento(new AttaccaAvanti());
-        Statistica s=new Statistica(5,5,100);
-        acc.setStatistica(s);
-        acc.setId(2);
-        e.setStatistica(s);
-        e.setId(1);
-        ArciereBuilder arc=new ArciereBuilder();
-        EroeDirector erD=new EroeDirector();
-        Eroe eroeArc=erD.createEroe(arc);
-        //Eroe guerriero=new Guerriero(new AttaccaDiagonale(),1);
+
+        String nome;
+        int idDesc=1;
+        int quantitaMassima;
+        Risorsa prezzoDiAcquisto;
+        Risorsa prezzoDiPotenziamento;
+        int vitaMassima;
+        EroeDescrizione ed;
+        Statistica si=new Statistica(8,5,100);
+        Statistica si2=new Statistica(5,10,100);
+        Statistica si3=new Statistica(10,10,100);
+        ModalitàAttacco modA=new AttaccaAvanti();
+        ModalitàAttacco modA1=new AttaccaDuePosizioni();
+        ModalitàAttacco modA2=new AttaccaDiagonale();
         
-       //creo VILLAGGIO
-        for (int i=1;i<=v.getAltezza();i++){
-            for (int j=1;j<=v.getLarghezza();j++){
-                Casella c=new Casella(i,j);
-                
-                
-                if(i==1 &&j==1){
-                    c.AddEroe(eroeArc);
-                    c.setEdificio(e);
-                    eroeArc.setC(c);
-                    e.setCasella(c);
-                }
-                if(i==1 &&j==2){
-                    c.setEdificio(acc);
-                    acc.setCasella(c);
-                }
-                
-                c.setVillaggio(v);
-                caselle.add(c);
-            }
-        }
-          // g.setVillaggio(v);
-       // Objects.isNull(g.getVillaggio().getCasella(1, 1).getVillaggio());
-        v.setCaselle(caselle);*/
+        
+
+        nome="Arciere";
+        quantitaMassima=2;
+        prezzoDiAcquisto=new Oro(4);
+        prezzoDiPotenziamento=new Oro(5);
+        vitaMassima=100;
+        ed=new EroeDescrizione(idDesc,nome,quantitaMassima,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima,si,modA1);
+        ed.setEroi(null);
+        Descrizioni.arciere=ed;
+        
+
+        nome="Guerriero";
+        quantitaMassima=3;
+        prezzoDiAcquisto=new Oro(3);
+        prezzoDiPotenziamento=new Oro(4);
+        vitaMassima=100;
+        ed=new EroeDescrizione(idDesc+1,nome,quantitaMassima,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima,si2,modA);
+        ed.setEroi(null);
+        Descrizioni.guerriero=ed;
+        
+        nome="Regina";
+        quantitaMassima=1;
+        prezzoDiAcquisto=new Mana(5);
+        prezzoDiPotenziamento=new Mana(6);
+        vitaMassima=100;
+        ed=new EroeDescrizione(idDesc+2,nome,quantitaMassima,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima,si3,modA2);
+        ed.setEroi(null);
+        Descrizioni.regina=ed;
+        
+        Main.iniziaDescrizioni();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         //creo GIOCATORE ATTACCANTE
         ArrayList<Casella> caselle = new ArrayList<Casella>();
@@ -73,12 +95,22 @@ public class Main {
         ga.setDepositiMana(depositi2);
         Edificio acc2=new Accampamento();
         Statistica s1=new Statistica(5,5,100);
+        Statistica s2=new Statistica(10,5,100);
         acc2.setStatistica(s1);
         acc2.setId(2);
         Accademia accademia=new Accademia();
         
         
         ArciereBuilder arc2=new ArciereBuilder();
+        EroeDirector eroeDirector=new EroeDirector(arc2);
+        Eroe e=eroeDirector.createEroe2(s1, new SkinBase(), Descrizioni.arciere, 1);
+        //Descrizioni.arciere.setEroi(eroi);
+        ArrayList<Eroe> list=new ArrayList<Eroe>();
+        list.add(e);
+        e=eroeDirector.createEroe2(s2, new SkinBase(), Descrizioni.arciere, 2);
+        list.add(e);
+        Descrizioni.arciere.setEroi(list);
+        /*ArciereBuilder arc2=new ArciereBuilder();
         arc2.setId(1);
         EroeDescrizione desc1=new EroeDescrizione();
         desc1.setIdDesc(1);//da MODIFICARE
@@ -96,19 +128,18 @@ public class Main {
         
         EroeDirector erD3=new EroeDirector();
         Eroe eroeArc3=erD3.createEroe(arc3,s3);
-        eroeArc3.setEroeDescrizione(desc1);
-        ArrayList<Eroe> list=new ArrayList<Eroe>();
-        list.add(eroeArc2);
-        list.add(eroeArc3);
+        eroeArc3.setEroeDescrizione(desc1);*/
+        
+        //list.add(eroeArc3);
         acc2.setListaEroiGiocatore(list);
         Villaggio v2=new Villaggio();
         for (int i=1;i<=v2.getAltezza();i++){
             for (int j=1;j<=v2.getLarghezza();j++){
                 Casella c=new Casella(i,j);
                 if(i==1 &&j==1){
-                    c.AddEroe(eroeArc2);
+                    //c.AddEroe(eroeArc2);
                     c.setEdificio(acc2);
-                    eroeArc2.setC(c);
+                    //eroeArc2.setC(c);
                     acc2.setCasella(c);
                 }      
                 c.setVillaggio(v2);
@@ -135,10 +166,74 @@ public class Main {
             }
         }        
         ga.setLivelloEroi(livelloEroi);
-       // ViewPotenzia view=new ViewPotenzia();
-        //view.selezionaOperazione(ga);
-        ViewAttacco view=new ViewAttacco();
-        view.cercaAvversario(ga);
+        ViewPotenzia view=new ViewPotenzia();
+        view.selezionaOperazione(ga);
+        //ViewAttacco view=new ViewAttacco();
+        //view.cercaAvversario(ga);
     }
+    
+    public static void iniziaDescrizioni(){
+        int idDescrizione = 1;
+        String nome = "Accampamento";
+        int quantitaMassima = 1;
+        Risorsa prezzoDiAcquisto = new Oro(10);
+        int vitaMassima = 100;
+        Statistica statistica = new Statistica(10,10,100);
+        ModalitàAttacco modA=null;
+        EdificioDescrizione ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA);
+        Descrizioni.accampamento=ed;
         
+        idDescrizione = 2;
+        nome = "Accademia";
+        quantitaMassima = 1;
+        prezzoDiAcquisto = new Oro(5);
+        vitaMassima = 100;
+        statistica = new Statistica(10,10,100);
+        modA=null;
+        ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA);
+        Descrizioni.accademia=ed;
+        
+        idDescrizione = 3;
+        nome = "Municipio";
+        quantitaMassima = 1;
+        prezzoDiAcquisto = new Oro(15);
+        vitaMassima = 120;
+        statistica = new Statistica(10,10,120);
+        modA=null;
+        ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA);
+        Descrizioni.municipio=ed;
+        
+        idDescrizione = 4;
+        nome = "Torre";
+        quantitaMassima = 3;
+        prezzoDiAcquisto = new Oro(20);
+        vitaMassima = 100;
+        statistica = new Statistica(10,30,100);
+        modA=new AttaccaTorre();
+        ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA);
+        Descrizioni.torre=ed;
+        
+        
+        idDescrizione = 5;
+        nome = "DepositoOro";
+        quantitaMassima = 2;
+        prezzoDiAcquisto = new Oro(20);
+        vitaMassima = 100;
+        statistica = new Statistica(10,10,100);
+        modA=null;
+        ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA);
+        Descrizioni.depositoOro=ed;
+        
+        idDescrizione = 6;
+        nome = "DepositoMana";
+        quantitaMassima = 2;
+        prezzoDiAcquisto = new Mana(20);
+        vitaMassima = 100;
+        statistica = new Statistica(10,10,100);
+        modA=null;
+        ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA);
+        Descrizioni.depositoMana=ed;
+
+    }
+
 }

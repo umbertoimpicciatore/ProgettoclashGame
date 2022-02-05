@@ -1,6 +1,9 @@
 
 package com.mycompany.progettoclash;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author User
@@ -17,11 +20,15 @@ public class CreaEroeFactory {
         return instance;
     }
     
-    public CreaEroeStrategy getStrategy() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-       String className= FileDiConfigurazione.creaEroe;
-       Class cls = Class.forName(className);
-       CreaEroeStrategy clsInstance = (CreaEroeStrategy) cls.newInstance();
-       return clsInstance;
+    public CreaEroeStrategy getStrategy() {
+        try {
+            String className= FileDiConfigurazione.creaEroe;
+            Class cls = Class.forName(className);
+            CreaEroeStrategy clsInstance = (CreaEroeStrategy) cls.newInstance();
+            return clsInstance;
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+            return null;
+        }
     }
 }
     

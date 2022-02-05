@@ -7,26 +7,33 @@ package com.mycompany.progettoclash;
  */
 public class EroeDirector {
     
+    private EroeBuilder eroeBuilder;
 
+    public EroeDirector(EroeBuilder eroeBuilder) {
+        this.eroeBuilder = eroeBuilder;
+    }
     
-    public Eroe createEroe(EroeBuilder eroeBuilder,Statistica s){
+    
+    public Eroe createEroe(Statistica s){
         
-       eroeBuilder.setSkills( s);
-       eroeBuilder.setSkin(new SkinBase());
+       this.eroeBuilder.setSkills( s);
+       this.eroeBuilder.setSkin(new SkinBase());
        return eroeBuilder.build();
     }
     
-    public Eroe createEroePotenziato(EroeBuilder eroeBuilder, Statistica s){
+    public Eroe createEroePotenziato( Statistica s){
         
-        eroeBuilder.setSkills(s);
-        eroeBuilder.setSkin(new SkinPotenziata());
+        this.eroeBuilder.setSkills(s);
+        this.eroeBuilder.setSkin(new SkinPotenziata());
         return eroeBuilder.build();
         
     }
-    public Eroe createEroe2(EroeBuilder eroeBuilder, Statistica s,Skin skin){
+    public Eroe createEroe2( Statistica s,Skin skin,EroeDescrizione desc,int id){
         
-        eroeBuilder.setSkills(s);
-        eroeBuilder.setSkin(skin);
+        this.eroeBuilder.setEroeDescrizione(desc);
+        this.eroeBuilder.setSkills(s);
+        this.eroeBuilder.setSkin(skin);
+        this.eroeBuilder.setId(id);
         return eroeBuilder.build();
         
     }

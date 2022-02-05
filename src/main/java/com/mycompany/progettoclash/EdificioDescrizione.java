@@ -26,6 +26,17 @@ public class EdificioDescrizione {
         this.modalitaAttacco = modalitaAttacco;
     }
 
+    public EdificioDescrizione(ArrayList<Edificio> edifici, int idDescrizione, String nome, int quantitaMassima, Risorsa prezzoDiAcquisto, int vitaMassima, Statistica statistica,ModalitàAttacco modalitaAttacco) {
+        this.edifici = edifici;
+        this.idDescrizione = idDescrizione;
+        this.nome = nome;
+        this.quantitaMassima = quantitaMassima;
+        this.prezzoDiAcquisto = prezzoDiAcquisto;
+        this.vitaMassima = vitaMassima;
+        this.statistica = statistica;
+        this.modalitaAttacco=modalitaAttacco;
+    }
+
     public Statistica getStatistica() {
         return statistica;
     }

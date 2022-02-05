@@ -1,8 +1,6 @@
 package com.mycompany.progettoclash;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -18,7 +16,7 @@ public class RegolaCreaEroeStrategy implements CreaEroeStrategy  {
   @Override
     public void creaEroe(EroeDescrizione desc,int quantita, Giocatore giocatore) {
         
-        try {
+
             ArrayList<Eroe> listE=new ArrayList<Eroe>();
             int livelloEroi=giocatore.getLivelloEroi().get(desc);
             Statistica statIn=desc.getStatisticaIniziale();
@@ -26,18 +24,15 @@ public class RegolaCreaEroeStrategy implements CreaEroeStrategy  {
             int attaccoEroe=statIn.getAttacco()+(attaccoDaPot*livelloEroi);
             int vitaEroe=statIn.getVita()+(vitaDaPot*livelloEroi);
             Statistica stat=new Statistica(difesaEroe,attaccoEroe,vitaEroe);
-            String className="com.mycompany.progettoclash.".concat(desc.getNome().concat("Builder"));
-            Class cls = Class.forName(className);
-            EroeBuilder instanzaEroe = (EroeBuilder) cls.newInstance(); 
+            EroeBuilder builder=new ArciereBuilder();
+            EroeDirector eroeDirector=new EroeDirector(builder);
             for (int i=0;i<quantita;i++){
-                instanzaEroe.setId(i);
-                EroeDirector erD=new EroeDirector();
                 Eroe eroe;
                 if(livelloEroi>=livelloPerPot){
-                    eroe=erD.createEroe2(instanzaEroe,stat,new SkinPotenziata());
+                    eroe=eroeDirector.createEroe2(stat,new SkinPotenziata(),desc,1);
                 }
                 else{
-                    eroe=erD.createEroe2(instanzaEroe,stat,new SkinBase());
+                    eroe=eroeDirector.createEroe2(stat,new SkinBase(),desc,1);
                 } 
                 listE.add(eroe);
             }
@@ -47,8 +42,6 @@ public class RegolaCreaEroeStrategy implements CreaEroeStrategy  {
                 System.out.println(listEroi.get(i).toString());
             }*/
 
-        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException ex) {
-            Logger.getLogger(RegolaCreaEroeStrategy.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
     }
 }

@@ -1,5 +1,6 @@
 package com.mycompany.progettoclash;
 
+import com.mycompany.progettoclash.Foundation.PersistanManager;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -12,7 +13,7 @@ public class EroeCatalogo {
     
     public EroeCatalogo(){
         descrizioni= new HashMap<>();
-        loadEroiDescrizioni();
+        //loadEroiDescrizioni();
     }
     
     public EroeDescrizione getEroeDescrizione(Eroe e){
@@ -21,7 +22,9 @@ public class EroeCatalogo {
     
     //carico dati "di prova" di tutte le descrizioni presenti su DB
     public ArrayList<EroeDescrizione> getAllDescrizioni(){
-        ArrayList<EroeDescrizione> desc=new ArrayList<EroeDescrizione>();
+        return PersistanManager.getInstance().getAllDescrizioni();
+       /* ArrayList<EroeDescrizione> desc=new ArrayList<EroeDescrizione>();
+        
         Eroe eroe;
         String nome;
         int idDesc=1;
@@ -78,7 +81,7 @@ public class EroeCatalogo {
         vitaMassima=100;
         ed=new EroeDescrizione(idDesc+2,nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima,si3);
         desc.add(ed);
-        return desc;
+        return desc;*/
     }
     
     //carico alcuni dati di prova
@@ -144,7 +147,8 @@ public class EroeCatalogo {
     }
     
     public EroeDescrizione getEroeDescrizione(int idEroeDesc){
-        Eroe eroe;
+        return PersistanManager.getInstance().getEroeDescrizione(idEroeDesc);
+        /*Eroe eroe;
         String nome;
         int idDesc=1;
         int quantitaMassima;
@@ -170,6 +174,6 @@ public class EroeCatalogo {
         ed=new EroeDescrizione(idDesc,nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima,si);
         //listEroi.add(eroe);
         //ed.setEroi(listEroi);
-        return ed;
+        return ed;*/
     }
 }
