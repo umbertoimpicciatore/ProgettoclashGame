@@ -1,5 +1,7 @@
 package com.mycompany.progettoclash;
 
+import com.mycompany.progettoclash.Foundation.PersistanManager;
+
 /**
  *
  * @author User
@@ -39,7 +41,8 @@ public class ReginaBuilder extends EroeBuilder {
     
     
     @Override
-    public void setEroeDescrizione(EroeDescrizione desc) {
+    public void setEroeDescrizione() {
+        EroeDescrizione desc=PersistanManager.getInstance().getRegina();
         this.eroe.setEroeDescrizione(desc);
     }
     

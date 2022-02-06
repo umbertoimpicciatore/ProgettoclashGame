@@ -28,9 +28,9 @@ public class EroeDirector {
         return eroeBuilder.build();
         
     }
-    public Eroe createEroe2( Statistica s,Skin skin,EroeDescrizione desc,int id){
+
+    public Eroe createEroe2( Statistica s,Skin skin,int id){
         
-        this.eroeBuilder.setEroeDescrizione(desc);
         this.eroeBuilder.setSkills(s);
         this.eroeBuilder.setSkin(skin);
         this.eroeBuilder.setId(id);

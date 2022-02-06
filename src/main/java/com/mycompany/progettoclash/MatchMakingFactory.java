@@ -1,6 +1,9 @@
 
 package com.mycompany.progettoclash;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -18,10 +21,14 @@ public class MatchMakingFactory {
         return instance;
     }
     
-    public MatchMakingStrategy getStrategy() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-       String className= FileDiConfigurazione.matchMaking;
-       Class cls = Class.forName(className);
-       MatchMakingStrategy clsInstance = (MatchMakingStrategy) cls.newInstance();
-       return clsInstance;
+    public MatchMakingStrategy getStrategy() {
+        try {
+            String className= FileDiConfigurazione.matchMaking;
+            Class cls = Class.forName(className);
+            MatchMakingStrategy clsInstance = (MatchMakingStrategy) cls.newInstance();
+            return clsInstance;
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+            return null;
+        }
     }
 }

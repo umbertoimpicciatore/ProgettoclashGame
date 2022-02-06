@@ -64,6 +64,13 @@ public  class Eroe {
      // this.id=id;
     }
     
+    public Eroe(Statistica s,Skin skin,EroeDescrizione desc,int id){
+        this.eroeDescrizione=desc;
+        this.id=id;
+        this.skin=skin;
+        this.stat=s;
+    }
+    
     public Casella getC() {
         return casella;
     }

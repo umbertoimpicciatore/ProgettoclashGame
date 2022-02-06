@@ -3,8 +3,6 @@ package com.mycompany.progettoclash;
 
 import com.mycompany.progettoclash.view.ViewAttacco;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -65,12 +63,7 @@ public class ClashGame {
     public void cercaAvversario(){
         
         TrovaAvversario t=new TrovaAvversario();
-        Giocatore giocatoreD=null;
-        try {
-            giocatoreD = t.getAvversario(this.giocatoreA);
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
-            Logger.getLogger(ClashGame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Giocatore giocatoreD = t.getAvversario(this.giocatoreA);
         ViewAttacco view=new ViewAttacco();//si può fare dentro il controller?
         view.conferma(giocatoreD,this.giocatoreA); 
     }
@@ -89,12 +82,7 @@ public class ClashGame {
                 }
                 view.visualizzaVillaggio(giocatoreD.getVillaggio());
             }
-        OttenimentoRisorseStrategy strategy=null;    
-        try {
-             strategy=OttenimentoRisorseFactory.getInstance().getStrategy();
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
-            Logger.getLogger(ClashGame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        OttenimentoRisorseStrategy strategy= OttenimentoRisorseFactory.getInstance().getStrategy();
         ArrayList<Risorsa>risorse=strategy.ottieniRisorsa(this);
         this.giocatoreA.getVillaggio().addRisorse(risorse);
         this.giocatoreD.getVillaggio().perdiRisorse();

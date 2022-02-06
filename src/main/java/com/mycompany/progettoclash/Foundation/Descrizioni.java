@@ -15,6 +15,94 @@ public class Descrizioni {
     public static EroeDescrizione regina;
     public static int ultimoIdEroe=2; 
     public static int ultimoIdEdificio=0;
+
+    public static EroeDescrizione getArciere() {
+        return arciere;
+    }
+
+    public static void setArciere(EroeDescrizione arciere) {
+        Descrizioni.arciere = arciere;
+    }
+
+    public static EroeDescrizione getGuerriero() {
+        return guerriero;
+    }
+
+    public static void setGuerriero(EroeDescrizione guerriero) {
+        Descrizioni.guerriero = guerriero;
+    }
+
+    public static EroeDescrizione getRegina() {
+        return regina;
+    }
+
+    public static void setRegina(EroeDescrizione regina) {
+        Descrizioni.regina = regina;
+    }
+
+    public static int getUltimoIdEroe() {
+        return ultimoIdEroe;
+    }
+
+    public static void setUltimoIdEroe(int ultimoIdEroe) {
+        Descrizioni.ultimoIdEroe = ultimoIdEroe;
+    }
+
+    public static int getUltimoIdEdificio() {
+        return ultimoIdEdificio;
+    }
+
+    public static void setUltimoIdEdificio(int ultimoIdEdificio) {
+        Descrizioni.ultimoIdEdificio = ultimoIdEdificio;
+    }
+
+    public static EdificioDescrizione getDepositoOro() {
+        return depositoOro;
+    }
+
+    public static void setDepositoOro(EdificioDescrizione depositoOro) {
+        Descrizioni.depositoOro = depositoOro;
+    }
+
+    public static EdificioDescrizione getDepositoMana() {
+        return depositoMana;
+    }
+
+    public static void setDepositoMana(EdificioDescrizione depositoMana) {
+        Descrizioni.depositoMana = depositoMana;
+    }
+
+    public static EdificioDescrizione getAccademia() {
+        return accademia;
+    }
+
+    public static void setAccademia(EdificioDescrizione accademia) {
+        Descrizioni.accademia = accademia;
+    }
+
+    public static EdificioDescrizione getMunicipio() {
+        return municipio;
+    }
+
+    public static void setMunicipio(EdificioDescrizione municipio) {
+        Descrizioni.municipio = municipio;
+    }
+
+    public static EdificioDescrizione getAccampamento() {
+        return accampamento;
+    }
+
+    public static void setAccampamento(EdificioDescrizione accampamento) {
+        Descrizioni.accampamento = accampamento;
+    }
+
+    public static EdificioDescrizione getTorre() {
+        return torre;
+    }
+
+    public static void setTorre(EdificioDescrizione torre) {
+        Descrizioni.torre = torre;
+    }
     public static EdificioDescrizione depositoOro;
     public static EdificioDescrizione depositoMana;
     public static EdificioDescrizione accademia;

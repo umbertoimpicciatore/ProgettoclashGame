@@ -29,10 +29,11 @@ public class RegolaCreaEroeStrategy implements CreaEroeStrategy  {
             for (int i=0;i<quantita;i++){
                 Eroe eroe;
                 if(livelloEroi>=livelloPerPot){
-                    eroe=eroeDirector.createEroe2(stat,new SkinPotenziata(),desc,1);
+                    //Eroe e=new Eroe(stat,new SkinPotenziata(),desc,1);
+                    eroe=eroeDirector.createEroe2(stat,new SkinPotenziata(),1);
                 }
                 else{
-                    eroe=eroeDirector.createEroe2(stat,new SkinBase(),desc,1);
+                    eroe=eroeDirector.createEroe2(stat,new SkinBase(),1);
                 } 
                 listE.add(eroe);
             }

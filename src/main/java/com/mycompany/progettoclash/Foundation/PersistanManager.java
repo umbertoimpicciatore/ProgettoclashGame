@@ -41,6 +41,11 @@ public class PersistanManager {
         Descrizioni d=new Descrizioni();
         return d.getAllEdifDescrizioni();
     }
+    
+    public EroeDescrizione getArciere(){
+        Descrizioni d=new Descrizioni();
+        return Descrizioni.getArciere();
+    }
          
     
   

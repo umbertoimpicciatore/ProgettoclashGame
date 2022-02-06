@@ -5,6 +5,9 @@
  */
 package com.mycompany.progettoclash;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Lorenzo
@@ -21,11 +24,15 @@ public class OttenimentoRisorseFactory {
         return instance;
     }
     
-    public OttenimentoRisorseStrategy getStrategy() throws ClassNotFoundException, InstantiationException, IllegalAccessException{
-        String className= FileDiConfigurazione.ottenimentoRisorse;
-        Class cls = Class.forName(className);
-        OttenimentoRisorseStrategy clsInstance = (OttenimentoRisorseStrategy) cls.newInstance();
-        return clsInstance;
+    public OttenimentoRisorseStrategy getStrategy() {
+        try {
+            String className= FileDiConfigurazione.ottenimentoRisorse;
+            Class cls = Class.forName(className);
+            OttenimentoRisorseStrategy clsInstance = (OttenimentoRisorseStrategy) cls.newInstance();
+            return clsInstance;
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+            return null;
+        }
     }
     
 }

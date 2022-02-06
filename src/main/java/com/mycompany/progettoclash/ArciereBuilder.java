@@ -1,6 +1,8 @@
 
 package com.mycompany.progettoclash;
 
+import com.mycompany.progettoclash.Foundation.PersistanManager;
+
 /**
  *
  * @author Lorenzo
@@ -41,7 +43,8 @@ public class ArciereBuilder extends EroeBuilder{
     }
 
     @Override
-    public void setEroeDescrizione(EroeDescrizione desc) {
+    public void setEroeDescrizione() {
+        EroeDescrizione desc=PersistanManager.getInstance().getArciere();
         this.eroe.setEroeDescrizione(desc);
     }
     

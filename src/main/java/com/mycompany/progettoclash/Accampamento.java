@@ -10,6 +10,7 @@ public class Accampamento extends Edificio {
     
     private ArrayList<Eroe> listaEroiGiocatore = new ArrayList<Eroe>();
 
+    
     public ArrayList<Eroe> getListaEroiGiocatore() {
         return listaEroiGiocatore;
     }
@@ -74,7 +75,8 @@ public class Accampamento extends Edificio {
              }
         }*/
         EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
-        CreaEroeStrategy strategyEroe = CreaEroeFactory.getInstance().getStrategy();        
+        CreaEroeStrategy strategyEroe = CreaEroeFactory.getInstance().getStrategy();
+        
         strategyEroe.creaEroe(desc,quantita,giocatore);//cambia NOME METODO
         Risorsa prezzoAcquisto=desc.getPrezzoDiAcquisto();
         double q=prezzoAcquisto.getQuantita()*quantita;
