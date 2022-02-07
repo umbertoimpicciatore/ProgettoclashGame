@@ -47,5 +47,9 @@ public class  Statistica {
         this.vita = vita;
     }
     
+    public String toString(){
+        String s="Vita: "+this.vita+" Difesa: "+this.difesa+" Attacco: "+this.attacco;
+        return s;
+    }
     
 }

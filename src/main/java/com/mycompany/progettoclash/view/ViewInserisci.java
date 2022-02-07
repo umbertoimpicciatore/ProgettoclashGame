@@ -33,7 +33,7 @@ public class ViewInserisci {
                 break;
             case 3:
                 inserisci=new CInserisciEdificio(g);
-                ArrayList<EdificioDescrizione>  desc=inserisci.operazione(g);
+                ArrayList<EdificioDescrizione>  desc=inserisci.operazione();
                 this.mostraEdifici(desc,g);
                 break;
             case 4:

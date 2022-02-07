@@ -19,17 +19,19 @@ public class CreaEdificioFactory {
         return instance;
     }
     
-    public Edificio getEdificio(EdificioDescrizione desc){
+    public Edificio getEdificio(EdificioDescrizione desc,Giocatore g){
 
         String nome=desc.getNome();
         if(nome.equals("DepositoOro")){
             Deposito depOro=new DepositoOro(new Oro(0));
             depOro.setEdificioDescrizione(desc);
+            g.getDepositiOro().add(depOro);
             return depOro;
         }
         else if(nome.equals("DepositoMana")){
             Deposito depMana=new DepositoMana(new Mana(0));
             depMana.setEdificioDescrizione(desc);
+            g.getDepositiMana().add(depMana);
             return depMana;
         }
         else{

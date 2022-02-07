@@ -18,13 +18,18 @@ public class Municipio extends Edificio {
        
             EdificioCatalogo catalogo=new EdificioCatalogo();
             EdificioDescrizione desc=catalogo.getDescrizione(idEdifDescrizione);
-            Edificio edificio=CreaEdificioFactory.getInstance().getEdificio(desc);
+            Edificio edificio=CreaEdificioFactory.getInstance().getEdificio(desc,g);
             Risorsa r=desc.getPrezzoDiAcquisto();
             g.rimuoviRisorse(r);
             Villaggio v=g.getVillaggio();
             Casella c=v.getCasella(riga, colonna);
             c.setEdificio(edificio);
             edificio.setCasella(c);
+            /* if(edificio instanceof Deposito){
+                 Deposito d=(Deposito) edificio;
+                 g.getDepositiOro().add(edificio); 
+             }*/
+            
         
     }
 }

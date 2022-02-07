@@ -34,6 +34,7 @@ public class ViewAttacco {
     }
     
     public void conferma(Giocatore giocatoreD,Giocatore giocatoreA){
+        System.out.println("VILLAGGIO AVVERSARIO: ");
         this.visualizzaVillaggio(giocatoreD.getVillaggio());
         String s="Immetti numero positivo: 1 per confermare, 2 per cercare un altro avversaio, altro per annullare ";
         int ris=this.inserisci(s);
@@ -47,7 +48,10 @@ public class ViewAttacco {
                 clash.cercaAvversario();
                 break;
 
-            default: break;
+            default:
+                ViewIniziale view=new ViewIniziale();
+                view.selezionaOperazione(giocatoreA);
+                break;
             }
     }
     
@@ -59,10 +63,10 @@ public class ViewAttacco {
             System.out.println(key + " quantitaDisponibile: " + value);
         }
         
-        ArrayList<Eroe> eroiA=giocatoreA.getEroi();//implementa
+        /*ArrayList<Eroe> eroiA=giocatoreA.getEroi();//implementa
         for(int i=0;i<eroiA.size();i++){
             System.out.println("Arciere id 10");
-        }
+        }*/
    
         if(errore==true){
             System.out.println("Riga/Colonna/Quantita o idEroe immesso sbagliato");
@@ -119,7 +123,7 @@ public class ViewAttacco {
          return var;
     }
     
-      public void visualizzaVillaggio(Villaggio villaggioD){
+    public void visualizzaVillaggio(Villaggio villaggioD){
         String s="";
         for (int i=1;i<=villaggioD.getAltezza();i++){
             s="";
@@ -131,7 +135,7 @@ public class ViewAttacco {
                 }
                 ArrayList<Eroe> er = c.getListaEroiA();
                 for (int k=0;k<er.size();k++){
-                    s=s+"IdEroe: "+er.get(k).getId()+" Vita: "+er.get(k).getStat().getVita()+" ";                    
+                    s=s+"IdEroe: "+er.get(k).getId()+" Vita: "+er.get(k).getStat().getVita()+" "+er.get(k).getStat().toString();                    
                 }
                 System.out.print(s);
                 System.out.print("     ");

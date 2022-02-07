@@ -8,9 +8,11 @@ import com.mycompany.progettoclash.Casella;
 import com.mycompany.progettoclash.ClashGame;
 import com.mycompany.progettoclash.EdificioDescrizione;
 import com.mycompany.progettoclash.Eroe;
+import com.mycompany.progettoclash.EroeDescrizione;
 import com.mycompany.progettoclash.Giocatore;
 import com.mycompany.progettoclash.Villaggio;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -24,7 +26,7 @@ public class ViewIniziale {
         ViewInserisci viewInserisci=new ViewInserisci();
         ViewPotenzia viewPotenzia=new ViewPotenzia();
     
-        public void selezionaOperazione(Giocatore g){//attenzione, chi glielo passa g?
+        public void selezionaOperazione(Giocatore g){
         this.visualizzaVillaggio(g.getVillaggio());
         String s="Cosa vuoi fare?\n 1: Attaccare un altro giocatore?\n 2: Potenziare eroe?\n 3: Inserire edificio?\n 4: Acquistare eroi?\n >=5: Esci(logout)";
 
@@ -36,12 +38,14 @@ public class ViewIniziale {
                 break;
             case 2:
                 CPotenzia potenzia=new CPotenzia(g);
-                potenzia.operazione();
+                HashMap<EroeDescrizione,Integer> eroeDesc =potenzia.operazione();
+                //ViewPotenzia view=new ViewPotenzia();
+                viewPotenzia.mostraEroi(eroeDesc, false, false,g);
                 break;
             case 3:
                            
                 CInserisciEdificio inserisci=new CInserisciEdificio(g);
-                ArrayList<EdificioDescrizione>  desc=inserisci.operazione(g);
+                ArrayList<EdificioDescrizione>  desc=inserisci.operazione();
                 ViewInserisci view=new ViewInserisci(inserisci);
                 view.mostraEdifici(desc,g);
                 break;

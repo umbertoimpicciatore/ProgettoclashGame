@@ -21,6 +21,12 @@ public class Giocatore {
     private Municipio municipio;
     
     
+    public void aumentaLivelloEroe(EroeDescrizione desc){
+        int livello=this.getLivelloEroi().get(desc);
+        this.getLivelloEroi().put(desc, livello+1);
+        
+    }
+    
     public double mostraOro(){
         double q=0;
         for (int i=0;i<this.depositiOro.size();i++){

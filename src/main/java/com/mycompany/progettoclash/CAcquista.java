@@ -44,8 +44,7 @@ public class CAcquista {
         else{
             view.mostraEroi(this.giocatore.getLivelloEroi(),false,true, giocatore);
         }
-        
-        
+
     }
     
     public void conferma(boolean conferma,int idEroeDescrizione,int quantita){
