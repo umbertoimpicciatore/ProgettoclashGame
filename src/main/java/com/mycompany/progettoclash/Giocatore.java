@@ -19,6 +19,24 @@ public class Giocatore {
     private String nome;
     private Villaggio villaggio;
     private Municipio municipio;
+    
+    
+    public double mostraOro(){
+        double q=0;
+        for (int i=0;i<this.depositiOro.size();i++){
+            q=q+this.depositiOro.get(i).getRisorsa().getQuantita();
+            
+        }
+        return q;
+    }
+    public double mostraMana(){
+        double q=0;
+        for (int i=0;i<this.depositiMana.size();i++){
+            q=q+this.depositiMana.get(i).getRisorsa().getQuantita();
+            
+        }
+        return q;
+    }
 
     public Municipio getMunicipio() {
         return municipio;

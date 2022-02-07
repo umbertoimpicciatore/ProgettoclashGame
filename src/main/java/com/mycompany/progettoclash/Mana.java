@@ -9,12 +9,16 @@ package com.mycompany.progettoclash;
  *
  * @author Lorenzo
  */
-public class Mana implements Risorsa {
+public class Mana implements Risorsa, Cloneable {
     private String nome="Mana";
-    private double quantita=0;
+    private double quantita;
     
     public Mana(double a){
         this.quantita=a;
+    
+    }
+    public Mana(){
+        this.quantita=0;
     
     }
     

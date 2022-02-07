@@ -32,15 +32,6 @@ public class Villaggio {
         }
     }
     
-    
-   /* public Edificio cercaAccampamento(){
-        Edificio e;
-        for(int i=0;i<caselle.size();i++){
-            e.getCasella().getEdificio().
-        }
-    
-    }*/
-
     public void setCaselle(ArrayList<Casella> cars) {
         this.caselle = cars;
     }
@@ -90,26 +81,12 @@ public class Villaggio {
                   Deposito d=(Deposito) e;
                   Risorsa r=d.getRisorsa();//risorsa deposito
                   int ris=isInArray(r,risorse);
-                  if(ris>0){
-                      Risorsa risorsaCorrente=risorse.get(ris);
-                      double quantita=risorsaCorrente.getQuantita();//quantita da aggiungere
-                      double qDeposito=r.getQuantita();//quantita deposito
-                      double quantitaMassima=d.getEdificioDescrizione().getQuantitaMassima();
-                      if(qDeposito<quantitaMassima){
-                          qDeposito+=quantita;
-                          quantita=0;
-                          if(qDeposito>quantitaMassima){//se vai oltre la capacita
-                              quantita=qDeposito-quantitaMassima;
-                              qDeposito-=quantita;
-                              risorsaCorrente.setQuantita(quantita);
-                              risorse.set(ris, risorsaCorrente);
-                          }
-                          else{
-                              risorse.remove(ris);
-                          }  
-                          r.setQuantita(qDeposito);
-                          d.setRisorsa(r);
-                      }
+                  if(ris>=0){
+                        Risorsa risorsaCorrente=risorse.get(ris);
+                        risorsaCorrente=d.addRisorsa(risorsaCorrente);
+                        if(risorsaCorrente.getQuantita()==0){
+                            risorse.remove(ris);
+                        }
                   }
             }
         }            
@@ -120,33 +97,31 @@ public class Villaggio {
         for(int i=0;i<c.size();i++){
             Casella casella=c.get(i);
             Edificio edificio=casella.getEdificio();
-            if(edificio!=null && edificio.getEdificioDescrizione().getNome().equals("Deposito")){
+            if(edificio!=null && edificio instanceof Deposito){
                 Deposito deposito=(Deposito) edificio;
                 Risorsa r=deposito.getRisorsa();
                 int vita=deposito.getStatistica().getVita();
                 int vitaMassima=deposito.getEdificioDescrizione().getVitaMassima();
-                double q=(vitaMassima-vita)*30/100;
-                double quantita=r.getQuantita()-q;
-                if(quantita<0){
-                    r.setQuantita(0);
-                }
-                else{
-                    r.setQuantita(quantita);
-                }
+                double x=((vitaMassima-vita)*30)/vitaMassima;
+                double q2=x/100*r.getQuantita();
+                deposito.perdiRisorsa(q2);
             }   
         }
     }
         
 
     private int isInArray(Risorsa r,ArrayList<Risorsa> list){
-        
-        for(int i=0;i<list.size();i++){
-                if(list.get(i).getNome().equals(r.getNome())){
-                    return i;
+        if(list!=null){
+            for(int i=0;i<list.size();i++){
+                    if(list.get(i).getNome().equals(r.getNome())){
+                        return i;
+                    }
                 }
             }
             return -1;
         }
+        
+    
     public boolean casellaDisponibile(int riga,int colonna){
         Casella c=this.getCasella(riga, colonna);
         if(c.getEdificio()==null){

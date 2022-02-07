@@ -2,6 +2,7 @@
 package com.mycompany.progettoclash;
 
 import com.mycompany.progettoclash.view.ViewAttacco;
+import com.mycompany.progettoclash.view.ViewIniziale;
 import java.util.ArrayList;
 
 /**
@@ -84,10 +85,22 @@ public class ClashGame {
             }
         OttenimentoRisorseStrategy strategy= OttenimentoRisorseFactory.getInstance().getStrategy();
         ArrayList<Risorsa>risorse=strategy.ottieniRisorsa(this);
+        for (int i=0;i<risorse.size();i++){
+            System.out.println("RISORSA RESTITUITA: "+risorse.get(i).toString());
+        }
+        System.out.println("MANA posseduta: "+this.giocatoreA.mostraMana());
+        System.out.println("Oro posseduto: "+this.giocatoreA.mostraOro());
         this.giocatoreA.getVillaggio().addRisorse(risorse);
+        System.out.println("MANA aggiornato: "+this.giocatoreA.mostraMana());
+        System.out.println("Oro aggiornato: "+this.giocatoreA.mostraOro());
+        System.out.println("MANA DIFENSORE: "+this.giocatoreD.mostraMana());
+        System.out.println("Oro DIFENSORE: "+this.giocatoreD.mostraOro());
         this.giocatoreD.getVillaggio().perdiRisorse();
+        System.out.println("MANA DIFENSORE aggiornato: "+this.giocatoreD.mostraMana());
+        System.out.println("Oro DIFENSORE aggiornato: "+this.giocatoreD.mostraOro());
         this.eroiVivi(this.caselleDifensore(), giocatoreA);
-        
+        ViewIniziale viewI=new ViewIniziale();
+        viewI.selezionaOperazione(giocatoreA);
     }
     
     //prende in ingresso le caselle del villaggio difensore e il giocatore Attaccante
@@ -101,7 +114,7 @@ public class ClashGame {
                 caselle.get(i).setListaEroiA(new ArrayList<Eroe>());//tolgo gli eroi attaccanti sulla casella del villaggio difensore
             }
         }
-        giocatoreA.getAccampamento().setListaEroiGiocatore(eroiA);
+        giocatoreA.getAccampamento().addEroi(eroiA);
     }
     
     

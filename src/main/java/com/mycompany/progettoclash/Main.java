@@ -2,6 +2,7 @@ package com.mycompany.progettoclash;
 import com.mycompany.progettoclash.Foundation.Descrizioni;
 import com.mycompany.progettoclash.view.ViewAcquista;
 import com.mycompany.progettoclash.view.ViewAttacco;
+import com.mycompany.progettoclash.view.ViewIniziale;
 import com.mycompany.progettoclash.view.ViewPotenzia;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -79,6 +80,8 @@ public class Main {
         ArrayList<Casella> caselle = new ArrayList<Casella>();
         Deposito dep1=new DepositoOro(new Oro(0));
         Deposito dep2=new DepositoMana(new Mana(0));
+        dep1.setEdificioDescrizione(Descrizioni.depositoOro);
+        dep2.setEdificioDescrizione(Descrizioni.depositoMana);
         dep1.setId(0);
         dep2.setId(2);
         Oro oro=new Oro(5);
@@ -103,11 +106,11 @@ public class Main {
         
         ArciereBuilder arc2=new ArciereBuilder();
         EroeDirector eroeDirector=new EroeDirector(arc2);
-        Eroe e=eroeDirector.createEroe2(s1, new SkinBase(), Descrizioni.arciere, 1);
+        Eroe e=eroeDirector.createEroe2(s1, new SkinBase(), 1);
         //Descrizioni.arciere.setEroi(eroi);
         ArrayList<Eroe> list=new ArrayList<Eroe>();
         list.add(e);
-        e=eroeDirector.createEroe2(s2, new SkinBase(), Descrizioni.arciere, 2);
+        e=eroeDirector.createEroe2(s2, new SkinBase(), 2);
         list.add(e);
         Descrizioni.arciere.setEroi(list);
         /*ArciereBuilder arc2=new ArciereBuilder();
@@ -137,15 +140,22 @@ public class Main {
             for (int j=1;j<=v2.getLarghezza();j++){
                 Casella c=new Casella(i,j);
                 if(i==1 &&j==1){
-                    //c.AddEroe(eroeArc2);
                     c.setEdificio(acc2);
-                    //eroeArc2.setC(c);
                     acc2.setCasella(c);
-                }      
+                }     
+                if(i==1 &&j==2){
+                    c.setEdificio(dep1);
+                    dep1.setCasella(c);
+                }
+                if(i==1 &&j==3){
+                    c.setEdificio(dep2);
+                    dep2.setCasella(c);
+                }
                 c.setVillaggio(v2);
                 caselle.add(c);
             }
         }
+        v2.setCaselle(caselle);
         ga.setAccampamento((Accampamento)acc2);
         ga.setVillaggio(v2);
         ga.setAccademia(accademia);
@@ -166,72 +176,80 @@ public class Main {
             }
         }        
         ga.setLivelloEroi(livelloEroi);
-        ViewPotenzia view=new ViewPotenzia();
-        view.selezionaOperazione(ga);
+        //ViewPotenzia view=new ViewPotenzia();
+        //view.selezionaOperazione(ga);
         //ViewAttacco view=new ViewAttacco();
         //view.cercaAvversario(ga);
+        ViewIniziale view=new ViewIniziale();
+        view.selezionaOperazione(ga);
     }
     
     public static void iniziaDescrizioni(){
         int idDescrizione = 1;
         String nome = "Accampamento";
         int quantitaMassima = 1;
+        int quantitaMassimaImm=0;
         Risorsa prezzoDiAcquisto = new Oro(10);
         int vitaMassima = 100;
         Statistica statistica = new Statistica(10,10,100);
         ModalitàAttacco modA=null;
-        EdificioDescrizione ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA);
+        EdificioDescrizione ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA,quantitaMassimaImm);
         Descrizioni.accampamento=ed;
         
         idDescrizione = 2;
         nome = "Accademia";
         quantitaMassima = 1;
+        quantitaMassimaImm=0;
         prezzoDiAcquisto = new Oro(5);
         vitaMassima = 100;
         statistica = new Statistica(10,10,100);
         modA=null;
-        ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA);
+        ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA,quantitaMassimaImm);
         Descrizioni.accademia=ed;
         
         idDescrizione = 3;
         nome = "Municipio";
         quantitaMassima = 1;
+        quantitaMassimaImm=0;
         prezzoDiAcquisto = new Oro(15);
         vitaMassima = 120;
         statistica = new Statistica(10,10,120);
         modA=null;
-        ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA);
+        ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA,quantitaMassimaImm);
         Descrizioni.municipio=ed;
         
         idDescrizione = 4;
         nome = "Torre";
+        quantitaMassimaImm=0;
         quantitaMassima = 3;
         prezzoDiAcquisto = new Oro(20);
         vitaMassima = 100;
         statistica = new Statistica(10,30,100);
         modA=new AttaccaTorre();
-        ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA);
+        ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA,quantitaMassimaImm);
         Descrizioni.torre=ed;
         
         
         idDescrizione = 5;
         nome = "DepositoOro";
         quantitaMassima = 2;
+        quantitaMassimaImm=20;
         prezzoDiAcquisto = new Oro(20);
         vitaMassima = 100;
         statistica = new Statistica(10,10,100);
         modA=null;
-        ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA);
+        ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA,quantitaMassimaImm);
         Descrizioni.depositoOro=ed;
         
         idDescrizione = 6;
         nome = "DepositoMana";
         quantitaMassima = 2;
+        quantitaMassimaImm=20;
         prezzoDiAcquisto = new Mana(20);
         vitaMassima = 100;
         statistica = new Statistica(10,10,100);
         modA=null;
-        ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA);
+        ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA,quantitaMassimaImm);
         Descrizioni.depositoMana=ed;
 
     }

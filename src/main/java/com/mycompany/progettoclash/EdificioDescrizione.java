@@ -13,6 +13,7 @@ public class EdificioDescrizione {
     private int idDescrizione;
     private String nome;
     private int quantitaMassima;
+    private int quantiaMassimaImm;
     private Risorsa prezzoDiAcquisto;
     private int vitaMassima;
     private ModalitàAttacco modalitaAttacco;
@@ -26,7 +27,7 @@ public class EdificioDescrizione {
         this.modalitaAttacco = modalitaAttacco;
     }
 
-    public EdificioDescrizione(ArrayList<Edificio> edifici, int idDescrizione, String nome, int quantitaMassima, Risorsa prezzoDiAcquisto, int vitaMassima, Statistica statistica,ModalitàAttacco modalitaAttacco) {
+    public EdificioDescrizione(ArrayList<Edificio> edifici, int idDescrizione, String nome, int quantitaMassima, Risorsa prezzoDiAcquisto, int vitaMassima, Statistica statistica,ModalitàAttacco modalitaAttacco,int quantitaImm) {
         this.edifici = edifici;
         this.idDescrizione = idDescrizione;
         this.nome = nome;
@@ -35,8 +36,16 @@ public class EdificioDescrizione {
         this.vitaMassima = vitaMassima;
         this.statistica = statistica;
         this.modalitaAttacco=modalitaAttacco;
+        this.quantiaMassimaImm=quantitaImm;
     }
 
+    public int getQuantiaMassimaImm() {
+        return quantiaMassimaImm;
+    }
+
+    public void setQuantiaMassimaImm(int quantiaMassimaImm) {
+        this.quantiaMassimaImm = quantiaMassimaImm;
+    }
     public Statistica getStatistica() {
         return statistica;
     }

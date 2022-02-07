@@ -46,6 +46,16 @@ public class PersistanManager {
         Descrizioni d=new Descrizioni();
         return Descrizioni.getArciere();
     }
+    
+    public EroeDescrizione getGuerriero(){
+        Descrizioni d=new Descrizioni();
+        return Descrizioni.getGuerriero();
+    }
+    
+    public EroeDescrizione getRegina(){
+        Descrizioni d=new Descrizioni();
+        return Descrizioni.getRegina();
+    }
          
     
   

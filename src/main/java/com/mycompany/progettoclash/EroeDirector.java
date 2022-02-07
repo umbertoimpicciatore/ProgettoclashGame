@@ -18,6 +18,7 @@ public class EroeDirector {
         
        this.eroeBuilder.setSkills( s);
        this.eroeBuilder.setSkin(new SkinBase());
+       this.eroeBuilder.setEroeDescrizione();
        return eroeBuilder.build();
     }
     
@@ -25,6 +26,7 @@ public class EroeDirector {
         
         this.eroeBuilder.setSkills(s);
         this.eroeBuilder.setSkin(new SkinPotenziata());
+        this.eroeBuilder.setEroeDescrizione();
         return eroeBuilder.build();
         
     }
@@ -34,6 +36,7 @@ public class EroeDirector {
         this.eroeBuilder.setSkills(s);
         this.eroeBuilder.setSkin(skin);
         this.eroeBuilder.setId(id);
+        this.eroeBuilder.setEroeDescrizione();
         return eroeBuilder.build();
         
     }

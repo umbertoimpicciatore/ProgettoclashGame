@@ -2,12 +2,14 @@
 package com.mycompany.progettoclash;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Lorenzo
  */
-public class RegolaUnoOttenimentoRisorsaStrategy implements OttenimentoRisorseStrategy {
+public class RegolaUnoOttenimentoRisorsaStrategy implements OttenimentoRisorseStrategy  {
 
     @Override
     public ArrayList<Risorsa> ottieniRisorsa(ClashGame clash) {
@@ -17,18 +19,28 @@ public class RegolaUnoOttenimentoRisorsaStrategy implements OttenimentoRisorseSt
         for(int i=0;i<c.size();i++){
             Casella casella=c.get(i);
             Edificio edificio=casella.getEdificio();
-            if(edificio!=null && edificio instanceof Deposito && edificio.getEdificioDescrizione().getNome().equals("Deposito")){
+            if(edificio!=null && edificio instanceof Deposito){ //&& edificio.getEdificioDescrizione().getNome().equals("Deposito")
                 Deposito deposito=(Deposito) edificio;
                 Risorsa r=deposito.getRisorsa();
                 int ris=this.isInArray(r, risorse);
+                Risorsa risorsaArray;
                 if(ris>=0){
-                    Risorsa risorsaArray=risorse.get(ris);
+                    risorsaArray=risorse.get(ris);
                     double quantita=risorsaArray.getQuantita()+r.getQuantita();
                     risorsaArray.setQuantita(quantita);
                     risorse.set(ris, risorsaArray);
                 }
                 else{
-                    risorse.add(r);
+                    String className= "com.mycompany.progettoclash."+r.getNome();
+                    double quantita=r.getQuantita();
+                    try {
+                        Class cls = Class.forName(className);
+                        risorsaArray = (Risorsa) cls.newInstance();
+                        risorsaArray.setQuantita(quantita);
+                        risorse.add(risorsaArray);
+                    } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+                        return null;
+                    }
                 }       
             }
         }

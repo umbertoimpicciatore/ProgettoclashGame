@@ -65,10 +65,18 @@ public class MatchMakingBasedOnLvGiocatoreStrategy implements MatchMakingStrateg
         Oro oro2=new Oro(5);
         Mana mana2=new Mana(7);
         dep1.setRisorsa(oro);
-        dep2.setRisorsa(mana);
-        dep3.setRisorsa(oro2);
+        dep2.setRisorsa(oro2);
+        dep3.setRisorsa(mana);
         dep4.setRisorsa(mana2);
 
+        ArrayList<Deposito> depositi = new ArrayList<Deposito>();
+        depositi.add(dep1);
+        depositi.add(dep2);
+        g.setDepositiOro(depositi);
+        ArrayList<Deposito> depositi2 = new ArrayList<Deposito>();
+        depositi2.add(dep3);
+        depositi2.add(dep4);
+        g.setDepositiMana(depositi2);
         
        //creo VILLAGGIO
         for (int i=1;i<=v.getAltezza();i++){

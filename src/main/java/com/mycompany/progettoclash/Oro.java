@@ -5,13 +5,17 @@ package com.mycompany.progettoclash;
  *
  * @author Lorenzo
  */
-public class Oro implements Risorsa {
+public class Oro implements Risorsa, Cloneable{
     
     private String nome="Oro";
     private double quantità;
 
     public Oro(double a){
     this.quantità=a;
+    
+    }
+    public Oro(){
+    this.quantità=0;
     
     }
     

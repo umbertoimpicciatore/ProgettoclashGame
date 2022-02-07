@@ -97,6 +97,8 @@ public class ViewAcquista {
         int ris=this.inserisci(s);
         acquista=new CAcquista(giocatore);
         this.acquista.conferma(true, idEroeDescrizione, quantita);//da cambiare
+        ViewIniziale view=new ViewIniziale();
+        view.selezionaOperazione(giocatore);
     }
     
 }
