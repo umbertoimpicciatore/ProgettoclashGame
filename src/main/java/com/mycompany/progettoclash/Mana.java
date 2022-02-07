@@ -40,7 +40,7 @@ public class Mana implements Risorsa, Cloneable {
     public String toString(){
         String s;
         String s1="Quantità: "+ this.quantita;
-        s="Risorsa:".concat(this.nome).concat(s1);
+        s="Risorsa: ".concat(this.nome).concat(s1);
         return s;
     }
 }

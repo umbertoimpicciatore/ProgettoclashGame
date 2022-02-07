@@ -120,7 +120,7 @@ public class Descrizioni {
     
     public ArrayList<EdificioDescrizione> getAllEdifDescrizioni(){
         ArrayList<EdificioDescrizione> desc=new ArrayList<EdificioDescrizione>();
-        desc.add(depositoOro);
+        desc.add(depositoOro);        
         desc.add(depositoMana);
         desc.add(accademia);
         desc.add(municipio);

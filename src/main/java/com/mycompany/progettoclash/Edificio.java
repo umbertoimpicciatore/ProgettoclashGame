@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public abstract class Edificio {
     private int id;
     //private ModalitàAttacco modA;
-    private Statistica statistica;
+    //private Statistica statistica;
     private Casella casella;
     private EdificioDescrizione edificioDescrizione;
 
@@ -38,17 +38,18 @@ public abstract class Edificio {
         this.casella = casella;
     }
     public void setVita(int vita){
-        this.statistica.setVita(vita);
+        this.edificioDescrizione.setVita(vita);
     
     }
             
-     public Statistica getStatistica() {
-        return statistica;
+    public Statistica getStatistica() {        
+         return this.edificioDescrizione.getStatistica();
     }
 
     public void setStatistica(Statistica statistica) {
-        this.statistica = statistica;
+        this.edificioDescrizione.setStatistica(statistica);
     }
+    
     public int getId() {
         return id;
     }

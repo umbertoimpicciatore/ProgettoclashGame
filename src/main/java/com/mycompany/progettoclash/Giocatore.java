@@ -135,6 +135,7 @@ public class Giocatore {
             if(r.getNome().equals(risorsa.getNome())){
                 if((qDeposito-quantita)>=0){
                     r.setQuantita(qDeposito-quantita);
+                    depositi.removeAll(this.depositiMana);
                     return;
                 }
                 else{
@@ -143,12 +144,14 @@ public class Giocatore {
                 }
             }
         }
+        depositi.removeAll(this.depositiMana);
         
     }
     //DA TESTARE
     public boolean controllaRisorsa(Risorsa risorsa){
-        ArrayList<Deposito> depositi=this.depositiOro;
+        ArrayList<Deposito> depositi=this.depositiOro;        
         depositi.addAll(this.depositiMana);
+
         double quantita=risorsa.getQuantita();
         double cont=0;
         for(int i=0;i<depositi.size();i++){
@@ -157,6 +160,7 @@ public class Giocatore {
                 cont=cont +r.getQuantita();
             }
         }
+        depositi.removeAll(this.depositiMana);
         if(cont>=quantita){
             return true;
         }

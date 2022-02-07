@@ -26,15 +26,21 @@ public class CInserisciEdificio {
     public boolean operazione10(int idEdificioDesc){
         EdificioCatalogo catalogo=new EdificioCatalogo();
         EdificioDescrizione edDesc=catalogo.getDescrizione(idEdificioDesc);
-        Risorsa r=edDesc.getPrezzoDiAcquisto();
-        boolean b=this.giocatore.getVillaggio().quantitaMassimaEdificioRaggiunto(edDesc);
-        boolean b1=this.giocatore.controllaRisorsa(r);
-        if(b==false || b1==false){
+        if(edDesc==null){
             return false;
         }
         else{
-            return true;
+            Risorsa r=edDesc.getPrezzoDiAcquisto();
+            boolean b=this.giocatore.getVillaggio().quantitaMassimaEdificioRaggiunto(edDesc);
+            boolean b1=this.giocatore.controllaRisorsa(r);
+            if(b==true || b1==false){
+                return false;
+            }
+            else{
+                return true;
+            }
         }
+        
     }
     
     public boolean operazione11(int riga,int colonna){

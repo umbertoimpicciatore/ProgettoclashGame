@@ -90,6 +90,10 @@ public class Main {
         dep2.setRisorsa(mana);
         
         Giocatore ga=new Giocatore();
+        Municipio municipio=new Municipio();
+        //Statistica s0=new Statistica(5,5,100);
+        municipio.setEdificioDescrizione(Descrizioni.municipio);
+        ga.setMunicipio(municipio);
         ArrayList<Deposito> depositi = new ArrayList<Deposito>();
         depositi.add(dep1);
         ga.setDepositiOro(depositi);
@@ -99,8 +103,8 @@ public class Main {
         Edificio acc2=new Accampamento();
         Statistica s1=new Statistica(5,5,100);
         Statistica s2=new Statistica(10,5,100);
-        acc2.setStatistica(s1);
         acc2.setId(2);
+        acc2.setEdificioDescrizione(Descrizioni.accampamento);
         Accademia accademia=new Accademia();
         
         
@@ -150,6 +154,10 @@ public class Main {
                 if(i==1 &&j==3){
                     c.setEdificio(dep2);
                     dep2.setCasella(c);
+                }
+                if(i==1 &&j==4){
+                    c.setEdificio(municipio);
+                    municipio.setCasella(c);
                 }
                 c.setVillaggio(v2);
                 caselle.add(c);
@@ -228,7 +236,6 @@ public class Main {
         modA=new AttaccaTorre();
         ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA,quantitaMassimaImm);
         Descrizioni.torre=ed;
-        
         
         idDescrizione = 5;
         nome = "DepositoOro";

@@ -104,6 +104,15 @@ public class EdificioDescrizione {
     public void setPrezzoDiAcquisto(Risorsa prezzoDiAcquisto) {
         this.prezzoDiAcquisto = prezzoDiAcquisto;
     }
-
+    
+    public void setVita(int vita){
+        this.statistica.setVita(vita);
+    }
+    
+    public String toString(){
+        String s="";
+        s="IDEDIFICIO:"+this.idDescrizione+" Nome: ".concat(nome)+" QuantitaMassima: "+this.quantitaMassima+" Prezzo di Acquisto: ".concat(this.prezzoDiAcquisto.toString());
+        return s;
+    }
     
 }

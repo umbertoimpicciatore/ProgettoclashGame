@@ -15,6 +15,12 @@ public class ViewInserisci {
     
     CInserisciEdificio inserisci;
     
+    public ViewInserisci(CInserisciEdificio inserisci){
+       this.inserisci=inserisci; 
+    }
+    public ViewInserisci(){
+    }
+    
     public void selezionaOperazione(Giocatore g){
         
         String s="Cosa vuoi fare?\n 1: Attaccare un altro giocatore?\n 2: Potenziare eroe?\n 3: Inserire edificio?\n 4: Acquistare eroi?\n 5: Potenziare edificio?\n >5: Esci(logout)";
@@ -28,7 +34,7 @@ public class ViewInserisci {
             case 3:
                 inserisci=new CInserisciEdificio(g);
                 ArrayList<EdificioDescrizione>  desc=inserisci.operazione(g);
-                this.mostraEdifici(desc);
+                this.mostraEdifici(desc,g);
                 break;
             case 4:
                 break;
@@ -41,29 +47,31 @@ public class ViewInserisci {
     }
     
 
-    public void mostraEdifici( ArrayList<EdificioDescrizione> desc){
+    public void mostraEdifici( ArrayList<EdificioDescrizione> desc,Giocatore g){
         for(int i=0;i<desc.size();i++){
-            System.out.println(desc.toString());
+            System.out.println(desc.get(i).toString());
         }
         String s="Inserisci idEdificio che vuole acquistare oppure 0 per annullare";
         int idEdif=this.inserisci(s);
         if(idEdif==0){
-            return;
+            ViewIniziale view=new ViewIniziale();
+            view.selezionaOperazione(g);
         }
         else{
             
             boolean b=inserisci.operazione10(idEdif);
             if(!b){
-                this.mostraEdifici(desc);
+                System.out.println("Quantita Massima Edificio raggiunta o risorse non disponibili o idEDIFICIO non trovato ");
+                this.mostraEdifici(desc,g);
             }
             else{
-                this.selezionaRigaColonna(idEdif);
+                this.selezionaRigaColonna(idEdif,g);
             }
         }
     }
    
     
-    public void selezionaRigaColonna(int idEdif){
+    public void selezionaRigaColonna(int idEdif,Giocatore g){
         
         String s="Inserisci riga in cui vuoi inserire edificio";
         int riga=this.inserisci(s);
@@ -71,19 +79,22 @@ public class ViewInserisci {
         int  colonna=this.inserisci(s);
         boolean b=inserisci.operazione11(riga,colonna);
         if(b){
-            this.conferma(idEdif,riga,colonna);
+            this.conferma(idEdif,riga,colonna,g);
         }
         else{
-            this.selezionaRigaColonna(idEdif);
+            System.out.println("Edificio già presente in quella posizione, o riga e colonna inserito è sbagliato");
+            this.selezionaRigaColonna(idEdif,g);
         }
     }
     
     
-    public void conferma(int idEdif,int riga,int colonna){
+    public void conferma(int idEdif,int riga,int colonna,Giocatore g){
         
         String s="Inserisci 1 per confermare, >1 per annullare";
         int ris=this.inserisci(s);
         inserisci.conferma2(idEdif,riga,colonna);
+        ViewIniziale view=new ViewIniziale();
+        view.selezionaOperazione(g);
     }
 
         

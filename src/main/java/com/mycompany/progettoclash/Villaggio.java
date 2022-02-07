@@ -123,13 +123,19 @@ public class Villaggio {
         
     
     public boolean casellaDisponibile(int riga,int colonna){
-        Casella c=this.getCasella(riga, colonna);
-        if(c.getEdificio()==null){
-            return true;
-        }
-        else{
+        if(riga>this.altezza || colonna>this.larghezza){
             return false;
         }
+        else{
+            Casella c=this.getCasella(riga, colonna);
+            if(c.getEdificio()==null){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        
     }   
     
     public boolean quantitaMassimaEdificioRaggiunto(EdificioDescrizione desc){

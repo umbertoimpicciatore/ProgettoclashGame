@@ -23,16 +23,21 @@ public class CreaEdificioFactory {
 
         String nome=desc.getNome();
         if(nome.equals("DepositoOro")){
-            return new DepositoOro(new Oro(0));
+            Deposito depOro=new DepositoOro(new Oro(0));
+            depOro.setEdificioDescrizione(desc);
+            return depOro;
         }
         else if(nome.equals("DepositoMana")){
-            return new DepositoMana(new Mana(0));
+            Deposito depMana=new DepositoMana(new Mana(0));
+            depMana.setEdificioDescrizione(desc);
+            return depMana;
         }
         else{
             try {
                 String className= "com.mycompany.progettoclash.".concat(nome);
                 Class cls = Class.forName(className);
                 Edificio edificio = (Edificio) cls.newInstance();
+                edificio.setEdificioDescrizione(desc);
                 return edificio;
             } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
                 Logger.getLogger(CreaEdificioFactory.class.getName()).log(Level.SEVERE, null, ex);

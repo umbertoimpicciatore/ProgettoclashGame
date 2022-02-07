@@ -126,25 +126,18 @@ public class ViewAttacco {
             for (int j=1;j<=villaggioD.getLarghezza();j++){
                 Casella c=villaggioD.getCasella(i, j); 
                 s="Riga: "+c.getPosizioneRiga()+" Colonna: "+c.getPosizioneColonna()+" ";
-                //System.out.print("Riga: "+c.getPosizioneRiga()+" Colonna: "+c.getPosizioneColonna()+" ");
                 if(c.getEdificio()!=null){
                     s=s+"Id Edif: "+c.getEdificio().getId()+" Vita:"+c.getEdificio().getStatistica().getVita()+" ";
-                    //System.out.print("Id Edif: "+c.getEdificio().getId()+" Vita:"+c.getEdificio().getStatistica().getVita()+" ");
-
                 }
                 ArrayList<Eroe> er = c.getListaEroiA();
                 for (int k=0;k<er.size();k++){
-                    s=s+"IdEroe: "+er.get(k).getId()+" Vita: "+er.get(k).getStat().getVita()+" ";
-                    //System.out.print("IdEroe: "+er.get(k).getId()+" Vita: "+er.get(k).getStat().getVita());
-                    
+                    s=s+"IdEroe: "+er.get(k).getId()+" Vita: "+er.get(k).getStat().getVita()+" ";                    
                 }
                 System.out.print(s);
                 System.out.print("     ");
-                
             }
             System.out.println();
         }
         System.out.println("");
-
     }   
 }
