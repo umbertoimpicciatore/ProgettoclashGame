@@ -25,8 +25,6 @@ public class CAcquista {
     }
     
     public void operazione(Giocatore giocatore){
-
-        
         HashMap<EroeDescrizione,Integer> eroeDesc=this.giocatore.getLivelloEroi();
         view.mostraEroi(eroeDesc,false,false,giocatore);
     }

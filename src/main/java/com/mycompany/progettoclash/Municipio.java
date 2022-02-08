@@ -25,10 +25,6 @@ public class Municipio extends Edificio {
             Casella c=v.getCasella(riga, colonna);
             c.setEdificio(edificio);
             edificio.setCasella(c);
-            /* if(edificio instanceof Deposito){
-                 Deposito d=(Deposito) edificio;
-                 g.getDepositiOro().add(edificio); 
-             }*/
             
         
     }

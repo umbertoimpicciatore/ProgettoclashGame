@@ -16,7 +16,7 @@ public class CInserisciEdificio {
         this.giocatore = g;
     }
     
-    public ArrayList<EdificioDescrizione>  operazione(Giocatore g){
+    public ArrayList<EdificioDescrizione>  operazione(){
         EdificioCatalogo catalogo=new EdificioCatalogo();
         ArrayList<EdificioDescrizione> desc=catalogo.getAllEdificiDescrizioni();
         return desc;
