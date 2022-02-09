@@ -15,7 +15,7 @@ public class Municipio extends Edificio {
     }
     
     public void inserisci(int idEdifDescrizione,int riga,int colonna,Giocatore g){
-       
+            
             EdificioCatalogo catalogo=new EdificioCatalogo();
             EdificioDescrizione desc=catalogo.getDescrizione(idEdifDescrizione);
             Edificio edificio=CreaEdificioFactory.getInstance().getEdificio(desc,g);
@@ -26,6 +26,5 @@ public class Municipio extends Edificio {
             c.setEdificio(edificio);
             edificio.setCasella(c);
             
-        
     }
 }

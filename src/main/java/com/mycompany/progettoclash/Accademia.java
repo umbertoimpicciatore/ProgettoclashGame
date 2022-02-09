@@ -10,16 +10,19 @@ public class Accademia extends Edificio {
 
     
     
-    public void potenzia(int idEroeDescrizione,Giocatore giocatore){
-        EroeCatalogo edC=new EroeCatalogo();
-        EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
-        giocatore.aumentaLivelloEroe(desc);
-        //int livello=giocatore.getLivelloEroi().get(desc);
-        CreaEroeStrategy potS= CreaEroeFactory.getInstance().getStrategy();      
-        //giocatore.getLivelloEroi().put(desc, livello+1);
-        int quantita=giocatore.getAccampamento().removeEroe(idEroeDescrizione, giocatore);
+    public void potenzia(Giocatore giocatore){
+        // EroeCatalogo edC=new EroeCatalogo();
+       // EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
+        DescrizioneQuantitaPerAcquisto d=giocatore.getAccampamento().getAcquisto();
+        EroeDescrizione desc=d.getEroeDescrizione();
+        giocatore.aumentaLivelloEroe(desc);       
+        CreaEroeStrategy potS= CreaEroeFactory.getInstance().getStrategy();   
+        Accampamento acc=giocatore.getAccampamento();
+        int quantita=giocatore.getAccampamento().removeEroe(desc, giocatore);
+        d.setQuantita(quantita);
+        acc.setAcquisto(d);
         if(giocatore.getEroi()!=null){
-            potS.creaEroe(desc,quantita, giocatore);
+            potS.creaEroe(acc);
         }
         Risorsa prezzoPot=desc.getPrezzoDiPotenziamento();
         giocatore.rimuoviRisorse(prezzoPot);    

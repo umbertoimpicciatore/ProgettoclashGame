@@ -8,6 +8,10 @@ import java.util.HashMap;
  */
 public class Accampamento extends Edificio {
     
+    private DescrizioneQuantitaPerAcquisto acquisto;
+    private Giocatore giocatore;
+
+    
     private ArrayList<Eroe> listaEroiGiocatore = new ArrayList<Eroe>();
 
     
@@ -58,26 +62,27 @@ public class Accampamento extends Edificio {
         }
         if(cont==quantita && idEroeTrovato==true){
             return true;
-            
         }
         else{
             return false;
         }
     }
     
+    public DescrizioneQuantitaPerAcquisto getAcquisto() {
+        return acquisto;
+    }
+
+    public void setAcquisto(DescrizioneQuantitaPerAcquisto acquisto) {
+        this.acquisto = acquisto;
+    }
     
-    public void acquistaEroi(int idEroeDescrizione,int quantita,Giocatore giocatore){
-        EroeCatalogo edC=new EroeCatalogo();
-        //EroeDescrizione desc=null;
-        /*for (EroeDescrizione name: giocatore.getLivelloEroi().keySet()) {//controllare bene questo
-             if(name.getIdDesc()==idEroeDescrizione){
-                 desc=name;
-             }
-        }*/
-        EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
+    public void acquistaEroi(){
+       // EroeCatalogo edC=new EroeCatalogo();
+      //  EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
         CreaEroeStrategy strategyEroe = CreaEroeFactory.getInstance().getStrategy(); 
-        strategyEroe.creaEroe(desc,quantita,giocatore);//cambia NOME METODO
-        Risorsa prezzoAcquisto=desc.getPrezzoDiAcquisto();
+        strategyEroe.creaEroe(this);//cambia NOME METODO      
+        Risorsa prezzoAcquisto=acquisto.getEroeDescrizione().getPrezzoDiAcquisto();
+        int quantita=acquisto.getQuantita();
         double q=prezzoAcquisto.getQuantita()*quantita;
         prezzoAcquisto.setQuantita(q);
         giocatore.rimuoviRisorse(prezzoAcquisto);
@@ -91,12 +96,12 @@ public class Accampamento extends Edificio {
     }
     
         //rimuove gli eroi con la descrizione idEroeDescrizione e restituisce la quantita rimossa
-    public int removeEroe(int idEroeDescrizione,Giocatore giocatore){
+    public int removeEroe(EroeDescrizione desc,Giocatore giocatore){
         int quantita=0;
         ArrayList<Eroe> listaEroi=giocatore.getEroi();
         int i=0;
         while(i<listaEroi.size()){
-            if(idEroeDescrizione==listaEroi.get(i).getEroeDescrizione().getIdDesc()){               
+            if(desc==listaEroi.get(i).getEroeDescrizione()){               
                 quantita++;
                 listaEroi.remove(i);
             }
@@ -128,6 +133,14 @@ public class Accampamento extends Edificio {
             
         }
         return map;
+    }
+
+    public Giocatore getGiocatore() {
+        return giocatore;
+    }
+
+    public void setGiocatore(Giocatore giocatore) {
+        this.giocatore = giocatore;
     }
 
     

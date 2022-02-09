@@ -14,9 +14,11 @@ public class RegolaCreaEroeStrategy implements CreaEroeStrategy  {
     int livelloPerPot=10;
     
   @Override
-    public void creaEroe(EroeDescrizione desc,int quantita, Giocatore giocatore) {
-        
-
+    public void creaEroe(Accampamento acc) {
+        //EroeDescrizione desc,int quantita, Giocatore giocatore
+            Giocatore giocatore=acc.getGiocatore();
+            EroeDescrizione desc=acc.getAcquisto().getEroeDescrizione();
+            int quantita=acc.getAcquisto().getQuantita();
             ArrayList<Eroe> listE=new ArrayList<Eroe>();
             int livelloEroi=giocatore.getLivelloEroi().get(desc);
             Statistica statIn=desc.getStatisticaIniziale();

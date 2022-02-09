@@ -30,8 +30,11 @@ public class CAcquista {
     }
     
     public void acquistaEroi(int idEroeDescrizione,int quantita){
+        
         EroeCatalogo catalogo=new EroeCatalogo();
         EroeDescrizione desc=catalogo.getEroeDescrizione(idEroeDescrizione);
+        DescrizioneQuantitaPerAcquisto d=new DescrizioneQuantitaPerAcquisto(desc,quantita); 
+        this.giocatore.getAccampamento().setAcquisto(d);
         Risorsa prezzoAcquisto=desc.getPrezzoDiAcquisto();
         double q=prezzoAcquisto.getQuantita()*quantita;
         prezzoAcquisto.setQuantita(q);
@@ -45,10 +48,10 @@ public class CAcquista {
 
     }
     
-    public void conferma(boolean conferma,int idEroeDescrizione,int quantita){
+    public void conferma(boolean conferma){
         // mettere controllo sulla conferma
         Accampamento acc=this.giocatore.getAccampamento();
-        acc.acquistaEroi(idEroeDescrizione,quantita,this.giocatore);
+        acc.acquistaEroi();
 
     }
 }

@@ -11,6 +11,6 @@ package com.mycompany.progettoclash;
  * @author User
  */
 public interface CreaEroeStrategy {
-    public void creaEroe(EroeDescrizione desc,int quantita,Giocatore giocatore);
+    public void creaEroe(Accampamento acc);
     
 }

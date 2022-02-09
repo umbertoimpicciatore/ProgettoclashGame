@@ -100,7 +100,7 @@ public class Main {
         ArrayList<Deposito> depositi2 = new ArrayList<Deposito>();
         depositi2.add(dep2);
         ga.setDepositiMana(depositi2);
-        Edificio acc2=new Accampamento();
+        Accampamento acc2=new Accampamento();
         Statistica s1=new Statistica(5,5,100);
         Statistica s2=new Statistica(10,5,100);
         acc2.setId(2);
@@ -164,7 +164,9 @@ public class Main {
             }
         }
         v2.setCaselle(caselle);
-        ga.setAccampamento((Accampamento)acc2);
+      //  acc2.sacc2.
+        acc2.setGiocatore(ga);
+        ga.setAccampamento((Accampamento)acc2);      
         ga.setVillaggio(v2);
         ga.setAccademia(accademia);
         //ViewAttacco view2=new ViewAttacco();

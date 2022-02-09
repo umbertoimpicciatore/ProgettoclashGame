@@ -96,7 +96,7 @@ public class ViewAcquista {
         String s="Sei sicuro di voler acquistare "+quantita+" dell' eroe con idEroeDescrizione:" +idEroeDescrizione+"?\n Il costo totale è di: "+r.toString()+"\n Premi 1 per confermare altro per annulla";
         int ris=this.inserisci(s);
         acquista=new CAcquista(giocatore);
-        this.acquista.conferma(true, idEroeDescrizione, quantita);//da cambiare
+        this.acquista.conferma(true);//da cambiare
         ViewIniziale view=new ViewIniziale();
         view.selezionaOperazione(giocatore);
     }

@@ -26,6 +26,8 @@ public class CPotenzia {
     public Risorsa potenzia(int idEroeDescrizione){
         EroeCatalogo catalogo=new EroeCatalogo();
         EroeDescrizione desc=catalogo.getEroeDescrizione(idEroeDescrizione);
+        DescrizioneQuantitaPerAcquisto d=new DescrizioneQuantitaPerAcquisto(desc,0); 
+        this.giocatore.getAccampamento().setAcquisto(d);
         Risorsa prezzoPot=desc.getPrezzoDiPotenziamento();
         boolean b=this.giocatore.controllaRisorsa(prezzoPot);
         if(b==true){
@@ -44,10 +46,10 @@ public class CPotenzia {
         }*/
     }
     
-    public void conferma(boolean conferma,int idEroeDescrizione){
+    public void conferma(boolean conferma){
         //manca controllo su conferma
         Accademia acc=this.giocatore.getAccademia();
-        acc.potenzia(idEroeDescrizione,this.giocatore);
+        acc.potenzia(this.giocatore);
     }
     
     

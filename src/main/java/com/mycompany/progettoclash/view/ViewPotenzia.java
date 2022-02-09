@@ -61,7 +61,7 @@ public class ViewPotenzia {
      public void conferma(int idEroeDescrizione,Risorsa r,Giocatore g){
         String s="Sei sicuro di voler potenziare l' eroe con idEroeDescrizione:" +idEroeDescrizione+"?\n Il costo di potenziamento è di: "+r.toString()+"\n Premi 1 per confermare altro per annulla";
         int ris=this.inserisci(s);
-        potenzia.conferma(true, idEroeDescrizione);//da cambiare
+        potenzia.conferma(true);//da cambiare
         ViewIniziale view=new ViewIniziale();
         view.selezionaOperazione(g);
     }
