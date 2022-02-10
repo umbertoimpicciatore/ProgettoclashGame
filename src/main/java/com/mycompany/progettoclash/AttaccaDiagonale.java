@@ -9,7 +9,6 @@ import java.util.ArrayList;
  */
 public class AttaccaDiagonale implements ModalitàAttacco{
 
-    //DEVO restituiRE proprio le caselle da attaccare del giocatore difensore?
     @Override
     public ArrayList<Casella> attacco(Eroe e) {
         ArrayList<Casella> g=new ArrayList<Casella>();
@@ -19,11 +18,7 @@ public class AttaccaDiagonale implements ModalitàAttacco{
         int riga=e.getC().getPosizioneRiga();
         int cont=col;
         for(int i=riga;i>1  && cont<=altezza && cont>1;i--){
-           // System.out.println("ciao");
             Casella c=villaggioD.getCasella(i-1, cont-1);
-            
-            //Casella c=new Casella(cont-1,i-1);
-
             cont--;
             g.add(c);
         }

@@ -26,7 +26,7 @@ public class EroeCatalogo {
     }
     
     //carico alcuni dati di prova
-    private void loadEroiDescrizioni(){
+    /*private void loadEroiDescrizioni(){
         Eroe eroe;
         String nome;
         int quantitaMassima;
@@ -85,7 +85,7 @@ public class EroeCatalogo {
         ed=new EroeDescrizione(idDesc+2,nome,quantitaMassima,quantitaDisponibile,prezzoDiAcquisto,prezzoDiPotenziamento,vitaMassima,si3);
         descrizioni.put(eroe, ed);
         
-    }
+    }*/
     
     public EroeDescrizione getEroeDescrizione(int idEroeDesc){
         return PersistanManager.getInstance().getEroeDescrizione(idEroeDesc);

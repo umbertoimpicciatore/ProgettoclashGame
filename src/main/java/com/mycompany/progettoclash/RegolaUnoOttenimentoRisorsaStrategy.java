@@ -2,8 +2,6 @@
 package com.mycompany.progettoclash;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -13,40 +11,38 @@ public class RegolaUnoOttenimentoRisorsaStrategy implements OttenimentoRisorseSt
 
     @Override
     public ArrayList<Risorsa> ottieniRisorsa(Battaglia battaglia) {
-    
         ArrayList<Risorsa> risorse= new ArrayList<Risorsa>();
-        ArrayList<Casella>  c=battaglia.caselleDifensore();
-        for(int i=0;i<c.size();i++){
-            Casella casella=c.get(i);
-            Edificio edificio=casella.getEdificio();
-            if(edificio!=null && edificio instanceof Deposito){ //&& edificio.getEdificioDescrizione().getNome().equals("Deposito")
-                Deposito deposito=(Deposito) edificio;
-                Risorsa r=deposito.getRisorsa();
+        ArrayList<Deposito> depositi=battaglia.getGiocatoreD().getDepositi();
+        for (int i=0;i<depositi.size();i++){
+            Deposito deposito=depositi.get(i);
+            Risorsa r=deposito.getRisorsa();
                 int ris=this.isInArray(r, risorse);
                 Risorsa risorsaArray;
+                int vita=deposito.getStatistica().getVita();
+                int vitaMassima=deposito.getEdificioDescrizione().getVitaMassima();
+                double x=((vitaMassima-vita)*30)/vitaMassima;
+                double q2=x/100*r.getQuantita();
                 if(ris>=0){
                     risorsaArray=risorse.get(ris);
-                    double quantita=risorsaArray.getQuantita()+r.getQuantita();
+                    double quantita=risorsaArray.getQuantita()+q2;
                     risorsaArray.setQuantita(quantita);
                     risorse.set(ris, risorsaArray);
                 }
                 else{
                     String className= "com.mycompany.progettoclash."+r.getNome();
-                    double quantita=r.getQuantita();
                     try {
                         Class cls = Class.forName(className);
                         risorsaArray = (Risorsa) cls.newInstance();
-                        risorsaArray.setQuantita(quantita);
+                        risorsaArray.setQuantita(q2);
                         risorse.add(risorsaArray);
                     } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
                         return null;
                     }
-                }       
-            }
+                }  
         }
-        
         return risorse;
-        }
+    }
+      
          
     private int isInArray(Risorsa r,ArrayList<Risorsa> list){
         for(int i=0;i<list.size();i++){

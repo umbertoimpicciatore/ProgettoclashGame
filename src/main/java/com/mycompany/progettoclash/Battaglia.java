@@ -85,10 +85,18 @@ public class Battaglia {
             ArrayList<Eroe> eroi=caselle.get(i).getListaEroiA();
             if(eroi!=null && eroi.size()>0){
                 eroiA.addAll(eroi);
+                this.ripristinaVita(eroi);
                 caselle.get(i).setListaEroiA(new ArrayList<Eroe>());//tolgo gli eroi attaccanti sulla casella del villaggio difensore
             }
         }
         giocatoreA.getAccampamento().addEroi(eroiA);
+    }
+    private void ripristinaVita(ArrayList<Eroe> eroi){
+        for(int i=0;i<eroi.size();i++){ 
+            int vitaMax=eroi.get(i).getEroeDescrizione().getVitaMassima();
+            eroi.get(i).setVita(vitaMax);
+        }
+    
     }
     
     

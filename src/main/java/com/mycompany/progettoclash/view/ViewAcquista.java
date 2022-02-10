@@ -37,8 +37,7 @@ public class ViewAcquista {
             default:
                 return;
         }
-        
-    
+
     }
      
     private int inserisci(String strDaVisualizzare){
@@ -71,34 +70,34 @@ public class ViewAcquista {
             System.out.println(key + " Livello: " + value);
         }
         
-        String s="Inserisci idEroe che vuole acquistare oppure 0 per annullare";
+        String s="Inserisci idEroe che vuole acquistare oppure 0 per tornare indietro";
         int idEroe=this.inserisci(s);
         if(idEroe==0){
-            return;
+            ViewIniziale view=new ViewIniziale();
+            view.selezionaOperazione(giocatore);
         }
         else{
             s="Inserisci quantità eroi che vuole acquistare oppure 0 per annullare";
             int quantita=this.inserisci(s);
             if(quantita==0){
-                return;
+                this.mostraEroi(eroeDesc,false,false,giocatore);
             }
             else{
-                //CAcquista.getInstance(g
                 acquista=new CAcquista(giocatore);
                 acquista.acquistaEroi(idEroe,quantita);
             }
         }
-        
-        
     }
     
     public void conferma(int idEroeDescrizione,int quantita,Risorsa r,Giocatore giocatore){
-        String s="Sei sicuro di voler acquistare "+quantita+" dell' eroe con idEroeDescrizione:" +idEroeDescrizione+"?\n Il costo totale è di: "+r.toString()+"\n Premi 1 per confermare altro per annulla";
+        String s="Sei sicuro di voler acquistare "+quantita+" eroe/i con idEroeDescrizione:" +idEroeDescrizione+"?\n Il costo totale è di: "+r.toString()+"\n Premi 1 per confermare altro per annulla";
         int ris=this.inserisci(s);
-        acquista=new CAcquista(giocatore);
-        this.acquista.conferma(true);//da cambiare
+        if(ris==1){
+            acquista=new CAcquista(giocatore);
+            this.acquista.conferma(true);
+        }
         ViewIniziale view=new ViewIniziale();
-        view.selezionaOperazione(giocatore);
+        view.selezionaOperazione(giocatore);        
     }
     
 }

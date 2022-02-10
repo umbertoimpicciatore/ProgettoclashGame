@@ -15,7 +15,6 @@ public class RegolaCreaEroeStrategy implements CreaEroeStrategy  {
     
   @Override
     public void creaEroe(Accampamento acc) {
-        //EroeDescrizione desc,int quantita, Giocatore giocatore
             Giocatore giocatore=acc.getGiocatore();
             EroeDescrizione desc=acc.getAcquisto().getEroeDescrizione();
             int quantita=acc.getAcquisto().getQuantita();

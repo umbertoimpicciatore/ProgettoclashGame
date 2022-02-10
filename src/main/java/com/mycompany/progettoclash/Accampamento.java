@@ -134,7 +134,6 @@ public class Accampamento extends Edificio {
                 idEroi.add(idDesc);
                 map.put(desc, 1);
             }
-            
         }
         return map;
     }

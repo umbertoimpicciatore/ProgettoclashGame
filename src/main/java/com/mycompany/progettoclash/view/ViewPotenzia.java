@@ -35,7 +35,7 @@ public class ViewPotenzia {
         for (EroeDescrizione name: eroeDesc.keySet()) {
             String key = name.toString();
             String value = eroeDesc.get(name).toString();
-            System.out.println(key + " " + value);
+            System.out.println(key + " Livello: " + value);
         }
 
         String s="Inserisci idEroe da potenziare oppure 0 per annullare";
