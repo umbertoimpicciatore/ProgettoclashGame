@@ -92,7 +92,7 @@ public class ViewInserisci {
         
         String s="Inserisci 1 per confermare, >1 per annullare";
         int ris=this.inserisci(s);
-        inserisci.conferma2(idEdif,riga,colonna);
+        inserisci.conferma2();
         ViewIniziale view=new ViewIniziale();
         view.selezionaOperazione(g);
     }

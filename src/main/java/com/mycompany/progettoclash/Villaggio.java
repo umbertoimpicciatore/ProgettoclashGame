@@ -58,7 +58,6 @@ public class Villaggio {
             c=caselle.get(i);
             if(c.getPosizioneRiga()==riga && c.getPosizioneColonna()==col){
                  return c;
-               
             }
         }
         return null; 

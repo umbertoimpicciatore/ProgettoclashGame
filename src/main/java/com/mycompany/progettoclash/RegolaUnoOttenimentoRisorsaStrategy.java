@@ -12,10 +12,10 @@ import java.util.logging.Logger;
 public class RegolaUnoOttenimentoRisorsaStrategy implements OttenimentoRisorseStrategy  {
 
     @Override
-    public ArrayList<Risorsa> ottieniRisorsa(ClashGame clash) {
+    public ArrayList<Risorsa> ottieniRisorsa(Battaglia battaglia) {
     
         ArrayList<Risorsa> risorse= new ArrayList<Risorsa>();
-        ArrayList<Casella>  c=clash.caselleDifensore();
+        ArrayList<Casella>  c=battaglia.caselleDifensore();
         for(int i=0;i<c.size();i++){
             Casella casella=c.get(i);
             Edificio edificio=casella.getEdificio();

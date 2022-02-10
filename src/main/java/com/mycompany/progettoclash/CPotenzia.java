@@ -26,7 +26,7 @@ public class CPotenzia {
     public Risorsa potenzia(int idEroeDescrizione){
         EroeCatalogo catalogo=new EroeCatalogo();
         EroeDescrizione desc=catalogo.getEroeDescrizione(idEroeDescrizione);
-        DescrizioneQuantitaPerAcquisto d=new DescrizioneQuantitaPerAcquisto(desc,0); 
+        AcquistoEroiEdificio d=new AcquistoEroiEdificio(desc,0); 
         this.giocatore.getAccampamento().setAcquisto(d);
         Risorsa prezzoPot=desc.getPrezzoDiPotenziamento();
         boolean b=this.giocatore.controllaRisorsa(prezzoPot);

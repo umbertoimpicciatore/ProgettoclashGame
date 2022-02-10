@@ -9,9 +9,8 @@ import java.util.ArrayList;
  */
 public abstract class Edificio {
     private int id;
-    //private ModalitàAttacco modA;
-    //private Statistica statistica;
     private Casella casella;
+    private Statistica statistica;
     private EdificioDescrizione edificioDescrizione;
 
     public EdificioDescrizione getEdificioDescrizione() {
@@ -24,10 +23,16 @@ public abstract class Edificio {
 
     public abstract void setListaEroiGiocatore(ArrayList<Eroe> listaEroiGiocatore); //l'ho messo per l'accampamento
 
-
-
     public Edificio(){
-    
+
+    }
+
+    public Edificio(EdificioDescrizione desc){
+        this.edificioDescrizione=desc;
+        int vita=this.edificioDescrizione.getStatistica().getVita();
+        int difesa=this.edificioDescrizione.getStatistica().getDifesa();
+        int attacco=this.edificioDescrizione.getStatistica().getAttacco();        
+        this.statistica=new Statistica(difesa,attacco,vita);
     }
     
      public Casella getCasella() {
@@ -38,16 +43,20 @@ public abstract class Edificio {
         this.casella = casella;
     }
     public void setVita(int vita){
-        this.edificioDescrizione.setVita(vita);
+        this.statistica.setVita(vita);
     
     }
             
     public Statistica getStatistica() {        
-         return this.edificioDescrizione.getStatistica();
+         return this.statistica;
+    }
+    
+    public int getVita() {        
+         return this.statistica.getVita();
     }
 
     public void setStatistica(Statistica statistica) {
-        this.edificioDescrizione.setStatistica(statistica);
+        this.statistica=statistica;
     }
     
     public int getId() {

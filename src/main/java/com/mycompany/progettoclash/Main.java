@@ -78,10 +78,10 @@ public class Main {
         
         //creo GIOCATORE ATTACCANTE
         ArrayList<Casella> caselle = new ArrayList<Casella>();
-        Deposito dep1=new DepositoOro(new Oro(0));
-        Deposito dep2=new DepositoMana(new Mana(0));
-        dep1.setEdificioDescrizione(Descrizioni.depositoOro);
-        dep2.setEdificioDescrizione(Descrizioni.depositoMana);
+        Deposito dep1=new DepositoOro(new Oro(0),Descrizioni.depositoOro);
+        Deposito dep2=new DepositoMana(new Mana(0),Descrizioni.depositoMana);
+       // dep1.setEdificioDescrizione(Descrizioni.depositoOro);
+       // dep2.setEdificioDescrizione(Descrizioni.depositoMana);
         dep1.setId(0);
         dep2.setId(2);
         Oro oro=new Oro(5);
@@ -90,22 +90,19 @@ public class Main {
         dep2.setRisorsa(mana);
         
         Giocatore ga=new Giocatore();
-        Municipio municipio=new Municipio();
+        Municipio municipio=new Municipio(Descrizioni.municipio);
         //Statistica s0=new Statistica(5,5,100);
-        municipio.setEdificioDescrizione(Descrizioni.municipio);
         ga.setMunicipio(municipio);
-        ArrayList<Deposito> depositi = new ArrayList<Deposito>();
-        depositi.add(dep1);
-        ga.setDepositiOro(depositi);
-        ArrayList<Deposito> depositi2 = new ArrayList<Deposito>();
-        depositi2.add(dep2);
-        ga.setDepositiMana(depositi2);
-        Accampamento acc2=new Accampamento();
+        ArrayList<Deposito> depositi3 = new ArrayList<Deposito>();
+        depositi3.add(dep2);
+        depositi3.add(dep1);
+        ga.setDepositi(depositi3);
+        Accampamento acc2=new Accampamento(Descrizioni.accampamento);
         Statistica s1=new Statistica(5,5,100);
         Statistica s2=new Statistica(10,5,100);
         acc2.setId(2);
-        acc2.setEdificioDescrizione(Descrizioni.accampamento);
-        Accademia accademia=new Accademia();
+        //acc2.setEdificioDescrizione(Descrizioni.accampamento);
+        Accademia accademia=new Accademia(Descrizioni.accademia);
         
         
         ArciereBuilder arc2=new ArciereBuilder();
@@ -164,13 +161,11 @@ public class Main {
             }
         }
         v2.setCaselle(caselle);
-      //  acc2.sacc2.
         acc2.setGiocatore(ga);
         ga.setAccampamento((Accampamento)acc2);      
         ga.setVillaggio(v2);
         ga.setAccademia(accademia);
-        //ViewAttacco view2=new ViewAttacco();
-        //view2.cercaAvversario(ga);
+
         
         EroeCatalogo  catalogo=new EroeCatalogo();
         

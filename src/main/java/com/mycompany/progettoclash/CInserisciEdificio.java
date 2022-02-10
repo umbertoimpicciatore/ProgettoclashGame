@@ -26,6 +26,7 @@ public class CInserisciEdificio {
     public boolean operazione10(int idEdificioDesc){
         EdificioCatalogo catalogo=new EdificioCatalogo();
         EdificioDescrizione edDesc=catalogo.getDescrizione(idEdificioDesc);
+        this.giocatore.getMunicipio().setDesc(new AcquistoEroiEdificio(edDesc));
         if(edDesc==null){
             return false;
         }
@@ -44,12 +45,14 @@ public class CInserisciEdificio {
     }
     
     public boolean operazione11(int riga,int colonna){
+        this.giocatore.getMunicipio().getDesc().setColonna(colonna);
+        this.giocatore.getMunicipio().getDesc().setRiga(riga);
         boolean b=this.giocatore.getVillaggio().casellaDisponibile(riga, colonna);
         return b;
     }
     
-    public void conferma2(int idEdificioDesc,int riga,int colonna){
-        this.giocatore.getMunicipio().inserisci(idEdificioDesc,riga,colonna,this.giocatore);
+    public void conferma2(){
+        this.giocatore.getMunicipio().inserisci(this.giocatore);
     
     }
     

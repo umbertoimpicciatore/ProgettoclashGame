@@ -7,8 +7,8 @@ package com.mycompany.progettoclash;
  */
 public class DepositoMana extends Deposito {
     
-    public DepositoMana(Mana r) {
-        super(r);
+    public DepositoMana(Mana r,EdificioDescrizione desc) {
+        super(r,desc);
         
     }
 }

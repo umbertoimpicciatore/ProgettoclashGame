@@ -9,11 +9,11 @@ import java.util.ArrayList;
 public class ControlloFineBattaglia implements StatoAttacco{
 
     @Override
-    public boolean controlloFineBattaglia(ClashGame clash) {
+    public boolean controlloFineBattaglia(Battaglia battaglia) {
         
         boolean edificiMorti=true;
         boolean eroiMorti=true;       
-        ArrayList<Casella> caselle=clash.caselleDifensore();
+        ArrayList<Casella> caselle=battaglia.caselleDifensore();
         for (int i=0;i<caselle.size();i++){
             Casella c=caselle.get(i);
             Edificio edificio=c.getEdificio();
@@ -30,28 +30,28 @@ public class ControlloFineBattaglia implements StatoAttacco{
             return true;
         }
         else{
-            this.cambiaStato(clash,new Attacco());
+            this.cambiaStato(battaglia,new Attacco());
             return false;
         }
         
     }
     
     @Override
-    public void cambiaStato(ClashGame clash, StatoAttacco st) {
-        clash.CambiaStato(st);
+    public void cambiaStato(Battaglia battaglia, StatoAttacco st) {
+        battaglia.CambiaStato(st);
     }
 
     @Override
-    public void attaccanoEdifici(ClashGame clash) {
+    public void attaccanoEdifici(Battaglia battaglia) {
         
     }
 
     @Override
-    public void attaccanoEroi(ClashGame clash) {
+    public void attaccanoEroi(Battaglia battaglia) {
     }
 
     @Override
-    public void spostaEroi(ClashGame clash) {
+    public void spostaEroi(Battaglia battaglia) {
     }
     
 }

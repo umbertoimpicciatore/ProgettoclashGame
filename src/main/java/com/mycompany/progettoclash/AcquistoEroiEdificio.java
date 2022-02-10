@@ -5,20 +5,38 @@ package com.mycompany.progettoclash;
  *
  * @author Lorenzo
  */
-public class DescrizioneQuantitaPerAcquisto {
+public class AcquistoEroiEdificio {
 
     private EdificioDescrizione edificioDescrizione;
     private EroeDescrizione eroeDescrizione;
     private int quantita;
-    
-    public DescrizioneQuantitaPerAcquisto() {
+    private int riga;
+    private int colonna;
+
+    public int getRiga() {
+        return riga;
     }
 
-    public DescrizioneQuantitaPerAcquisto(EdificioDescrizione edificioDescrizione) {
+    public void setRiga(int riga) {
+        this.riga = riga;
+    }
+
+    public int getColonna() {
+        return colonna;
+    }
+
+    public void setColonna(int colonna) {
+        this.colonna = colonna;
+    }
+    
+    public AcquistoEroiEdificio() {
+    }
+
+    public AcquistoEroiEdificio(EdificioDescrizione edificioDescrizione) {
         this.edificioDescrizione = edificioDescrizione;
     }
 
-    public DescrizioneQuantitaPerAcquisto(EroeDescrizione eroeDescrizione, int quantita) {
+    public AcquistoEroiEdificio(EroeDescrizione eroeDescrizione, int quantita) {
         this.eroeDescrizione = eroeDescrizione;
         this.quantita = quantita;
     }

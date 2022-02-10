@@ -23,15 +23,13 @@ public class CreaEdificioFactory {
 
         String nome=desc.getNome();
         if(nome.equals("DepositoOro")){
-            Deposito depOro=new DepositoOro(new Oro(0));
-            depOro.setEdificioDescrizione(desc);
-            g.getDepositiOro().add(depOro);
+            Deposito depOro=new DepositoOro(new Oro(0),desc);
+            g.getDepositi().add(depOro);
             return depOro;
         }
         else if(nome.equals("DepositoMana")){
-            Deposito depMana=new DepositoMana(new Mana(0));
-            depMana.setEdificioDescrizione(desc);
-            g.getDepositiMana().add(depMana);
+            Deposito depMana=new DepositoMana(new Mana(0),desc);
+            g.getDepositi().add(depMana);
             return depMana;
         }
         else{
@@ -40,6 +38,7 @@ public class CreaEdificioFactory {
                 Class cls = Class.forName(className);
                 Edificio edificio = (Edificio) cls.newInstance();
                 edificio.setEdificioDescrizione(desc);
+                edificio.setStatistica(desc.getStatistica());
                 return edificio;
             } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
                 Logger.getLogger(CreaEdificioFactory.class.getName()).log(Level.SEVERE, null, ex);

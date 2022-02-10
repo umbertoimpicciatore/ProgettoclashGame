@@ -8,16 +8,32 @@ import java.util.ArrayList;
  */
 public class Municipio extends Edificio {
     
+    AcquistoEroiEdificio desc=new AcquistoEroiEdificio();
 
+    public Municipio(EdificioDescrizione desc){
+        super(desc);
+    }
+    public Municipio(){
+        
+    }
+    
+    public AcquistoEroiEdificio getDesc() {
+        return desc;
+    }
+
+    public void setDesc(AcquistoEroiEdificio desc) {
+        this.desc = desc;
+    }
 
     @Override
     public void setListaEroiGiocatore(ArrayList<Eroe> listaEroiGiocatore) {
     }
     
-    public void inserisci(int idEdifDescrizione,int riga,int colonna,Giocatore g){
-            
-            EdificioCatalogo catalogo=new EdificioCatalogo();
-            EdificioDescrizione desc=catalogo.getDescrizione(idEdifDescrizione);
+    public void inserisci(Giocatore g){
+            EdificioDescrizione desc=this.desc.getEdificioDescrizione();
+            System.out.println(desc.toString());
+            int riga=this.desc.getRiga();
+            int colonna=this.desc.getColonna();
             Edificio edificio=CreaEdificioFactory.getInstance().getEdificio(desc,g);
             Risorsa r=desc.getPrezzoDiAcquisto();
             g.rimuoviRisorse(r);

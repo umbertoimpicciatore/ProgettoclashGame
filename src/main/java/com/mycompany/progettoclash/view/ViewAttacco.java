@@ -1,11 +1,11 @@
 package com.mycompany.progettoclash.view;
 
 import com.mycompany.progettoclash.Casella;
-import com.mycompany.progettoclash.ClashGame;
 import com.mycompany.progettoclash.Eroe;
 import com.mycompany.progettoclash.EroeDescrizione;
 import com.mycompany.progettoclash.Giocatore;
-import com.mycompany.progettoclash.SelezionePosizionaEroe;
+import com.mycompany.progettoclash.Risorsa;
+import com.mycompany.progettoclash.CAttacca;
 import com.mycompany.progettoclash.Villaggio;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +16,6 @@ import java.util.Scanner;
  * @author Lorenzo
  */
 public class ViewAttacco {
-    ClashGame clash;
     
     public void cercaAvversario(Giocatore giocatoreA){
     
@@ -24,11 +23,12 @@ public class ViewAttacco {
         String s="Immetti 1 per iniziare battaglia oppure un numero maggiore di 1 per annullare";
         int ris=this.inserisci(s);
         if(ris==1){
-            clash=new ClashGame(giocatoreA);
-            clash.cercaAvversario();
+            CAttacca attacca=new CAttacca(giocatoreA);
+            attacca.cercaAvversario();
         }
         else{
-            return;
+            ViewIniziale view=new ViewIniziale();
+            view.selezionaOperazione(giocatoreA);
         }
     
     }
@@ -38,14 +38,16 @@ public class ViewAttacco {
         this.visualizzaVillaggio(giocatoreD.getVillaggio());
         String s="Immetti numero positivo: 1 per confermare, 2 per cercare un altro avversaio, altro per annullare ";
         int ris=this.inserisci(s);
+        CAttacca attacca;
          switch(ris) {
             case 1: 
-                this.mostraSelezionaPosizionaEroe(giocatoreA,giocatoreD,false);
+                attacca=new CAttacca(giocatoreA,giocatoreD);
+                attacca.conferma();
                 break;
             
             case 2: 
-                clash=new ClashGame(giocatoreA);
-                clash.cercaAvversario();
+                attacca=new CAttacca(giocatoreA);
+                attacca.cercaAvversario();
                 break;
 
             default:
@@ -55,19 +57,13 @@ public class ViewAttacco {
             }
     }
     
-    public void mostraSelezionaPosizionaEroe(Giocatore giocatoreA,Giocatore giocatoreD,boolean errore){
-        HashMap<EroeDescrizione,Integer> map=giocatoreA.getAccampamento().mostraEroiDescQuantita();
-         for (EroeDescrizione name: map.keySet()) {
+    public void mostraSelezionaPosizionaEroe(Giocatore giocatoreA,Giocatore giocatoreD,boolean errore,HashMap<EroeDescrizione,Integer> map){
+        for (EroeDescrizione name: map.keySet()) {
             String key = name.toString2();
             int value = map.get(name);
             System.out.println(key + " quantitaDisponibile: " + value);
         }
         
-        /*ArrayList<Eroe> eroiA=giocatoreA.getEroi();//implementa
-        for(int i=0;i<eroiA.size();i++){
-            System.out.println("Arciere id 10");
-        }*/
-   
         if(errore==true){
             System.out.println("Riga/Colonna/Quantita o idEroe immesso sbagliato");
         }
@@ -81,12 +77,12 @@ public class ViewAttacco {
             s="Immetti quantità eroe da selezionare: ";
             int quantita=this.inserisci(s);
             System.out.println(" ");
-            SelezionePosizionaEroe sel= new SelezionePosizionaEroe();
-            sel.selezionaPosizionaEroe(riga,colonna,idEroe,quantita,giocatoreA,giocatoreD);
+            CAttacca attacca= new CAttacca(giocatoreA,giocatoreD);
+            attacca.selezionaPosizionaEroe(riga,colonna,idEroe,quantita);
         
         }
     
-    public void iniziaBattaglia(ClashGame clash,boolean eroiFiniti){
+    public void iniziaBattaglia(Giocatore giocatoreA,Giocatore giocatoreD,boolean eroiFiniti,HashMap<EroeDescrizione,Integer> map){
         int iniziaBattaglia;
         if(!eroiFiniti){
             String s="Vuoi iniziare la battaglia? Inserisci 1 per confermare altrimenti un numero maggiore di 1 per continuare a immettere eroi  ";
@@ -96,14 +92,14 @@ public class ViewAttacco {
             iniziaBattaglia=1;
         }
         
-
         if (iniziaBattaglia==1){
             System.out.println("BATTAGLIA INIZIATA");
             System.out.println("");
-            clash.iniziaBattaglia();
+            CAttacca attacca=new CAttacca(giocatoreA,giocatoreD);
+            attacca.iniziaBattaglia();
         }
         else{
-            this.mostraSelezionaPosizionaEroe(clash.getGiocatoreA(),clash.getGiocatoreD(), false);
+            this.mostraSelezionaPosizionaEroe(giocatoreA,giocatoreD, false,map);
         }        
     
     }
@@ -135,7 +131,7 @@ public class ViewAttacco {
                 }
                 ArrayList<Eroe> er = c.getListaEroiA();
                 for (int k=0;k<er.size();k++){
-                    s=s+"IdEroe: "+er.get(k).getId()+" Vita: "+er.get(k).getStat().getVita()+" "+er.get(k).getStat().toString();                    
+                    s=s+"IdEroe: "+er.get(k).getId()+" Vita: "+er.get(k).getStat().getVita();                    
                 }
                 System.out.print(s);
                 System.out.print("     ");
@@ -143,5 +139,20 @@ public class ViewAttacco {
             System.out.println();
         }
         System.out.println("");
-    }   
+    }  
+    
+    public void mostraRisorseRubate(ArrayList<Risorsa> risorse){
+        if(risorse!=null){
+            for (int i=0;i<risorse.size();i++){
+                System.out.println("RISORSA OTTENUTA: "+risorse.get(i).toString());
+            }
+        }
+        else{
+            //for (int i=0;i<risorse.size();i++){
+                System.out.println("Nessuna risorsa ottenuta");
+            //}
+        }
+
+    
+    }
 }

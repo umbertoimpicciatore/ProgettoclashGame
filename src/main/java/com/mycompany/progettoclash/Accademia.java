@@ -8,12 +8,15 @@ import java.util.ArrayList;
  */
 public class Accademia extends Edificio {
 
-    
+    public Accademia(EdificioDescrizione desc){
+        super(desc);
+    }
+    public Accademia(){
+        
+    }
     
     public void potenzia(Giocatore giocatore){
-        // EroeCatalogo edC=new EroeCatalogo();
-       // EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
-        DescrizioneQuantitaPerAcquisto d=giocatore.getAccampamento().getAcquisto();
+        AcquistoEroiEdificio d=giocatore.getAccampamento().getAcquisto();
         EroeDescrizione desc=d.getEroeDescrizione();
         giocatore.aumentaLivelloEroe(desc);       
         CreaEroeStrategy potS= CreaEroeFactory.getInstance().getStrategy();   

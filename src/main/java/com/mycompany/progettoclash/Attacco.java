@@ -10,13 +10,13 @@ import java.util.ArrayList;
 public class Attacco implements StatoAttacco{
 
     @Override
-    public void cambiaStato(ClashGame clash, StatoAttacco st) {
-        clash.CambiaStato(st);
+    public void cambiaStato(Battaglia battaglia, StatoAttacco st) {
+        battaglia.CambiaStato(st);
     }
 
     @Override
-    public void attaccanoEdifici(ClashGame clash) {
-     ArrayList<Casella> listC =  clash.caselleDifensore();//recupero le caselle del difensore
+    public void attaccanoEdifici(Battaglia battaglia) {
+     ArrayList<Casella> listC =  battaglia.caselleDifensore();//recupero le caselle del difensore
         for(int i=0;i<listC.size();i++){//per ogni casella mi recupero l'edificio
             Casella c=listC.get(i);
             Edificio ed=c.getEdificio();
@@ -54,12 +54,12 @@ public class Attacco implements StatoAttacco{
                 } 
             }      
         }
-        this.cambiaStato(clash,new ControlloFineBattaglia());
+        this.cambiaStato(battaglia,new ControlloFineBattaglia());
     }
 
     @Override
-    public void attaccanoEroi(ClashGame clash) {
-        ArrayList<Casella> listC =  clash.caselleDifensore(); //recupero le caselle del difensore      
+    public void attaccanoEroi(Battaglia battaglia) {
+        ArrayList<Casella> listC =  battaglia.caselleDifensore(); //recupero le caselle del difensore      
         for(int i=0;i<listC.size();i++){   
             Casella c=listC.get(i);
             ArrayList<Eroe> eroi=c.getListaEroiA();//recupero  gli eroi del giocatore attaccante sulla caselle del difensore
@@ -87,20 +87,20 @@ public class Attacco implements StatoAttacco{
                 }
             }     
         }
-       this.cambiaStato(clash, new ControlloFineBattaglia());
+       this.cambiaStato(battaglia, new ControlloFineBattaglia());
     }
     
     @Override
-    public void spostaEroi(ClashGame clash) {
+    public void spostaEroi(Battaglia battaglia) {
     
-        ArrayList<Casella> listC =  clash.caselleDifensore(); //recupero le caselle del difensore
+        ArrayList<Casella> listC =  battaglia.caselleDifensore(); //recupero le caselle del difensore
         for(int i=0;i<listC.size();i++){
             Casella casellaCorrente=listC.get(i);
             Edificio ed=casellaCorrente.getEdificio();
             if(ed==null ||ed.getStatistica().getVita()==0){
                 ArrayList<Eroe> eroi=casellaCorrente.getListaEroiA();//recupero  gli eroi del giocatore attaccante sulla caselle del difensore
                 if(eroi!=null && eroi.size()>0){
-                    Casella casella=this.spostamentoEroi(clash.getGiocatoreD().getVillaggio(), casellaCorrente);
+                    Casella casella=this.spostamentoEroi(battaglia.getGiocatoreD().getVillaggio(), casellaCorrente);
                     for(int j=0;j<eroi.size();j++){
                         Eroe e=eroi.get(j);//recupero l'eroe
                         e.setC(casella);
@@ -155,16 +155,6 @@ public class Attacco implements StatoAttacco{
         return c2;   
     }
     
-   /* private Casella verificaVitaEdificio(Casella casella){
-        Edificio edificio=casella.getEdificio();
-                        if(edificio!=null){
-                            int vita=casella.getEdificio().getStatistica().getVita();
-                            if(vita>0){ 
-                                return casella;
-                            }
-                        } 
-        return null;
-    }*/
     
     //metodo per spostarsi verso la prima casella che si trova con la vita dell'edificio >0 
     private Casella cercaCasellaVersoCuiSpostarsi(Villaggio v,Casella c){ //45 righe ATTENZIONE VEDERE
@@ -218,7 +208,7 @@ public class Attacco implements StatoAttacco{
         }
 
     @Override
-    public boolean controlloFineBattaglia(ClashGame clash) {
+    public boolean controlloFineBattaglia(Battaglia battaglia) {
         return false;
     }
     

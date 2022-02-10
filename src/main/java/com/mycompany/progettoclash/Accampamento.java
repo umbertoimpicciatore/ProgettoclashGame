@@ -8,7 +8,7 @@ import java.util.HashMap;
  */
 public class Accampamento extends Edificio {
     
-    private DescrizioneQuantitaPerAcquisto acquisto;
+    private AcquistoEroiEdificio acquisto;
     private Giocatore giocatore;
 
     
@@ -23,7 +23,12 @@ public class Accampamento extends Edificio {
         this.listaEroiGiocatore = listaEroiGiocatore;
     }
     
-
+    public Accampamento(EdificioDescrizione desc){
+        super(desc);
+    }
+    public Accampamento(){
+        
+    }
     
     public ArrayList<Eroe> selezionaEroe(int idEroe,int quantita){
         ArrayList<Eroe> listaEroi = new ArrayList<Eroe>();
@@ -68,17 +73,16 @@ public class Accampamento extends Edificio {
         }
     }
     
-    public DescrizioneQuantitaPerAcquisto getAcquisto() {
+    public AcquistoEroiEdificio getAcquisto() {
         return acquisto;
     }
 
-    public void setAcquisto(DescrizioneQuantitaPerAcquisto acquisto) {
+    public void setAcquisto(AcquistoEroiEdificio acquisto) {
         this.acquisto = acquisto;
     }
     
     public void acquistaEroi(){
-       // EroeCatalogo edC=new EroeCatalogo();
-      //  EroeDescrizione desc=edC.getEroeDescrizione(idEroeDescrizione);
+
         CreaEroeStrategy strategyEroe = CreaEroeFactory.getInstance().getStrategy(); 
         strategyEroe.creaEroe(this);//cambia NOME METODO      
         Risorsa prezzoAcquisto=acquisto.getEroeDescrizione().getPrezzoDiAcquisto();
@@ -134,6 +138,8 @@ public class Accampamento extends Edificio {
         }
         return map;
     }
+    
+
 
     public Giocatore getGiocatore() {
         return giocatore;

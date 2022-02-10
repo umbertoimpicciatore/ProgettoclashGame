@@ -10,6 +10,8 @@ public abstract class Deposito extends Edificio {
     private Risorsa risorsa;
     
 
+
+    
     public Risorsa getRisorsa() {
         return risorsa;
     }
@@ -18,7 +20,8 @@ public abstract class Deposito extends Edificio {
         this.risorsa = risorsa ;
     }
     
-    public Deposito(Risorsa r) {
+    public Deposito(Risorsa r,EdificioDescrizione desc) {
+        super(desc);
         this.risorsa=r;
     }
 
@@ -38,8 +41,10 @@ public abstract class Deposito extends Edificio {
                 qDeposito-=quantita;
                 risorsaCorrente.setQuantita(quantita);
             }
+            else{
+                risorsaCorrente.setQuantita(0);
+            }
             this.risorsa.setQuantita(qDeposito);
-            //d.setRisorsa(r);
         }
         return risorsaCorrente;
         

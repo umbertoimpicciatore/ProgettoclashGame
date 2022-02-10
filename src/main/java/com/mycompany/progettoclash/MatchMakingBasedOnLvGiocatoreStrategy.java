@@ -16,17 +16,17 @@ public class MatchMakingBasedOnLvGiocatoreStrategy implements MatchMakingStrateg
 
  
     @Override
-    public Giocatore getAvversario(Giocatore g2) {
+    public Giocatore getAvversario(Giocatore g1) {
         Giocatore g=new Giocatore();
         g.setNome("Lorenzo");
         ArrayList<Casella> caselle = new ArrayList<Casella>();
         Villaggio v=new Villaggio();
-        Edificio e=new Municipio();
+        Edificio e=new Municipio(Descrizioni.municipio);
 //        Statistica s=new Statistica(5,5,100);
 //        Statistica s1=new Statistica(5,5,100);
 //        e.setStatistica(s);
         e.setId(1);
-        Edificio e2=new Municipio();
+        Edificio e2=new Municipio(Descrizioni.municipio);
 //        e2.setStatistica(s1);
         e2.setId(1);
         e2.setEdificioDescrizione(Descrizioni.municipio);
@@ -34,10 +34,10 @@ public class MatchMakingBasedOnLvGiocatoreStrategy implements MatchMakingStrateg
         //desc1.setNome("Deposito");
         //EdificioDescrizione desc2=new EdificioDescrizione();
         //desc2.setNome("Accampamento");
-        Deposito dep1=new DepositoOro(new Oro(2));
-        Deposito dep2=new DepositoOro(new Oro(3));
-        Deposito dep3=new DepositoMana(new Mana(4));
-        Deposito dep4=new DepositoMana(new Mana(5));
+        Deposito dep1=new DepositoOro(new Oro(2),Descrizioni.depositoOro);
+        Deposito dep2=new DepositoOro(new Oro(3),Descrizioni.depositoOro);
+        Deposito dep3=new DepositoMana(new Mana(4),Descrizioni.depositoMana);
+        Deposito dep4=new DepositoMana(new Mana(5),Descrizioni.depositoMana);
 //        Statistica s2=new Statistica(5,5,100);
 //        Statistica s3=new Statistica(5,5,100);
 //        Statistica s4=new Statistica(5,5,100);
@@ -72,11 +72,9 @@ public class MatchMakingBasedOnLvGiocatoreStrategy implements MatchMakingStrateg
         ArrayList<Deposito> depositi = new ArrayList<Deposito>();
         depositi.add(dep1);
         depositi.add(dep2);
-        g.setDepositiOro(depositi);
-        ArrayList<Deposito> depositi2 = new ArrayList<Deposito>();
-        depositi2.add(dep3);
-        depositi2.add(dep4);
-        g.setDepositiMana(depositi2);
+        depositi.add(dep3);
+        depositi.add(dep4);
+        g.setDepositi(depositi);
         
        //creo VILLAGGIO
         for (int i=1;i<=v.getAltezza();i++){

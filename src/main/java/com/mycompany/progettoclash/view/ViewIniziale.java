@@ -2,10 +2,10 @@
 package com.mycompany.progettoclash.view;
 
 import com.mycompany.progettoclash.CAcquista;
+import com.mycompany.progettoclash.CAttacca;
 import com.mycompany.progettoclash.CInserisciEdificio;
 import com.mycompany.progettoclash.CPotenzia;
 import com.mycompany.progettoclash.Casella;
-import com.mycompany.progettoclash.ClashGame;
 import com.mycompany.progettoclash.EdificioDescrizione;
 import com.mycompany.progettoclash.Eroe;
 import com.mycompany.progettoclash.EroeDescrizione;
@@ -20,21 +20,27 @@ import java.util.Scanner;
  * @author Lorenzo
  */
 public class ViewIniziale {
-        ClashGame clash;
+        //ClashGame clash;
         ViewAttacco viewAttacco=new ViewAttacco();
         ViewAcquista viewAcquista=new ViewAcquista();
         ViewInserisci viewInserisci=new ViewInserisci();
         ViewPotenzia viewPotenzia=new ViewPotenzia();
     
         public void selezionaOperazione(Giocatore g){
+            HashMap<String,Double> map=g.mostraRisorse();
+            for (String name: map.keySet()) {
+            String key = name;
+            Double value = map.get(name);
+            System.out.println(key + " " + value);
+        }
         this.visualizzaVillaggio(g.getVillaggio());
         String s="Cosa vuoi fare?\n 1: Attaccare un altro giocatore?\n 2: Potenziare eroe?\n 3: Inserire edificio?\n 4: Acquistare eroi?\n >=5: Esci(logout)";
 
         int ris=this.inserisci(s);
         switch (ris) {
             case 1:
-                clash=new ClashGame(g);
-                clash.cercaAvversario();
+                CAttacca attacca=new CAttacca(g);
+                attacca.cercaAvversario();
                 break;
             case 2:
                 CPotenzia potenzia=new CPotenzia(g);
@@ -79,6 +85,8 @@ public class ViewIniziale {
     }
     
     public void visualizzaVillaggio(Villaggio villaggioD){
+        System.out.println();
+        System.out.println("IL TUO VILLAGGIO");
         String s="";
         for (int i=1;i<=villaggioD.getAltezza();i++){
             s="";
@@ -86,7 +94,7 @@ public class ViewIniziale {
                 Casella c=villaggioD.getCasella(i, j); 
                 s="Riga: "+c.getPosizioneRiga()+" Colonna: "+c.getPosizioneColonna()+" ";
                 if(c.getEdificio()!=null){
-                    s=s+"Id Edif: "+c.getEdificio().getId()+" Vita:"+c.getEdificio().getStatistica().getVita()+" ";
+                    s=s+"Id Edif: "+c.getEdificio().getId()+" Vita:"+c.getEdificio().getEdificioDescrizione().getStatistica().getVita()+" "+c.getEdificio().getEdificioDescrizione().getNome();
                 }
                 ArrayList<Eroe> er = c.getListaEroiA();
                 for (int k=0;k<er.size();k++){

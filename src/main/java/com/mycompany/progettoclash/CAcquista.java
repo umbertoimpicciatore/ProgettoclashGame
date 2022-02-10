@@ -33,7 +33,7 @@ public class CAcquista {
         
         EroeCatalogo catalogo=new EroeCatalogo();
         EroeDescrizione desc=catalogo.getEroeDescrizione(idEroeDescrizione);
-        DescrizioneQuantitaPerAcquisto d=new DescrizioneQuantitaPerAcquisto(desc,quantita); 
+        AcquistoEroiEdificio d=new AcquistoEroiEdificio(desc,quantita); 
         this.giocatore.getAccampamento().setAcquisto(d);
         Risorsa prezzoAcquisto=desc.getPrezzoDiAcquisto();
         double q=prezzoAcquisto.getQuantita()*quantita;

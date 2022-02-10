@@ -10,10 +10,10 @@ package com.mycompany.progettoclash;
  * @author Lorenzo
  */
 public interface StatoAttacco {
-    public boolean controlloFineBattaglia(ClashGame clash);
-    public void attaccanoEdifici(ClashGame clash);
-    public void attaccanoEroi(ClashGame clash); 
-    public void cambiaStato(ClashGame clash,StatoAttacco st);
-    public void spostaEroi(ClashGame clash);
+    public boolean controlloFineBattaglia(Battaglia battaglia);
+    public void attaccanoEdifici(Battaglia battaglia);
+    public void attaccanoEroi(Battaglia battaglia); 
+    public void cambiaStato(Battaglia battaglia,StatoAttacco st);
+    public void spostaEroi(Battaglia battaglia);
      
 }
