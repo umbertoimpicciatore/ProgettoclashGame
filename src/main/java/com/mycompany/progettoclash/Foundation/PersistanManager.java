@@ -1,5 +1,6 @@
 package com.mycompany.progettoclash.Foundation;
 
+import com.mycompany.progettoclash.Battaglia;
 import com.mycompany.progettoclash.EdificioDescrizione;
 import com.mycompany.progettoclash.EroeDescrizione;
 import java.util.ArrayList;
@@ -43,21 +44,32 @@ public class PersistanManager {
     }
     
     public EroeDescrizione getArciere(){
-        Descrizioni d=new Descrizioni();
         return Descrizioni.getArciere();
     }
     
     public EroeDescrizione getGuerriero(){
-        Descrizioni d=new Descrizioni();
         return Descrizioni.getGuerriero();
     }
     
     public EroeDescrizione getRegina(){
-        Descrizioni d=new Descrizioni();
         return Descrizioni.getRegina();
     }
          
+    public Battaglia getBattaglia(int idBattaglia){
+        return  BattagliaF.b;
+    }
     
+    public int getUltimoIdBattaglia(){
+        return  BattagliaF.ultimoId;
+    }
+    
+    public void setBattaglia(Battaglia batt){
+        BattagliaF.b=batt;
+    }
+    
+    public void setUltimoIdBattaglia(int id){
+          BattagliaF.ultimoId=id;
+    }
   
     
     

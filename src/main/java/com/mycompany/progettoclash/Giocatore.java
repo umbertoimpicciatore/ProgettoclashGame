@@ -17,6 +17,7 @@ public class Giocatore {
     private String nome;
     private Villaggio villaggio;
     private Municipio municipio;
+    private MatchMakingStrategy strategy;
     
     public ArrayList<Deposito> getDepositi() {
         return depositi;
@@ -49,7 +50,11 @@ public class Giocatore {
     }
     
      public Giocatore cercaAvversario(){
-        MatchMakingStrategy strategy=MatchMakingFactory.getInstance().getStrategy();
+         if(strategy==null){
+             strategy=MatchMakingFactory.getInstance().getStrategy();
+         }
+         
+        //MatchMakingStrategy strategy=MatchMakingFactory.getInstance().getStrategy();
         return strategy.getAvversario(this);       
     }
 

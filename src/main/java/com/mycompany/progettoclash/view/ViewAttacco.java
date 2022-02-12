@@ -23,8 +23,8 @@ public class ViewAttacco {
         String s="Immetti 1 per iniziare battaglia oppure un numero maggiore di 1 per annullare";
         int ris=this.inserisci(s);
         if(ris==1){
-            CAttacca attacca=new CAttacca(giocatoreA);
-            attacca.cercaAvversario();
+            CAttacca attacca=new CAttacca();
+            attacca.cercaAvversario(giocatoreA);
         }
         else{
             ViewIniziale view=new ViewIniziale();
@@ -33,7 +33,7 @@ public class ViewAttacco {
     
     }
     
-    public void conferma(Giocatore giocatoreD,Giocatore giocatoreA){
+    public void conferma(Giocatore giocatoreD,Giocatore giocatoreA,int idBattaglia){
         System.out.println("VILLAGGIO AVVERSARIO: ");
         this.visualizzaVillaggio(giocatoreD.getVillaggio());
         String s="Immetti numero positivo: 1 per confermare, 2 per cercare un altro avversaio, altro per annullare ";
@@ -41,13 +41,13 @@ public class ViewAttacco {
         CAttacca attacca;
          switch(ris) {
             case 1: 
-                attacca=new CAttacca(giocatoreA,giocatoreD);
-                attacca.conferma();
+                attacca=new CAttacca();
+                attacca.conferma(idBattaglia);
                 break;
             
             case 2: 
-                attacca=new CAttacca(giocatoreA);
-                attacca.cercaAvversario();
+                attacca=new CAttacca();
+                attacca.cercaAvversario(giocatoreA);
                 break;
 
             default:
@@ -57,7 +57,7 @@ public class ViewAttacco {
             }
     }
     
-    public void mostraSelezionaPosizionaEroe(Giocatore giocatoreA,Giocatore giocatoreD,boolean errore,HashMap<EroeDescrizione,Integer> map){
+    public void mostraSelezionaPosizionaEroe(boolean errore,HashMap<EroeDescrizione,Integer> map,int idBattaglia){
         for (EroeDescrizione name: map.keySet()) {
             String key = name.toString2();
             int value = map.get(name);
@@ -77,12 +77,12 @@ public class ViewAttacco {
             s="Immetti quantità eroe da selezionare: ";
             int quantita=this.inserisci(s);
             System.out.println(" ");
-            CAttacca attacca= new CAttacca(giocatoreA,giocatoreD);
-            attacca.selezionaPosizionaEroe(riga,colonna,idEroe,quantita);
+            CAttacca attacca= new CAttacca();
+            attacca.selezionaPosizionaEroe(riga,colonna,idEroe,quantita,idBattaglia);
         
         }
     
-    public void iniziaBattaglia(Giocatore giocatoreA,Giocatore giocatoreD,boolean eroiFiniti,HashMap<EroeDescrizione,Integer> map){
+    public void iniziaBattaglia(boolean eroiFiniti,HashMap<EroeDescrizione,Integer> map,int idBattaglia){
         int iniziaBattaglia;
         if(!eroiFiniti){
             String s="Vuoi iniziare la battaglia? Inserisci 1 per confermare altrimenti un numero maggiore di 1 per continuare a immettere eroi  ";
@@ -95,11 +95,11 @@ public class ViewAttacco {
         if (iniziaBattaglia==1){
             System.out.println("BATTAGLIA INIZIATA");
             System.out.println("");
-            CAttacca attacca=new CAttacca(giocatoreA,giocatoreD);
-            attacca.iniziaBattaglia();
+            CAttacca attacca=new CAttacca();
+            attacca.iniziaBattaglia(idBattaglia);
         }
         else{
-            this.mostraSelezionaPosizionaEroe(giocatoreA,giocatoreD, false,map);
+            this.mostraSelezionaPosizionaEroe( false,map, idBattaglia);
         }        
     
     }

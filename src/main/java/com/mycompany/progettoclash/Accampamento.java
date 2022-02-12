@@ -100,9 +100,9 @@ public class Accampamento extends Edificio {
     }
     
         //rimuove gli eroi con la descrizione idEroeDescrizione e restituisce la quantita rimossa
-    public int removeEroe(EroeDescrizione desc,Giocatore giocatore){
+    public int removeEroe(EroeDescrizione desc){
         int quantita=0;
-        ArrayList<Eroe> listaEroi=giocatore.getEroi();
+        ArrayList<Eroe> listaEroi=this.listaEroiGiocatore;
         int i=0;
         while(i<listaEroi.size()){
             if(desc==listaEroi.get(i).getEroeDescrizione()){               

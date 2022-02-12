@@ -73,7 +73,7 @@ public class Villaggio {
         }
     }
     
-    public void addRisorse(ArrayList<Risorsa> risorse){
+    public void addRisorse(ArrayList<Risorsa> risorse){//addRisorse
         for(int i=0;i<this.caselle.size();i++){
             Edificio e=caselle.get(i).getEdificio();
             if(e!=null && e instanceof Deposito){
@@ -154,6 +154,12 @@ public class Villaggio {
         else{
             return false;
         }
+    }
+    
+    public void setEdificioSuCasella(int riga,int colonna,Edificio edificio){
+        Casella c=this.getCasella(riga, colonna);
+        c.setEdificio(edificio);
+        edificio.setCasella(c);
     }
         
     

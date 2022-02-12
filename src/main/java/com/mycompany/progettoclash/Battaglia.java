@@ -1,6 +1,8 @@
 
 package com.mycompany.progettoclash;
 
+import com.mycompany.progettoclash.Foundation.BattagliaF;
+import com.mycompany.progettoclash.Foundation.PersistanManager;
 import com.mycompany.progettoclash.view.ViewAttacco;
 import java.util.ArrayList;
 
@@ -9,7 +11,8 @@ import java.util.ArrayList;
  * @author Lorenzo
  */
 public class Battaglia {
-        
+    
+    private int id;
     private Giocatore giocatoreA;
     private Giocatore giocatoreD;
     private StatoAttacco stato;
@@ -21,6 +24,9 @@ public class Battaglia {
     public Battaglia(Giocatore giocatoreA, Giocatore giocatoreD) {
         this.giocatoreA = giocatoreA;
         this.giocatoreD = giocatoreD;
+        this.id=BattagliaPersistant.getInstance().getUltimoId()+1;
+        BattagliaPersistant.getInstance().setUltimoId(id);
+        BattagliaPersistant.getInstance().setBattaglia(this);
     }
 
     public void setGiocatoreA(Giocatore giocatoreA) {
@@ -30,6 +36,16 @@ public class Battaglia {
     public Giocatore getGiocatoreD() {
         return giocatoreD;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
 
     public void setGiocatoreD(Giocatore giocatoreD) {
         this.giocatoreD = giocatoreD;

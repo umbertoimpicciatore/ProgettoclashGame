@@ -39,8 +39,8 @@ public class ViewIniziale {
         int ris=this.inserisci(s);
         switch (ris) {
             case 1:
-                CAttacca attacca=new CAttacca(g);
-                attacca.cercaAvversario();
+                CAttacca attacca=new CAttacca();
+                attacca.cercaAvversario(g);
                 break;
             case 2:
                 CPotenzia potenzia=new CPotenzia(g);
@@ -57,7 +57,6 @@ public class ViewIniziale {
                 break;
             case 4:
                 CAcquista acquista=new CAcquista(g);
-                //CAcquista.getInstance(g).operazione(g);
                 acquista.operazione(g);
                 break;
             case 5:

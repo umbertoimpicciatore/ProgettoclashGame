@@ -56,7 +56,6 @@ public class ViewAcquista {
     }
     
     public void mostraEroi(HashMap<EroeDescrizione,Integer> eroeDesc,boolean errore,boolean errorePrezzo,Giocatore giocatore){
-        
         if(errore){
             System.out.println("IdEroe inserito non corretto");
         }

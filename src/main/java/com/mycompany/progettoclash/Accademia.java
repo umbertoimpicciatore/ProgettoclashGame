@@ -21,9 +21,9 @@ public class Accademia extends Edificio {
         giocatore.aumentaLivelloEroe(desc);       
         CreaEroeStrategy potS= CreaEroeFactory.getInstance().getStrategy();   
         Accampamento acc=giocatore.getAccampamento();
-        int quantita=giocatore.getAccampamento().removeEroe(desc, giocatore);
+        int quantita=giocatore.getAccampamento().removeEroe(desc);
         d.setQuantita(quantita);
-        acc.setAcquisto(d);
+        //acc.setAcquisto(d);
         if(giocatore.getEroi()!=null){
             potS.creaEroe(acc);
         }
