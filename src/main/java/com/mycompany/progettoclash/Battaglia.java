@@ -79,9 +79,11 @@ public class Battaglia {
                 if(fineBattaglia==false){
                     stato.attaccanoEdifici(this);//attaccano edifici
                     fineBattaglia=stato.controlloFineBattaglia(this);//controllo fine batt
+                   // view.visualizzaVillaggio(giocatoreD.getVillaggio());
                     stato.spostaEroi(this);//sposta
+                    view.visualizzaVillaggio(giocatoreD.getVillaggio());
                 }
-                view.visualizzaVillaggio(giocatoreD.getVillaggio());
+               // view.visualizzaVillaggio(giocatoreD.getVillaggio());
             }
         OttenimentoRisorseStrategy strategy= OttenimentoRisorseFactory.getInstance().getStrategy();
         ArrayList<Risorsa>risorse=strategy.ottieniRisorsa(this);

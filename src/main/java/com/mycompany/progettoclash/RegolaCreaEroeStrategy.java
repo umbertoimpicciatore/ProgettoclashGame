@@ -25,7 +25,31 @@ public class RegolaCreaEroeStrategy implements CreaEroeStrategy  {
             int attaccoEroe=statIn.getAttacco()+(attaccoDaPot*livelloEroi);
             int vitaEroe=statIn.getVita()+(vitaDaPot*livelloEroi);
             Statistica stat=new Statistica(difesaEroe,attaccoEroe,vitaEroe);
-            EroeBuilder builder=new ArciereBuilder();
+            String className="com.mycompany.progettoclash."+desc.getNome()+"Builder";
+            try {
+            Class cls = Class.forName(className);
+            EroeBuilder builder = (EroeBuilder) cls.newInstance();
+            EroeDirector eroeDirector=new EroeDirector(builder);
+            for (int i=0;i<quantita;i++){
+                Eroe eroe;
+                if(livelloEroi>=livelloPerPot){
+                    eroe=eroeDirector.createEroePotenziato(stat);
+                }
+                else{
+                    eroe=eroeDirector.createEroe(stat);
+                } 
+                listE.add(eroe);
+            }
+            giocatore.getAccampamento().addEroi(listE);
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+            
+            }
+            
+            
+            
+            
+            
+           /* EroeBuilder builder=new ArciereBuilder();
             EroeDirector eroeDirector=new EroeDirector(builder);
             for (int i=0;i<quantita;i++){
                 Eroe eroe;
@@ -38,7 +62,7 @@ public class RegolaCreaEroeStrategy implements CreaEroeStrategy  {
                 } 
                 listE.add(eroe);
             }
-            giocatore.getAccampamento().addEroi(listE);//addEroi
+            giocatore.getAccampamento().addEroi(listE);//addEroi*/
           /*  ArrayList<Eroe> listEroi=giocatore.getEroi();
             for (int i=0;i<listEroi.size();i++){
                 System.out.println(listEroi.get(i).toString());

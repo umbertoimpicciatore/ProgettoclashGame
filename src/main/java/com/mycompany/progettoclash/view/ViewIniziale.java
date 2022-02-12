@@ -20,14 +20,13 @@ import java.util.Scanner;
  * @author Lorenzo
  */
 public class ViewIniziale {
-        //ClashGame clash;
         ViewAttacco viewAttacco=new ViewAttacco();
         ViewAcquista viewAcquista=new ViewAcquista();
         ViewInserisci viewInserisci=new ViewInserisci();
         ViewPotenzia viewPotenzia=new ViewPotenzia();
     
         public void selezionaOperazione(Giocatore g){
-            HashMap<String,Double> map=g.mostraRisorse();
+        HashMap<String,Double> map=g.mostraRisorse();
             for (String name: map.keySet()) {
             String key = name;
             Double value = map.get(name);
