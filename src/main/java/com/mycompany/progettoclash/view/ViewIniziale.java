@@ -43,20 +43,20 @@ public class ViewIniziale {
                 break;
             case 2:
                 CPotenzia potenzia=new CPotenzia(g);
-                HashMap<EroeDescrizione,Integer> eroeDesc =potenzia.operazione();
+                HashMap<EroeDescrizione,Integer> eroeDesc =potenzia.selezionaOperazione();
                 //ViewPotenzia view=new ViewPotenzia();
                 viewPotenzia.mostraEroi(eroeDesc, false, false,g);
                 break;
             case 3:
                            
                 CInserisciEdificio inserisci=new CInserisciEdificio(g);
-                ArrayList<EdificioDescrizione>  desc=inserisci.operazione();
+                ArrayList<EdificioDescrizione>  desc=inserisci.selezionaOperazione();
                 ViewInserisci view=new ViewInserisci(inserisci);
                 view.mostraEdifici(desc,g);
                 break;
             case 4:
                 CAcquista acquista=new CAcquista(g);
-                acquista.operazione(g);
+                acquista.selezionaOperazione(g);
                 break;
             case 5:
                 return;

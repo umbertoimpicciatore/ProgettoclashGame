@@ -34,7 +34,7 @@ public class ViewInserisci {
                 break;
             case 3:
                 inserisci=new CInserisciEdificio(g);
-                ArrayList<EdificioDescrizione>  desc=inserisci.operazione();
+                ArrayList<EdificioDescrizione>  desc=inserisci.selezionaOperazione();
                 this.mostraEdifici(desc,g);
                 break;
             case 4:
@@ -66,7 +66,7 @@ public class ViewInserisci {
         }
         else{
             
-            boolean b=inserisci.operazione10(idEdif);
+            boolean b=inserisci.selezionaEdificioDaAcquistare(idEdif);
             if(!b){
                 System.out.println("Quantita Massima Edificio raggiunta o risorse non disponibili o idEDIFICIO non trovato ");
                 this.mostraEdifici(desc,g);
@@ -84,7 +84,7 @@ public class ViewInserisci {
         int riga=this.inserisci(s);
         s="Inserisci colonna in cui vuoi inserire edificio";
         int  colonna=this.inserisci(s);
-        boolean b=inserisci.operazione11(riga,colonna);
+        boolean b=inserisci.selezionaPosizioneEdificio(riga,colonna);
         if(b){
             this.conferma(idEdif,riga,colonna,g);
         }
@@ -100,7 +100,7 @@ public class ViewInserisci {
         String s="Inserisci 1 per confermare, >1 per annullare";
         int ris=this.inserisci(s);
         if(ris==1){
-            inserisci.conferma2();
+            inserisci.confermaInserimentoEdificio();
         }
         ViewIniziale view=new ViewIniziale();
         view.selezionaOperazione(g);

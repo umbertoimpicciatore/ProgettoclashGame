@@ -18,12 +18,12 @@ public class CPotenzia {
     }
     
 
-    public HashMap<EroeDescrizione,Integer>  operazione(){
+    public HashMap<EroeDescrizione,Integer>  selezionaOperazione(){
        return this.giocatore.getLivelloEroi();
 
     }
     
-    public Risorsa potenzia(int idEroeDescrizione){
+    public Risorsa selezionaEroe(int idEroeDescrizione){
         EroeCatalogo catalogo=new EroeCatalogo();
         EroeDescrizione desc=catalogo.getEroeDescrizione(idEroeDescrizione);
         AcquistoEroiEdificio d=new AcquistoEroiEdificio(desc,0); 
@@ -46,7 +46,7 @@ public class CPotenzia {
         }*/
     }
     
-    public void conferma(){
+    public void confermaPotenziamento(){
         Accademia acc=this.giocatore.getAccademia();
         acc.potenzia(this.giocatore);
     }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
  *
  * @author User
  */
-public class AttaccaTorre implements ModalitàAttacco {
+public class AttaccaTutto implements ModalitàAttacco {
 
      @Override
     public ArrayList<Casella> attacco(Eroe e){                

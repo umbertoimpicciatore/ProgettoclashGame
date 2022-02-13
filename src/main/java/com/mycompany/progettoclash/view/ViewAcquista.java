@@ -30,7 +30,7 @@ public class ViewAcquista {
             case 4:
                 acquista=new CAcquista(g);
                 //CAcquista.getInstance(g).operazione(g);
-                acquista.operazione(g);
+                acquista.selezionaOperazione(g);
                 break;
             case 5:
                 break;

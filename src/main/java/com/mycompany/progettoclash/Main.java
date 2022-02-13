@@ -231,7 +231,7 @@ public class Main {
         prezzoDiAcquisto = new Oro(20);
         vitaMassima = 100;
         statistica = new Statistica(10,30,100);
-        modA=new AttaccaTorre();
+        modA=new AttaccaTutto();
         ed=new EdificioDescrizione(null,idDescrizione,nome,quantitaMassima,prezzoDiAcquisto,vitaMassima,statistica,modA,quantitaMassimaImm);
         Descrizioni.torre=ed;
         

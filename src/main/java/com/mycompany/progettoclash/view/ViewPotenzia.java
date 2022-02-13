@@ -19,7 +19,7 @@ public class ViewPotenzia {
         String s="Cosa vuoi fare?\n 1: Attaccare un altro giocatore?\n 2: Potenziare eroe?\n 3: Inserire edificio?\n 4: Acquistare eroi?\n 5: Potenziare edificio?\n >5: Esci(logout)";
         int ris=this.inserisci(s);
         potenzia=new CPotenzia(g);
-        HashMap<EroeDescrizione,Integer> eroeDesc =potenzia.operazione();
+        HashMap<EroeDescrizione,Integer> eroeDesc =potenzia.selezionaOperazione();
         this.mostraEroi(eroeDesc, false, false,g);
     }
     
@@ -51,7 +51,7 @@ public class ViewPotenzia {
         }
         else{
             potenzia=new CPotenzia(g);
-            Risorsa r=potenzia.potenzia(ris);
+            Risorsa r=potenzia.selezionaEroe(ris);
             if(r!=null){
                 this.conferma(ris, r,g);
             }
@@ -67,7 +67,7 @@ public class ViewPotenzia {
         String s="Sei sicuro di voler potenziare l' eroe con idEroeDescrizione:" +idEroeDescrizione+"?\n Il costo di potenziamento è di: "+r.toString()+"\n Premi 1 per confermare altro per annulla";
         int ris=this.inserisci(s);
         if(ris==1){
-            potenzia.conferma();
+            potenzia.confermaPotenziamento();
         }
         ViewIniziale view=new ViewIniziale();
         view.selezionaOperazione(g);
