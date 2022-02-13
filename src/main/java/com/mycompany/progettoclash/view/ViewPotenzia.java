@@ -24,7 +24,12 @@ public class ViewPotenzia {
     }
     
     public void mostraEroi(HashMap<EroeDescrizione,Integer> eroeDesc,boolean errore,boolean errorePrezzo,Giocatore g){
-        
+        HashMap<String,Double> map=g.mostraRisorse();
+            for (String name: map.keySet()) {
+            String key = name;
+            Double value = map.get(name);
+            System.out.println(key + " " + value);
+        }
         if(errore){
             System.out.println("IdEroe inserito non corretto");
         }
@@ -61,7 +66,9 @@ public class ViewPotenzia {
      public void conferma(int idEroeDescrizione,Risorsa r,Giocatore g){
         String s="Sei sicuro di voler potenziare l' eroe con idEroeDescrizione:" +idEroeDescrizione+"?\n Il costo di potenziamento è di: "+r.toString()+"\n Premi 1 per confermare altro per annulla";
         int ris=this.inserisci(s);
-        potenzia.conferma(true);//da cambiare
+        if(ris==1){
+            potenzia.conferma();
+        }
         ViewIniziale view=new ViewIniziale();
         view.selezionaOperazione(g);
     }

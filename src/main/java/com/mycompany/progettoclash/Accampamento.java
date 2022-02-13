@@ -87,9 +87,11 @@ public class Accampamento extends Edificio {
         strategyEroe.creaEroe(this);//cambia NOME METODO      
         Risorsa prezzoAcquisto=acquisto.getEroeDescrizione().getPrezzoDiAcquisto();
         int quantita=acquisto.getQuantita();
-        double q=prezzoAcquisto.getQuantita()*quantita;
+        double quantitaAcquisto=prezzoAcquisto.getQuantita();
+        double q=quantitaAcquisto*quantita;
         prezzoAcquisto.setQuantita(q);
         giocatore.rimuoviRisorse(prezzoAcquisto);
+        prezzoAcquisto.setQuantita(quantitaAcquisto);
         
     }
     

@@ -93,7 +93,7 @@ public class ViewAttacco {
         }
         
         if (iniziaBattaglia==1){
-            System.out.println("BATTAGLIA INIZIATA");
+            //System.out.println("BATTAGLIA INIZIATA");
             System.out.println("");
             CAttacca attacca=new CAttacca();
             attacca.iniziaBattaglia(idBattaglia);

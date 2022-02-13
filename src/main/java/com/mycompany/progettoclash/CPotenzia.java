@@ -46,11 +46,9 @@ public class CPotenzia {
         }*/
     }
     
-    public void conferma(boolean conferma){
-        //manca controllo su conferma
+    public void conferma(){
         Accademia acc=this.giocatore.getAccademia();
         acc.potenzia(this.giocatore);
     }
-    
     
 }

@@ -150,9 +150,7 @@ public class Attacco implements StatoAttacco{
                 cont++;        
             }
         }       
-        System.out.println("PANICOOOOOOOOOOOO");
         Casella c2=this.cercaCasellaVersoCuiSpostarsi(v, c);      
-        System.out.println("c2Riga:"+c2.getPosizioneRiga()+"c2Colonna:"+c2.getPosizioneColonna());
         return c2;   
     }
     
@@ -163,12 +161,7 @@ public class Attacco implements StatoAttacco{
         int prossimaColonna=0;
         for (int i=1;i<=v.getAltezza();i++){
             for (int j=1;j<=v.getLarghezza();j++){
-                System.out.println("i: "+i+" j: "+j);
                 Casella c2=v.getCasella(i, j);
-                //c2=c2.verificaVitaEdificio(c2);
-                //if(c2!=null){
-                
-                //}
                 Edificio e=c2.getEdificio();
                 if(e!=null){
                     int vita=e.getStatistica().getVita();
@@ -176,50 +169,40 @@ public class Attacco implements StatoAttacco{
                             if(c2.getPosizioneRiga()==c.getPosizioneRiga() && c2.getPosizioneColonna()<c.getPosizioneColonna()){
                                 prossimaRiga=c.getPosizioneRiga();
                                 prossimaColonna=c.getPosizioneColonna()-1;
-                                System.out.println("OI1");
                             }
                             else if(c2.getPosizioneRiga()==c.getPosizioneRiga() && c2.getPosizioneColonna()>c.getPosizioneColonna()){
                                 prossimaRiga=c.getPosizioneRiga();
                                 prossimaColonna=c.getPosizioneColonna()+1;
-                                System.out.println("OI2");
                             }
                             else if(c2.getPosizioneRiga()>c.getPosizioneRiga() && c2.getPosizioneColonna()==c.getPosizioneColonna()){
                                 prossimaRiga=c.getPosizioneRiga()+1;
                                 prossimaColonna=c.getPosizioneColonna();
-                                System.out.println("OI3");
                             }
                             else if(c2.getPosizioneRiga()<c.getPosizioneRiga() && c2.getPosizioneColonna()==c.getPosizioneColonna()){
                                 prossimaRiga=c.getPosizioneRiga();
                                 prossimaColonna=c.getPosizioneColonna()-1;
-                                System.out.println("OI4");
                             }
                             else if(c2.getPosizioneRiga()!=c.getPosizioneRiga() && c2.getPosizioneColonna()!=c.getPosizioneColonna() && c2.getPosizioneColonna()<c.getPosizioneColonna() && c2.getPosizioneRiga()<c.getPosizioneRiga()){
                                 prossimaRiga=c.getPosizioneRiga()-1;
                                 prossimaColonna=c.getPosizioneColonna()-1;
-                                System.out.println("OI5");
                             }
                             else if(c2.getPosizioneRiga()!=c.getPosizioneRiga() && c2.getPosizioneColonna()!=c.getPosizioneColonna() && c2.getPosizioneColonna()>c.getPosizioneColonna() && c2.getPosizioneRiga()<c.getPosizioneRiga()){
                                 prossimaRiga=c.getPosizioneRiga()-1;
                                 prossimaColonna=c.getPosizioneColonna()+1;
-                                System.out.println("OI6");
                             }
                             else if(c2.getPosizioneRiga()!=c.getPosizioneRiga() && c2.getPosizioneColonna()!=c.getPosizioneColonna() && c2.getPosizioneColonna()<c.getPosizioneColonna() && c2.getPosizioneRiga()>c.getPosizioneRiga()){
                                 prossimaRiga=c.getPosizioneRiga()+1;
                                 prossimaColonna=c.getPosizioneColonna()-1;
-                                System.out.println("OI7");
                             }
                             else if(c2.getPosizioneRiga()!=c.getPosizioneRiga() && c2.getPosizioneColonna()!=c.getPosizioneColonna() && c2.getPosizioneColonna()>c.getPosizioneColonna() && c2.getPosizioneRiga()>c.getPosizioneRiga()){
                                 prossimaRiga=c.getPosizioneRiga()+1;
                                 prossimaColonna=c.getPosizioneColonna()+1;
-                                System.out.println("OI8");
                             }
-                            System.out.println("riga: "+prossimaRiga+" prossima colonna: "+prossimaColonna);
                             return v.getCasella(prossimaRiga,prossimaColonna);
                         }
                 }        
             }
         }
-        System.out.println("OIIIIIIIIII");
         return null;
         }
 

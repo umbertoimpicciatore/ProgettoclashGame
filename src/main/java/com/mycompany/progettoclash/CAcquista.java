@@ -36,9 +36,11 @@ public class CAcquista {
         AcquistoEroiEdificio d=new AcquistoEroiEdificio(desc,quantita); 
         this.giocatore.getAccampamento().setAcquisto(d);
         Risorsa prezzoAcquisto=desc.getPrezzoDiAcquisto();
-        double q=prezzoAcquisto.getQuantita()*quantita;
+        double quantitaAcquisto=prezzoAcquisto.getQuantita();
+        double q=quantitaAcquisto*quantita;
         prezzoAcquisto.setQuantita(q);
         boolean b=this.giocatore.controllaRisorsa(prezzoAcquisto);
+        prezzoAcquisto.setQuantita(quantitaAcquisto);
         if(b==true){
             view.conferma(idEroeDescrizione, quantita, prezzoAcquisto,this.giocatore);
         }
@@ -48,8 +50,7 @@ public class CAcquista {
 
     }
     
-    public void conferma(boolean conferma){
-        // mettere controllo sulla conferma
+    public void conferma(){
         Accampamento acc=this.giocatore.getAccampamento();
         acc.acquistaEroi();
 

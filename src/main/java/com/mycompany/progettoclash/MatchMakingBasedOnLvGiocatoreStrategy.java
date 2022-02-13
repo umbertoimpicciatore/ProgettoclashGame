@@ -117,18 +117,7 @@ public class MatchMakingBasedOnLvGiocatoreStrategy implements MatchMakingStrateg
         g.setVillaggio(v);
        return g;
            
-        /*Giocatore g1=new Giocatore();
-           Giocatore g2=new Giocatore();
-           ArrayList<Giocatore> lista=new ArrayList<Giocatore>();
-           lista.add(g1);
-           lista.add(g2);
-        for (int i=0;i<lista.size();i++){
-            Giocatore avversario=lista.get(i);
-            if (avversario.getLivello()==g.getLivello()){
-                return avversario;
-            }
-        }
-       return g1 ;*/
+
     }
     
 }

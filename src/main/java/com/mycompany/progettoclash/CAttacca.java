@@ -1,4 +1,5 @@
 package com.mycompany.progettoclash;
+import com.mycompany.progettoclash.Foundation.GiocatoreF;
 import com.mycompany.progettoclash.Foundation.PersistanManager;
 import com.mycompany.progettoclash.view.ViewAttacco;
 import com.mycompany.progettoclash.view.ViewIniziale;
@@ -71,7 +72,7 @@ public class CAttacca {
         ViewAttacco viewA=new ViewAttacco();
         viewA.mostraRisorseRubate(risorse);
         b.getGiocatoreA().getVillaggio().addRisorse(risorse);
-        b.getGiocatoreD().getVillaggio().perdiRisorse();
+        b.getGiocatoreD().getVillaggio().perdiRisorseRipristinaVita();
         ViewIniziale viewI=new ViewIniziale();
         viewI.selezionaOperazione(b.getGiocatoreA());
         

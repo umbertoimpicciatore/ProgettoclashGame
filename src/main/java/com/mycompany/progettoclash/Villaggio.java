@@ -91,7 +91,7 @@ public class Villaggio {
         }            
     }
     
-    public void perdiRisorse(){
+    public void perdiRisorseRipristinaVita(){
         ArrayList<Casella>  c=this.caselle;
         for(int i=0;i<c.size();i++){
             Casella casella=c.get(i);
@@ -104,7 +104,13 @@ public class Villaggio {
                 double x=((vitaMassima-vita)*30)/vitaMassima;
                 double q2=x/100*r.getQuantita();
                 deposito.perdiRisorsa(q2);
-            }   
+                deposito.setVita(vitaMassima);
+            }
+            else if(edificio!=null){
+                int vitaMax=edificio.getEdificioDescrizione().getVitaMassima();
+                edificio.setVita(vitaMax);
+            }
+            
         }
     }
         

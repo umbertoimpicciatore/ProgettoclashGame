@@ -56,6 +56,12 @@ public class ViewAcquista {
     }
     
     public void mostraEroi(HashMap<EroeDescrizione,Integer> eroeDesc,boolean errore,boolean errorePrezzo,Giocatore giocatore){
+        HashMap<String,Double> map=giocatore.mostraRisorse();
+            for (String name: map.keySet()) {
+            String key = name;
+            Double value = map.get(name);
+            System.out.println(key + " " + value);
+        }
         if(errore){
             System.out.println("IdEroe inserito non corretto");
         }
@@ -89,11 +95,11 @@ public class ViewAcquista {
     }
     
     public void conferma(int idEroeDescrizione,int quantita,Risorsa r,Giocatore giocatore){
-        String s="Sei sicuro di voler acquistare "+quantita+" eroe/i con idEroeDescrizione:" +idEroeDescrizione+"?\n Il costo totale è di: "+r.toString()+"\n Premi 1 per confermare altro per annulla";
+        String s="Sei sicuro di voler acquistare "+quantita+" eroe/i con idEroeDescrizione:" +idEroeDescrizione+"?\n Il costo totale è di: "+r.getNome()+" "+r.getQuantita()*quantita+"\n Premi 1 per confermare altro per annulla";
         int ris=this.inserisci(s);
         if(ris==1){
             acquista=new CAcquista(giocatore);
-            this.acquista.conferma(true);
+            this.acquista.conferma();
         }
         ViewIniziale view=new ViewIniziale();
         view.selezionaOperazione(giocatore);        

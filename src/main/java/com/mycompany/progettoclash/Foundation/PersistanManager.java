@@ -3,6 +3,7 @@ package com.mycompany.progettoclash.Foundation;
 import com.mycompany.progettoclash.Battaglia;
 import com.mycompany.progettoclash.EdificioDescrizione;
 import com.mycompany.progettoclash.EroeDescrizione;
+import com.mycompany.progettoclash.Giocatore;
 import java.util.ArrayList;
 
 /**
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  */
 public class PersistanManager {
     
-        private static PersistanManager instance = null; 
+    private static PersistanManager instance = null; 
     private PersistanManager() {} 
  
     public static PersistanManager getInstance() {
@@ -69,6 +70,10 @@ public class PersistanManager {
     
     public void setUltimoIdBattaglia(int id){
           BattagliaF.ultimoId=id;
+    }
+    
+    public ArrayList<Giocatore> getGiocatori(){
+          return GiocatoreF.list;
     }
   
     

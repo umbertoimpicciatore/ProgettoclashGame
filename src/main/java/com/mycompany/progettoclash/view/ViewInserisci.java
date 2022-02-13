@@ -5,6 +5,7 @@ import com.mycompany.progettoclash.CInserisciEdificio;
 import com.mycompany.progettoclash.EdificioDescrizione;
 import com.mycompany.progettoclash.Giocatore;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -48,6 +49,12 @@ public class ViewInserisci {
     
 
     public void mostraEdifici( ArrayList<EdificioDescrizione> desc,Giocatore g){
+        HashMap<String,Double> map=g.mostraRisorse();
+            for (String name: map.keySet()) {
+            String key = name;
+            Double value = map.get(name);
+            System.out.println(key + " " + value);
+        }
         for(int i=0;i<desc.size();i++){
             System.out.println(desc.get(i).toString());
         }
@@ -92,7 +99,9 @@ public class ViewInserisci {
         
         String s="Inserisci 1 per confermare, >1 per annullare";
         int ris=this.inserisci(s);
-        inserisci.conferma2();
+        if(ris==1){
+            inserisci.conferma2();
+        }
         ViewIniziale view=new ViewIniziale();
         view.selezionaOperazione(g);
     }

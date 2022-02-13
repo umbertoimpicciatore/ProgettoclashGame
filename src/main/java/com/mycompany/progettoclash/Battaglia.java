@@ -70,7 +70,7 @@ public class Battaglia {
 
     
     public ArrayList<Risorsa> iniziaBattaglia(){
-        ViewAttacco view=new ViewAttacco();
+        //ViewAttacco view=new ViewAttacco();
         stato=new Attacco();
         boolean fineBattaglia=false;
             while(fineBattaglia==false){                
@@ -79,9 +79,7 @@ public class Battaglia {
                 if(fineBattaglia==false){
                     stato.attaccanoEdifici(this);//attaccano edifici
                     fineBattaglia=stato.controlloFineBattaglia(this);//controllo fine batt
-                   // view.visualizzaVillaggio(giocatoreD.getVillaggio());
                     stato.spostaEroi(this);//sposta
-                    view.visualizzaVillaggio(giocatoreD.getVillaggio());
                 }
                // view.visualizzaVillaggio(giocatoreD.getVillaggio());
             }
