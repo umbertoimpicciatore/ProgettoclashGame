@@ -12,7 +12,12 @@ import java.util.ArrayList;
  * @author Lorenzo
  */
 public class Torre extends Edificio {
-
+    public Torre(EdificioDescrizione desc){
+        super(desc);
+    }
+    public Torre(){
+        super();
+    }
     @Override
     public void setListaEroiGiocatore(ArrayList<Eroe> listaEroiGiocatore) {
     }

@@ -273,6 +273,8 @@ public class Main {
 //        Statistica s1=new Statistica(5,5,100);
 //        e.setStatistica(s);
         e.setId(1);
+        Edificio torre=new Torre(Descrizioni.torre);
+        //torre.setEdificioDescrizione(Descrizioni.torre);
         Edificio e2=new Municipio(Descrizioni.municipio);
 //        e2.setStatistica(s1);
         e2.setId(1);
@@ -354,6 +356,10 @@ public class Main {
                 if(i==1 &&j==4){
                     c.setEdificio(dep4);
                     dep4.setCasella(c);
+                }
+                if(i==1 && j==3){
+                    c.setEdificio(torre);
+                    torre.setCasella(c);
                 }
                 c.setVillaggio(v);
                 caselle.add(c);
