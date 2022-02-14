@@ -14,7 +14,7 @@ public class Descrizioni {
     public static EroeDescrizione guerriero;
     public static EroeDescrizione regina;
     public static int ultimoIdEroe=2; 
-    public static int ultimoIdEdificio=0;
+    public static int ultimoIdEdificio=10;
 
     public static EroeDescrizione getArciere() {
         return arciere;

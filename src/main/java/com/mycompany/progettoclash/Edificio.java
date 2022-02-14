@@ -1,6 +1,7 @@
 
 package com.mycompany.progettoclash;
 
+import com.mycompany.progettoclash.Foundation.PersistanManager;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +25,8 @@ public abstract class Edificio {
     public abstract void setListaEroiGiocatore(ArrayList<Eroe> listaEroiGiocatore); //l'ho messo per l'accampamento
 
     public Edificio(){
-
+        this.id=PersistanManager.getInstance().getidEdificio()+1;
+        PersistanManager.getInstance().setUltimoIdEdificio(this.id);
     }
 
     public Edificio(EdificioDescrizione desc){
@@ -33,6 +35,8 @@ public abstract class Edificio {
         int difesa=this.edificioDescrizione.getStatistica().getDifesa();
         int attacco=this.edificioDescrizione.getStatistica().getAttacco();        
         this.statistica=new Statistica(difesa,attacco,vita);
+        this.id=PersistanManager.getInstance().getidEdificio()+1;
+        PersistanManager.getInstance().setUltimoIdEdificio(this.id);
     }
     
      public Casella getCasella() {

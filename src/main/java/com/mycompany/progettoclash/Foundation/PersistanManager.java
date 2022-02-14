@@ -23,6 +23,14 @@ public class PersistanManager {
         return instance;
     }
     
+    public int getidEdificio(){
+        return Descrizioni.getUltimoIdEdificio();
+    }
+    
+    public void setUltimoIdEdificio(int idEdificio){
+        Descrizioni.setUltimoIdEdificio(idEdificio);
+    }
+    
     public ArrayList<EroeDescrizione> getAllDescrizioni(){
         Descrizioni d=new Descrizioni();
         return d.getAllDescrizioni();

@@ -12,7 +12,7 @@ public class Accademia extends Edificio {
         super(desc);
     }
     public Accademia(){
-        
+        super();
     }
     
     public void potenzia(Giocatore giocatore){

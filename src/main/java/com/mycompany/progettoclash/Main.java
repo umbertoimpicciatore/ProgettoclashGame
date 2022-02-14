@@ -85,8 +85,8 @@ public class Main {
        // dep2.setEdificioDescrizione(Descrizioni.depositoMana);
         dep1.setId(0);
         dep2.setId(2);
-        Oro oro=new Oro(5);
-        Mana mana=new Mana(3);
+        Oro oro=new Oro(20);
+        Mana mana=new Mana(20);
         dep1.setRisorsa(oro);
         dep2.setRisorsa(mana);
         
@@ -156,6 +156,10 @@ public class Main {
                 if(i==1 &&j==4){
                     c.setEdificio(municipio);
                     municipio.setCasella(c);
+                }
+                if(i==2 && j==2){
+                    c.setEdificio(accademia);
+                    accademia.setCasella(c);
                 }
                 c.setVillaggio(v2);
                 caselle.add(c);
