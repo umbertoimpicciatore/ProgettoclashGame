@@ -28,7 +28,7 @@ public class ViewAttacco {
         }
         else{
             ViewIniziale view=new ViewIniziale();
-            view.selezionaOperazione(giocatoreA);
+            view.selezionaOperazione(giocatoreA,false);
         }
     
     }
@@ -52,7 +52,7 @@ public class ViewAttacco {
 
             default:
                 ViewIniziale view=new ViewIniziale();
-                view.selezionaOperazione(giocatoreA);
+                view.selezionaOperazione(giocatoreA,false);
                 break;
             }
     }

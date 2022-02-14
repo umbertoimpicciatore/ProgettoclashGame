@@ -154,5 +154,31 @@ public class Giocatore {
         else{
             return false;
         }
+    }
+
+    public void addRisorse(ArrayList<Risorsa> risorse){//addRisorse
+        for(int i=0;i<this.depositi.size();i++){
+            Deposito d=depositi.get(i);
+                  Risorsa r=d.getRisorsa();//risorsa deposito
+                  int ris=isInArray(r,risorse);
+                  if(ris>=0){
+                        Risorsa risorsaCorrente=risorse.get(ris);
+                        risorsaCorrente=d.addRisorsa(risorsaCorrente);
+                        if(risorsaCorrente.getQuantita()==0){
+                            risorse.remove(ris);
+                        }
+                  }
+
+        }            
+    }
+    private int isInArray(Risorsa r,ArrayList<Risorsa> list){
+        if(list!=null){
+            for(int i=0;i<list.size();i++){
+                    if(list.get(i).getNome().equals(r.getNome())){
+                        return i;
+                    }
+                }
+            }
+            return -1;
     }    
 }

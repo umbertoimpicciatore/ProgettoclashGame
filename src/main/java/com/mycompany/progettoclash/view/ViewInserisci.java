@@ -62,7 +62,7 @@ public class ViewInserisci {
         int idEdif=this.inserisci(s);
         if(idEdif==0){
             ViewIniziale view=new ViewIniziale();
-            view.selezionaOperazione(g);
+            view.selezionaOperazione(g,false);
         }
         else{
             
@@ -103,7 +103,7 @@ public class ViewInserisci {
             inserisci.confermaInserimentoEdificio();
         }
         ViewIniziale view=new ViewIniziale();
-        view.selezionaOperazione(g);
+        view.selezionaOperazione(g,false);
     }
 
         

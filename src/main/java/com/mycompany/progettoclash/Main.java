@@ -85,8 +85,8 @@ public class Main {
        // dep2.setEdificioDescrizione(Descrizioni.depositoMana);
         dep1.setId(0);
         dep2.setId(2);
-        Oro oro=new Oro(20);
-        Mana mana=new Mana(20);
+        Oro oro=new Oro(5);
+        Mana mana=new Mana(3);
         dep1.setRisorsa(oro);
         dep2.setRisorsa(mana);
         
@@ -191,7 +191,7 @@ public class Main {
         //ViewAttacco view=new ViewAttacco();
         //view.cercaAvversario(ga);
         ViewIniziale view=new ViewIniziale();
-        view.selezionaOperazione(ga);
+        view.selezionaOperazione(ga,false);
     }
     
     public static void iniziaDescrizioni(){

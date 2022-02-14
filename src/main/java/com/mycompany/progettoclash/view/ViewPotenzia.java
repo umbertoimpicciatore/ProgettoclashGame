@@ -47,7 +47,7 @@ public class ViewPotenzia {
         int ris=this.inserisci(s);
         if(ris==0){
             ViewIniziale view=new ViewIniziale();
-            view.selezionaOperazione(g);
+            view.selezionaOperazione(g,false);
         }
         else{
             potenzia=new CPotenzia(g);
@@ -70,7 +70,7 @@ public class ViewPotenzia {
             potenzia.confermaPotenziamento();
         }
         ViewIniziale view=new ViewIniziale();
-        view.selezionaOperazione(g);
+        view.selezionaOperazione(g,false);
     }
      
     private int inserisci(String strDaVisualizzare){

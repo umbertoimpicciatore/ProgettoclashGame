@@ -15,11 +15,18 @@ import java.util.HashMap;
 public class CAttacca {
     
     public void cercaAvversario(Giocatore giocatoreA){
-        ViewAttacco view=new ViewAttacco();
-        Giocatore giocatoreD=giocatoreA.cercaAvversario();
-        Battaglia b=new Battaglia(giocatoreA,giocatoreD);
-        int idB=b.getId();
-        view.conferma(giocatoreD,giocatoreA,idB);
+        if(giocatoreA.getAccampamento().getListaEroiGiocatore().size()>0){
+            ViewAttacco view=new ViewAttacco();
+            Giocatore giocatoreD=giocatoreA.cercaAvversario();
+            Battaglia b=new Battaglia(giocatoreA,giocatoreD);
+            int idB=b.getId();
+            view.conferma(giocatoreD,giocatoreA,idB);    
+        }
+        else{
+            ViewIniziale view=new ViewIniziale();
+            view.selezionaOperazione(giocatoreA,true);
+        }
+
     }
 
     public void selezionaPosizionaEroe(int riga,int colonna,int idEroe,int quantita,int idBattaglia) {
@@ -71,10 +78,10 @@ public class CAttacca {
         ArrayList<Risorsa> risorse=b.iniziaBattaglia();
         ViewAttacco viewA=new ViewAttacco();
         viewA.mostraRisorseRubate(risorse);
-        b.getGiocatoreA().getVillaggio().addRisorse(risorse);
+        b.getGiocatoreA().addRisorse(risorse);
         b.getGiocatoreD().getVillaggio().perdiRisorseRipristinaVita();
         ViewIniziale viewI=new ViewIniziale();
-        viewI.selezionaOperazione(b.getGiocatoreA());
+        viewI.selezionaOperazione(b.getGiocatoreA(),false);
         
     }
     

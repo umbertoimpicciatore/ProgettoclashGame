@@ -25,7 +25,10 @@ public class ViewIniziale {
         ViewInserisci viewInserisci=new ViewInserisci();
         ViewPotenzia viewPotenzia=new ViewPotenzia();
     
-        public void selezionaOperazione(Giocatore g){
+        public void selezionaOperazione(Giocatore g,boolean errore){
+            if(errore){
+                System.out.println("EroiFiniti");
+            }
         HashMap<String,Double> map=g.mostraRisorse();
             for (String name: map.keySet()) {
             String key = name;

@@ -73,23 +73,23 @@ public class Villaggio {
         }
     }
     
-    public void addRisorse(ArrayList<Risorsa> risorse){//addRisorse
-        for(int i=0;i<this.caselle.size();i++){
-            Edificio e=caselle.get(i).getEdificio();
-            if(e!=null && e instanceof Deposito){
-                  Deposito d=(Deposito) e;
-                  Risorsa r=d.getRisorsa();//risorsa deposito
-                  int ris=isInArray(r,risorse);
-                  if(ris>=0){
-                        Risorsa risorsaCorrente=risorse.get(ris);
-                        risorsaCorrente=d.addRisorsa(risorsaCorrente);
-                        if(risorsaCorrente.getQuantita()==0){
-                            risorse.remove(ris);
-                        }
-                  }
-            }
-        }            
-    }
+//    public void addRisorse(ArrayList<Risorsa> risorse){//addRisorse
+//        for(int i=0;i<this.caselle.size();i++){
+//            Edificio e=caselle.get(i).getEdificio();
+//            if(e!=null && e instanceof Deposito){
+//                  Deposito d=(Deposito) e;
+//                  Risorsa r=d.getRisorsa();//risorsa deposito
+//                  int ris=isInArray(r,risorse);
+//                  if(ris>=0){
+//                        Risorsa risorsaCorrente=risorse.get(ris);
+//                        risorsaCorrente=d.addRisorsa(risorsaCorrente);
+//                        if(risorsaCorrente.getQuantita()==0){
+//                            risorse.remove(ris);
+//                        }
+//                  }
+//            }
+//        }            
+//    }
     
     public void perdiRisorseRipristinaVita(){
         ArrayList<Casella>  c=this.caselle;
@@ -115,16 +115,16 @@ public class Villaggio {
     }
         
 
-    private int isInArray(Risorsa r,ArrayList<Risorsa> list){
-        if(list!=null){
-            for(int i=0;i<list.size();i++){
-                    if(list.get(i).getNome().equals(r.getNome())){
-                        return i;
-                    }
-                }
-            }
-            return -1;
-        }
+//    private int isInArray(Risorsa r,ArrayList<Risorsa> list){
+//        if(list!=null){
+//            for(int i=0;i<list.size();i++){
+//                    if(list.get(i).getNome().equals(r.getNome())){
+//                        return i;
+//                    }
+//                }
+//            }
+//            return -1;
+//    }
         
     
     public boolean casellaDisponibile(int riga,int colonna){

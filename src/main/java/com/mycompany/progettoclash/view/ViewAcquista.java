@@ -79,7 +79,7 @@ public class ViewAcquista {
         int idEroe=this.inserisci(s);
         if(idEroe==0){
             ViewIniziale view=new ViewIniziale();
-            view.selezionaOperazione(giocatore);
+            view.selezionaOperazione(giocatore,false);
         }
         else{
             s="Inserisci quantità eroi che vuole acquistare oppure 0 per annullare";
@@ -102,7 +102,7 @@ public class ViewAcquista {
             this.acquista.conferma();
         }
         ViewIniziale view=new ViewIniziale();
-        view.selezionaOperazione(giocatore);        
+        view.selezionaOperazione(giocatore,false);        
     }
     
 }
