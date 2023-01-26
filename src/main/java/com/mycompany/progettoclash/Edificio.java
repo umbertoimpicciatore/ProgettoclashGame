@@ -1,23 +1,66 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.mycompany.progettoclash;
+
+import com.mycompany.progettoclash.Foundation.PersistanManager;
+import java.util.ArrayList;
 
 /**
  *
  * @author Lorenzo
  */
-public class Edificio {
+public abstract class Edificio {
     private int id;
-    private ModalitàAttacco modA;
-    private RuoloEdificio ruoloE;
+    private Casella casella;
+    private Statistica statistica;
+    private EdificioDescrizione edificioDescrizione;
 
-    public Edificio(RuoloEdificio re,ModalitàAttacco ma){
-        this.modA=ma;
-        this.ruoloE=re;
+    public EdificioDescrizione getEdificioDescrizione() {
+        return edificioDescrizione;
+    }
+
+    public void setEdificioDescrizione(EdificioDescrizione edificioDescrizione) {
+        this.edificioDescrizione = edificioDescrizione;
+    }
+
+    public abstract void setListaEroiGiocatore(ArrayList<Eroe> listaEroiGiocatore); //l'ho messo per l'accampamento
+
+    public Edificio(){
+        this.id=PersistanManager.getInstance().getidEdificio()+1;
+        PersistanManager.getInstance().setUltimoIdEdificio(this.id);
+    }
+
+    public Edificio(EdificioDescrizione desc){
+        this.edificioDescrizione=desc;
+        int vita=this.edificioDescrizione.getStatistica().getVita();
+        int difesa=this.edificioDescrizione.getStatistica().getDifesa();
+        int attacco=this.edificioDescrizione.getStatistica().getAttacco();        
+        this.statistica=new Statistica(difesa,attacco,vita);
+        this.id=PersistanManager.getInstance().getidEdificio()+1;
+        PersistanManager.getInstance().setUltimoIdEdificio(this.id);
+    }
     
+     public Casella getCasella() {
+        return casella;
+    }
+
+    public void setCasella(Casella casella) {
+        this.casella = casella;
+    }
+    public void setVita(int vita){
+        this.statistica.setVita(vita);
+    
+    }
+            
+    public Statistica getStatistica() {        
+         return this.statistica;
+    }
+    
+    public int getVita() {        
+         return this.statistica.getVita();
+    }
+
+    public void setStatistica(Statistica statistica) {
+        this.statistica=statistica;
     }
     
     public int getId() {
@@ -27,15 +70,11 @@ public class Edificio {
     public void setId(int id) {
         this.id = id;
     }
-
-    public ModalitàAttacco getModA() {
-        return modA;
+    
+    public ModalitàAttacco getModalitaAttacco(){
+        return this.edificioDescrizione.getModalitaAttacco();
     }
 
-    public RuoloEdificio getRuoloE() {
-        return ruoloE;
-    }
-    
-    
+
     
 }

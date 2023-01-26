@@ -1,9 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.mycompany.progettoclash;
+
+import com.mycompany.progettoclash.Foundation.PersistanManager;
 
 /**
  *
@@ -19,24 +17,35 @@ public class ArciereBuilder extends EroeBuilder{
     
     @Override
     public void setSkin(Skin skin) {
-        this.eroe.skin=skin;
+        this.eroe.setSkin(skin);
     }
 
     @Override
-    public void setSkills() {
-       this.eroe.stat=new Statistica(15,15,100);
+    public void setSkills(Statistica s) {
+       this.eroe.setStat(s);
 
        
     }
     public void reset() {
-      	this.eroe = new Eroe(new AttaccaDuePosizioni());
+      	this.eroe = new Eroe();
     }
 
     @Override
     public Eroe build() {
         final Eroe e=this.eroe;
-        this.reset();
+        //this.reset();
         return e;
+    }
+
+    @Override
+    public void setId(int idEroe) {
+        this.eroe.setId(idEroe);
+    }
+
+    @Override
+    public void setEroeDescrizione() {
+        EroeDescrizione desc=PersistanManager.getInstance().getArciere();
+        this.eroe.setEroeDescrizione(desc);
     }
     
     

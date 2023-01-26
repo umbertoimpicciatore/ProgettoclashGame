@@ -24,4 +24,16 @@ public class SkinPotenziata implements Skin {
         return attacco;
     }
     
+     @Override
+    public void setAttacco(int a) {
+        this.attacco=a;
+       //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setDifesa(int a) {
+        this.difesa=a;
+         //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

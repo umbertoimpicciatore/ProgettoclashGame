@@ -23,6 +23,18 @@ public class SkinBase implements Skin{
     public int getAttacco() {
         return attacco;
     }
+
+    @Override
+    public void setAttacco(int a) {
+        this.attacco=a;
+       //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setDifesa(int a) {
+        this.difesa=a;
+         //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

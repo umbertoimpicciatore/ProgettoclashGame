@@ -1,9 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.mycompany.progettoclash;
+
+import com.mycompany.progettoclash.view.ViewPotenzia;
+import java.util.HashMap;
 
 /**
  *
@@ -11,14 +10,45 @@ package com.mycompany.progettoclash;
  */
 public class CPotenzia {
     
-    
-    
-    public Casella selezionaEdificio(int riga,int col,Giocatore g){
-       // Casella c=new Casella();
-        return g.getVillaggio().getCasella(riga, col, g);
-        
-        
+    private Giocatore giocatore;
+    //ViewPotenzia view=new ViewPotenzia();
+
+    public CPotenzia(Giocatore g) {
+        this.giocatore = g;
     }
     
+
+    public HashMap<EroeDescrizione,Integer>  selezionaOperazione(){
+       return this.giocatore.getLivelloEroi();
+
+    }
+    
+    public Risorsa selezionaEroe(int idEroeDescrizione){
+        EroeCatalogo catalogo=new EroeCatalogo();
+        EroeDescrizione desc=catalogo.getEroeDescrizione(idEroeDescrizione);
+        AcquistoEroiEdificio d=new AcquistoEroiEdificio(desc,0); 
+        this.giocatore.getAccampamento().setAcquisto(d);
+        Risorsa prezzoPot=desc.getPrezzoDiPotenziamento();
+        boolean b=this.giocatore.controllaRisorsa(prezzoPot);
+        if(b==true){
+            return prezzoPot;
+        }
+        else{
+            return null;
+        }
+        
+        /*
+        if(b==true){
+            view.conferma(idEroeDescrizione, prezzoPot,this.giocatore);
+        }
+        else{
+            view.mostraEroi(this.giocatore.getLivelloEroi(),false,true,this.giocatore);
+        }*/
+    }
+    
+    public void confermaPotenziamento(){
+        Accademia acc=this.giocatore.getAccademia();
+        acc.potenzia(this.giocatore);
+    }
     
 }

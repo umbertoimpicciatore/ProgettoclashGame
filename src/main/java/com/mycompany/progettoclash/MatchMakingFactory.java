@@ -1,9 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.mycompany.progettoclash;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -21,15 +21,14 @@ public class MatchMakingFactory {
         return instance;
     }
     
-    public MatchMakingBasedOnLvEroiStrategy getEroeStrategy(){
-        //da implementare
-        return new MatchMakingBasedOnLvEroiStrategy();
+    public MatchMakingStrategy getStrategy() {
+        try {
+            String className= FileDiConfigurazione.matchMaking;
+            Class cls = Class.forName(className);
+            MatchMakingStrategy clsInstance = (MatchMakingStrategy) cls.newInstance();
+            return clsInstance;
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+            return null;
+        }
     }
-    
-    public MatchMakingBasedOnLvGiocatoreStrategy getGiocatoreStrategy(){
-        //da implementare
-        return new MatchMakingBasedOnLvGiocatoreStrategy();
-        
-    }
-
 }
